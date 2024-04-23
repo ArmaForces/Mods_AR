@@ -1,0 +1,30 @@
+SCR_ChimeraCharacter {
+ ID "520EC961A090B1EE"
+ components {
+  ActionsManagerComponent "{520EA1D2F659CE02}" {
+   ActionContexts {
+    UserActionContext "{5A26F8E7B44B5FB6}" {
+     Radius 0.40
+    }
+    UserActionContext "{5A26F8E7D24ECC4F}" {
+     Radius 0.40
+    }
+    UserActionContext "{5A26F8E3CB279E0C}" {
+     Radius 0.40
+    }
+    UserActionContext "{5A26F8E3C4CFD585}" {
+     Radius 0.40
+    }
+    UserActionContext "{5A26F8E368562032}" {
+     Radius 0.40
+    }
+    UserActionContext "{5A26F8E352327705}" {
+     Radius 0.40
+    }
+    UserActionContext "{5A26F8E3537DEC6C}" {
+     Radius 0.40
+    }
+   }
+  }
+ }
+}
