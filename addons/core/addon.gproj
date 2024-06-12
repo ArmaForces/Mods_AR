@@ -1,0 +1,8 @@
+GameProject {
+ ID "ArmaForces_Mods_Core"
+ GUID "6122A791D07C3960"
+ TITLE "ArmaForces Mods Core"
+ Dependencies {
+  "58D0FB3206B6F859"
+ }
+}

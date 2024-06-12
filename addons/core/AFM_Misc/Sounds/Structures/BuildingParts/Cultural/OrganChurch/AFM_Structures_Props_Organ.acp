@@ -1,0 +1,357 @@
+AudioClass {
+ signals {
+  SignalClass {
+   id 10253
+   name "Signal Occlusion"
+   tl -67.706 -121.877
+   res "{A45B14CDEA2D5DCD}Sounds/_SharedData/Signals/Props/Props_Occlusion.sig"
+   inputsport {
+    1 6 7 23 52 56
+   }
+   outputsport {
+    5 37
+   }
+   inputvalues {
+    1 1 1 1 1000 400
+   }
+   inputvaluesmin {
+    0 0 0 0 0 0
+   }
+   inputvaluesmax {
+    1 1 1 1 10000 10000
+   }
+  }
+  SignalClass {
+   id 11277
+   name "Signal Reverb"
+   tl 404 317.818
+   res "{76CBB40EF7F227B6}Sounds/_SharedData/Signals/Reverb/Reverb_Base.sig"
+   inputsport {
+    1 35 40
+   }
+   outputsport {
+    34 39 105
+   }
+   inputvalues {
+    40 1 1
+   }
+   inputvaluesmin {
+    0 0 0
+   }
+   inputvaluesmax {
+    100 1 1
+   }
+  }
+ }
+ sounds {
+  SoundClass {
+   id 24585
+   name "SOUND_PLAY_COCO_JAMBO"
+   version 5
+   tl 129.667 710.841
+   ins {
+    ConnectionsClass connections {
+     id 64
+     links {
+      ConnectionClass connection {
+       id 22546
+       port 65
+      }
+     }
+    }
+   }
+   outState 1035
+   outStatePort 79879
+  }
+  SoundClass {
+   id 29705
+   name "SOUND_STOP_PLAYING"
+   version 5
+   tl 128.133 1005.798
+   ins {
+    ConnectionsClass connections {
+     id 64
+     links {
+      ConnectionClass connection {
+       id 30738
+       port 65
+      }
+     }
+    }
+   }
+   outState 1035
+   outStatePort 79879
+  }
+ }
+ mixers {
+  MixerClass {
+   id 1035
+   name "OutputState"
+   version 4
+   tl 404.491 558.61
+   res "{B764D803219C775E}Sounds/FinalMix.afm"
+   ins {
+    ConnectionsClass connections {
+     id 79879
+     links {
+      ConnectionClass connection {
+       id 24585
+       port 65
+      }
+      ConnectionClass connection {
+       id 29705
+       port 65
+      }
+     }
+    }
+    ConnectionsClass connections {
+     id 152583
+     links {
+      ConnectionClass connection {
+       id 8221
+       port 65
+      }
+     }
+    }
+   }
+   pi {
+    196608
+   }
+   path "{B764D803219C775E}Sounds/FinalMix.afm"
+   inputs {
+    "ANM_Footsteps" "ANM_Voice" "WPN_Handling" "WPN_Shots" "WPN_Explosions" "WNP_BulletHits" "CHAR" "ENV_AMB_2D" "VEH_Animations" "Impacts" "Dialogue" "Music" "ENV_Doors" "VEH_Engine" "VEH_Tires" "VON" "SFX" "SFX_Reverb" "VON_Reverb" "Dialogue_Reverb" "Impacts_EXT" "ENV_AMB_3D" "WPN_SonicCracks" "CHAR_Gear" "PA" "SFX_Reverb_Exterior" "UI" "ENV_AMB_3D_Reverb_Exterior" "SFX_Direct"
+   }
+  }
+ }
+ shaders {
+  ShaderClass {
+   id 22546
+   name "Shader AFM_1"
+   version 5
+   tl -67.648 711.25
+   ins {
+    ConnectionsClass connections {
+     id 0
+     links {
+      ConnectionClass connection {
+       id 3100
+       port 65
+      }
+     }
+    }
+    ConnectionsClass connections {
+     id 1
+     links {
+      ConnectionClass connection {
+       id 4115
+       port 65
+      }
+     }
+    }
+    ConnectionsClass connections {
+     id 2
+     links {
+      ConnectionClass connection {
+       id 12309
+       port 65
+      }
+     }
+    }
+    ConnectionsClass connections {
+     id 64
+     links {
+      ConnectionClass connection {
+       id 23556
+       port 65
+      }
+     }
+    }
+   }
+   pi {
+    7
+   }
+  }
+  ShaderClass {
+   id 30738
+   name "Shader 3"
+   version 5
+   tl -66.515 1005.298
+   ins {
+    ConnectionsClass connections {
+     id 0
+     links {
+      ConnectionClass connection {
+       id 3100
+       port 65
+      }
+     }
+    }
+    ConnectionsClass connections {
+     id 1
+     links {
+      ConnectionClass connection {
+       id 4115
+       port 65
+      }
+     }
+    }
+    ConnectionsClass connections {
+     id 2
+     links {
+      ConnectionClass connection {
+       id 12309
+       port 65
+      }
+     }
+    }
+    ConnectionsClass connections {
+     id 64
+     links {
+      ConnectionClass connection {
+       id 28676
+       port 65
+      }
+     }
+    }
+   }
+   pi {
+    7
+   }
+  }
+ }
+ amplitudes {
+  AmplitudeClass : "{9F8145144171C64B}Sounds/_SharedData/Configs/Amplitude/_SharedData/Amplitude_10-5.conf" {
+   id 4115
+   version 5
+   tl -66.279 -196.118
+   parent "{9F8145144171C64B}Sounds/_SharedData/Configs/Amplitude/_SharedData/Amplitude_10-5.conf"
+  }
+ }
+ frequency {
+  FrequencyClass : "{0005FE42A6D80399}Sounds/_SharedData/Configs/Frequency/_SharedData/Frequency_DynamicUpdate.conf" {
+   id 12309
+   version 5
+   tl -70.742 65.913
+   parent "{0005FE42A6D80399}Sounds/_SharedData/Configs/Frequency/_SharedData/Frequency_DynamicUpdate.conf"
+   ins {
+    ConnectionsClass connections {
+     id 4
+     links {
+      ConnectionClass connection {
+       id 10253
+       port 37
+      }
+     }
+    }
+   }
+   pi {
+    16
+   }
+   pu {
+    16
+   }
+  }
+ }
+ banks_local {
+  BankLocalClass {
+   id 23556
+   name "AFM_1"
+   version 7
+   tl -281.424 710.75
+   Volume -2
+   "Termination Fade Out" 400
+   Samples {
+    AudioBankSampleClass Sample {
+     Filename "{76609F8085DB275A}Sounds/Structures/BuildingParts/Cultural/OrganChurch/Samples/AFM_Props_Organ_Jingle_01.wav"
+    }
+   }
+  }
+  BankLocalClass {
+   id 28676
+   name "Abrupt End"
+   version 7
+   tl -282.867 1007.655
+   "Termination Fade Out" 400
+   Samples {
+    AudioBankSampleClass Sample {
+     Filename "{B276697A41D44E47}Sounds/Structures/BuildingParts/Cultural/OrganChurch/Samples/Props_Organ_AbruptEnd_3.wav"
+    }
+    AudioBankSampleClass Sample {
+     Filename "{5C62B86BA89190A7}Sounds/Structures/BuildingParts/Cultural/OrganChurch/Samples/Props_Organ_AbruptEnd_1.wav"
+     Index 1
+    }
+    AudioBankSampleClass Sample {
+     Filename "{C57C01F2B576A137}Sounds/Structures/BuildingParts/Cultural/OrganChurch/Samples/Props_Organ_AbruptEnd_2.wav"
+     Index 2
+    }
+   }
+  }
+ }
+ spatialities {
+  SpatialityClass {
+   id 3100
+   name "Spatiality"
+   version 5
+   tl -67.353 -272.322
+   SpatialFactorSource Curve
+   SFCurve {
+    CurvePoint "1" {
+     X 3
+    }
+    CurvePoint "2" {
+     X 10
+     Y 1
+    }
+   }
+  }
+ }
+ auxOuts {
+  AuxOutClass {
+   id 8221
+   name "AuxOut Reverb INT"
+   version 5
+   tl 405.944 438.19
+   ins {
+    ConnectionsClass connections {
+     id 0
+     links {
+      ConnectionClass connection {
+       id 24585
+       port 5
+      }
+      ConnectionClass connection {
+       id 29705
+       port 5
+      }
+     }
+    }
+    ConnectionsClass connections {
+     id 1
+     links {
+      ConnectionClass connection {
+       id 11277
+       port 34
+      }
+     }
+    }
+    ConnectionsClass connections {
+     id 2
+     links {
+      ConnectionClass connection {
+       id 11277
+       port 39
+      }
+     }
+    }
+   }
+   pi {
+    7
+   }
+   pu {
+    6
+   }
+   OSPort 152583
+  }
+ }
+ version 1
+}
