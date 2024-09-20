@@ -1,0 +1,24 @@
+GenericEntity : "{533AC2E8A0F5272A}Prefabs/Structures/BuildingParts/BuildingParts_Base.et" {
+ ID "5111E74D4E7A8DB6"
+ components {
+  ActionsManagerComponent "{5528CDC08CD238CC}" {
+   additionalActions {
+    SCR_PlayInstrument "{6122AC26B03462F9}" {
+     ParentContextList {
+      "Play"
+     }
+     UIInfo UIInfo "{6122AC2744CF6817}" {
+      Name "Coco Jambo"
+     }
+     Duration 20
+     "Sort Priority" 1
+     m_AudioSourceConfiguration SCR_AudioSourceConfiguration "{6122AC2785089DEB}" {
+      m_sSoundProject "{EF1D6713859A5FB9}Sounds/Structures/BuildingParts/Cultural/OrganChurch/AFM_Structures_Props_Organ.acp"
+      m_sSoundEventName "SOUND_PLAY_COCO_JAMBO"
+     }
+     m_eInstrumentType ORGAN
+    }
+   }
+  }
+ }
+}
