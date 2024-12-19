@@ -1,0 +1,44 @@
+name: Build & Release
+
+on:
+  push: ~
+  release:
+    types: [published]
+
+jobs:
+  stable:
+    # if: github.ref_name == 'main'
+    name: Stable
+    runs-on: windows-2025
+    steps:
+      - name: Install DepotDownloader
+        run: winget install --exact --id SteamRE.DepotDownloader
+
+      - name: Install Arma Reforger
+        run: depotdownloader -dir c:\reforger -app 1874880 -username ${env:STEAM_USERNAME} -password ${env:STEAM_PASSWORD}
+        env:
+          STEAM_USERNAME: ${{ secrets.STEAM_USERNAME }}
+          STEAM_PASSWORD: ${{ secrets.STEAM_PASSWORD }}
+      - name: Install Arma Reforger Tools
+        run: c:\DepotDownloader\DepotDownloader.exe -dir C:\tools -app 1874910 -username ${env:STEAM_USERNAME} -password ${env:STEAM_PASSWORD}
+        env:
+          STEAM_USERNAME: ${{ secrets.STEAM_USERNAME }}
+          STEAM_PASSWORD: ${{ secrets.STEAM_PASSWORD }}
+
+  experimental:
+    name: Experimental
+    runs-on: windows-2025
+    steps:
+      - name: Install DepotDownloader
+        run: winget install --exact --id SteamRE.DepotDownloader
+
+      - name: Install Arma Reforger
+        run: depotdownloader -dir c:\reforger -app 1890860 -username ${env:STEAM_USERNAME} -password ${env:STEAM_PASSWORD}
+        env:
+          STEAM_USERNAME: ${{ secrets.STEAM_USERNAME }}
+          STEAM_PASSWORD: ${{ secrets.STEAM_PASSWORD }}
+      - name: Install Arma Reforger Tools
+        run: c:\DepotDownloader\DepotDownloader.exe -dir C:\tools -app 1890880 -username ${env:STEAM_USERNAME} -password ${env:STEAM_PASSWORD}
+        env:
+          STEAM_USERNAME: ${{ secrets.STEAM_USERNAME }}
+          STEAM_PASSWORD: ${{ secrets.STEAM_PASSWORD }}
