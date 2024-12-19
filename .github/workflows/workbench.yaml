@@ -12,7 +12,9 @@ jobs:
     runs-on: windows-2025
     steps:
       - name: Install DepotDownloader
-        run: winget install --disable-interactivity --accept-source-agreements --exact --id SteamRE.DepotDownloader
+        run: |
+          winget install --disable-interactivity --accept-source-agreements --exact --id SteamRE.DepotDownloader
+          refreshenv
 
       - name: Install Arma Reforger
         run: depotdownloader -dir c:\reforger -app 1874880 -username ${env:STEAM_USERNAME} -password ${env:STEAM_PASSWORD}
@@ -30,7 +32,9 @@ jobs:
     runs-on: windows-2025
     steps:
       - name: Install DepotDownloader
-        run: winget install --disable-interactivity --accept-source-agreements --exact --id SteamRE.DepotDownloader
+        run: |
+          winget install --disable-interactivity --accept-source-agreements --exact --id SteamRE.DepotDownloader
+          refreshenv
 
       - name: Install Arma Reforger
         run: depotdownloader -dir c:\reforger -app 1890860 -username ${env:STEAM_USERNAME} -password ${env:STEAM_PASSWORD}
