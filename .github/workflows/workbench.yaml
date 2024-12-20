@@ -28,6 +28,38 @@ jobs:
           STEAM_USERNAME: ${{ secrets.STEAM_USERNAME }}
           STEAM_PASSWORD: ${{ secrets.STEAM_PASSWORD }}
 
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          path: Mod
+
+      - name: Workbench build
+        run: >
+          C:\tools\Workbench\ArmaReforgerWorkbenchSteamDiag.exe
+          -enableWARP
+          -exitAfterInit
+          -noThrow
+          -noSound
+          -wbModule=ResourceManager
+          -addonsDir "C:/reforger/addons/,${{ github.workspace }}/Mod/addons/"
+          -addons "ArmaForces_Mods_Core"
+          -profile "${{ github.workspace }}/profile"
+          -packAddon
+          -packAddonDir "${{ github.workspace }}/pack"
+
+      - name: Archive profile
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: Stable profile
+          path: profile
+      - name: Archive pack
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: Stable package
+          path: pack
+
   experimental:
     name: Experimental
     runs-on: windows-2025
@@ -48,3 +80,35 @@ jobs:
         env:
           STEAM_USERNAME: ${{ secrets.STEAM_USERNAME }}
           STEAM_PASSWORD: ${{ secrets.STEAM_PASSWORD }}
+
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          path: Mod
+
+      - name: Experimental build
+        run: >
+          C:\tools\Workbench\ArmaReforgerWorkbenchSteamDiag.exe
+          -enableWARP
+          -exitAfterInit
+          -noThrow
+          -noSound
+          -wbModule=ResourceManager
+          -addonsDir "C:/reforger/addons/,${{ github.workspace }}/Mod/addons/"
+          -addons "ArmaForces_Mods_Core"
+          -profile "${{ github.workspace }}/profile"
+          -packAddon
+          -packAddonDir "${{ github.workspace }}/pack"
+
+      - name: Archive profile
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: Experimental profile
+          path: profile
+      - name: Archive pack
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: Experimental Package
+          path: pack
