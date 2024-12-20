@@ -107,24 +107,33 @@ jobs:
           -noThrow
           -noSound
           -wbModule=ResourceManager
-          -addonsDir "C:\reforger\addons\,${{ github.workspace }}\Mod\addons\"
+          -addonsDir "C:/reforger/addons/,${{ github.workspace }}\Mod/addons/"
           -addons "ArmaForces_Mods_Core"
-          -profile "${{ github.workspace }}/profile"
+          -profile "${{ github.workspace }}/output/profile"
           -packAddon
-          -packAddonDir "${{ github.workspace }}/pack"
+          -packAddonDir "${{ github.workspace }}/output/pack"
 
       - name: Test
-        run: ls ${{ github.workspace }}
+        run: |
+          ls ${{ github.workspace }}/output
+          ls ${{ github.workspace }}/pack
 
       - name: Archive profile
         uses: actions/upload-artifact@v4
         if: always()
         with:
           name: Experimental profile
-          path: profile
+          path: output/profile
       - name: Archive pack
         uses: actions/upload-artifact@v4
         if: always()
         with:
           name: Experimental Package
-          path: pack
+          path: output/pack
+
+      - name: Archive steam logs
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: Experimental Package
+          path: C:\Steam\logs
