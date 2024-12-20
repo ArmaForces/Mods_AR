@@ -13,7 +13,7 @@ jobs:
           .\SteamSetup.exe /S /D=C:\Steam
       - name: Login
         run: |
-          C:\Steam\steam.exe -silent -login ${env:STEAM_USERNAME} ${env:STEAM_PASSWORD}
+          C:\Steam\steam.exe -silent -forceservice -login ${env:STEAM_USERNAME} ${env:STEAM_PASSWORD}
         env:
             STEAM_USERNAME: ${{ secrets.STEAM_USERNAME }}
             STEAM_PASSWORD: ${{ secrets.STEAM_PASSWORD }}
