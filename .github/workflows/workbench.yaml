@@ -107,11 +107,14 @@ jobs:
           -noThrow
           -noSound
           -wbModule=ResourceManager
-          -addonsDir "C:/reforger/addons/,${{ github.workspace }}/Mod/addons/"
+          -addonsDir "C:\reforger\addons\,${{ github.workspace }}\Mod\addons\"
           -addons "ArmaForces_Mods_Core"
           -profile "${{ github.workspace }}/profile"
           -packAddon
           -packAddonDir "${{ github.workspace }}/pack"
+
+      - name: Test
+        run: ls ${{ github.workspace }}
 
       - name: Archive profile
         uses: actions/upload-artifact@v4
