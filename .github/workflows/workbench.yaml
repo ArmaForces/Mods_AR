@@ -7,7 +7,7 @@ on:
 
 jobs:
   stable:
-    # if: github.ref_name == 'main'
+    if: github.ref_name == 'master'
     name: Stable
     runs-on: windows-2025
     steps:
