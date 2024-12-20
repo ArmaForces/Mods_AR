@@ -101,6 +101,7 @@ jobs:
 
       - name: Experimental build
         run: >
+          ${{ github.workspace }}\Mod\tools\steam-check.exe
           C:\tools\Workbench\ArmaReforgerWorkbenchSteamDiag.exe
           -enableWARP
           -exitAfterInit
