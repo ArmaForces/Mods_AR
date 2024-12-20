@@ -1,0 +1,19 @@
+
+on:
+  push: ~
+
+jobs:
+  install:
+    runs-on: windows-2025
+    steps:
+      - name: Install
+        run: |
+          $url = 'https://cdn.akamai.steamstatic.com/client/installer/SteamSetup.exe'
+          Invoke-RestMethod -Uri $url -OutFile SteamSetup.exe
+          SteamSetup.exe /S /D=C:\Steam
+      - name: Login
+        run: |
+          C:\Steam\steam.exe -silent -login ${env:STEAM_USERNAME} ${env:STEAM_PASSWORD}
+        env:
+            STEAM_USERNAME: ${{ secrets.STEAM_USERNAME }}
+            STEAM_PASSWORD: ${{ secrets.STEAM_PASSWORD }}
