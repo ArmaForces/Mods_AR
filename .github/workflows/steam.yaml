@@ -10,7 +10,7 @@ jobs:
         run: |
           $url = 'https://cdn.akamai.steamstatic.com/client/installer/SteamSetup.exe'
           Invoke-RestMethod -Uri $url -OutFile SteamSetup.exe
-          SteamSetup.exe /S /D=C:\Steam
+          .\SteamSetup.exe /S /D=C:\Steam
       - name: Login
         run: |
           C:\Steam\steam.exe -silent -login ${env:STEAM_USERNAME} ${env:STEAM_PASSWORD}
