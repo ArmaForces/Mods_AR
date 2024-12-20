@@ -88,7 +88,8 @@ jobs:
           .\SteamSetup.exe /S /D=C:\Steam
       - name: Steam Client Login
         run: |
-          C:\Steam\steam.exe -silent -login ${env:STEAM_USERNAME} ${env:STEAM_PASSWORD}
+          C:\Steam\steam.exe -silent -forceservice -login ${env:STEAM_USERNAME} ${env:STEAM_PASSWORD}
+          sleep 10
         env:
             STEAM_USERNAME: ${{ secrets.STEAM_USERNAME }}
             STEAM_PASSWORD: ${{ secrets.STEAM_PASSWORD }}
