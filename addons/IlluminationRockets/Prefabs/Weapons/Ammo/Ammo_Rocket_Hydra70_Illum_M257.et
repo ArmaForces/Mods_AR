@@ -1,0 +1,64 @@
+EjectableProjectile : "{ECD8628EBF7E5F6B}Prefabs/Weapons/Ammo/Ammo_Rocket_Hydra70.et" {
+ ID "DA5C6308000CDEF2"
+ components {
+  TimerTriggerComponent "{6322A1259739A4C2}" {
+   PROJECTILE_EFFECTS {
+    SubmunitionEffect "{6322A12253BDB697}" {
+     Prefab "{CE7EA15A118D1926}Prefabs/Weapons/Ammo/FlareEffect_Hydra70_M275_White.et"
+    }
+    AIExplosionEffect "{6322A12276C973A2}" {
+    }
+   }
+   SafetyDistance 1
+   TIMER 0.6
+  }
+  AICombatPropertiesComponent "{59C92CB0FD688D78}" {
+   UsedAgainst 0
+   IndirectlyUsedAgainst 15
+   Traits 1
+  }
+  CollisionTriggerComponent "{60C2F0C44D951E69}" {
+   Enabled 0
+   PROJECTILE_EFFECTS {
+    ExplosionEffect "{60C2F0C44D951E63}" {
+     Enabled 0
+    }
+   }
+  }
+  InventoryItemComponent "{526E87778842822F}" {
+   Attributes SCR_ItemAttributeCollection "{526E87778ACB229F}" {
+    ItemDisplayName UIInfo "{526E8777859BAACF}" {
+     Name "#AR-Magazine_Hydra70_M257_Name"
+     Description "#AR-Magazine_Hydra70_M257_Description"
+    }
+   }
+  }
+  MissileMoveComponent "{0EF36690881261EF}" {
+   ProjectileEffects {
+    ProjectileDamage "{56829D01651CE9A7}" {
+     DamageValue 20
+     DamageType Collision
+    }
+   }
+  }
+  ActionsManagerComponent "{50F6614BA1D6E54A}" {
+   additionalActions {
+    SCR_AdjustTimedFlareAction "{632346A07FDB2F0B}" {
+     ParentContextList {
+      "default"
+     }
+     UIInfo UIInfo "{632346A068331F7A}" {
+      Name "#AR-UserAction_ExplosiveCharge_AdjustFuzeTime"
+     }
+     ActionTitle "Adjust fuze time"
+     Duration -1
+     PerformPerFrame 1
+     "Max value" 12
+     "Min value" 0.1
+     m_fAdjustmentStep 0.1
+     m_bManualAdjustment 1
+    }
+   }
+  }
+ }
+}

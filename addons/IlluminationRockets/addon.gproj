@@ -1,0 +1,35 @@
+GameProject {
+ ID "IlluminationRocketsDev"
+ GUID "6322A1265FBE8B18"
+ TITLE "IlluminationRocketsDev"
+ Dependencies {
+  "58D0FB3206B6F859"
+ }
+ Configurations {
+  GameProjectConfig PC {
+   WidgetManagerSettings WidgetManagerSettings "{AC4BE58770485E02}" {
+    StringTables {
+     StringTableDefinition "{632901B72621A0E5}" {
+      StringTableSource "{3E3344E99868D914}Language/localisationTable.st"
+      Languages {
+       LanguageDefinition "{632901B72BFAF834}" {
+        Code "en_us"
+        StringTableRuntime "{192652E621880119}Language/localisationTable.en_us.conf"
+       }
+      }
+     }
+    }
+   }
+  }
+  GameProjectConfig XBOX_ONE {
+  }
+  GameProjectConfig XBOX_SERIES {
+  }
+  GameProjectConfig PS4 {
+  }
+  GameProjectConfig PS5 {
+  }
+  GameProjectConfig HEADLESS {
+  }
+ }
+}

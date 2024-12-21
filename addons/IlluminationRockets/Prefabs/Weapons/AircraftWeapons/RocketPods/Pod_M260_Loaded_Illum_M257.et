@@ -1,0 +1,35 @@
+GenericEntity : "{CA43E7527570A5ED}Prefabs/Weapons/AircraftWeapons/RocketPods/Pod_M260.et" {
+ ID "5102FE5B14D4181C"
+ components {
+  WeaponComponent "{CFBAA4B706BA66E8}" {
+   components {
+    SCR_RocketEjectorMuzzleComponent "{61A6977B6DC1FE72}" {
+     ProjectilePositions {
+      InventoryStorageSlot rocket01 {
+       Prefab "{FD2CAD745DF2127D}Prefabs/Weapons/Ammo/Ammo_Rocket_Hydra70_Illum_M257.et"
+      }
+      InventoryStorageSlot rocket02 {
+       Prefab "{FD2CAD745DF2127D}Prefabs/Weapons/Ammo/Ammo_Rocket_Hydra70_Illum_M257.et"
+      }
+      InventoryStorageSlot rocket03 {
+       Prefab "{FD2CAD745DF2127D}Prefabs/Weapons/Ammo/Ammo_Rocket_Hydra70_Illum_M257.et"
+      }
+      InventoryStorageSlot rocket04 {
+       Prefab "{FD2CAD745DF2127D}Prefabs/Weapons/Ammo/Ammo_Rocket_Hydra70_Illum_M257.et"
+      }
+      InventoryStorageSlot rocket05 {
+       Prefab "{FD2CAD745DF2127D}Prefabs/Weapons/Ammo/Ammo_Rocket_Hydra70_Illum_M257.et"
+      }
+      InventoryStorageSlot rocket06 {
+       Prefab "{FD2CAD745DF2127D}Prefabs/Weapons/Ammo/Ammo_Rocket_Hydra70_Illum_M257.et"
+      }
+      InventoryStorageSlot rocket07 {
+       Prefab "{FD2CAD745DF2127D}Prefabs/Weapons/Ammo/Ammo_Rocket_Hydra70_Illum_M257.et"
+      }
+     }
+     m_sDefaultAmmoPrefab "{FD2CAD745DF2127D}Prefabs/Weapons/Ammo/Ammo_Rocket_Hydra70_Illum_M257.et"
+    }
+   }
+  }
+ }
+}

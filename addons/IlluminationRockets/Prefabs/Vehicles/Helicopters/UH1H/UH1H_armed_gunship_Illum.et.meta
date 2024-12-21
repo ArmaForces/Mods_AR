@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{4C3F420590EFB5FD}Prefabs/Vehicles/Helicopters/UH1H/UH1H_armed_gunship_Illum.et"
+ Configurations {
+  EntityTemplateResourceClass PC {
+  }
+  EntityTemplateResourceClass XBOX_ONE : PC {
+  }
+  EntityTemplateResourceClass XBOX_SERIES : PC {
+  }
+  EntityTemplateResourceClass PS4 : PC {
+  }
+  EntityTemplateResourceClass PS5 : PC {
+  }
+  EntityTemplateResourceClass HEADLESS : PC {
+  }
+ }
+}
