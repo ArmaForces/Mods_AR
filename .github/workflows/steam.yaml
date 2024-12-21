@@ -4,20 +4,19 @@ on:
 
 jobs:
   install:
-    runs-on: windows-2025
+    runs-on: windows-2022
     steps:
+      - name: Install winget
+        uses: Cyberboss/install-winget@v1
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          wget_release_id: latest
+
       - name: Install
         run: |
           $url = 'https://cdn.akamai.steamstatic.com/client/installer/SteamSetup.exe'
           Invoke-RestMethod -Uri $url -OutFile SteamSetup.exe
           .\SteamSetup.exe /S /D=C:\Steam
-      - name: Login
-        run: |
-          C:\Steam\steam.exe -silent -forceservice -login ${env:STEAM_USERNAME} ${env:STEAM_PASSWORD}
-        env:
-          STEAM_USERNAME: ${{ secrets.STEAM_USERNAME }}
-          STEAM_PASSWORD: ${{ secrets.STEAM_PASSWORD }}
-
       - name: Login
         run: |
           C:\Steam\steam.exe -silent -forceservice -login ${env:STEAM_USERNAME} ${env:STEAM_PASSWORD}
@@ -36,4 +35,7 @@ jobs:
         if: always()
         with:
           name: Steam logs
-          path: C:\Steam\logs
+          path: |
+            C:\Steam\logs
+            !C:\Steam\logs\bootstrap_log.txt
+
