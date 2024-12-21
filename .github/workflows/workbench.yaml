@@ -137,4 +137,6 @@ jobs:
         if: always()
         with:
           name: Experimental Package
-          path: C:\Steam\logs
+          path: |
+            C:\Steam\logs
+            !C:\Steam\logs\bootstrap_log.txt
