@@ -8,6 +8,7 @@ jobs:
     steps:
       - name: Install winget
         run: |
+          Import-Module Appx
           $WinGetVer='1.8.1911'
           $WinGetLicenseFile='76fba573f02545629706ab99170237bc_License1.xml'
 
