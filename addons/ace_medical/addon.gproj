@@ -1,0 +1,22 @@
+GameProject {
+ ID "ArmaForces_Mods_ACE_Medical"
+ GUID "632B536F080D7864"
+ TITLE "ArmaForces Mods ACE Medical"
+ Dependencies {
+  "6122A791D07C3960" "58D0FB3206B6F859" "60C4C12DAE90727B"
+ }
+ Configurations {
+  GameProjectConfig PC {
+  }
+  GameProjectConfig XBOX_ONE {
+  }
+  GameProjectConfig XBOX_SERIES {
+  }
+  GameProjectConfig PS4 {
+  }
+  GameProjectConfig PS5 {
+  }
+  GameProjectConfig HEADLESS {
+  }
+ }
+}
