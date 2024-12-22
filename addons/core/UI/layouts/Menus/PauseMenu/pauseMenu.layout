@@ -48,6 +48,10 @@ FrameWidgetClass {
         }
        }
       }
+      ImageWidgetClass "{5DB8B556919FE5EF}" {
+       Prefab "{5DB8B556919FE5EF}"
+       "Z Order" -100
+      }
      }
     }
    }
