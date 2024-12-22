@@ -1,0 +1,56 @@
+FrameWidgetClass {
+ {
+  OverlayWidgetClass "{5DB8B556919FE5F2}" {
+   Prefab "{5DB8B556919FE5F2}"
+   {
+    VerticalLayoutWidgetClass "{5DB8B556919FE5EE}" {
+     Prefab "{5DB8B556919FE5EE}"
+     {
+      ButtonWidgetClass "{632C0D60F9A71832}" : "{CFF37D05A7659E5C}UI/layouts/Menus/PauseMenu/PauseMenuButton_ActionIcon.layout" {
+       Name "AFM_ServerSettings"
+       Slot LayoutSlot "{557478C3F0230865}" {
+        Padding 0 0 0 0
+       }
+       components {
+        SCR_ButtonTextComponent "{5548F0143AE99095}" {
+         m_sText "AFM Server Settings"
+        }
+       }
+       {
+        SizeLayoutWidgetClass "{557098260F312277}" {
+         Prefab "{557098260F312277}"
+         Slot ButtonWidgetSlot "{5548E6E7E6AEDDC1}" {
+          Padding 7 1 0 1
+         }
+         {
+          OverlayWidgetClass "{557098260F312272}" {
+           Prefab "{557098260F312272}"
+           {
+            HorizontalLayoutWidgetClass "{557098267862A738}" {
+             Prefab "{557098267862A738}"
+             {
+              ScaleWidgetClass "{557478C2A0AF4E50}" {
+               Prefab "{557478C2A0AF4E50}"
+               {
+                ImageWidgetClass "{557098267D2A9494}" {
+                 Prefab "{557098267D2A9494}"
+                 Texture "{3262679C50EF4F01}UI/Textures/Icons/icons_wrapperUI.imageset"
+                 Image "settings"
+                 Size 32 32
+                }
+               }
+              }
+             }
+            }
+           }
+          }
+         }
+        }
+       }
+      }
+     }
+    }
+   }
+  }
+ }
+}

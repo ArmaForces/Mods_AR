@@ -1,0 +1,10 @@
+FrameWidgetClass {
+ Name "rootFrame"
+ {
+  OverlayWidgetClass "{632C29305E86E90A}" : "{6F1E013D3D33703C}UI/layouts/WidgetLibrary/BaseElements/WLib_MenuBaseTabbed.layout" {
+   Name "MenuFrame"
+   Slot FrameWidgetSlot "{54D8A1A69BDC4E85}" {
+   }
+  }
+ }
+}
