@@ -1,5 +1,9 @@
 FrameWidgetClass {
- Name "rootFrame"
+ Name "AFM_ToolsMenu"
+ components {
+  SCR_SuperMenuComponent "{632CF105ABB3A644}" {
+  }
+ }
  {
   OverlayWidgetClass "{632CF10E244EE461}" : "{89D4A2D343602766}UI/layouts/WidgetLibrary/BaseElements/WLib_ReadabilityBackground.layout" {
    Name "ReadibilityBackground"
@@ -10,8 +14,8 @@ FrameWidgetClass {
     PositionY 0
     OffsetTop 0
     SizeX 0
-    OffsetRight -0
-    SizeY -0
+    OffsetRight 0
+    SizeY 0
     OffsetBottom 0
    }
   }
