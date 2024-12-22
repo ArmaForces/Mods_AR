@@ -5,4 +5,79 @@ GameProject {
  Dependencies {
   "58D0FB3206B6F859"
  }
+ Configurations {
+  GameProjectConfig PC {
+   WidgetManagerSettings WidgetManagerSettings "{AC4BE58770485E02}" {
+    StringTables {
+     StringTableDefinition "{632D326890A7F301}" {
+      StringTableSource "{EBA00CA86EBA050A}Language/AFM_Core_localization.st"
+      Languages {
+       LanguageDefinition "{632D326896AD9A73}" {
+        Code "cs_cz"
+        StringTableRuntime "{8E1080E0880F29A1}Language/AFM_Core_localization.cs_cz.conf"
+       }
+       LanguageDefinition "{632D326896AD999B}" {
+        Code "de_de"
+        StringTableRuntime "{5B6E9AD39BAC3881}Language/AFM_Core_localization.de_de.conf"
+       }
+       LanguageDefinition "{632D326896AD998B}" {
+        Code "en_us"
+        StringTableRuntime "{059E1098F15F3D80}Language/AFM_Core_localization.en_us.conf"
+       }
+       LanguageDefinition "{632D326896AD99B5}" {
+        Code "es_es"
+        StringTableRuntime "{C0D25D111F5D569F}Language/AFM_Core_localization.es_es.conf"
+       }
+       LanguageDefinition "{632D326896AD99A0}" {
+        Code "fr_fr"
+        StringTableRuntime "{7B7AA826F9DEB59D}Language/AFM_Core_localization.fr_fr.conf"
+       }
+       LanguageDefinition "{632D326896AD99D3}" {
+        Code "it_it"
+        StringTableRuntime "{FB66271254FC3664}Language/AFM_Core_localization.it_it.conf"
+       }
+       LanguageDefinition "{632D326896AD99DD}" {
+        Code "ja_jp"
+        StringTableRuntime "{EB7D9A806A8D06CF}Language/AFM_Core_localization.ja_jp.conf"
+       }
+       LanguageDefinition "{632D326896AD99C8}" {
+        Code "ko_kr"
+        StringTableRuntime "{4BC3B22CF9A005F0}Language/AFM_Core_localization.ko_kr.conf"
+       }
+       LanguageDefinition "{632D326896AD99F4}" {
+        Code "pl_pl"
+        StringTableRuntime "{17B214D6474F998C}Language/AFM_Core_localization.pl_pl.conf"
+       }
+       LanguageDefinition "{632D326896AD99E1}" {
+        Code "pt_br"
+        StringTableRuntime "{C2C58E1A7CB15336}Language/AFM_Core_localization.pt_br.conf"
+       }
+       LanguageDefinition "{632D326896AD9913}" {
+        Code "ru_ru"
+        StringTableRuntime "{97849AB2E1C83640}Language/AFM_Core_localization.ru_ru.conf"
+       }
+       LanguageDefinition "{632D326896AD996C}" {
+        Code "uk_ua"
+        StringTableRuntime "{1DDCCF448DE68815}Language/AFM_Core_localization.uk_ua.conf"
+       }
+       LanguageDefinition "{632D326896AD989E}" {
+        Code "zh_cn"
+        StringTableRuntime "{C76CA179B4465808}Language/AFM_Core_localization.zh_cn.conf"
+       }
+      }
+     }
+    }
+   }
+  }
+  GameProjectConfig XBOX_ONE {
+  }
+  GameProjectConfig XBOX_SERIES {
+  }
+  GameProjectConfig PS4 {
+  }
+  GameProjectConfig PS5 {
+  }
+  GameProjectConfig HEADLESS {
+  }
+ }
 }
