@@ -1,9 +1,9 @@
 modded enum ChimeraMenuPreset
 {
-	AFM_ServerSettings
+	AFM_ToolsMenu
 }
 
-class AFM_ServerSettingsMenu: SCR_SuperMenuBase
+class AFM_ToolsMenu: SCR_SuperMenuBase
 {
 	protected Widget m_wRoot;
 	protected SCR_TabViewComponent m_Tabs;
@@ -25,14 +25,14 @@ class AFM_ServerSettingsMenu: SCR_SuperMenuBase
 		AddTestTab();
 		#endif
 		
-		m_Tabs.ShowTab(0);
+		m_Tabs.ShowTab(0, playSound: false);
 	}
 	
 #ifdef WORKBENCH
 	private void AddTestTab()
 	{
 		m_Tabs.AddTab(
-			layout: "{7C8EFF077F074206}UI/layouts/Menus/SettingsMenu/EditorSettings.layout",
+			layout: "{0C2FFE60CB37F8CA}UI/layouts/AFM_ServerSettings/AFM_Tools_TabContentBase.layout",
 			identifier: "test1",
 			content: "Test 1",
 		);

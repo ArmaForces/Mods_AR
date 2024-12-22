@@ -7,13 +7,13 @@ FrameWidgetClass {
      Prefab "{5DB8B556919FE5EE}"
      {
       ButtonWidgetClass "{632C0D60F9A71832}" : "{CFF37D05A7659E5C}UI/layouts/Menus/PauseMenu/PauseMenuButton_ActionIcon.layout" {
-       Name "AFM_ServerSettings"
+       Name "AFM_ToolsMenu"
        Slot LayoutSlot "{557478C3F0230865}" {
         Padding 0 0 0 0
        }
        components {
         SCR_ButtonTextComponent "{5548F0143AE99095}" {
-         m_sText "AFM Server Settings"
+         m_sText "#AFM-Core_Tools"
         }
        }
        {

@@ -7,7 +7,7 @@ modded class PauseMenuUI: ChimeraMenuBase
 	{
 		super.OnMenuOpen();
 
-		m_AFM_ServerSettingsButton = SCR_ButtonTextComponent.GetButtonText("AFM_ServerSettings", m_wRoot);
+		m_AFM_ServerSettingsButton = SCR_ButtonTextComponent.GetButtonText("AFM_ToolsMenu", m_wRoot);
 		if (m_AFM_ServerSettingsButton)		
 			m_AFM_ServerSettingsButton.m_OnClicked.Insert(AFM_OnServerSettings);
 	}
@@ -15,7 +15,7 @@ modded class PauseMenuUI: ChimeraMenuBase
 	//------------------------------------------------------------------------------------------------
 	private void AFM_OnServerSettings()
 	{
-		GetGame().GetMenuManager().OpenMenu(ChimeraMenuPreset.AFM_ServerSettings);
+		GetGame().GetMenuManager().OpenMenu(ChimeraMenuPreset.AFM_ToolsMenu);
 	}
 };
 

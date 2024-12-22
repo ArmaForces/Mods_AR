@@ -1,0 +1,25 @@
+HorizontalLayoutWidgetClass {
+ Name "TabContent"
+ components {
+  AFM_SubMenuBase "{632D326AA6ED1C3D}" {
+  }
+ }
+ {
+  ScrollLayoutWidgetClass "{632D326BCA924163}" {
+   Name "ScrollLayout0"
+   Slot LayoutSlot "{632D326BCA924094}" {
+    Padding 2 72 2 0
+    SizeMode Fill
+    FillWeight 1
+   }
+   {
+    VerticalLayoutWidgetClass "{632D326BB84185A9}" {
+     Name "Content"
+     Slot AlignableSlot "{632D326BB84185DF}" {
+      Padding 4 0 4 0
+     }
+    }
+   }
+  }
+ }
+}

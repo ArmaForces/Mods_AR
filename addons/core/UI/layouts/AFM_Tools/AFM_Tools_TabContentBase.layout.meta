@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{0C2FFE60CB37F8CA}UI/layouts/AFM_ServerSettings/AFM_Tools_TabContentBase.layout"
+ Configurations {
+  LayoutResourceClass PC {
+  }
+  LayoutResourceClass XBOX_ONE : PC {
+  }
+  LayoutResourceClass XBOX_SERIES : PC {
+  }
+  LayoutResourceClass PS4 : PC {
+  }
+  LayoutResourceClass PS5 : PC {
+  }
+  LayoutResourceClass HEADLESS : PC {
+  }
+ }
+}

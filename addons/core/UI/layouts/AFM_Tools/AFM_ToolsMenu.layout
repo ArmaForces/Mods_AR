@@ -61,6 +61,7 @@ FrameWidgetClass {
              Color 0 0 0 1
              Texture "{A592187FD7874100}UI/Textures/Common/GradientTexture_B80-B60-B0@2x.edds"
              Size 1024 1024
+             Tiling None
             }
            }
           }
