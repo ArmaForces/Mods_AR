@@ -1,4 +1,4 @@
-class SCR_AdjustTimedFlareAction : SCR_AdjustSignalAction
+class AFM_AdjustTimedFlareAction : SCR_AdjustSignalAction
 {
 	protected TimerTriggerComponent m_TimerTriggerComp;
 

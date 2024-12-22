@@ -43,19 +43,18 @@ EjectableProjectile : "{ECD8628EBF7E5F6B}Prefabs/Weapons/Ammo/Ammo_Rocket_Hydra7
   }
   ActionsManagerComponent "{50F6614BA1D6E54A}" {
    additionalActions {
-    SCR_AdjustTimedFlareAction "{632346A07FDB2F0B}" {
+    AFM_AdjustTimedFlareAction "{632C99B60B2E29BF}" {
      ParentContextList {
       "default"
      }
-     UIInfo UIInfo "{632346A068331F7A}" {
+     UIInfo UIInfo "{632C99B6EEE2B9E5}" {
       Name "#AR-UserAction_ExplosiveCharge_AdjustFuzeTime"
      }
-     ActionTitle "Adjust fuze time"
+     ActionTitle "Adjust flare fuze time"
      Duration -1
      PerformPerFrame 1
-     "Max value" 12
+     "Max value" 15
      "Min value" 0.1
-     m_fAdjustmentStep 0.1
      m_bManualAdjustment 1
     }
    }

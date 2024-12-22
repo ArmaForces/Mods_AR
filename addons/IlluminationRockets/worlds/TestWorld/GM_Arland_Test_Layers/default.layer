@@ -3733,9 +3733,6 @@ Vehicle Mi8MT_armed_gunship_HEDP1 : "{DBEC63C9DEE4358C}Prefabs/Vehicles/Helicopt
  }
  coords 1322.277 39 2129.678
 }
-SCR_PlayerSpawnPoint : "{F6CAD21EDD2D1964}Prefabs/MP/Spawning/PlayerSpawnPoint.et" {
- coords 1312.827 39.016 2123.323
-}
 GenericEntity : "{FC2D5D9BB8DE3EA6}Prefabs/Vehicles/Core/VirtualSlots/Repair_VirtualArsenalSlot.et" {
  coords 1286.404 39 2118.826
 }

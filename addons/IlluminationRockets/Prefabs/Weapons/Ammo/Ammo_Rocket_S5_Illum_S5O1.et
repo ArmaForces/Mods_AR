@@ -47,17 +47,18 @@ EjectableProjectile : "{C9A1612DC5340613}Prefabs/Weapons/Ammo/Ammo_Rocket_S5.et"
   }
   ActionsManagerComponent "{50F6614BA1D6E54A}" {
    additionalActions {
-    SCR_AdjustTimedFlareAction "{632480797A24D582}" {
+    AFM_AdjustTimedFlareAction "{632C99B6FD7E1AEA}" {
      ParentContextList {
       "default"
      }
-     UIInfo UIInfo "{632480797DC3272A}" {
+     UIInfo UIInfo "{632C99B69B7A38DC}" {
       Name "#AR-UserAction_ExplosiveCharge_AdjustFuzeTime"
      }
-     ActionTitle "Adjust fuze time"
+     ActionTitle "Adjust flare fuze time"
      Duration -1
      PerformPerFrame 1
-     "Max value" 12
+     "Max value" 15
+     "Min value" 0.1
      m_bManualAdjustment 1
     }
    }
