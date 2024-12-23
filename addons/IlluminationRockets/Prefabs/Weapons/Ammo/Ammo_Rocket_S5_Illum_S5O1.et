@@ -1,0 +1,67 @@
+EjectableProjectile : "{C9A1612DC5340613}Prefabs/Weapons/Ammo/Ammo_Rocket_S5.et" {
+ ID "DA5C6308000CDEF2"
+ components {
+  TimerTriggerComponent "{6324807902DF3CDE}" {
+   PROJECTILE_EFFECTS {
+    SubmunitionEffect "{6324807904EFD58E}" {
+     Prefab "{392F41C5D507DA7B}Prefabs/Weapons/Ammo/FlareEffect_S5_S5O1_White.et"
+    }
+    AIExplosionEffect "{632480793CEEF34C}" {
+    }
+   }
+   SafetyDistance 1
+   TIMER 0.8
+  }
+  AICombatPropertiesComponent "{59C92CB0FD688D78}" {
+   UsedAgainst 0
+   IndirectlyUsedAgainst 15
+   Traits 1
+  }
+  CollisionTriggerComponent "{549302EDFF95851E}" {
+   Enabled 0
+   PROJECTILE_EFFECTS {
+    ExplosionEffect "{549302EDF30A9796}" {
+     Enabled 0
+    }
+   }
+   SafetyDistance 4
+  }
+  InventoryItemComponent "{526E87778842822F}" {
+   Attributes SCR_ItemAttributeCollection "{526E87778ACB229F}" {
+    ItemDisplayName UIInfo "{526E8777859BAACF}" {
+     Name "#AR-Magazine_S5_O1_Name"
+     Description "#AR-Magazine_S5_O1_Description"
+    }
+   }
+  }
+  MagazineComponent "{50F6614BB5D5B0A8}" {
+   ItemModel "{180CED78848A492B}Assets/Weapons/Ammo/Rockets/S5/S5KO_item.xob"
+  }
+  MissileMoveComponent "{0EF36690881261EF}" {
+   ProjectileEffects {
+    ProjectileDamage "{56829D01651CE9A7}" {
+     DamageValue 20
+     DamageType Collision
+    }
+   }
+  }
+  ActionsManagerComponent "{50F6614BA1D6E54A}" {
+   additionalActions {
+    AFM_AdjustTimedFlareAction "{632C99B6FD7E1AEA}" {
+     ParentContextList {
+      "default"
+     }
+     UIInfo UIInfo "{632C99B69B7A38DC}" {
+      Name "#AR-UserAction_ExplosiveCharge_AdjustFuzeTime"
+     }
+     ActionTitle "Adjust flare fuze time"
+     Duration -1
+     PerformPerFrame 1
+     "Max value" 15
+     "Min value" 0.1
+     m_bManualAdjustment 1
+    }
+   }
+  }
+ }
+}
