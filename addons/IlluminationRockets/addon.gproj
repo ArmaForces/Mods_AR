@@ -1,7 +1,7 @@
 GameProject {
- ID "IlluminationRocketsDev"
+ ID "ArmaForces_Mods_IlluminationRockets"
  GUID "6322A1265FBE8B18"
- TITLE "IlluminationRocketsDev"
+ TITLE "ArmaForces Mods Illumination Rockets"
  Dependencies {
   "58D0FB3206B6F859"
  }
