@@ -49,7 +49,7 @@ HorizontalLayoutWidgetClass {
        }
        components {
         SCR_SpinBoxComponent "{5472C6CBC0640458}" {
-         m_sLabel "#AFM_Core-Settings_Radio_Beep_CH1"
+         m_sLabel "#AFM_Core-Settings_Radio_Beep_Ch1"
          m_sLabelLayout "{F003823FF141983C}UI/layouts/Menus/SettingsMenu/CustomWidgets/SettingsLabel.layout"
          m_aElementNames {
           "#AFM_Core-Settings_Radio_Beep_Off" "#AFM_Core-Settings_Radio_Beep_1" "#AFM_Core-Settings_Radio_Beep_2"
@@ -66,7 +66,7 @@ HorizontalLayoutWidgetClass {
        }
        components {
         SCR_SpinBoxComponent "{5472C6CBC0640458}" {
-         m_sLabel "#AFM_Core-Settings_Radio_Beep_CH2"
+         m_sLabel "#AFM_Core-Settings_Radio_Beep_Ch2"
          m_sLabelLayout "{F003823FF141983C}UI/layouts/Menus/SettingsMenu/CustomWidgets/SettingsLabel.layout"
          m_aElementNames {
           "#AFM_Core-Settings_Radio_Beep_Off" "#AFM_Core-Settings_Radio_Beep_1" "#AFM_Core-Settings_Radio_Beep_2"

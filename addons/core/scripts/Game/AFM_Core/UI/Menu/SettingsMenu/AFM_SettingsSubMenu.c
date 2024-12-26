@@ -18,7 +18,7 @@ class AFM_SettingsSubMenu: SCR_SettingsSubMenuBase
 		if (checkBoxBeep1)
 		{
 			int value;
-			radioSettings.Get("m_PreviewVerticleMode", value);
+			radioSettings.Get("m_BeepCh1", value);
 			
 			checkBoxBeep1.SetCurrentItem(value >> 1, false, false); //--- Shift the value, because it's a flag
 			checkBoxBeep1.m_OnChanged.Insert(SetBeepCh1);
@@ -33,7 +33,7 @@ class AFM_SettingsSubMenu: SCR_SettingsSubMenuBase
 		if (checkBoxBeep2)
 		{
 			int value;
-			radioSettings.Get("m_PreviewVerticleMode", value);
+			radioSettings.Get("m_BeepCh2", value);
 			
 			checkBoxBeep2.SetCurrentItem(value >> 1, false, false); //--- Shift the value, because it's a flag
 			checkBoxBeep2.m_OnChanged.Insert(SetBeepCh2);
