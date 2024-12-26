@@ -1,0 +1,62 @@
+GenericEntity : "{FA8556A46D3A6FDA}Prefabs/Weapons/AircraftWeapons/RocketPods/Pod_UB1657.et" {
+ ID "116226BBE864C91B"
+ components {
+  WeaponComponent "{CFBAA4B706BA66E8}" {
+   components {
+    SCR_RocketEjectorMuzzleComponent "{61A6977B6DC1FE72}" {
+     ProjectilePositions {
+      InventoryStorageSlot Rocket01 {
+       Prefab "{2763EAC08505E549}Prefabs/Weapons/Ammo/Ammo_Rocket_S5_Illum_S5O1.et"
+      }
+      InventoryStorageSlot Rocket02 {
+       Prefab "{2763EAC08505E549}Prefabs/Weapons/Ammo/Ammo_Rocket_S5_Illum_S5O1.et"
+      }
+      InventoryStorageSlot Rocket03 {
+       Prefab "{2763EAC08505E549}Prefabs/Weapons/Ammo/Ammo_Rocket_S5_Illum_S5O1.et"
+      }
+      InventoryStorageSlot Rocket04 {
+       Prefab "{2763EAC08505E549}Prefabs/Weapons/Ammo/Ammo_Rocket_S5_Illum_S5O1.et"
+      }
+      InventoryStorageSlot Rocket05 {
+       Prefab "{2763EAC08505E549}Prefabs/Weapons/Ammo/Ammo_Rocket_S5_Illum_S5O1.et"
+      }
+      InventoryStorageSlot Rocket06 {
+       Prefab "{2763EAC08505E549}Prefabs/Weapons/Ammo/Ammo_Rocket_S5_Illum_S5O1.et"
+      }
+      InventoryStorageSlot Rocket07 {
+       Prefab "{2763EAC08505E549}Prefabs/Weapons/Ammo/Ammo_Rocket_S5_Illum_S5O1.et"
+      }
+      InventoryStorageSlot Rocket08 {
+       Prefab "{2763EAC08505E549}Prefabs/Weapons/Ammo/Ammo_Rocket_S5_Illum_S5O1.et"
+      }
+      InventoryStorageSlot Rocket09 {
+       Prefab "{2763EAC08505E549}Prefabs/Weapons/Ammo/Ammo_Rocket_S5_Illum_S5O1.et"
+      }
+      InventoryStorageSlot Rocket10 {
+       Prefab "{2763EAC08505E549}Prefabs/Weapons/Ammo/Ammo_Rocket_S5_Illum_S5O1.et"
+      }
+      InventoryStorageSlot Rocket11 {
+       Prefab "{2763EAC08505E549}Prefabs/Weapons/Ammo/Ammo_Rocket_S5_Illum_S5O1.et"
+      }
+      InventoryStorageSlot Rocket12 {
+       Prefab "{2763EAC08505E549}Prefabs/Weapons/Ammo/Ammo_Rocket_S5_Illum_S5O1.et"
+      }
+      InventoryStorageSlot Rocket13 {
+       Prefab "{2763EAC08505E549}Prefabs/Weapons/Ammo/Ammo_Rocket_S5_Illum_S5O1.et"
+      }
+      InventoryStorageSlot Rocket14 {
+       Prefab "{2763EAC08505E549}Prefabs/Weapons/Ammo/Ammo_Rocket_S5_Illum_S5O1.et"
+      }
+      InventoryStorageSlot Rocket15 {
+       Prefab "{2763EAC08505E549}Prefabs/Weapons/Ammo/Ammo_Rocket_S5_Illum_S5O1.et"
+      }
+      InventoryStorageSlot Rocket16 {
+       Prefab "{2763EAC08505E549}Prefabs/Weapons/Ammo/Ammo_Rocket_S5_Illum_S5O1.et"
+      }
+     }
+     m_sDefaultAmmoPrefab "{2763EAC08505E549}Prefabs/Weapons/Ammo/Ammo_Rocket_S5_Illum_S5O1.et"
+    }
+   }
+  }
+ }
+}

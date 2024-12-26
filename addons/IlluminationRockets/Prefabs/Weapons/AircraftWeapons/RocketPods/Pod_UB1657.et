@@ -1,0 +1,27 @@
+GenericEntity : "{1B915F6E9787F965}Prefabs/Weapons/Core/RocketPod_Base.et" {
+ ID "116226BBE864C91B"
+ components {
+  ActionsManagerComponent "{A29AE67FF4D82B0F}" {
+   additionalActions {
+    SCR_ResupplyRocketPodSupportStationAction "{632902AB4F658531}" {
+     ParentContextList {
+      "default"
+     }
+     UIInfo SCR_ActionUIInfo "{632902AB4F658582}" {
+      Name "#AR-SupportStation_Resupply_Vehicle_Weapon_ActionName"
+      m_sIconName "rearm-rocket"
+     }
+     ActionTitle "Resupply: Illum"
+     Duration -0.5
+     PerformPerFrame 1
+     "Sort Priority" -100
+     m_fLoopActionHoldDuration 0.07
+     m_bLowerWeaponOnUse 1
+     m_ResupplyData SCR_ResupplyItemSupportStationData "{632902AB4F65859B}" {
+      m_sItemPrefab "{2763EAC08505E549}Prefabs/Weapons/Ammo/Ammo_Rocket_S5_Illum_S5O1.et"
+     }
+    }
+   }
+  }
+ }
+}

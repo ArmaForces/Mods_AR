@@ -1,0 +1,125 @@
+HorizontalLayoutWidgetClass {
+ Name "EditorSettings"
+ components {
+  AFM_SettingsSubMenu "{6330182F68226B9E}" {
+  }
+ }
+ {
+  ScrollLayoutWidgetClass "{63301827145A89B0}" {
+   Name "ScrollLayout0"
+   Slot LayoutSlot "{54890CCF086F1BB3}" {
+    Padding -2 72 2 0
+    SizeMode Fill
+    FillWeight 1.433
+   }
+   Color 0.761 0.392 0.078 1
+   style Small
+   {
+    VerticalLayoutWidgetClass "{63301827145A89B6}" {
+     Name "Content"
+     Slot AlignableSlot "{54890CCE26EF3FDE}" {
+      HorizontalAlign 3
+      VerticalAlign 3
+      Padding -4 0 10 0
+     }
+     {
+      VerticalLayoutWidgetClass "{63301827145A82EF}" : "{FEEEB639F2735BA1}UI/layouts/Menus/SettingsMenu/CustomWidgets/SettingsTitle.layout" {
+       Name "TitleGeneral"
+       Slot LayoutSlot "{58B30C1CBB34716F}" {
+       }
+       components {
+        SCR_LabelComponent "{58B30C1A8E56F0FF}" {
+         m_sLabel "#AFM_Core-Settings_Radio"
+         m_fPaddingTop 4
+        }
+       }
+       {
+        TextWidgetClass "{58B30C1F77EC7B4E}" {
+         Prefab "{58B30C1F77EC7B4E}"
+         Slot LayoutSlot "{58B30C1F77EC7B76}" {
+          Padding 39 4 39 20
+         }
+        }
+       }
+      }
+      ButtonWidgetClass "{63301827145A82E6}" : "{C9DF0E6590F6C388}UI/layouts/WidgetLibrary/SpinBox/WLib_SpinBox.layout" {
+       Name "Beep_Ch1"
+       Slot LayoutSlot "{54890CCD613ED416}" {
+        Padding 4 4 4 4
+       }
+       components {
+        SCR_SpinBoxComponent "{5472C6CBC0640458}" {
+         m_sLabel "#AFM_Core-Settings_Radio_Beep_Ch1"
+         m_sLabelLayout "{F003823FF141983C}UI/layouts/Menus/SettingsMenu/CustomWidgets/SettingsLabel.layout"
+         m_aElementNames {
+          "#AFM_Core-Settings_Radio_Beep_Off" "#AFM_Core-Settings_Radio_Beep_1" "#AFM_Core-Settings_Radio_Beep_2"
+         }
+         m_bUseLightArrows 1
+         m_bCycleMode 1
+        }
+       }
+      }
+      ButtonWidgetClass "{6330182609023B86}" : "{C9DF0E6590F6C388}UI/layouts/WidgetLibrary/SpinBox/WLib_SpinBox.layout" {
+       Name "Beep_Ch2"
+       Slot LayoutSlot "{54890CCD613ED416}" {
+        Padding 4 4 4 4
+       }
+       components {
+        SCR_SpinBoxComponent "{5472C6CBC0640458}" {
+         m_sLabel "#AFM_Core-Settings_Radio_Beep_Ch2"
+         m_sLabelLayout "{F003823FF141983C}UI/layouts/Menus/SettingsMenu/CustomWidgets/SettingsLabel.layout"
+         m_aElementNames {
+          "#AFM_Core-Settings_Radio_Beep_Off" "#AFM_Core-Settings_Radio_Beep_1" "#AFM_Core-Settings_Radio_Beep_2"
+         }
+         m_bCycleMode 1
+        }
+       }
+      }
+      VerticalLayoutWidgetClass "{63301827145A82FB}" : "{FEEEB639F2735BA1}UI/layouts/Menus/SettingsMenu/CustomWidgets/SettingsTitle.layout" {
+       Name "TitleSecond"
+       Slot LayoutSlot "{58B3227F5665E050}" {
+       }
+       "Is Visible" 0
+       components {
+        SCR_LabelComponent "{58B30C1A8E56F0FF}" {
+         m_sLabel "Title second category"
+        }
+       }
+       {
+        TextWidgetClass "{58B30C1F77EC7B4E}" {
+         Prefab "{58B30C1F77EC7B4E}"
+         Slot LayoutSlot "{58B30C1F77EC7B76}" {
+         }
+        }
+       }
+      }
+      ButtonWidgetClass "{63301827145A82F8}" : "{C9DF0E6590F6C388}UI/layouts/WidgetLibrary/SpinBox/WLib_SpinBox.layout" {
+       Name "HorizontalCameraSpeed"
+       Slot LayoutSlot "{54890CCD613ED416}" {
+        Padding 4 4 4 4
+       }
+       "Is Visible" 0
+       components {
+        SCR_SpinBoxComponent "{5472C6CBC0640458}" {
+         m_sLabel "#AR-Editor_Attribute_CameraATL_Name"
+         m_sLabelLayout "{F003823FF141983C}UI/layouts/Menus/SettingsMenu/CustomWidgets/SettingsLabel.layout"
+         m_aElementNames {
+          "#AR-UI_No" "#AR-UI_Yes"
+         }
+         m_bUseLightArrows 1
+         m_bCycleMode 1
+        }
+       }
+      }
+     }
+    }
+   }
+  }
+  VerticalLayoutWidgetClass "{63301827145A82F2}" {
+   Name "Description"
+   Slot LayoutSlot "{54890CCD7A457969}" {
+    SizeMode Fill
+   }
+  }
+ }
+}

@@ -13,7 +13,7 @@ FrameWidgetClass {
        }
        components {
         SCR_ButtonTextComponent "{5548F0143AE99095}" {
-         m_sText "#AFM-Core_Tools"
+         m_sText "#AFM-Core-AFM_Tools"
         }
        }
        {
@@ -26,6 +26,15 @@ FrameWidgetClass {
           OverlayWidgetClass "{557098260F312272}" {
            Prefab "{557098260F312272}"
            {
+            ScaleWidgetClass "{58D09C4047778BAE}" {
+             Prefab "{58D09C4047778BAE}"
+             {
+              ImageWidgetClass "{58D09C40452A7C25}" {
+               Prefab "{58D09C40452A7C25}"
+               "Is Visible" 0
+              }
+             }
+            }
             HorizontalLayoutWidgetClass "{557098267862A738}" {
              Prefab "{557098267862A738}"
              {

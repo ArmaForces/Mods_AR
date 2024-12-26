@@ -1,0 +1,37 @@
+Projectile : "{7018A917ED080F86}Prefabs/Weapons/Core/FlareEffect_Base.et" {
+ ID "5A52CD9231D8AB66"
+ components {
+  SoundComponent "{60C8D458549023EE}" {
+   Filenames {
+    "{D7385B9FC1EE07CF}Sounds/Ammo/Flares/Ammo_Flares_ProjectileTravelling_Mortar_Deployed.acp"
+   }
+  }
+  TimerTriggerComponent "{60F2D6E8520B1C8B}" {
+   TIMER 125
+  }
+  FlareMoveComponent "{5A52CD9231D8AB6E}" {
+   InitSpeed 2
+   ParentSpeedMultiplier 0.6
+   DispersionMultiplier 5
+   TimeToLive 120
+   AirDrag 0.999
+   Diameter 160
+   SmokeParticle "{6A5609D7DDBAD763}Particles/Weapon/Flare_Parachute_81mm.ptc"
+  }
+  MeshObject "{5A52CD9231D8AB5E}" {
+   Object "{B63A4B3B56B258AB}Assets/Weapons/Ammo/Shells/81mm_Mortar_M252/Shell_81mm_Illum_M853A1.xob"
+  }
+  SCR_FlareEffectComponent "{611868B460E2F003}" {
+   m_aLightData {
+    SCR_BaseLightData "{611868B4754ECDDD}" {
+     m_vLightColor 1 1 1
+     m_fRadius 100
+    }
+   }
+   m_fDistanceAttenuation 0.8
+   m_iLightLifetime 120
+  }
+ }
+ ProjectileModel "{75F5E0918F7FF306}Assets/Weapons/Ammo/Grenades/Flare_40mm_M583A1_White/Flare_40mm_M583A1_White_projectile.xob"
+ CartridgeModel "{048E20651EB2545B}Assets/Weapons/Ammo/Grenades/Flare_40mm_M583A1_White/Flare_40mm_M583A1_White_casing.xob"
+}
