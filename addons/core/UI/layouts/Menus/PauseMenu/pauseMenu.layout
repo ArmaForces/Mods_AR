@@ -13,7 +13,7 @@ FrameWidgetClass {
        }
        components {
         SCR_ButtonTextComponent "{5548F0143AE99095}" {
-         m_sText "#AFM-Core-AFM_Tools"
+         m_sText "#AFM_Core-AFM_Tools"
         }
        }
        {
