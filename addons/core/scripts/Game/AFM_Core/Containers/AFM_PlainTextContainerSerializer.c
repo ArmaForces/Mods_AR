@@ -1,8 +1,16 @@
 class AFM_PlainTextContainerSerializer
 {
+	//------------------------------------------------------------------------------------------------
+	//! Serializes container into a human readable string
 	string SerializeContainer(BaseContainer container, int level = 0)
 	{
-		string output = SCR_StringHelper.PadLeft("", level*2, SCR_StringHelper.SPACE);
+		string output = MakeIndent(level);
+		if (!container)
+		{
+			output += "null";
+			return output;
+		}
+		
 		output += string.Format("%1:", container.GetClassName());
 		for (int i, count = container.GetNumVars(); i < count; i++)
 		{
@@ -15,9 +23,11 @@ class AFM_PlainTextContainerSerializer
 		return output;
 	}
 	
+	//------------------------------------------------------------------------------------------------
+	//! Serializes container property/entry into a human readable string
 	string SerializeProp(BaseContainer container, string var, DataVarType type, int level = 0)
 	{
-		string output = SCR_StringHelper.PadLeft("", level*2, SCR_StringHelper.SPACE);
+		string output = MakeIndent(level);
 		switch (type)
 		{
 			case DataVarType.BOOLEAN:
@@ -33,11 +43,46 @@ class AFM_PlainTextContainerSerializer
 			}
 			
 			case DataVarType.SCALAR:
-			case DataVarType.INTEGER:
 			{
 				float val;
 				container.Get(var, val);
+				output += string.Format("%1: %2", var, val.ToString(-1, 2));
+				
+				break;
+			}
+			
+			case DataVarType.INTEGER:
+			{
+				int val;
+				container.Get(var, val);
 				output += string.Format("%1: %2", var, val);
+				
+				break;
+			}
+			
+			case DataVarType.STRING:
+			{
+				string val;
+				container.Get(var, val);
+				output += string.Format("%1: %2", var, string.ToString(val));
+				
+				break;
+			}
+			
+			case DataVarType.RESOURCE_NAME:
+			{
+				ResourceName val;
+				container.Get(var, val);
+				output += string.Format("%1: %2", var, val);
+				
+				break;
+			}
+			
+			case DataVarType.OBJECT:
+			{
+				BaseContainer containerObject = container.GetObject(var);
+				string val = SerializeContainer(containerObject, level + 1);
+				output += string.Format("%1:\n%2", var, val);
 				
 				break;
 			}
@@ -64,5 +109,11 @@ class AFM_PlainTextContainerSerializer
 		}
 		
 		return output;
+	}
+	
+	//------------------------------------------------------------------------------------------------
+	protected string MakeIndent(int level)
+	{
+		return SCR_StringHelper.PadLeft("", level*4, SCR_StringHelper.SPACE);
 	}
 }
