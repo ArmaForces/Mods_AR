@@ -1,0 +1,126 @@
+HorizontalLayoutWidgetClass : "{0C2FFE60CB37F8CA}UI/layouts/AFM_Tools/AFM_Tools_TabContentBase.layout" {
+ components {
+  AFM_SubMenuBase "{632D326AA6ED1C3D}" {
+   Enabled 0
+  }
+  AFM_ServerSettingsSubMenu "{63382472B4C2F7CA}" {
+  }
+ }
+ {
+  ScrollLayoutWidgetClass "{632D326BCA924163}" {
+   Prefab "{632D326BCA924163}"
+   Slot LayoutSlot "{632D326BCA924094}" {
+    Padding 2 4 2 0
+   }
+   {
+    VerticalLayoutWidgetClass "{632D326BB84185A9}" {
+     Prefab "{632D326BB84185A9}"
+     Slot AlignableSlot "{632D326BB84185DF}" {
+      HorizontalAlign 0
+     }
+     {
+      VerticalLayoutWidgetClass "{633940800A325E7F}" {
+       Name "VerticalLayout0"
+       Slot LayoutSlot "{633940800A325DA5}" {
+       }
+       {
+        HorizontalLayoutWidgetClass "{6339408035CE336A}" : "{829BC1189A899017}UI/layouts/WidgetLibrary/BaseElements/WLib_Label.layout" {
+         Name "LabelRoot0"
+         Slot LayoutSlot "{55367D9A1530D6F9}" {
+         }
+         {
+          TextWidgetClass "{554CD830975E8F3E}" {
+           Prefab "{554CD830975E8F3E}"
+           Text "Mission header"
+          }
+         }
+        }
+        PanelWidgetClass "{6338247480AC1BF3}" {
+         Name "Panel0"
+         Slot LayoutSlot "{6338247480AC1BE4}" {
+         }
+         style pixel_frame
+         {
+          ScrollLayoutWidgetClass "{63392EC98914E35F}" {
+           Name "Scroll0"
+           Slot FrameWidgetSlot "{63392EC98914E28D}" {
+            OffsetLeft 0
+            OffsetTop 0
+            SizeX 1024
+            OffsetRight -1024
+            SizeY 512
+            OffsetBottom -512
+           }
+           {
+            TextWidgetClass "{6338247485929E47}" {
+             Name "TextMissionHeader"
+             Slot AlignableSlot "{63392EC98947F04E}" {
+              HorizontalAlign 0
+              VerticalAlign 0
+              Padding 6 5 6 5
+             }
+             Text ""
+             "No Localization" 1
+            }
+           }
+          }
+         }
+        }
+       }
+      }
+      VerticalLayoutWidgetClass "{63394080137065DB}" {
+       Name "VerticalLayout1"
+       Slot LayoutSlot "{633940800A325DA5}" {
+        Padding 0 15 0 0
+       }
+       {
+        HorizontalLayoutWidgetClass "{633940802DC4CBC0}" : "{829BC1189A899017}UI/layouts/WidgetLibrary/BaseElements/WLib_Label.layout" {
+         Name "LabelRoot0"
+         Slot LayoutSlot "{55367D9A1530D6F9}" {
+         }
+         {
+          TextWidgetClass "{554CD830975E8F3E}" {
+           Prefab "{554CD830975E8F3E}"
+           Text "ACE Settings"
+          }
+         }
+        }
+        PanelWidgetClass "{63394080137065DA}" {
+         Name "Panel0"
+         Slot LayoutSlot "{6338247480AC1BE4}" {
+         }
+         style pixel_frame
+         {
+          ScrollLayoutWidgetClass "{63394080137065D9}" {
+           Name "Scroll0"
+           Slot FrameWidgetSlot "{63392EC98914E28D}" {
+            OffsetLeft 0
+            OffsetTop 0
+            SizeX 1024
+            OffsetRight -1024
+            SizeY 512
+            OffsetBottom -512
+           }
+           {
+            TextWidgetClass "{6339408013701C1B}" {
+             Name "TextAceSettings"
+             Slot AlignableSlot "{63392EC98947F04E}" {
+              HorizontalAlign 0
+              VerticalAlign 0
+              Padding 6 5 6 5
+             }
+             Text ""
+             "No Localization" 1
+            }
+           }
+          }
+         }
+        }
+       }
+      }
+     }
+    }
+   }
+  }
+ }
+}
