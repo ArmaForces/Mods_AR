@@ -5,158 +5,157 @@ class AFM_SettingsComponentClass : ScriptComponentClass
 
 class AFM_SettingsComponent : ScriptComponent
 {
-	ScriptInvoker RequestMissionHeader()
+	protected ref AFM_PlainTextContainerSerializer m_pSerializer = new AFM_PlainTextContainerSerializer();
+	
+	ref AFM_ContainerTextResponseInvoker m_pMissionHeaderResponseInvoker = new AFM_ContainerTextResponseInvoker();
+	ref AFM_ContainerTextResponseInvoker m_pAceSettingsResponseInvoker = new AFM_ContainerTextResponseInvoker();
+	
+	protected SCR_MissionHeader GetMissionHeader()
+	{
+		SCR_MissionHeader header = SCR_MissionHeader.Cast(GetGame().GetMissionHeader());
+		
+		#ifdef WORKBENCH
+		// if world is started directly it will have no header, provide some test data
+		if (!header)
+			header = SCR_MissionHeader.Cast(MissionHeader.ReadMissionHeader("{83D06A42096F671C}Missions/MpTest/10_MpTest.conf"));
+		#endif
+		
+		return header;
+	}
+	
+	//################################################################################################
+	//! Mission header
+	void RequestMissionHeader()
 	{
 		Print("Requesting mission header");
 		
-		Rpc(RpcAsk_Request, new AFM_SettingsRequestMissionHeader());
-		
-		return null;
+		Rpc(RpcAsk_RequestMissionHeader, SCR_PlayerController.GetLocalPlayerId());
 	}
 	
 	//------------------------------------------------------------------------------------------------
 	[RplRpc(RplChannel.Reliable, RplRcver.Server)]
-	protected void RpcAsk_Request(AFM_SettingsRequest request)
+	protected void RpcAsk_RequestMissionHeader(int playerId)
 	{
-		AFM_SettingsRequestMissionHeader requestParsed = AFM_SettingsRequestMissionHeader.Cast(request);
-		if (requestParsed)
+		AFM_ContainerTextResponse response = new AFM_ContainerTextResponse();
+		
+		SCR_MissionHeader header = GetMissionHeader();
+		if (header)
 		{
-			AFM_ResponseMissionHeader response = new AFM_ResponseMissionHeader();
+			Resource holder = BaseContainerTools.CreateContainerFromInstance(header);
+			BaseContainer headerContainer = holder.GetResource().ToBaseContainer();
 			
-			ACE_SettingsConfig config = ArmaReforgerScripted.ACE_GetSettingsConfig();
-			foreach(ACE_ModSettings settings : config.GetAllModSettings())
-			{
-				Resource holder = BaseContainerTools.CreateContainerFromInstance(settings);
-				BaseContainer settingsContainer = holder.GetResource().ToBaseContainer();
-				Print("ACE Settings:");
-				for (int i, count = settingsContainer.GetNumVars(); i < count; i++)
-				{
-					string var = settingsContainer.GetVarName(i);
-					DataVarType type = settingsContainer.GetDataVarType(i);
-					
-					switch (type)
-					{
-						case DataVarType.BOOLEAN:
-							bool val;
-							settingsContainer.Get(var, val);
-							PrintFormat("\t%1: %2", var, val);
-							break;
-						
-						case DataVarType.SCALAR:
-						case DataVarType.INTEGER:
-							float val;
-							settingsContainer.Get(var, val);
-							PrintFormat("\t%1: %2", var, val);
-							break;
-						
-						default:
-							PrintFormat("\t%1: <unknown type, %2>", var, type.ToString());
-					}
-				}
-			}
-			
-			Rpc(RpcDo_Response, response);
-			return;
+			response.m_sContent += m_pSerializer.SerializeContainer(headerContainer);
 		}
+			
+		Rpc(RpcDo_RespondMissionHeader, response);
+			
 	}
 
 	//------------------------------------------------------------------------------------------------
 	[RplRpc(RplChannel.Reliable, RplRcver.Owner)]
-	protected void RpcDo_Response(AFM_SettingsResponse response)
+	protected void RpcDo_RespondMissionHeader(AFM_ContainerTextResponse response)
 	{
+		Print("Mission header response");
+		
+		m_pMissionHeaderResponseInvoker.Invoke(response);
+	}
+	
+	//################################################################################################
+	//! ACE Settings
+	void RequestAceSettings()
+	{
+		Print("Requesting ACE settings");
+		
+		Rpc(RpcAsk_RequestAceSettings, SCR_PlayerController.GetLocalPlayerId());
+	}
+	
+	//------------------------------------------------------------------------------------------------
+	[RplRpc(RplChannel.Reliable, RplRcver.Server)]
+	protected void RpcAsk_RequestAceSettings(int playerId)
+	{
+		AFM_ContainerTextResponse response = new AFM_ContainerTextResponse();
+		
+		ACE_SettingsConfig config = ArmaReforgerScripted.ACE_GetSettingsConfig();
+		foreach(ACE_ModSettings settings : config.GetAllModSettings())
+		{
+			Resource holder = BaseContainerTools.CreateContainerFromInstance(settings);
+			BaseContainer settingsContainer = holder.GetResource().ToBaseContainer();
+			
+			response.m_sContent += m_pSerializer.SerializeContainer(settingsContainer);
+			response.m_sContent += "\n";
+		}
+			
+		Rpc(RpcDo_RespondAceSettings, response);
+	}
 
+	//------------------------------------------------------------------------------------------------
+	[RplRpc(RplChannel.Reliable, RplRcver.Owner)]
+	protected void RpcDo_RespondAceSettings(AFM_ContainerTextResponse response)
+	{
+		Print("ACE settings response");
+		
+		m_pAceSettingsResponseInvoker.Invoke(response);
 	}
 }
 
-class AFM_SettingsNetworkMessage
+void ScriptInvoker_AFM_MissionHeaderResponse(AFM_ContainerTextResponse response);
+typedef func ScriptInvoker_AFM_MissionHeaderResponse;
+typedef ScriptInvokerBase<ScriptInvoker_AFM_MissionHeaderResponse> AFM_ContainerTextResponseInvoker;
+
+class AFM_ContainerTextResponse
 {
-	//! Takes snapshot and encodes it into packet using as few bits as possible.
+	string m_sContent = "";
+	
+	//################################################################################################
+	//! Codec methods
+	//------------------------------------------------------------------------------------------------
+	//! Property mem to snapshot extraction.
+	// Extracts relevant properties from an instance of type T into snapshot. Opposite of Inject()
+	static bool Extract(AFM_ContainerTextResponse instance, ScriptCtx ctx, SSnapSerializerBase reader)
+	{
+		reader.SerializeString(instance.m_sContent);
+		
+		return true;
+	}
+	
+	//! From snapshot to packet.
+	// Takes snapshot and compresses it into packet. Opposite of Decode()
 	static void Encode(SSnapSerializerBase snapshot, ScriptCtx ctx, ScriptBitSerializer packet)
 	{
+		snapshot.EncodeString(packet);
 	}
 
-	//! Takes packet and decodes it into snapshot. Returns true on success or false when an error occurs.
+	//! From packet to snapshot.
+	// Takes packet and decompresses it into snapshot. Opposite of Encode()
 	static bool Decode(ScriptBitSerializer packet, ScriptCtx ctx, SSnapSerializerBase snapshot)
 	{
+		snapshot.DecodeString(packet);
+		
+		return true;
+	}
+	
+	//! Snapshot to property memory injection.
+	// Injects relevant properties from snapshot into an instance of type T . Opposite of Extract()
+	static bool Inject(SSnapSerializerBase writer, ScriptCtx ctx, AFM_ContainerTextResponse instance)
+	{
+		writer.SerializeString(instance.m_sContent);
+		
+		return true;
 	}
 
-	//! Compares two snapshots. Returns true when they match or false otherwise.
+	//! Snapshot to snapshot comparison.
+	// Compares two snapshots to see whether they are the same or not
 	static bool SnapCompare(SSnapSerializerBase lhs, SSnapSerializerBase rhs, ScriptCtx ctx)
 	{
-		return true;
+		return lhs.CompareStringSnapshots(rhs);
+	}
+
+	//! Property mem to snapshot comparison.
+	// Compares instance and a snapshot to see if any property has changed enough to require a new snapshot
+	static bool PropCompare(AFM_ContainerTextResponse instance, SSnapSerializerBase snapshot, ScriptCtx ctx)
+	{
+		return snapshot.CompareString(instance.m_sContent);
 	}
 }
 
-class AFM_SettingsRequest : AFM_SettingsNetworkMessage
-{
-	//! Compares instance against snapshot. Returns true when they match or false otherwise.
-	static bool PropCompare(AFM_SettingsRequest instance, SSnapSerializerBase snapshot, ScriptCtx ctx)
-	{
-		return true;
-	}
 
-	//! Writes data from an instance into snapshot. Opposite of Inject().
-	static bool Extract(AFM_SettingsRequest instance, ScriptCtx ctx, SSnapSerializerBase snapshot)
-	{
-	}
-
-	//! Writes data from snapshot into instance. Opposite of Extract().
-	static bool Inject(SSnapSerializerBase snapshot, ScriptCtx ctx, AFM_SettingsRequest instance)
-	{
-	}
-}
-class AFM_SettingsRequestMissionHeader : AFM_SettingsRequest
-{
-	//! Compares instance against snapshot. Returns true when they match or false otherwise.
-	static bool PropCompare(AFM_SettingsRequestMissionHeader instance, SSnapSerializerBase snapshot, ScriptCtx ctx)
-	{
-		return true;
-	}
-
-	//! Writes data from an instance into snapshot. Opposite of Inject().
-	static bool Extract(AFM_SettingsRequestMissionHeader instance, ScriptCtx ctx, SSnapSerializerBase snapshot)
-	{
-	}
-
-	//! Writes data from snapshot into instance. Opposite of Extract().
-	static bool Inject(SSnapSerializerBase snapshot, ScriptCtx ctx, AFM_SettingsRequestMissionHeader instance)
-	{
-	}
-}
-
-class AFM_SettingsResponse : AFM_SettingsNetworkMessage
-{
-	//! Compares instance against snapshot. Returns true when they match or false otherwise.
-	static bool PropCompare(AFM_SettingsResponse instance, SSnapSerializerBase snapshot, ScriptCtx ctx)
-	{
-		return true;
-	}
-
-	//! Writes data from an instance into snapshot. Opposite of Inject().
-	static bool Extract(AFM_SettingsResponse instance, ScriptCtx ctx, SSnapSerializerBase snapshot)
-	{
-	}
-
-	//! Writes data from snapshot into instance. Opposite of Extract().
-	static bool Inject(SSnapSerializerBase snapshot, ScriptCtx ctx, AFM_SettingsResponse instance)
-	{
-	}
-}
-class AFM_ResponseMissionHeader : AFM_SettingsResponse
-{
-	//! Compares instance against snapshot. Returns true when they match or false otherwise.
-	static bool PropCompare(AFM_ResponseMissionHeader instance, SSnapSerializerBase snapshot, ScriptCtx ctx)
-	{
-		return true;
-	}
-
-	//! Writes data from an instance into snapshot. Opposite of Inject().
-	static bool Extract(AFM_ResponseMissionHeader instance, ScriptCtx ctx, SSnapSerializerBase snapshot)
-	{
-	}
-
-	//! Writes data from snapshot into instance. Opposite of Extract().
-	static bool Inject(SSnapSerializerBase snapshot, ScriptCtx ctx, AFM_ResponseMissionHeader instance)
-	{
-	}
-}
