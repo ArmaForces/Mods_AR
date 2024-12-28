@@ -25,6 +25,8 @@ class AFM_ToolsMenu: SCR_SuperMenuBase
 		AddTestTab();
 		#endif
 		
+		AddServerSettingsTab();
+		
 		m_Tabs.ShowTab(0, playSound: false);
 	}
 	
@@ -37,10 +39,19 @@ class AFM_ToolsMenu: SCR_SuperMenuBase
 			content: "Test 1",
 		);
 		m_Tabs.AddTab(
-			layout: "{7C8EFF077F074206}UI/layouts/Menus/SettingsMenu/EditorSettings.layout",
+			layout: "{0C2FFE60CB37F8CA}UI/layouts/Menus/SettingsMenu/AFM_Tools_TabContentBase.layout",
 			identifier: "test2",
 			content: "Test 2",
 		);
 	}
 #endif
+	
+	private void AddServerSettingsTab()
+	{
+		m_Tabs.AddTab(
+			layout: "{DEC85F306F40902A}UI/layouts/AFM_Tools/AFM_Tools_ServerSettingsSubMenu.layout",
+			identifier: "server-settings",
+			content: "#AFM_Core-AFM_Tools_ServerSettings",
+		);
+	}
 }
