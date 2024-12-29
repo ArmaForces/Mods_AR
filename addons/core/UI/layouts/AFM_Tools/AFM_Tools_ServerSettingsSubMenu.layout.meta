@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{DEC85F306F40902A}UI/layouts/AFM_Tools/AFM_Tools_ServerSettingsSubMenu.layout"
+ Configurations {
+  LayoutResourceClass PC {
+  }
+  LayoutResourceClass XBOX_ONE : PC {
+  }
+  LayoutResourceClass XBOX_SERIES : PC {
+  }
+  LayoutResourceClass PS4 : PC {
+  }
+  LayoutResourceClass PS5 : PC {
+  }
+  LayoutResourceClass HEADLESS : PC {
+  }
+ }
+}

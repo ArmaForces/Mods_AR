@@ -1,13 +1,30 @@
 StringTable {
  ItemClassName "CustomStringTableItem"
  Items {
+  CustomStringTableItem "{6334C6C7D25A5092}" {
+   Id "AFM_Core-AFM_Tools"
+   Target_en_us "AFM Tools"
+   Target_pl_pl "Narzędzia AFM"
+   Modified 1664403421
+   Author "veteran29"
+   LastChanged "veteran29"
+  }
+  CustomStringTableItem "{633A22210415B8CF}" {
+   Id "AFM_Core-AFM_Tools_ServerSettings"
+   Target_en_us "Server Settings"
+   Target_pl_pl "Ustawienia Serwera"
+   Modified 1664754356
+   Author "veteran29"
+   LastChanged "veteran29"
+  }
   CustomStringTableItem "{63336833D030E5A6}" {
    Id "AFM_Core-Settings"
    Target_en_us "ArmaForces"
+   Target_pl_pl "ArmaForces"
    ActorGender NONE
    Terminology NONE
    NonTranslatable 1
-   Modified 1664319029
+   Modified 1664754369
    Author "veteran29"
    LastChanged "veteran29"
   }

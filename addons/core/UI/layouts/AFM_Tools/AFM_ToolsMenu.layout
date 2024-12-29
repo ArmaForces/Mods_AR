@@ -1,0 +1,77 @@
+FrameWidgetClass {
+ Name "AFM_ToolsMenu"
+ components {
+  SCR_SuperMenuComponent "{632CF105ABB3A644}" {
+  }
+ }
+ {
+  OverlayWidgetClass "{632CF10E244EE461}" : "{89D4A2D343602766}UI/layouts/WidgetLibrary/BaseElements/WLib_ReadabilityBackground.layout" {
+   Name "ReadibilityBackground"
+   Slot FrameWidgetSlot "{632CF10E244EE3A1}" {
+    Anchor 0 0 1 1
+    PositionX 0
+    OffsetLeft 0
+    PositionY 0
+    OffsetTop 0
+    SizeX 0
+    OffsetRight 0
+    SizeY 0
+    OffsetBottom 0
+   }
+  }
+  OverlayWidgetClass "{632C29305E86E90A}" : "{6F1E013D3D33703C}UI/layouts/WidgetLibrary/BaseElements/WLib_MenuBaseTabbed.layout" {
+   Name "MenuFrame"
+   Slot FrameWidgetSlot "{54D8A1A69BDC4E85}" {
+   }
+   {
+    SizeLayoutWidgetClass "{589F093B48C39BEF}" {
+     Prefab "{589F093B48C39BEF}"
+     {
+      VerticalLayoutWidgetClass "{589F093B48C39BEC}" {
+       Prefab "{589F093B48C39BEC}"
+       {
+        SizeLayoutWidgetClass "{589F093B48C39BEA}" {
+         Prefab "{589F093B48C39BEA}"
+         {
+          OverlayWidgetClass "{58A07816DC169F57}" {
+           Prefab "{58A07816DC169F57}"
+           {
+            TextWidgetClass "{589F093B48C39BE9}" {
+             Prefab "{589F093B48C39BE9}"
+             Text "AFM Tools"
+            }
+           }
+          }
+         }
+        }
+        VerticalLayoutWidgetClass "{589F093AB3EA94A2}" {
+         Prefab "{589F093AB3EA94A2}"
+         {
+          OverlayWidgetClass "{000000001094E915}" {
+           Prefab "{000000001094E915}"
+           {
+            ImageWidgetClass "{632CF1098E878CFB}" {
+             Name "BackgroundImage"
+             Slot OverlayWidgetSlot "{632CF1098E878C3B}" {
+              HorizontalAlign 3
+              VerticalAlign 3
+             }
+             "Z Order" -128
+             Opacity 0.5
+             Color 0 0 0 1
+             Texture "{A592187FD7874100}UI/Textures/Common/GradientTexture_B80-B60-B0@2x.edds"
+             Size 1024 1024
+             Tiling None
+            }
+           }
+          }
+         }
+        }
+       }
+      }
+     }
+    }
+   }
+  }
+ }
+}
