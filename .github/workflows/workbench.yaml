@@ -58,7 +58,7 @@ jobs:
           -noThrow
           -noSound
           -wbModule=ResourceManager
-          -addonsDir "C:/reforger/addons/,${{ github.workspace }}/Source/addons/"
+          -addonsDir "C:/tools/reforger/addons/,${{ github.workspace }}/Source/addons/"
           -addons "ArmaForces_Mods_Core"
           -profile "${{ github.workspace }}/profile"
           -packAddon
@@ -128,7 +128,7 @@ jobs:
           -noThrow
           -noSound
           -wbModule=ResourceManager
-          -addonsDir "C:/reforger/addons/,${{ github.workspace }}\Source/addons/"
+          -addonsDir "C:/tools/reforger-exp/addons/,${{ github.workspace }}\Source/addons/"
           -addons "ArmaForces_Mods_Core"
           -profile "${{ github.workspace }}/output/profile"
           -packAddon
