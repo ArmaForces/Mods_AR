@@ -24,18 +24,31 @@ jobs:
           STEAM_USERNAME: ${{ secrets.STEAM_USERNAME }}
           STEAM_PASSWORD: ${{ secrets.STEAM_PASSWORD }}
 
+      - name: Checkout upstream
+        uses: actions/checkout@v4
+        with:
+          path: Upstream
+          persist-credentials: false
+
       - name: Steam Client Login
         run: |
           C:\Steam\steam.exe -silent -login ${env:STEAM_USERNAME} ${env:STEAM_PASSWORD}
-          ${{ github.workspace }}\Mod\tools\steam-check.exe
+          ${{ github.workspace }}\Upstream\tools\steam-check.exe
         env:
             STEAM_USERNAME: ${{ secrets.STEAM_USERNAME }}
             STEAM_PASSWORD: ${{ secrets.STEAM_PASSWORD }}
 
       - name: Checkout
         uses: actions/checkout@v4
+        if: ${{ github.event_name != 'pull_request_target' }}
         with:
-          path: Mod
+          path: Source
+      - name: Checkout pull request
+        if: ${{ github.event_name == 'pull_request_target' }}
+        uses: actions/checkout@v4
+        with:
+          path: Source
+          ref: 'refs/pull/${{ github.event.number }}/merge'
 
       - name: Workbench build
         run: >
@@ -45,7 +58,7 @@ jobs:
           -noThrow
           -noSound
           -wbModule=ResourceManager
-          -addonsDir "C:/reforger/addons/,${{ github.workspace }}/Mod/addons/"
+          -addonsDir "C:/reforger/addons/,${{ github.workspace }}/Source/addons/"
           -addons "ArmaForces_Mods_Core"
           -profile "${{ github.workspace }}/profile"
           -packAddon
@@ -81,18 +94,31 @@ jobs:
           STEAM_USERNAME: ${{ secrets.STEAM_USERNAME }}
           STEAM_PASSWORD: ${{ secrets.STEAM_PASSWORD }}
 
+      - name: Checkout upstream
+        uses: actions/checkout@v4
+        with:
+          path: Upstream
+          persist-credentials: false
+
       - name: Steam Client Login
         run: |
           C:\Steam\steam.exe -silent -login ${env:STEAM_USERNAME} ${env:STEAM_PASSWORD}
-          ${{ github.workspace }}\Mod\tools\steam-check.exe
+          ${{ github.workspace }}\Upstream\tools\steam-check.exe
         env:
             STEAM_USERNAME: ${{ secrets.STEAM_USERNAME }}
             STEAM_PASSWORD: ${{ secrets.STEAM_PASSWORD }}
 
       - name: Checkout
         uses: actions/checkout@v4
+        if: ${{ github.event_name != 'pull_request_target' }}
         with:
-          path: Mod
+          path: Source
+      - name: Checkout pull request
+        if: ${{ github.event_name == 'pull_request_target' }}
+        uses: actions/checkout@v4
+        with:
+          path: Source
+          ref: 'refs/pull/${{ github.event.number }}/merge'
 
       - name: Experimental build
         run: >
@@ -102,7 +128,7 @@ jobs:
           -noThrow
           -noSound
           -wbModule=ResourceManager
-          -addonsDir "C:/reforger/addons/,${{ github.workspace }}\Mod/addons/"
+          -addonsDir "C:/reforger/addons/,${{ github.workspace }}\Source/addons/"
           -addons "ArmaForces_Mods_Core"
           -profile "${{ github.workspace }}/output/profile"
           -packAddon
