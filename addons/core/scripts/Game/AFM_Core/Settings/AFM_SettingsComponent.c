@@ -27,7 +27,7 @@ class AFM_SettingsComponent : ScriptComponent
 	//! Mission header
 	void RequestMissionHeader()
 	{
-		Print("Requesting mission header");
+		Print("Requesting mission header", level: LogLevel.DEBUG);
 		
 		Rpc(RpcAsk_RequestMissionHeader, SCR_PlayerController.GetLocalPlayerId());
 	}
@@ -55,7 +55,7 @@ class AFM_SettingsComponent : ScriptComponent
 	[RplRpc(RplChannel.Reliable, RplRcver.Owner)]
 	protected void RpcDo_RespondMissionHeader(AFM_ContainerTextResponse response)
 	{
-		Print("Mission header response");
+		Print("Mission header response", level: LogLevel.DEBUG);
 		
 		m_pMissionHeaderResponseInvoker.Invoke(response);
 	}
@@ -64,7 +64,7 @@ class AFM_SettingsComponent : ScriptComponent
 	//! ACE Settings
 	void RequestAceSettings()
 	{
-		Print("Requesting ACE settings");
+		Print("Requesting ACE settings", level: LogLevel.DEBUG);
 		
 		Rpc(RpcAsk_RequestAceSettings, SCR_PlayerController.GetLocalPlayerId());
 	}
@@ -92,7 +92,7 @@ class AFM_SettingsComponent : ScriptComponent
 	[RplRpc(RplChannel.Reliable, RplRcver.Owner)]
 	protected void RpcDo_RespondAceSettings(AFM_ContainerTextResponse response)
 	{
-		Print("ACE settings response");
+		Print("ACE settings response", level: LogLevel.DEBUG);
 		
 		m_pAceSettingsResponseInvoker.Invoke(response);
 	}
@@ -157,5 +157,3 @@ class AFM_ContainerTextResponse
 		return snapshot.CompareString(instance.m_sContent);
 	}
 }
-
-

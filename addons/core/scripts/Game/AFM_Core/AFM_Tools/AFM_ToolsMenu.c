@@ -12,7 +12,7 @@ class AFM_ToolsMenu: SCR_SuperMenuBase
 	override void OnMenuOpen()
 	{
 		super.OnMenuOpen();		
-		Print("AFM_ServerSettingsMenu - OnMenuInit");
+		Print("AFM_ServerSettingsMenu - OnMenuInit", level: LogLevel.DEBUG);
 		
 		m_wRoot = GetRootWidget();
 		

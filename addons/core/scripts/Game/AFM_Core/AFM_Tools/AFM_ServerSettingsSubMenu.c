@@ -34,7 +34,7 @@ class AFM_ServerSettingsSubMenu : AFM_SubMenuBase
 		
 		if (m_wMissionHeaderText)
 		{
-			Print("UI: Loading mission header data");
+			Print("UI: Loading mission header data", level: LogLevel.DEBUG);
 			
 			settingsComponent.m_pMissionHeaderResponseInvoker.Insert(OnMissionHeader);
 			#ifdef WORKBENCH
@@ -46,7 +46,7 @@ class AFM_ServerSettingsSubMenu : AFM_SubMenuBase
 		
 		if (m_wAceSettingsText)
 		{
-			Print("UI: Loading ACE settings data");
+			Print("UI: Loading ACE settings data", level: LogLevel.DEBUG);
 			
 			settingsComponent.m_pAceSettingsResponseInvoker.Insert(OnAceSettings);
 			#ifdef WORKBENCH

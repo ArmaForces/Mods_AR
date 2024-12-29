@@ -18,6 +18,3 @@ modded class PauseMenuUI: ChimeraMenuBase
 		GetGame().GetMenuManager().OpenMenu(ChimeraMenuPreset.AFM_ToolsMenu);
 	}
 };
-
-
-
