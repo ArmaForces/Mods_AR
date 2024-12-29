@@ -9,24 +9,28 @@ jobs:
   stable:
     if: github.ref_name == 'master'
     name: Stable
-    runs-on: windows-2025
+    runs-on: [self-hosted, Windows, steam]
     steps:
-      - name: Install DepotDownloader
-        run: |
-          winget install --disable-interactivity --accept-source-agreements --exact --id SteamRE.DepotDownloader --location C:\tools
-
       - name: Install Arma Reforger
         run: |
-          C:\tools\DepotDownloader -dir c:\reforger -app 1874880 -username ${env:STEAM_USERNAME} -password ${env:STEAM_PASSWORD}
+          C:\tools\DepotDownloader -dir c:\tools\reforger -app 1874880 -username ${env:STEAM_USERNAME} -password ${env:STEAM_PASSWORD} -validate
         env:
           STEAM_USERNAME: ${{ secrets.STEAM_USERNAME }}
           STEAM_PASSWORD: ${{ secrets.STEAM_PASSWORD }}
       - name: Install Arma Reforger Tools
         run: |
-          C:\tools\DepotDownloader -dir C:\tools -app 1874910 -username ${env:STEAM_USERNAME} -password ${env:STEAM_PASSWORD}
+          C:\tools\DepotDownloader -dir C:\tools\workbench -app 1874910 -username ${env:STEAM_USERNAME} -password ${env:STEAM_PASSWORD} -validate
         env:
           STEAM_USERNAME: ${{ secrets.STEAM_USERNAME }}
           STEAM_PASSWORD: ${{ secrets.STEAM_PASSWORD }}
+
+      - name: Steam Client Login
+        run: |
+          C:\Steam\steam.exe -silent -login ${env:STEAM_USERNAME} ${env:STEAM_PASSWORD}
+          ${{ github.workspace }}\Mod\tools\steam-check.exe
+        env:
+            STEAM_USERNAME: ${{ secrets.STEAM_USERNAME }}
+            STEAM_PASSWORD: ${{ secrets.STEAM_PASSWORD }}
 
       - name: Checkout
         uses: actions/checkout@v4
@@ -35,7 +39,7 @@ jobs:
 
       - name: Workbench build
         run: >
-          C:\tools\Workbench\ArmaReforgerWorkbenchSteamDiag.exe
+          C:\tools\workbench\Workbench\ArmaReforgerWorkbenchSteamDiag.exe
           -enableWARP
           -exitAfterInit
           -noThrow
@@ -62,34 +66,25 @@ jobs:
 
   experimental:
     name: Experimental
-    runs-on: windows-2025
+    runs-on: [self-hosted, Windows, steam]
     steps:
-      - name: Install DepotDownloader
-        run: |
-          winget install --disable-interactivity --accept-source-agreements --exact --id SteamRE.DepotDownloader --location C:\tools
-
       - name: Install Arma Reforger
         run: |
-          C:\tools\DepotDownloader -dir c:\reforger -app 1890860 -username ${env:STEAM_USERNAME} -password ${env:STEAM_PASSWORD}
+          DepotDownloader -dir c:\tools\reforger-exp -app 1890860 -username ${env:STEAM_USERNAME} -password ${env:STEAM_PASSWORD} -validate
         env:
           STEAM_USERNAME: ${{ secrets.STEAM_USERNAME }}
           STEAM_PASSWORD: ${{ secrets.STEAM_PASSWORD }}
       - name: Install Arma Reforger Tools
         run: |
-          C:\tools\DepotDownloader -dir C:\tools -app 1890880 -username ${env:STEAM_USERNAME} -password ${env:STEAM_PASSWORD}
+          DepotDownloader -dir C:\tools\workbench-exp -app 1890880 -username ${env:STEAM_USERNAME} -password ${env:STEAM_PASSWORD} -validate
         env:
           STEAM_USERNAME: ${{ secrets.STEAM_USERNAME }}
           STEAM_PASSWORD: ${{ secrets.STEAM_PASSWORD }}
 
-      - name: Steam Client Install
-        run: |
-          $url = 'https://cdn.akamai.steamstatic.com/client/installer/SteamSetup.exe'
-          Invoke-RestMethod -Uri $url -OutFile SteamSetup.exe
-          .\SteamSetup.exe /S /D=C:\Steam
       - name: Steam Client Login
         run: |
-          C:\Steam\steam.exe -silent -forceservice -login ${env:STEAM_USERNAME} ${env:STEAM_PASSWORD}
-          sleep 10
+          C:\Steam\steam.exe -silent -login ${env:STEAM_USERNAME} ${env:STEAM_PASSWORD}
+          ${{ github.workspace }}\Mod\tools\steam-check.exe
         env:
             STEAM_USERNAME: ${{ secrets.STEAM_USERNAME }}
             STEAM_PASSWORD: ${{ secrets.STEAM_PASSWORD }}
@@ -101,8 +96,7 @@ jobs:
 
       - name: Experimental build
         run: >
-          ${{ github.workspace }}\Mod\tools\steam-check.exe
-          C:\tools\Workbench\ArmaReforgerWorkbenchSteamDiag.exe
+          C:\tools\workbench-exp\Workbench\ArmaReforgerWorkbenchSteamDiag.exe
           -enableWARP
           -exitAfterInit
           -noThrow
@@ -113,11 +107,6 @@ jobs:
           -profile "${{ github.workspace }}/output/profile"
           -packAddon
           -packAddonDir "${{ github.workspace }}/output/pack"
-
-      - name: Test
-        run: |
-          ls ${{ github.workspace }}/output
-          ls ${{ github.workspace }}/pack
 
       - name: Archive profile
         uses: actions/upload-artifact@v4
@@ -131,12 +120,3 @@ jobs:
         with:
           name: Experimental Package
           path: output/pack
-
-      - name: Archive steam logs
-        uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: Experimental Package
-          path: |
-            C:\Steam\logs
-            !C:\Steam\logs\bootstrap_log.txt
