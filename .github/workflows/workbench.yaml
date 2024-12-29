@@ -32,7 +32,7 @@ jobs:
 
       - name: Steam Client Login
         run: |
-          C:\Steam\steam.exe -silent -login ${env:STEAM_USERNAME} ${env:STEAM_PASSWORD}
+          Start-Process "C:\Steam\steam.exe" -ArgumentList "-silent -login ${env:STEAM_USERNAME} ${env:STEAM_PASSWORD}"
           ${{ github.workspace }}\Upstream\tools\steam-check.exe
         env:
             STEAM_USERNAME: ${{ secrets.STEAM_USERNAME }}
@@ -43,12 +43,16 @@ jobs:
         if: ${{ github.event_name != 'pull_request_target' }}
         with:
           path: Source
+          sparse-checkout: |
+            addons
       - name: Checkout pull request
         if: ${{ github.event_name == 'pull_request_target' }}
         uses: actions/checkout@v4
         with:
           path: Source
           ref: 'refs/pull/${{ github.event.number }}/merge'
+          sparse-checkout: |
+            addons
 
       - name: Workbench build
         run: >
@@ -102,7 +106,7 @@ jobs:
 
       - name: Steam Client Login
         run: |
-          C:\Steam\steam.exe -silent -login ${env:STEAM_USERNAME} ${env:STEAM_PASSWORD}
+          Start-Process "C:\Steam\steam.exe" -ArgumentList "-silent -login ${env:STEAM_USERNAME} ${env:STEAM_PASSWORD}"
           ${{ github.workspace }}\Upstream\tools\steam-check.exe
         env:
             STEAM_USERNAME: ${{ secrets.STEAM_USERNAME }}
@@ -113,12 +117,16 @@ jobs:
         if: ${{ github.event_name != 'pull_request_target' }}
         with:
           path: Source
+          sparse-checkout: |
+            addons
       - name: Checkout pull request
         if: ${{ github.event_name == 'pull_request_target' }}
         uses: actions/checkout@v4
         with:
           path: Source
           ref: 'refs/pull/${{ github.event.number }}/merge'
+          sparse-checkout: |
+            addons
 
       - name: Experimental build
         run: >
