@@ -25,6 +25,11 @@ jobs:
           Invoke-WebRequest -Uri "https://github.com/microsoft/winget-cli/releases/download/v$WinGetVer/$WinGetLicenseFile" -OutFile $env:TEMP\license.xml
           Add-AppxProvisionedPackage -Online -PackagePath $env:TEMP\Microsoft.DesktopAppInstaller.WinGet.appx -LicensePath $env:TEMP\license.xml
 
+      - name: Install Desktop Experience
+        run: |
+          Import-Module ServerManager
+          Install-WindowsFeature Desktop-Experience
+
       - name: Install
         run: |
           $url = 'https://cdn.akamai.steamstatic.com/client/installer/SteamSetup.exe'
