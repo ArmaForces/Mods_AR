@@ -27,13 +27,14 @@ class AFM_ServerSettingsSubMenu : AFM_SubMenuBase
 	//------------------------------------------------------------------------------------------------
 	protected void LoadTabData()
 	{
+		SCR_LoadingOverlay.ShowForWidget(m_wRoot);
+		
 		SCR_PlayerController pc = SCR_PlayerController.Cast(GetGame().GetPlayerController());
 		AFM_SettingsComponent settingsComponent = AFM_SettingsComponent.Cast(pc.FindComponent(AFM_SettingsComponent));
 		
 		if (m_wMissionHeaderText)
 		{
 			Print("UI: Loading mission header data");
-			SCR_LoadingOverlay.ShowForWidget(m_wMissionHeaderText.GetParent());
 			
 			settingsComponent.m_pMissionHeaderResponseInvoker.Insert(OnMissionHeader);
 			#ifdef WORKBENCH
@@ -46,7 +47,6 @@ class AFM_ServerSettingsSubMenu : AFM_SubMenuBase
 		if (m_wAceSettingsText)
 		{
 			Print("UI: Loading ACE settings data");
-			SCR_LoadingOverlay.ShowForWidget(m_wAceSettingsText.GetParent());
 			
 			settingsComponent.m_pAceSettingsResponseInvoker.Insert(OnAceSettings);
 			#ifdef WORKBENCH
@@ -62,9 +62,10 @@ class AFM_ServerSettingsSubMenu : AFM_SubMenuBase
 	protected void OnMissionHeader(AFM_ContainerTextResponse response)
 	{
 		m_bLoadedMissionHeader = true;
-		SCR_LoadingOverlay.HideForWidget(m_wMissionHeaderText.GetParent());
 		
 		m_wMissionHeaderText.SetText(response.m_sContent);
+		
+		HandleSpinner();
 	}
 	
 	//------------------------------------------------------------------------------------------------
@@ -72,8 +73,15 @@ class AFM_ServerSettingsSubMenu : AFM_SubMenuBase
 	protected void OnAceSettings(AFM_ContainerTextResponse response)
 	{
 		m_bLoadedAceSettings = true;
-		SCR_LoadingOverlay.HideForWidget(m_wAceSettingsText.GetParent());
 		
 		m_wAceSettingsText.SetText(response.m_sContent);
+		
+		HandleSpinner();
+	}
+	
+	protected void HandleSpinner()
+	{
+		if (m_bLoadedMissionHeader && m_bLoadedAceSettings)
+			SCR_LoadingOverlay.HideForWidget(m_wRoot);
 	}
 }
