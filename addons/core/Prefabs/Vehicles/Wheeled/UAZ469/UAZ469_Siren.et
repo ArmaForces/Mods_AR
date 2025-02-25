@@ -1,0 +1,15 @@
+Vehicle : "{259EE7B78C51B624}Prefabs/Vehicles/Wheeled/UAZ469/UAZ469.et" {
+ ID "44EC665ABD2FF04B"
+ components {
+  SCR_VehicleSoundComponent "{55C2E66AD4EF2CA6}" {
+   Filenames + {
+    "{9B8CF6B67B193DCE}Sounds/Vehicles/Vehicles_UAZ469_Siren.acp"
+   }
+   SoundPoints {
+    SoundPointInfo Siren {
+     Offset 0.4483 2.0147 0.4374
+    }
+   }
+  }
+ }
+}

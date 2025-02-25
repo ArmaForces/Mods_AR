@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{9B8CF6B67B193DCE}Sounds/Vehicles/_SharedData/Vehicles_UAZ469_Siren.acp"
+ Configurations {
+  AudioProjectResourceClass PC {
+  }
+  AudioProjectResourceClass XBOX_ONE : PC {
+  }
+  AudioProjectResourceClass XBOX_SERIES : PC {
+  }
+  AudioProjectResourceClass PS4 : PC {
+  }
+  AudioProjectResourceClass PS5 : PC {
+  }
+  AudioProjectResourceClass HEADLESS : PC {
+  }
+ }
+}
