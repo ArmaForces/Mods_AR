@@ -72,7 +72,7 @@ AudioClass {
    id 2057
    name "SOUND_VEHICLE_SIREN"
    version 5
-   tl 139 -51.9
+   tl 139 -52.9
    ctl 0 -21
    ins {
     ConnectionsClass connections {
@@ -101,7 +101,7 @@ AudioClass {
    outStatePort 17415
    delayTime 250
    transformation Offset
-   offsetName "Horn"
+   offsetName "Siren"
   }
  }
  mixers {
@@ -256,7 +256,7 @@ AudioClass {
    name "Bank 30"
    version 7
    tl -406.205 -52.899
-   Volume -15
+   Volume 9
    "Loop count" 255
    "Infinite loop" 1
    "Terminate Loop" 0
