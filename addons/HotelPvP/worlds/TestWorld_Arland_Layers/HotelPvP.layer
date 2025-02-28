@@ -1,0 +1,48 @@
+SCR_FactionManager FactionManager_USxUSSR1 : "{589540B35EBA8CDC}Prefabs/MP/Managers/Factions/FactionManager_USxUSSR.et" {
+ coords 1380.439 36.327 2352.961
+ Factions {
+  SCR_Faction "{64B67E99688C0FD0}" : "{09727032415AC39B}Configs/Factions/USSR.conf" {
+   FactionKey "CIV"
+   m_bIsPlayable 0
+   m_bShowInWelcomeScreenIfNonPlayable 0
+   m_bIsMilitary 0
+   m_sFactionBackground "{21533F2089005056}UI/Textures/DeployMenu/Loadout-BG/Loadout_BG_USSR.imageset"
+  }
+ }
+}
+AFM_FactoryPvPGameMode AFM_FactoryPvPGameMode1 : "{AE65065120241660}Prefabs/MP/Modes/AFM_FactoryPvPGameMode.et" {
+ components {
+  SCR_CustomAreaMeshComponent "{64B2AC457E72AFFD}" {
+   m_fRadius 30
+  }
+ }
+ coords 1371.14 43.981 2350.642
+ m_sDefenderFactionKey "USSR"
+ m_iGameStartDelaySeconds 30
+ m_iGameOverTimeMinutes 2
+ m_TimeoutWinnerFactionKey "USSR"
+ m_iGameAreaRadius 30
+}
+SCR_SpawnPoint : "{4FEA25583D0975F7}Prefabs/MP/Spawning/SpawnPoint_USSR.et" {
+ coords 1380.512 36.323 2352.694
+}
+SCR_ChimeraCharacter : "{516BB3588749F92A}Prefabs/Characters/Factions/CIV/Businessman/Character_CIV_Hostage.et" {
+ coords 1373.921 37.581 2346.078
+}
+SCR_SpawnPoint : "{5A2220DD0C16958B}Prefabs/MP/Spawning/SpawnPoint_US.et" {
+ coords 1343.806 37.097 2399.528
+}
+SCR_LoadoutManager : "{97EF4C1A41F63DDB}Prefabs/MP/Managers/Loadouts/LoadoutManager_USxUSSR.et" {
+ coords 1380.724 36.311 2351.921
+}
+$grp SCR_EditorRestrictionZoneEntity : "{EF72FA7CD87618D5}PrefabsEditable/RestrictionZone/E_EditorRestrictionZoneSmall.et" {
+ defenders_zone {
+  coords 1376.423 43.981 2351.607
+ }
+ attackers_zone {
+  coords 1348.678 36.053 2399.665
+ }
+}
+SCR_SpawnPoint spectator_spawn : "{F26BA0860D54B7DF}Prefabs/MP/Spawning/SpawnPoint_CIV.et" {
+ coords 1509.971 39.124 2387.534
+}
