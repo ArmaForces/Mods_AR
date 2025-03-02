@@ -1,0 +1,148 @@
+SCR_FactionManager FactionManager_Editor1 : "{4A188E44289B9A50}Prefabs/MP/Managers/Factions/FactionManager_Editor.et" {
+ coords 5832.264 4.562 9781.747
+ Factions {
+  SCR_Faction "{5978B9CE6585BBE8}" {
+   m_bIsPlayable 1
+   m_aPredefinedGroups {
+    SCR_GroupPreset "{64C47C7DDD5EAFA6}" {
+     m_sGroupName "AFRF"
+     m_iGroupSize 16
+    }
+   }
+   m_bCreateOnlyPredefinedGroups 1
+  }
+  SCR_Faction "{5CC8DE37E1FF0F7A}" {
+   m_bIsPlayable 1
+   m_aPredefinedGroups {
+    SCR_GroupPreset "{64C47C7DD1645CBE}" {
+     m_sGroupName "USAF"
+     m_iGroupSize 16
+    }
+   }
+   m_bCreateOnlyPredefinedGroups 1
+  }
+ }
+}
+AFM_FactoryPvPGameMode AFM_FactoryPvPGameMode1 : "{AE65065120241660}Prefabs/MP/Modes/AFM_FactoryPvPGameMode.et" {
+ components {
+  SCR_CampaignMilitaryBaseMapDescriptorComponent "{64B68C182A3DEE46}" {
+   DisplayName "Factory"
+   MainType "Icon (generic)"
+   m_GraphLinesData SCR_GraphLinesData "{64B68C1828C877C6}" {
+   }
+  }
+ }
+ coords 5817.999 4.563 9795.731
+ m_sDefenderFactionKey "RHS_USAF"
+ m_sAttackerFactionKey "RHS_AFRF"
+ m_TimeoutWinnerFactionKey "RHS_USAF"
+}
+SCR_LoadoutManager : "{06D7053D08A0FD00}Prefabs/MP/Managers/Loadouts/LoadoutManager_USMCxMSV.et" {
+ coords 5831.796 4.563 9781.212
+}
+GenericEntity : "{115B814BA42CF5FA}PrefabsEditable/Auto/Systems/Arsenal/ArsenalBoxes/USSR/E_ArsenalBox_RHS.et" {
+ coords 5185.259 40.451 10479.131
+ angleY -146.437
+}
+GenericEntity : "{314C0961EF3B6787}PrefabsEditable/Auto/Systems/Arsenal/ArsenalBoxes/US/E_ArsenalBox_USMC.et" {
+ coords 5803.666 5.132 9790.953
+}
+$grp Vehicle : "{447CFE8D73F95C3E}Prefabs/Vehicles/Wheeled/BTR70/BTR70_AFRF.et" {
+ BTR70_AFRF1 {
+  coords 5163.032 40.437 10449.481
+  angleY -134.663
+ }
+ BTR70_AFRF2 {
+  coords 5168.909 40.472 10458.136
+  angleY -165.826
+ }
+}
+SCR_SpawnPoint : "{4FEA25583D0975F7}Prefabs/MP/Spawning/SpawnPoint_USSR.et" {
+ components {
+  SCR_MapDescriptorComponent "{54C659A97C47BDE2}" {
+   DisplayName "Redfor spawn"
+   VisibleOnMap 1
+  }
+ }
+ coords 5178.651 41.408 10469.226
+ angleY 39.481
+ m_sFaction "RHS_AFRF"
+}
+SCR_ChimeraCharacter : "{516BB3588749F92A}Prefabs/Characters/Factions/CIV/Character_CIV_Hostage.et" {
+ coords 5815.904 12.731 9789.543
+}
+SCR_SpawnPoint : "{5A2220DD0C16958B}Prefabs/MP/Spawning/SpawnPoint_US.et" {
+ components {
+  SCR_MapDescriptorComponent "{54C659A97C47BDE2}" {
+   DisplayName "Blufor spawn"
+   VisibleOnMap 1
+  }
+ }
+ coords 5818.067 4.563 9794.935
+ angleY -80.572
+ m_sFaction "RHS_USAF"
+ m_Info SCR_UIInfo "{56B4CC4ECACA2C37}" {
+ }
+}
+SCR_EditorRestrictionZoneEntity attackers_zone : "{6144B0BE2EAC6897}PrefabsEditable/RestrictionZone/E_EditorRestrictionZoneMedium.et" {
+ coords 5178.007 40.356 10447.571
+}
+$grp GenericEntity : "{64C9C1D1C2C1B38D}Prefabs/Props/Infrastructure/Roadblocks/RoadBlock_01.et" {
+ {
+  coords 5352.953 19.246 9964.286
+ }
+ {
+  coords 5355.645 19.27 9964.309
+ }
+ {
+  coords 5358.249 19.206 9964.441
+ }
+}
+Vehicle Mi8MT_armed_black1 : "{80C975F8482DEE97}Prefabs/Vehicles/Helicopters/Mi8MT/Mi8MT_armed_black.et" {
+ coords 5199.695 42.86 10425.09
+ angleY -131.876
+}
+GenericEntity : "{8CA93330EA43EA78}PrefabsEditable/Auto/Props/Military/Compositions/USSR/E_ArsenalBox_USSR.et" {
+ coords 5187.823 40.307 10477.498
+ angleY 16.898
+}
+$grp Vehicle : "{A61E5C16E9A2161A}Prefabs/Vehicles/Wheeled/K4386/K4386.et" {
+ K1 {
+  coords 5182.43 40.386 10452.885
+  angleY -106.033
+ }
+ K2 {
+  coords 5190.931 40.223 10457.904
+  angleY -132.026
+ }
+ K3 {
+  coords 5172.238 40.468 10448.108
+  angleY -133.464
+ }
+}
+SCR_EditorRestrictionZoneEntity defenders_zone : "{B2A519402E9AC209}PrefabsEditable/RestrictionZone/E_EditorRestrictionZoneLarge.et" {
+ coords 5819.064 21.1 9795.319
+}
+$grp GenericEntity : "{C026AEDDA55DB43C}Prefabs/Props/Military/Arsenal/AmmoBoxes/US/AmmoBoxArsenal_Launcher_US.et" {
+ {
+  coords 5797.304 16.517 9790.523
+  angleY -41.293
+ }
+ {
+  coords 5819.327 19.741 9789.972
+ }
+}
+GenericEntity : "{C1AB654F77ABA58B}PrefabsEditable/Auto/Props/Military/Compositions/US/E_ArsenalBox_US.et" {
+ coords 5803.239 5.132 9792.404
+}
+StaticModelEntity : "{C1AE5D901C3A93C6}PrefabsEditable/Auto/Structures/Military/Camps/HelipadImprovised_01/E_HelipadImprovised_USSR_01.et" {
+ coords 5199.864 1.268 10425.194
+ angleY 50.267
+}
+Vehicle K4386_Armed_Tan1 : "{E836092AB606CE4A}Prefabs/Vehicles/Wheeled/K4386/K4386_Armed_Tan.et" {
+ coords 5165.419 40.439 10441.152
+ angleY -136.031
+}
+SCR_SpawnPoint spectator_spawn : "{F26BA0860D54B7DF}Prefabs/MP/Spawning/SpawnPoint_CIV.et" {
+ coords 7392.54 2.569 9564.197
+}

@@ -13,7 +13,7 @@ class AFM_FactoryPvPGameMode : SCR_BaseGameMode
 	[Attribute( defvalue: "180", desc: "Time in seconds to delay game start")]
 	int m_iGameStartDelaySeconds;
 	
-	[Attribute( defvalue: "15", desc: "Time in minutes before redfor wins")]
+	[Attribute( defvalue: "15", desc: "Time in minutes before defenders win")]
 	int m_iGameOverTimeMinutes;
 	
 	[Attribute("FIA", UIWidgets.EditBox, "Faction that wins on timeout. Empty for a tie")]
@@ -71,17 +71,14 @@ class AFM_FactoryPvPGameMode : SCR_BaseGameMode
 		if (!m_bHasGameStarted)
 			return;
 		
-		Faction killedFaction = FactionAffiliationComponent.Cast(entity.FindComponent(FactionAffiliationComponent))
-			.GetAffiliatedFaction();
-		
-		if (!killedFaction)
+		FactionAffiliationComponent fac = FactionAffiliationComponent.Cast(entity.FindComponent(FactionAffiliationComponent));
+		if (!fac) 
 		{
 			Print("Unknown victim faction!", LogLevel.WARNING);
 			return;
 		}
 		
-		FactionKey fKey = killedFaction.GetFactionKey();
-		
+		FactionKey fKey = fac.GetAffiliatedFactionKey();	
 		if (fKey == m_sAttackerFactionKey || fKey == m_sDefenderFactionKey)
 		{
 			HandlePlayerDeath(entity);
@@ -106,6 +103,11 @@ class AFM_FactoryPvPGameMode : SCR_BaseGameMode
 				else if (killerFactionKey == m_sDefenderFactionKey)
 				{
 					GameEndAttackersWin();
+				}
+				else
+				{
+					PrintFormat("Unsuported killer faction! %1", killerFactionKey, level:LogLevel.ERROR);
+					GameEndTie();
 				}
 			}
 		}
@@ -224,14 +226,11 @@ class AFM_FactoryPvPGameMode : SCR_BaseGameMode
 	
 	protected bool FilterHostageEntities(IEntity entity)
 	{
-		if(entity.Type() == SCR_ChimeraCharacter)
-		{
-			Faction faction = FactionAffiliationComponent.Cast(entity.FindComponent(FactionAffiliationComponent))
-				.GetAffiliatedFaction();
+		if(entity.Type() != SCR_ChimeraCharacter)
+			return false; 
 		
-			if (faction && faction.GetFactionKey() == "CIV") return true;
-		}
-		return false;
+		FactionAffiliationComponent fac = FactionAffiliationComponent.Cast(entity.FindComponent(FactionAffiliationComponent));
+		return fac && fac.GetAffiliatedFactionKey() == "CIV";
 	}
 	
 	void TimeoutGameEnd()
