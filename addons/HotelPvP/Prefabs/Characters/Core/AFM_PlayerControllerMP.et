@@ -1,0 +1,77 @@
+SCR_PlayerController : "{6E2BB64764E3BE9B}Prefabs/Characters/Core/DefaultPlayerController.et" {
+ ID "1A9BA6BEFA06E3B1"
+ components {
+  AFM_SpectatorComponent "{64B129088A93202C}" {
+  }
+  RadioHandlerComponent "{64B129088284A43D}" {
+  }
+  SCR_CampaignBuildingNetworkComponent "{64B129088284A431}" {
+  }
+  SCR_ChatComponent "{64B129088284A44F}" {
+  }
+  SCR_CompositionInfoHandlerComponent "{64B129088284A44D}" {
+  }
+  SCR_DataCollectorCommunicationComponent "{64B129088284A44C}" {
+  }
+  SCR_HUDManagerComponent "{2FDC275D9EBCDB8B}" {
+   InfoDisplays {
+    SCR_ScreenEffectsManager "{5AF2CE6B10209B7D}" {
+     InfoDisplays {
+      SCR_BleedingScreenEffect "{5AF2CE6885B03B63}" {
+       m_sAdaptiveOpacityWidgetName "AdaptiveOpacity-Blood"
+      }
+     }
+    }
+    SCR_XPInfoDisplay "{5CAAA2EB38829858}" {
+     m_bShowWhenCreated 0
+    }
+    SCR_CompositionInfoDisplay "{64B129088284A45C}" {
+     m_LayoutPath "{DB7AE399AA22C2E2}UI/layouts/HUD/CompositionInfo/CompositionInfo.layout"
+     m_eLayer HIGH
+     m_bShowWhenCreated 0
+     m_eShow 6
+    }
+    AFM_ScoreInfoDisplay "{64B28103AE2BE2FF}" {
+     m_LayoutPath "{7D29410847E0B056}UI/layouts/HUD/AFM_ScoreMainHUD.layout"
+     m_eLayer ALWAYS_TOP
+    }
+   }
+  }
+  SCR_KickHintComponent "{64B129088284A457}" {
+  }
+  SCR_MapMarkerSyncComponent "{64B129088284A456}" {
+  }
+  SCR_PlayerDeployMenuHandlerComponent "{64B129088284A455}" {
+  }
+  SCR_PlayerFactionAffiliationComponent "{64B129088284A454}" {
+  }
+  SCR_PlayerLoadoutComponent "{64B129088284A453}" {
+  }
+  SCR_ReconnectSynchronizationComponent "{64B129088284A452}" {
+  }
+  SCR_ResourcePlayerControllerInventoryComponent "{64B129088284A451}" {
+  }
+  SCR_RespawnComponent "{64B129088284A466}" {
+   components {
+    SCR_FreeSpawnRequestComponent "{64B129088284A465}" {
+    }
+    SCR_PossessSpawnRequestComponent "{64B129088284A464}" {
+    }
+    SCR_SpawnPointRespawnRequestComponent "{64B129088284A463}" {
+    }
+   }
+  }
+  SCR_SpawnLockComponent "{64B129088284A462}" {
+  }
+  SCR_TaskNetworkComponent "{64B129088284A461}" {
+  }
+  SocialComponent "{64B129088284A460}" {
+  }
+  RplComponent "{64B129088284A47F}" {
+   "Self Insert" 0
+   Streamable Disabled
+  }
+ }
+ coords 0 0 0
+ SelfRegister 0
+}

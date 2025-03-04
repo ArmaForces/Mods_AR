@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{F5CDEDB82BE9E35E}worlds/CaptureAndHold/AF_PvP_Factory.ent"
+ Configurations {
+  ENTResourceClass PC {
+  }
+  ENTResourceClass XBOX_ONE : PC {
+  }
+  ENTResourceClass XBOX_SERIES : PC {
+  }
+  ENTResourceClass PS4 : PC {
+  }
+  ENTResourceClass PS5 : PC {
+  }
+  ENTResourceClass HEADLESS : PC {
+  }
+ }
+}

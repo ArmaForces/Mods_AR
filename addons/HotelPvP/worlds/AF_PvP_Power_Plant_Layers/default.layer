@@ -1,0 +1,171 @@
+SCR_FactionManager FactionManager_USxUSSR1 : "{589540B35EBA8CDC}Prefabs/MP/Managers/Factions/FactionManager_USxUSSR.et" {
+ coords 5819.071 4.564 9796.869
+ Factions {
+  SCR_Faction "{56B2B46E999BF3BF}" {
+   m_aPredefinedGroups {
+    SCR_GroupPreset "{64B476E175963F98}" {
+     m_iGroupSize 16
+    }
+   }
+   m_bCreateOnlyPredefinedGroups 1
+  }
+  SCR_Faction "{56B2B46E9AF80999}" {
+   m_aPredefinedGroups {
+    SCR_GroupPreset "{64B476E167BC440F}" {
+     m_iGroupSize 16
+    }
+   }
+   m_bCreateOnlyPredefinedGroups 1
+  }
+  SCR_Faction "{64B51ECA7B54BDE1}" {
+   FactionKey "CIV"
+   FactionColor 0.8196 0.9373 0.9373 1
+   m_bIsPlayable 0
+   m_bShowInWelcomeScreenIfNonPlayable 0
+   m_bIsMilitary 0
+  }
+ }
+}
+AFM_FactoryPvPGameMode AFM_FactoryPvPGameMode1 : "{AE65065120241660}Prefabs/MP/Modes/AFM_FactoryPvPGameMode.et" {
+ components {
+  SCR_CampaignMilitaryBaseMapDescriptorComponent "{64B68C182A3DEE46}" {
+   DisplayName "Factory"
+   MainType "Icon (generic)"
+   m_GraphLinesData SCR_GraphLinesData "{64B68C1828C877C6}" {
+   }
+  }
+ }
+ coords 5817.999 4.563 9795.731
+ m_sDefenderFactionKey "US"
+ m_sAttackerFactionKey "USSR"
+ m_TimeoutWinnerFactionKey "US"
+}
+Vehicle UAZ469_PKM1 : "{0B4DEA8078B78A9B}Prefabs/Vehicles/Wheeled/UAZ469/UAZ469_PKM.et" {
+ coords 5177.292 40.407 10450.585
+ angleY -125.882
+}
+Vehicle BRDM1 : "{254289B9C09904AB}Prefabs/Vehicles/Wheeled/BRDM2/BRDM2.et" {
+ coords 5171.652 40.583 10445.886
+ angleY -133.524
+}
+$grp Vehicle : "{259EE7B78C51B624}Prefabs/Vehicles/Wheeled/UAZ469/UAZ469.et" {
+ UAZ4 {
+  coords 5187.428 40.265 10456.964
+  angleY -128.201
+ }
+ UAZ5 {
+  coords 5193.212 40.161 10461.841
+  angleY -128.201
+  {
+   Vehicle UAZ469_PKM2 : "{0B4DEA8078B78A9B}Prefabs/Vehicles/Wheeled/UAZ469/UAZ469_PKM.et" {
+    coords 0.346 0.23 13.646
+    angleY 2.319
+   }
+  }
+ }
+}
+SCR_SpawnPoint : "{4FEA25583D0975F7}Prefabs/MP/Spawning/SpawnPoint_USSR.et" {
+ components {
+  SCR_MapDescriptorComponent "{54C659A97C47BDE2}" {
+   DisplayName "Redfor spawn"
+   VisibleOnMap 1
+  }
+ }
+ coords 5178.651 41.408 10469.226
+ angleY 39.481
+}
+SCR_ChimeraCharacter : "{516BB3588749F92A}Prefabs/Characters/Factions/CIV/Businessman/Character_CIV_Hostage.et" {
+ coords 5815.904 12.731 9789.543
+}
+SCR_SpawnPoint : "{5A2220DD0C16958B}Prefabs/MP/Spawning/SpawnPoint_US.et" {
+ components {
+  SCR_MapDescriptorComponent "{54C659A97C47BDE2}" {
+   DisplayName "Blufor spawn"
+   VisibleOnMap 1
+  }
+ }
+ coords 5818.067 4.563 9794.935
+ angleY -80.572
+ m_Info SCR_UIInfo "{56B4CC4ECACA2C37}" {
+ }
+}
+SCR_EditorRestrictionZoneEntity attackers_zone : "{6144B0BE2EAC6897}PrefabsEditable/RestrictionZone/E_EditorRestrictionZoneMedium.et" {
+ coords 5178.007 40.356 10447.571
+}
+$grp GenericEntity : "{64C9C1D1C2C1B38D}Prefabs/Props/Infrastructure/Roadblocks/RoadBlock_01.et" {
+ {
+  coords 5352.953 19.246 9964.286
+ }
+ {
+  coords 5355.645 19.27 9964.309
+ }
+ {
+  coords 5358.249 19.206 9964.441
+ }
+}
+Vehicle Mi8MT_armed1 : "{7BD282AF716ED639}Prefabs/Vehicles/Helicopters/Mi8MT/Mi8MT_armed.et" {
+ coords 5199.949 43.058 10425.361
+ angleY -130.007
+}
+GenericEntity : "{8CA93330EA43EA78}PrefabsEditable/Auto/Props/Military/Compositions/USSR/E_ArsenalBox_USSR.et" {
+ coords 5187.823 40.307 10477.498
+ angleY 16.898
+}
+SCR_LoadoutManager LoadoutManager : "{97EF4C1A41F63DDB}Prefabs/MP/Managers/Loadouts/LoadoutManager_USxUSSR.et" {
+ coords 7568.646 166.722 4200.58
+ m_aPlayerLoadouts {
+  SCR_FactionPlayerLoadout "{56B2B461C34A570F}" {
+   m_sLoadoutResource "{36E28C628A2F83CB}Prefabs/Characters/Factions/BLUFOR/US_Army/GreenBerets/Character_US_SF.et"
+  }
+  SCR_FactionPlayerLoadout "{5A2494BE3D648F60}" {
+   m_sLoadoutResource "{6E1E87ECA5F5A7EA}Prefabs/Characters/Factions/BLUFOR/US_Army/GreenBerets/Character_US_SF_LMG.et"
+  }
+  SCR_FactionPlayerLoadout "{56B2B461C275B309}" {
+   m_sLoadoutName "#AR-Role_Medic"
+   m_sLoadoutResource "{9A234C5857D92187}Prefabs/Characters/Factions/BLUFOR/US_Army/GreenBerets/Character_US_SF_Medic.et"
+  }
+  SCR_FactionPlayerLoadout "{56B2B461C7495F41}" {
+   m_sLoadoutResource "{C110498284A5418F}Prefabs/Characters/Factions/BLUFOR/US_Army/GreenBerets/Character_US_SF_GL.et"
+  }
+  SCR_FactionPlayerLoadout "{56B2B461C047DCDA}" {
+   m_sLoadoutName "#AR-Role_Sapper"
+   m_sLoadoutResource "{FCA76613163633F8}Prefabs/Characters/Factions/BLUFOR/US_Army/GreenBerets/Character_US_SF_Sapper.et"
+  }
+  SCR_FactionPlayerLoadout "{56B2B4613C48D08E}" {
+   m_sLoadoutName "#AR-Role_Sharpshooter"
+   m_sLoadoutResource "{ADC2DE949F566202}Prefabs/Characters/Factions/BLUFOR/US_Army/GreenBerets/Character_US_SF_Sharpshooter.et"
+  }
+ }
+}
+SCR_EditorRestrictionZoneEntity defenders_zone : "{B2A519402E9AC209}PrefabsEditable/RestrictionZone/E_EditorRestrictionZoneLarge.et" {
+ coords 5819.064 21.1 9795.319
+}
+$grp Vehicle : "{C012BB3488BEA0C2}Prefabs/Vehicles/Wheeled/BTR70/BTR70.et" {
+ BTR1 {
+  coords 5165.3 40.467 10452.654
+  angleY -132.078
+ }
+ BTR2 {
+  coords 5169.047 40.678 10462.496
+  angleY 157.748
+ }
+}
+$grp GenericEntity : "{C026AEDDA55DB43C}Prefabs/Props/Military/Arsenal/AmmoBoxes/US/AmmoBoxArsenal_Launcher_US.et" {
+ {
+  coords 5797.304 16.517 9790.523
+  angleY -41.293
+ }
+ {
+  coords 5819.327 19.741 9789.972
+ }
+}
+GenericEntity : "{C1AB654F77ABA58B}PrefabsEditable/Auto/Props/Military/Compositions/US/E_ArsenalBox_US.et" {
+ coords 5803.239 5.132 9792.404
+}
+StaticModelEntity : "{C1AE5D901C3A93C6}PrefabsEditable/Auto/Structures/Military/Camps/HelipadImprovised_01/E_HelipadImprovised_USSR_01.et" {
+ coords 5199.864 1.268 10425.194
+ angleY 50.267
+}
+SCR_SpawnPoint spectator_spawn : "{F26BA0860D54B7DF}Prefabs/MP/Spawning/SpawnPoint_CIV.et" {
+ coords 7392.54 2.569 9564.197
+}
