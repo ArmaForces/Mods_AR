@@ -40,12 +40,9 @@ AFM_FactoryPvPGameMode AFM_FactoryPvPGameMode1 : "{AE65065120241660}Prefabs/MP/M
 SCR_LoadoutManager : "{06D7053D08A0FD00}Prefabs/MP/Managers/Loadouts/LoadoutManager_USMCxMSV.et" {
  coords 5831.796 4.563 9781.212
 }
-GenericEntity : "{115B814BA42CF5FA}PrefabsEditable/Auto/Systems/Arsenal/ArsenalBoxes/USSR/E_ArsenalBox_RHS.et" {
- coords 5185.259 40.451 10479.131
- angleY -146.437
-}
-GenericEntity : "{314C0961EF3B6787}PrefabsEditable/Auto/Systems/Arsenal/ArsenalBoxes/US/E_ArsenalBox_USMC.et" {
- coords 5803.666 5.132 9790.953
+Vehicle Mi8MT_armed_gunship_HE1 : "{3C6B3ED0C3AC30D5}Prefabs/Vehicles/Helicopters/Mi8MT/Mi8MT_armed_gunship_HE.et" {
+ coords 5198.595 43.011 10423.661
+ angleY -135.085
 }
 $grp Vehicle : "{447CFE8D73F95C3E}Prefabs/Vehicles/Wheeled/BTR70/BTR70_AFRF.et" {
  BTR70_AFRF1 {
@@ -98,14 +95,6 @@ $grp GenericEntity : "{64C9C1D1C2C1B38D}Prefabs/Props/Infrastructure/Roadblocks/
   coords 5358.249 19.206 9964.441
  }
 }
-Vehicle Mi8MT_armed_black1 : "{80C975F8482DEE97}Prefabs/Vehicles/Helicopters/Mi8MT/Mi8MT_armed_black.et" {
- coords 5199.695 42.86 10425.09
- angleY -131.876
-}
-GenericEntity : "{8CA93330EA43EA78}PrefabsEditable/Auto/Props/Military/Compositions/USSR/E_ArsenalBox_USSR.et" {
- coords 5187.823 40.307 10477.498
- angleY 16.898
-}
 $grp Vehicle : "{A61E5C16E9A2161A}Prefabs/Vehicles/Wheeled/K4386/K4386.et" {
  K1 {
   coords 5182.43 40.386 10452.885
@@ -131,9 +120,6 @@ $grp GenericEntity : "{C026AEDDA55DB43C}Prefabs/Props/Military/Arsenal/AmmoBoxes
  {
   coords 5819.327 19.741 9789.972
  }
-}
-GenericEntity : "{C1AB654F77ABA58B}PrefabsEditable/Auto/Props/Military/Compositions/US/E_ArsenalBox_US.et" {
- coords 5803.239 5.132 9792.404
 }
 StaticModelEntity : "{C1AE5D901C3A93C6}PrefabsEditable/Auto/Structures/Military/Camps/HelipadImprovised_01/E_HelipadImprovised_USSR_01.et" {
  coords 5199.864 1.268 10425.194

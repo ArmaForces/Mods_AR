@@ -1,6 +1,15 @@
 SCR_FactionManager FactionManager_Editor1 : "{4A188E44289B9A50}Prefabs/MP/Managers/Factions/FactionManager_Editor.et" {
  coords 0.158 0 0.285
  Factions {
+  SCR_Faction "{5978B9CE6585BBE8}" {
+   m_bIsPlayable 1
+   m_aPredefinedGroups {
+    SCR_GroupPreset "{64C712591F46D6BB}" {
+     m_iGroupSize 16
+    }
+   }
+   m_bCreateOnlyPredefinedGroups 1
+  }
   SCR_Faction "{5CC8DE37E1FF0F7A}" {
    m_bIsPlayable 1
    m_aPredefinedGroups {
@@ -12,7 +21,6 @@ SCR_FactionManager FactionManager_Editor1 : "{4A188E44289B9A50}Prefabs/MP/Manage
    m_bCreateOnlyPredefinedGroups 1
   }
   SCR_Faction "{623962205CE2B89C}" {
-   m_bIsPlayable 1
    m_aPredefinedGroups {
     SCR_GroupPreset "{64C47C7D786A849D}" {
      m_sGroupName "ION"
@@ -25,59 +33,76 @@ SCR_FactionManager FactionManager_Editor1 : "{4A188E44289B9A50}Prefabs/MP/Manage
 }
 AFM_FactoryPvPGameMode AFM_FactoryPvPGameMode1 : "{AE65065120241660}Prefabs/MP/Modes/AFM_FactoryPvPGameMode.et" {
  coords 4555.337 15.924 10505.342
- m_sDefenderFactionKey "RHS_ION"
+ m_sDefenderFactionKey "RHS_AFRF"
  m_sAttackerFactionKey "RHS_USAF"
  m_iGameStartDelaySeconds 120
- m_TimeoutWinnerFactionKey "RHS_ION"
+ m_TimeoutWinnerFactionKey "RHS_AFRF"
 }
 SCR_LoadoutManager : "{06D7053D08A0FD00}Prefabs/MP/Managers/Loadouts/LoadoutManager_USMCxMSV.et" {
  coords 7568.505 166.733 4200.586
  m_aPlayerLoadouts {
+  SCR_FactionPlayerLoadout "{60D6AED1C5667A88}" {
+   m_sLoadoutName "MARSOC Rifleman"
+   m_sLoadoutResource "{844936B168DFAB8E}Prefabs/Characters/Factions/BLUFOR/RHS_USAF/RHS_USAF_MARSOC/RandomSoldiers/Character_RHS_USMC_MARSOC_Rifleman_Random.et"
+   m_sLoadoutImage "{4DFD95342C30F489}UI/Textures/EditorPreviews/Characters/Factions/BLUFOR/RHS_USAF/RHS_USAF_USMC_MARSOC/Character_RHS_USAF_MARSOC_Rifleman.edds"
+  }
+  SCR_FactionPlayerLoadout "{60D6AED1D7D99389}" {
+   m_sLoadoutName "MARSOC AR"
+   m_sLoadoutResource "{94ACC9A48C12D7F0}Prefabs/Characters/Factions/BLUFOR/RHS_USAF/RHS_USAF_MARSOC/RandomSoldiers/Character_RHS_USMC_MARSOC_MG_Random.et"
+   m_sLoadoutImage "{6C7AB146D8BF7840}UI/Textures/EditorPreviews/Characters/Factions/BLUFOR/RHS_USAF/RHS_USAF_USMC_MARSOC/Character_RHS_USAF_MARSOC_MG.edds"
+  }
+  SCR_FactionPlayerLoadout "{60D6AED1D31FB6E0}" {
+   m_sLoadoutName "MARSOC Scout"
+   m_sLoadoutResource "{5FFB5E82E116C52A}Prefabs/Characters/Factions/BLUFOR/RHS_USAF/RHS_USAF_MARSOC/RandomSoldiers/Character_RHS_USMC_MARSOC_Scout_Random.et"
+   m_sLoadoutImage "{A952530A3EA02F12}UI/Textures/EditorPreviews/Characters/Factions/BLUFOR/RHS_USAF/RHS_USAF_USMC_MARSOC/Character_RHS_USAF_MARSOC_Scout.edds"
+  }
+  SCR_FactionPlayerLoadout "{60D6AED1D630262F}" {
+   m_sLoadoutName "MARSOC GL"
+   m_sLoadoutResource "{35045678DE9B4034}Prefabs/Characters/Factions/BLUFOR/RHS_USAF/RHS_USAF_MARSOC/RandomSoldiers/Character_RHS_USMC_MARSOC_GL_Random.et"
+   m_sLoadoutImage "{232D011149C72B97}UI/Textures/EditorPreviews/Characters/Factions/BLUFOR/RHS_USAF/RHS_USAF_USMC_MARSOC/Character_RHS_USAF_MARSOC_GL.edds"
+  }
+  SCR_FactionPlayerLoadout "{60D6AED1C892C4FC}" {
+   m_sLoadoutName "MARSOC LAT"
+   m_sLoadoutResource "{5CFA2E738637EEA0}Prefabs/Characters/Factions/BLUFOR/RHS_USAF/RHS_USAF_MARSOC/RandomSoldiers/Character_RHS_USMC_MARSOC_LAT_Random.et"
+   m_sLoadoutImage "{919FB820D4BCCC43}UI/Textures/EditorPreviews/Characters/Factions/BLUFOR/RHS_USAF/RHS_USAF_USMC_MARSOC/Character_RHS_USAF_MARSOC_LAT.edds"
+  }
+  SCR_FactionPlayerLoadout "{60D6AED1D57AB4A9}" {
+   m_sLoadoutName "MARSOC Sniper"
+   m_sLoadoutResource "{8DE8E6B2CB15EFA5}Prefabs/Characters/Factions/BLUFOR/RHS_USAF/RHS_USAF_MARSOC/Character_RHS_USMC_MARSOC_Sniper.et"
+   m_sLoadoutImage "{0E43E00BD99B6C94}UI/Textures/EditorPreviews/Characters/Factions/BLUFOR/RHS_USAF/RHS_USAF_USMC_MARSOC/Character_RHS_USAF_MARSOC_Sniper.edds"
+  }
   SCR_FactionPlayerLoadout "{60D6AED0560D4234}" {
-   m_sLoadoutName "ION Rifleman"
-   m_sLoadoutResource "{A33B018249DE49E6}Prefabs/Characters/Factions/INDFOR/RHS_ION_Urban/Character_RHS_ION_Urban_Rifleman.et"
-   m_sLoadoutImage "{CA2D71E8A8F8898A}UI/Textures/EditorPreviews/Characters/Factions/INDFOR/ION/Character_RHS_ION_Rifleman.edds"
-   m_sAffiliatedFaction "RHS_ION"
+   m_sLoadoutResource "{E55C5AB67AC54638}Prefabs/Characters/Factions/OPFOR/RHS_AFRF/MSV/VKPO3_EMR/RandomSoldiers/Character_RHS_RF_MSV_VKPO_3.0_Rifleman_Random.et"
+   m_sLoadoutImage "{B48E514E8E7F84DE}UI/Textures/EditorPreviews/Characters/Factions/OPFOR/RHS_AFRF/MSV/VKPO_3_EMR/Character_RHS_RF_MSV_VKPO_3_EMR_Rifleman.edds"
   }
   SCR_FactionPlayerLoadout "{60D6AED0550DD4A3}" {
-   m_sLoadoutName "ION Marksman"
-   m_sLoadoutResource "{FEF9EEE562103D3E}Prefabs/Characters/Factions/INDFOR/RHS_ION/Character_RHS_ION_Marksman.et"
-   m_sLoadoutImage "{9DDCE25612C07661}UI/Textures/EditorPreviews/Characters/Factions/INDFOR/ION/Character_RHS_ION_Marksman.edds"
-   m_sAffiliatedFaction "RHS_ION"
+   m_sLoadoutResource "{9346DF38AE9494D5}Prefabs/Characters/Factions/OPFOR/RHS_AFRF/MSV/VKPO3_EMR/RandomSoldiers/Character_RHS_RF_MSV_VKPO_3.0_AR_Random.et"
+   m_sLoadoutImage "{E6F926EBCCEF6C07}UI/Textures/EditorPreviews/Characters/Factions/OPFOR/RHS_AFRF/MSV/VKPO_3_EMR/Character_RHS_RF_MSV_VKPO_3_EMR_AR.edds"
   }
   SCR_FactionPlayerLoadout "{60D6AED1D0319498}" {
-   m_sLoadoutName "ION Medic"
-   m_sLoadoutResource "{EADBC108CFAFA662}Prefabs/Characters/Factions/INDFOR/RHS_ION_Coy/Character_RHS_ION_Coy_Medic.et"
-   m_sLoadoutImage "{D1EA10E1349CF70C}UI/Textures/EditorPreviews/Characters/Factions/INDFOR/ION/Character_RHS_ION_Medic.edds"
-   m_sAffiliatedFaction "RHS_ION"
+   m_sLoadoutResource "{C8338815A75BDEBB}Prefabs/Characters/Factions/OPFOR/RHS_AFRF/MSV/VKPO3_EMR/RandomSoldiers/Character_RHS_RF_MSV_VKPO_3.0_MG_Random.et"
+   m_sLoadoutImage "{7394ED6AE115D99E}UI/Textures/EditorPreviews/Characters/Factions/OPFOR/RHS_AFRF/MSV/VKPO_3_EMR/Character_RHS_RF_MSV_VKPO_3_EMR_MG.edds"
   }
   SCR_FactionPlayerLoadout "{60D6AED1D23A1D9B}" {
-   m_sLoadoutName "ION SL"
-   m_sLoadoutResource "{EDECFE7965364081}Prefabs/Characters/Factions/INDFOR/RHS_ION/Character_RHS_ION_SL.et"
-   m_sAffiliatedFaction "RHS_ION"
+   m_sLoadoutResource "{699B17C9F5D2497F}Prefabs/Characters/Factions/OPFOR/RHS_AFRF/MSV/VKPO3_EMR/RandomSoldiers/Character_RHS_RF_MSV_VKPO_3.0_GL_Random.et"
+   m_sLoadoutImage "{3CC35D3D706D8A49}UI/Textures/EditorPreviews/Characters/Factions/OPFOR/RHS_AFRF/MSV/VKPO_3_EMR/Character_RHS_RF_MSV_VKPO_3_EMR_GL.edds"
   }
   SCR_FactionPlayerLoadout "{60D6AED1D1C85AFC}" {
-   m_sLoadoutName "ION Scout"
-   m_sLoadoutResource "{AB12C80AE86DC7DD}Prefabs/Characters/Factions/INDFOR/RHS_ION/Character_RHS_ION_Scout.et"
-   m_sLoadoutImage "{51E8849416E1D906}UI/Textures/EditorPreviews/Characters/Factions/INDFOR/ION/Character_RHS_ION_Scout.edds"
-   m_sAffiliatedFaction "RHS_ION"
+   m_sLoadoutResource "{C70E907F4348588B}Prefabs/Characters/Factions/OPFOR/RHS_AFRF/MSV/VKPO3_EMR/RandomSoldiers/Character_RHS_RF_MSV_VKPO_3.0_AT_Random.et"
+   m_sLoadoutImage "{5B29746CB3F47019}UI/Textures/EditorPreviews/Characters/Factions/OPFOR/RHS_AFRF/MSV/VKPO_3_EMR/Character_RHS_RF_MSV_VKPO_3_EMR_AT.edds"
   }
   SCR_FactionPlayerLoadout "{60D6AED1A14D066F}" {
-   m_sLoadoutName "ION Rifleman D"
-   m_sLoadoutResource "{8C08158988558DE5}Prefabs/Characters/Factions/INDFOR/RHS_ION_Urban_demi/Character_RHS_ION_Urban_D_Rifleman10.et"
-   m_sLoadoutImage "{CA2D71E8A8F8898A}UI/Textures/EditorPreviews/Characters/Factions/INDFOR/ION/Character_RHS_ION_Rifleman.edds"
-   m_sAffiliatedFaction "RHS_ION"
+   m_sLoadoutName "MSV Scout"
+   m_sLoadoutResource "{D87665716F12FFA5}Prefabs/Characters/Factions/OPFOR/RHS_AFRF/MSV/VKPO3_EMR/RandomSoldiers/Character_RHS_RF_MSV_VKPO_3.0_Scout_Random.et"
+   m_sLoadoutImage "{DC713F4AAE3D3CA0}UI/Textures/EditorPreviews/Characters/Factions/OPFOR/RHS_AFRF/MSV/VKPO_3_EMR/Character_RHS_RF_MSV_VKPO_3_EMR_Scout.edds"
   }
  }
-}
-GenericEntity : "{314C0961EF3B6787}PrefabsEditable/Auto/Systems/Arsenal/ArsenalBoxes/US/E_ArsenalBox_USMC.et" {
- coords 4650.871 27.98 11144.961
 }
 $grp SCR_SpawnPoint : "{4FEA25583D0975F7}Prefabs/MP/Spawning/SpawnPoint_USSR.et" {
  Spawn_FIA {
   coords 4559.581 15.924 10505.128
   angleY 71
-  m_sFaction "RHS_ION"
+  m_sFaction "RHS_AFRF"
   m_Info SCR_UIInfo "{56B4CC4ECACA2C37}" {
    Name "#AR-CAH-SpawnArea_USSR_A"
   }
@@ -104,9 +129,6 @@ SCR_SpawnPoint Spawn_US : "{5A2220DD0C16958B}Prefabs/MP/Spawning/SpawnPoint_US.e
 }
 SCR_EditorRestrictionZoneEntity defenders_zone : "{6144B0BE2EAC6897}PrefabsEditable/RestrictionZone/E_EditorRestrictionZoneMedium.et" {
  coords 4666.393 27.513 11134.705
-}
-GenericEntity : "{691477161637ECDB}Prefabs/Systems/Arsenal/ArsenalBoxes/ION/ArsenalBox_RHS_ION.et" {
- coords 4563.895 17.074 10500.168
 }
 Turret : "{73530808E4B455BA}Prefabs/Weapons/Tripods/Tripod_M3_M2HB.et" {
  coords 4564.564 28.643 10519.518
