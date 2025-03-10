@@ -1,0 +1,31 @@
+SCR_ChimeraCharacter : "{A4203789B673EC30}Prefabs/Characters/Factions/BLUFOR/UK_Army/1983/Reservists/Character_UK_1983_Reservist_BaseLoadout.et" {
+ ID "520EC961A090B1EE"
+ components {
+  SCR_CharacterFactionAffiliationComponent "{610725BE89F30BF3}" {
+   "faction affiliation" "FIA"
+  }
+  CharacterWeaponSlotComponent "{520EA1D2F659CFAB}" {
+   WeaponTemplate "{CBD34D12DBF4372D}Prefabs/Weapons/MachineGuns/L4LMG/MG_L4_LMG_base.et"
+  }
+  BaseLoadoutManagerComponent "{520EA1D2DB11821E}" {
+   Slots {
+    LoadoutSlotInfo Hat {
+     Prefab "{6E3CF6FD00EEDA1D}Prefabs/Characters/HeadGear/Hat_Knitted_01/Cap_Comforter_OD_02.et"
+    }
+    LoadoutSlotInfo Jacket {
+     Prefab "{17DBD854BFF6CD8D}Prefabs/Characters/Uniforms/Shirt_Turtleneck_01/Shirt_Turtleneck_01_grey_Dirty.et"
+    }
+   }
+  }
+  SCR_InventoryStorageManagerComponent "{520EA1D2DB118DE5}" {
+   InitialInventoryItems {
+    ItemsInitConfigurationItem "{610CC3129E7848BC}" {
+     TargetStorage ""
+     PrefabsToSpawn {
+      "{67C5246E0C695B1C}Prefabs/Weapons/Magazines/Box_762x51_GPMG_50rnd_4Ball_1Tracer.et" "{67C5246E0C695B1C}Prefabs/Weapons/Magazines/Box_762x51_GPMG_50rnd_4Ball_1Tracer.et" "{B96D0983B475C226}Prefabs/Weapons/Magazines/Box_762x51_GPMG_200rnd_1Ball_1Tracer.et"
+     }
+    }
+   }
+  }
+ }
+}

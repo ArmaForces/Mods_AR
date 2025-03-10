@@ -1,0 +1,39 @@
+SCR_ChimeraCharacter : "{A4203789B673EC30}Prefabs/Characters/Factions/BLUFOR/UK_Army/1983/Reservists/Character_UK_1983_Reservist_BaseLoadout.et" {
+ ID "520EC961A090B1EE"
+ components {
+  SCR_CharacterFactionAffiliationComponent "{610725BE89F30BF3}" {
+   "faction affiliation" "FIA"
+  }
+  CharacterWeaponSlotComponent "{520EA1D2F659CFAB}" {
+   WeaponTemplate "{232DA7FA5FC47802}Prefabs/Weapons/Rifles/MP5/Rifle_MP5SD3.et"
+  }
+  BaseLoadoutManagerComponent "{520EA1D2DB11821E}" {
+   Slots {
+    LoadoutSlotInfo Hat {
+     Prefab "{E12126CDE731EED5}Prefabs/Characters/HeadGear/Hat_Boonie_US_01/Hat_Boonie_US_01.et"
+    }
+    LoadoutSlotInfo Jacket {
+     Prefab "{3CCA7A9BB4FD3197}Prefabs/Characters/Uniforms/Jacket_US_BDU_rolledup.et"
+    }
+    LoadoutSlotInfo Back {
+     Prefab "{5C5C6EE05EE2FF1A}Prefabs/Items/Equipment/Backpacks/Backpack_ALICE_Medium_assembled.et"
+    }
+   }
+  }
+  SCR_InventoryStorageManagerComponent "{520EA1D2DB118DE5}" {
+   InitialInventoryItems {
+    ItemsInitConfigurationItem "{610CC3129E7848BC}" {
+     PrefabsToSpawn {
+      "{046AA0F20A54842A}Prefabs/Weapons/Magazines/Magazine_9x19_MP5_30rnd_Ball.et" "{046AA0F20A54842A}Prefabs/Weapons/Magazines/Magazine_9x19_MP5_30rnd_Ball.et" "{046AA0F20A54842A}Prefabs/Weapons/Magazines/Magazine_9x19_MP5_30rnd_Ball.et" "{046AA0F20A54842A}Prefabs/Weapons/Magazines/Magazine_9x19_MP5_30rnd_Ball.et"
+     }
+    }
+    ItemsInitConfigurationItem "{610CC31278A75ED6}" {
+     TargetStorage "Back/Backpack_ALICE_Medium_assembled.et"
+     PrefabsToSpawn {
+      "{3909998CAFD62EA3}Prefabs/Weapons/Explosives/DemoBlock_Hayrick/DemoBlock_Hayrick.et" "{3909998CAFD62EA3}Prefabs/Weapons/Explosives/DemoBlock_Hayrick/DemoBlock_Hayrick.et" "{9F268F34D83C9519}Prefabs/Items/Equipment/Detonators/BlastingMachine_M34/BlastingMachine_Shrike.et" "{C095EAC7646B4362}Prefabs/Weapons/Attachments/Optics/Flashlight_MP5/Flashlight_MP5.et"
+     }
+    }
+   }
+  }
+ }
+}

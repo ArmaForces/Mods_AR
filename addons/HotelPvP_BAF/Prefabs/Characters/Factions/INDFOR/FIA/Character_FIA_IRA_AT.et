@@ -1,0 +1,33 @@
+SCR_ChimeraCharacter : "{A4203789B673EC30}Prefabs/Characters/Factions/BLUFOR/UK_Army/1983/Reservists/Character_UK_1983_Reservist_BaseLoadout.et" {
+ ID "520EC961A090B1EE"
+ components {
+  SCR_CharacterFactionAffiliationComponent "{610725BE89F30BF3}" {
+   "faction affiliation" "FIA"
+  }
+  CharacterWeaponSlotComponent "{520EA1D2F659CFAB}" {
+   WeaponTemplate "{ADDB4062CA2910CB}Prefabs/Weapons/Rifles/L2A3/Rifle_L2A3_Sterling.et"
+  }
+  CharacterWeaponSlotComponent "{520EA1D2F659CFB7}" {
+   WeaponTemplate "{E0CFA3FE78FC5190}Prefabs/Weapons/Launchers/M72/Launcher_LAW66_L1A1.et"
+  }
+  BaseLoadoutManagerComponent "{520EA1D2DB11821E}" {
+   Slots {
+    LoadoutSlotInfo Hat {
+     Prefab "{0268C21DBC2A5533}Prefabs/Characters/HeadGear/Hat_Knitted_01/Cap_Comforter_OD_01.et"
+    }
+    LoadoutSlotInfo Jacket {
+     Prefab "{CC2BAD4EACC9B2CA}Prefabs/Characters/Uniforms/Jacket_TAZ83/Jacket_TAZ83_01.et"
+    }
+   }
+  }
+  SCR_InventoryStorageManagerComponent "{520EA1D2DB118DE5}" {
+   InitialInventoryItems {
+    ItemsInitConfigurationItem "{610CC3129E7848BC}" {
+     PrefabsToSpawn {
+      "{01F56F6D9A15D96A}Prefabs/Weapons/Magazines/Magazine_9x19_L2A3_34rnd_BattleMix.et" "{01F56F6D9A15D96A}Prefabs/Weapons/Magazines/Magazine_9x19_L2A3_34rnd_BattleMix.et" "{01F56F6D9A15D96A}Prefabs/Weapons/Magazines/Magazine_9x19_L2A3_34rnd_BattleMix.et" "{01F56F6D9A15D96A}Prefabs/Weapons/Magazines/Magazine_9x19_L2A3_34rnd_BattleMix.et" "{01F56F6D9A15D96A}Prefabs/Weapons/Magazines/Magazine_9x19_L2A3_34rnd_BattleMix.et"
+     }
+    }
+   }
+  }
+ }
+}

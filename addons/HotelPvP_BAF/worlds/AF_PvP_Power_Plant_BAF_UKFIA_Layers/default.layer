@@ -1,0 +1,239 @@
+SCR_FactionManager FactionManager_Editor1 : "{4A188E44289B9A50}Prefabs/MP/Managers/Factions/FactionManager_Editor.et" {
+ coords 5819.742 4.563 9796.783
+ Factions {
+  SCR_Faction "{56DEAC40D3C2E623}" {
+   m_aPredefinedGroups {
+    SCR_GroupPreset "{64D4A0B20D830D94}" {
+     m_iGroupSize 16
+    }
+   }
+   m_bCreateOnlyPredefinedGroups 1
+  }
+  SCR_Faction "{56DEAC40D132400B}" {
+   m_bIsPlayable 1
+   m_aPredefinedGroups {
+    SCR_GroupPreset "{64D4A0B3EAF0F027}" {
+     m_iGroupSize 16
+    }
+   }
+   m_bCreateOnlyPredefinedGroups 1
+  }
+  SCR_Faction "{61500924662B6062}" {
+   m_aPredefinedGroups {
+    SCR_GroupPreset "{64D4A0B3EC5B2009}" {
+     m_iGroupSize 16
+    }
+   }
+   m_bCreateOnlyPredefinedGroups 1
+  }
+ }
+}
+AFM_FactoryPvPGameMode AFM_FactoryPvPGameMode1 : "{AE65065120241660}Prefabs/MP/Modes/AFM_FactoryPvPGameMode.et" {
+ components {
+  SCR_TimeAndWeatherHandlerComponent "{64D4A0F354C14B79}" {
+   m_iStartingHours 4
+   m_iStartingMinutes 30
+   m_bRandomStartingDaytime 1
+   m_bRandomStartingDaytimeRange 1
+   m_iRangeHoursStart 2
+   m_iRangeHoursEnd 6
+   m_bRandomStartingWeather 1
+   m_aStartingWeatherAndTime {
+    SCR_TimeAndWeatherState "{64D4A0F3640D1FF7}" {
+     m_sWeatherPresetName "Cloudy"
+     m_iStartingHour 5
+    }
+    SCR_TimeAndWeatherState "{64D4A0F305E5A98B}" {
+     m_sWeatherPresetName "Cumulus"
+     m_iStartingHour 7
+    }
+    SCR_TimeAndWeatherState "{64D5401A62D668E6}" {
+     m_sWeatherPresetName "Clear"
+     m_iStartingHour 6
+     m_iStartingMinutes 3
+    }
+   }
+   m_bRandomWeatherChanges 1
+  }
+ }
+ coords 5817.999 4.563 9795.731
+ m_sAttackerFactionKey "UK"
+}
+Vehicle CVRW_Fox_Conflict1 : "{0F3A3B91E2496B96}Prefabs/Vehicles/Wheeled/Conflict_Variants/CVRW_Fox_Conflict.et" {
+ coords 5168.957 40.431 10442.055
+ angleY -125.181
+}
+$grp Vehicle : "{3026F7740CC47876}Prefabs/Vehicles/Helicopters/UH1H/UH1H_armed_UK.et" {
+ UH1H_armed_UK1 {
+  coords 5189.604 43.113 10427.045
+  angleY -131.577
+ }
+ UH1H_armed_UK2 {
+  coords 5203.814 43.413 10410.973
+  angleY -131.577
+ }
+}
+SCR_SpawnPoint : "{4FEA25583D0975F7}Prefabs/MP/Spawning/SpawnPoint_USSR.et" {
+ coords 5178.651 41.408 10469.226
+ angleY 39.481
+ m_sFaction "UK"
+ m_bShowInDeployMapOnly 1
+ m_Info SCR_UIInfo "{56B4CC4ECACA2C37}" {
+  Name "UK Point"
+  Icon "{3D7611428BC67C09}UI/Icons/Flag_UK.edds"
+ }
+}
+SCR_ChimeraCharacter : "{516BB3588749F92A}Prefabs/Characters/Factions/CIV/Character_CIV_Hostage.et" {
+ coords 5815.904 12.731 9789.543
+}
+SCR_SpawnPoint : "{5A2220DD0C16958B}Prefabs/MP/Spawning/SpawnPoint_US.et" {
+ components {
+  SCR_MapDescriptorComponent "{54C659A97C47BDE2}" {
+   DisplayName "Blufor spawn"
+   VisibleOnMap 1
+  }
+ }
+ coords 5818.067 4.563 9794.935
+ angleY -80.572
+ m_sFaction "FIA"
+ m_Info SCR_UIInfo "{56B4CC4ECACA2C37}" {
+  Name "IRA"
+  Icon ""
+ }
+}
+SCR_EditorRestrictionZoneEntity attackers_zone : "{6144B0BE2EAC6897}PrefabsEditable/RestrictionZone/E_EditorRestrictionZoneMedium.et" {
+ coords 5178.007 40.356 10447.571
+}
+$grp GenericEntity : "{641BE0766BB1874E}PrefabsEditable/Auto/Props/Military/Compositions/UK/E_ArsenalBox_UK.et" {
+ {
+  coords 5803.102 5.132 9792.458
+  angleY 178.898
+ }
+ {
+  coords 5190.429 40.087 10477.011
+ }
+}
+$grp GenericEntity : "{64C9C1D1C2C1B38D}Prefabs/Props/Infrastructure/Roadblocks/RoadBlock_01.et" {
+ {
+  coords 5352.953 19.246 9964.286
+ }
+ {
+  coords 5355.645 19.27 9964.309
+ }
+ {
+  coords 5358.249 19.206 9964.441
+ }
+}
+SCR_LoadoutManager LoadoutManager : "{97EF4C1A41F63DDB}Prefabs/MP/Managers/Loadouts/LoadoutManager_USxUSSR.et" {
+ coords 7568.646 166.722 4200.58
+ m_aPlayerLoadouts {
+  SCR_FactionPlayerLoadout "{56B2B461C34A570F}" {
+   m_sLoadoutResource "{0E74C9F36755655C}Prefabs/Characters/Factions/BLUFOR/UK_Army/1983/SpecialForces/Character_UK_1983_SpecialForces_Trooper.et"
+   m_sLoadoutImage "{370752C993F4B330}UI/PreviewImages/Characters/BLUFOR/BritishForces/Character_UK_1989_SpecialForces_Trooper.edds"
+   m_sAffiliatedFaction "UK"
+  }
+  SCR_FactionPlayerLoadout "{5A2494BE3D648F60}" {
+   m_sLoadoutResource "{6B8AAFA0B37BD53A}Prefabs/Characters/Factions/BLUFOR/UK_Army/1983/SpecialForces/Character_UK_1983_SpecialForces_LMG.et"
+   m_sLoadoutImage "{0BFC4FFBD27A398A}UI/PreviewImages/Characters/BLUFOR/BritishForces/Character_UK_1989_SpecialForces_GPMG.edds"
+   m_sAffiliatedFaction "UK"
+  }
+  SCR_FactionPlayerLoadout "{56B2B461C275B309}" {
+   m_sLoadoutName "#AR-Role_Medic"
+   m_sLoadoutResource "{DF457B105509006C}Prefabs/Characters/Factions/BLUFOR/UK_Army/1983/SpecialForces/Character_UK_1983_SpecialForces_Medic.et"
+   m_sLoadoutImage "{504470CD21453045}UI/PreviewImages/Characters/BLUFOR/BritishForces/Character_UK_1989_SpecialForces_Medic.edds"
+   m_sAffiliatedFaction "UK"
+  }
+  SCR_FactionPlayerLoadout "{56B2B461C7495F41}" {
+   m_sLoadoutResource "{34480F9B2A83A8F3}Prefabs/Characters/Factions/BLUFOR/UK_Army/1983/SpecialForces/Character_UK_1983_SpecialForces_GL.et"
+   m_sLoadoutImage "{1A449DDBB60B5BB0}UI/PreviewImages/Characters/BLUFOR/BritishForces/Character_UK_1989_SpecialForces_GL.edds"
+   m_sAffiliatedFaction "UK"
+  }
+  SCR_FactionPlayerLoadout "{56B2B461C047DCDA}" {
+   m_sLoadoutName "Saboteur"
+   m_sLoadoutResource "{5CF7B3F937BA66ED}Prefabs/Characters/Factions/BLUFOR/UK_Army/1983/SpecialForces/Character_UK_1983_SpecialForces_Saboteur.et"
+   m_sLoadoutImage "{A99F4E9627797A4A}UI/PreviewImages/Characters/BLUFOR/BritishForces/Character_UK_1989_SpecialForces_Saboteur.edds"
+   m_sAffiliatedFaction "UK"
+  }
+  SCR_FactionPlayerLoadout "{56B2B4613C48D08E}" {
+   m_sLoadoutName "#AR-Role_Sharpshooter"
+   m_sLoadoutResource "{C7F673EEC46863F2}Prefabs/Characters/Factions/BLUFOR/UK_Army/1983/SpecialForces/Character_UK_1983_SpecialForces_Sharpshooter.et"
+   m_sLoadoutImage "{FD3A1EA97198DE1C}UI/PreviewImages/Characters/BLUFOR/BritishForces/Character_UK_1989_SpecialForces_Sharpshooter.edds"
+   m_sAffiliatedFaction "UK"
+  }
+  SCR_FactionPlayerLoadout "{56B2B46134D39388}" {
+   m_sLoadoutName "Rifleman"
+   m_sLoadoutResource "{1EF5DE828E00A293}Prefabs/Characters/Factions/INDFOR/FIA/Character_FIA_IRA_BaseLoadout.et"
+   m_sAffiliatedFaction "FIA"
+  }
+  SCR_FactionPlayerLoadout "{5A2494B91167F3F6}" {
+   m_sLoadoutResource "{7E98FE2237537E6D}Prefabs/Characters/Factions/INDFOR/FIA/Character_FIA_IRA_AR.et"
+   m_sLoadoutImage "{D8533B7EA429F949}UI/Textures/EditorPreviews/Characters/INDFOR/FIA/Character_FIA_AMG.edds"
+   m_sAffiliatedFaction "FIA"
+  }
+  SCR_FactionPlayerLoadout "{56B2B4613DCD3341}" {
+   m_sLoadoutResource "{A63097E34EDA6031}Prefabs/Characters/Factions/INDFOR/FIA/Character_FIA_IRA_AT.et"
+   m_sLoadoutImage "{D8CD3A9B019B8CD2}UI/Textures/EditorPreviews/Characters/INDFOR/FIA/Character_FIA_AT.edds"
+   m_sAffiliatedFaction "FIA"
+  }
+  SCR_FactionPlayerLoadout "{56B2B4613581570A}" {
+   m_sLoadoutResource "{A46E0025A56E67DE}Prefabs/Characters/Factions/INDFOR/FIA/Character_FIA_IRA_Sharpshooter.et"
+   m_sLoadoutImage "{8EFE184F9A90211B}UI/Textures/EditorPreviews/Characters/INDFOR/FIA/Character_FIA_Sharpshooter.edds"
+   m_sAffiliatedFaction "FIA"
+  }
+  SCR_FactionPlayerLoadout "{64D4A08E7F54DE15}" {
+   m_sLoadoutName "Saboteur"
+   m_sLoadoutResource "{712BC035D9CE80F9}Prefabs/Characters/Factions/INDFOR/FIA/Character_FIA_IRA_Saboteur.et"
+   m_sLoadoutImage "{2918EC1A27CCE92E}UI/Textures/EditorPreviews/Characters/INDFOR/FIA/Character_FIA_AC_Grenadier.edds"
+   m_sAffiliatedFaction "FIA"
+  }
+ }
+}
+$grp Vehicle : "{A223CBB0F2C45372}Prefabs/Vehicles/Wheeled/M998/M998_covered_long_UK.et" {
+ M998_covered_long_UK1 {
+  coords 5176.555 40.478 10447.999
+  angleY -128.875
+ }
+ M998_covered_long_UK2 {
+  coords 5182.025 40.419 10451.65
+  angleY -114.719
+ }
+ M998_covered_long_UK3 {
+  coords 5188.17 40.333 10453.612
+  angleY -115.047
+ }
+}
+SCR_EditorRestrictionZoneEntity defenders_zone : "{B2A519402E9AC209}PrefabsEditable/RestrictionZone/E_EditorRestrictionZoneLarge.et" {
+ coords 5819.064 21.1 9795.319
+}
+$grp StaticModelEntity : "{C1AE5D901C3A93C6}PrefabsEditable/Auto/Structures/Military/Camps/HelipadImprovised_01/E_HelipadImprovised_USSR_01.et" {
+ {
+  coords 5189 1.618 10427.02
+  angleY 50.267
+ }
+ {
+  coords 5203.211 1.125 10410.944
+  angleY 50.267
+ }
+}
+GenericEntity : "{C4A574FD7579FD7B}PrefabsEditable/Auto/Props/Military/Compositions/UK/E_ArsenalBox_UK_Weapons.et" {
+ components {
+  SCR_ArsenalComponent "{56F2C6D1431AD9AF}" {
+   m_eSupportedArsenalItemTypes ROCKET_LAUNCHER
+   m_eSupportedArsenalItemModes 20
+  }
+ }
+ coords 5819.432 19.739 9789.934
+}
+$grp Vehicle : "{DE212249DB017567}Prefabs/Vehicles/Wheeled/M151A2/M151A2_transport_UK.et" {
+ M151A2_transport_UK1 {
+  coords 5165.483 40.469 10452.475
+  angleY -138.498
+ }
+ M151A2_transport_UK2 {
+  coords 5168.075 40.527 10460.451
+  angleY -176.211
+ }
+}
+SCR_SpawnPoint spectator_spawn : "{F26BA0860D54B7DF}Prefabs/MP/Spawning/SpawnPoint_CIV.et" {
+ coords 7392.54 2.569 9564.197
+}

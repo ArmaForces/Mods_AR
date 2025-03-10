@@ -1,0 +1,59 @@
+GenericEntity Area1 : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Components/Area.et" {
+ components {
+  SCR_ScenarioFrameworkArea "{59E8CDC50969206E}" {
+   m_iDynamicDespawnRange 7500
+  }
+ }
+ coords 5174.505 40.438 10456.483
+ {
+  $grp GenericEntity : "{E537867C6E760514}Prefabs/Systems/ScenarioFramework/Components/SlotMarker.et" {
+   SlotMarker1 {
+    components {
+     SCR_ScenarioFrameworkSlotMarker "{5EA2BD9901E5E82E}" {
+      m_MapMarkerType SCR_ScenarioFrameworkMarkerCustom "{64D4A0BC99863DD6}" {
+       m_sMapMarkerText "Powerplant"
+       m_eMapMarkerIcon DEFEND
+       m_eMapMarkerColor BLUFOR
+      }
+     }
+    }
+    coords 661.038 -35.877 -673.387
+   }
+   SlotMarker3 {
+    components {
+     SCR_ScenarioFrameworkSlotMarker "{5EA2BD9901E5E82E}" {
+      m_MapMarkerType SCR_ScenarioFrameworkMarkerCustom "{64D4A0BC99863DD6}" {
+       m_sMapMarkerText "REDFOR Spawn"
+       m_eMapMarkerIcon FLAG
+       m_eMapMarkerColor RED
+      }
+     }
+    }
+    coords -1.807 0.031 -3.45
+   }
+   SlotMarker4 {
+    components {
+     SCR_ScenarioFrameworkSlotMarker "{5EA2BD9901E5E82E}" {
+      m_MapMarkerType SCR_ScenarioFrameworkMarkerCustom "{64D4A0BC99863DD6}" {
+       m_eMapMarkerIcon DIRECTION_OF_ATTACK
+       m_eMapMarkerColor RED
+       m_iMapMarkerRotation 75
+      }
+     }
+    }
+    coords 108.295 -13.539 -238.647
+   }
+   SlotMarker5 {
+    components {
+     SCR_ScenarioFrameworkSlotMarker "{5EA2BD9901E5E82E}" {
+      m_MapMarkerType SCR_ScenarioFrameworkMarkerCustom "{64D4A0BC99863DD6}" {
+       m_eMapMarkerIcon DIRECTION_OF_ATTACK
+       m_eMapMarkerColor RED
+      }
+     }
+    }
+    coords 412.466 -17.609 -525.201
+   }
+  }
+ }
+}
