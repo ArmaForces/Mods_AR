@@ -1,0 +1,32 @@
+SCR_FactionManager FactionManager_Editor1 : "{4A188E44289B9A50}Prefabs/MP/Managers/Factions/FactionManager_Editor.et" {
+ coords 108.197 1 106.016
+ Factions {
+  SCR_Faction "{56DEAC40D2DBC8B1}" {
+   m_bIsPlayable 1
+  }
+ }
+}
+RadioManagerEntity : "{B8E09FAB91C4ECCD}Prefabs/Radio/RadioManager.et" {
+ coords 117.694 1 92.987
+}
+SCR_GameModeEditor GameMode_Editor_Full1 : "{DA3986AF1B5032B7}Prefabs/MP/Modes/Editor/GameMode_Editor_Full.et" {
+ components {
+  SCR_RespawnSystemComponent "{56B2B4793051E7C9}" {
+   m_SpawnLogic SCR_MenuSpawnLogic "{5D44B78DAD98E7F9}" {
+   }
+  }
+ }
+ coords 111.135 1 104.052
+}
+RadioBroadcastManager : "{66B93BC296E2F977}Prefabs/Radio/RadioBroadcastManager.et" {
+ coords 114.054 1 97.059
+}
+SCR_SoundManagerEntity : "{8DA7881467F7628A}Prefabs/Sounds/SoundManager.et" {
+ coords 113.547 1 96.34
+}
+SCR_LoadoutManager : "{B54D08AEA74A5354}Prefabs/MP/Managers/Loadouts/LoadoutManager_Editor.et" {
+ coords 110.241 1 107.061
+}
+SCR_SpawnPoint : "{CEA2B24051A44525}PrefabsEditable/SpawnPoints/E_SpawnPoint_US.et" {
+ coords 110.763 1 102.512
+}

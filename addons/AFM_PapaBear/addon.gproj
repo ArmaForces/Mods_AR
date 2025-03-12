@@ -1,0 +1,8 @@
+GameProject {
+ ID "AFMPapaBear"
+ GUID "64D8A11A42640CC9"
+ TITLE "AFM_PapaBear"
+ Dependencies {
+  "58D0FB3206B6F859"
+ }
+}

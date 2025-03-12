@@ -1,0 +1,41 @@
+GenericEntity : "{12DFA1CC555DFEF4}Prefabs/Props/Military/Compositions/RadioStation_base.et" {
+ ID "F0DBA538AC2A0552"
+ components {
+  SignalsManagerComponent "{64D8A1110637390F}" {
+  }
+  BaseRadioComponent "{64D8A111091CF828}" {
+   "Encryption key" "chickenNuggets"
+   "Turned on" 1
+   Transceivers {
+    RadioTransceiver "{64D8A11133BD8659}" {
+     ChannelFrequency 48000
+     "Transmitting Range" 50000
+    }
+   }
+  }
+  SCR_RadioComponent "{64D8A1112389F7D7}" {
+  }
+  ActionsManagerComponent "{5CB6D5B110622410}" {
+   ActionContexts {
+    UserActionContext "{64D8A1112FA150D0}" {
+     ContextName "default"
+     Position PointInfo "{64D8A111D18159F6}" {
+      Offset 0 0.1 0
+     }
+    }
+   }
+   additionalActions {
+    AFM_SendRadioMessageAction "{64D8A111D505C31F}" {
+     ParentContextList {
+      "default"
+     }
+     UIInfo UIInfo "{64D8A111DEE9664E}" {
+      Name "Send message"
+     }
+     ActionTitle "Send message"
+    }
+   }
+  }
+ }
+ coords -0.144 0.9 -0.134
+}

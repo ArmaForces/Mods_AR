@@ -1,0 +1,36 @@
+AudioClass {
+ sounds {
+  SoundClass {
+   id 2057
+   name "Sound 2"
+   version 5
+   tl -135 -101
+   ins {
+    ConnectionsClass connections {
+     id 64
+     links {
+      ConnectionClass connection {
+       id 1029
+       port 65
+      }
+     }
+    }
+   }
+  }
+ }
+ generators {
+  GeneratorClass {
+   id 1029
+   name "Generator 1"
+   version 6
+   tl -320 -100
+   sampleRate "8000"
+   volume 0.355
+   volume_dB -9
+   time 100
+   infinite 1
+   "Termination Fade Out" 0
+  }
+ }
+ version 1
+}

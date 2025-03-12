@@ -1,0 +1,20 @@
+StaticModelEntity : "{292F60AAC4E43300}Prefabs/Compositions/Misc/SubCompositions/Furniture/Table_RadioStation_US_01.et" {
+ coords 110.493 1 101.586
+ angleY 0
+ {
+  GenericEntity {
+   ID "64D8BC97397E7D7F"
+   components {
+    ActionsManagerComponent "{5CB6D5B110622410}" {
+     additionalActions {
+      AFM_SendRadioMessageAction "{64D8DA8F464A80F1}" {
+       UIInfo UIInfo "{64D8DA8F03D1916A}" {
+        Name "None"
+       }
+      }
+     }
+    }
+   }
+  }
+ }
+}
