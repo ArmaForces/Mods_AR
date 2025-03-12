@@ -30,22 +30,28 @@ SCR_FactionManager FactionManager_Editor1 : "{4A188E44289B9A50}Prefabs/MP/Manage
 }
 AFM_FactoryPvPGameMode AFM_FactoryPvPGameMode1 : "{AE65065120241660}Prefabs/MP/Modes/AFM_FactoryPvPGameMode.et" {
  components {
+  SCR_NightModeGameModeComponent "{5D50E84688D5A408}" {
+   m_bAllowGlobalNightMode 1
+  }
   SCR_TimeAndWeatherHandlerComponent "{64D4A0F354C14B79}" {
-   m_iStartingHours 4
+   m_iStartingHours 6
    m_iStartingMinutes 30
    m_bRandomStartingDaytime 1
    m_bRandomStartingDaytimeRange 1
-   m_iRangeHoursStart 2
-   m_iRangeHoursEnd 6
+   m_iRangeHoursStart 4
+   m_iRangeMinutesStart 30
+   m_iRangeHoursEnd 13
    m_bRandomStartingWeather 1
+   m_bUsePredefineStartingTimeAndWeather 1
    m_aStartingWeatherAndTime {
     SCR_TimeAndWeatherState "{64D4A0F3640D1FF7}" {
      m_sWeatherPresetName "Cloudy"
-     m_iStartingHour 5
+     m_iStartingHour 7
+     m_iStartingMinutes 29
     }
     SCR_TimeAndWeatherState "{64D4A0F305E5A98B}" {
      m_sWeatherPresetName "Cumulus"
-     m_iStartingHour 7
+     m_iStartingHour 6
     }
     SCR_TimeAndWeatherState "{64D5401A62D668E6}" {
      m_sWeatherPresetName "Clear"
