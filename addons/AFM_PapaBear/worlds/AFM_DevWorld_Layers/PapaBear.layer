@@ -5,12 +5,22 @@ StaticModelEntity : "{292F60AAC4E43300}Prefabs/Compositions/Misc/SubCompositions
   GenericEntity {
    ID "64D8BC97397E7D7F"
    components {
-    ActionsManagerComponent "{5CB6D5B110622410}" {
-     additionalActions {
-      AFM_SendRadioMessageAction "{64D8DA8F464A80F1}" {
-       UIInfo UIInfo "{64D8DA8F03D1916A}" {
-        Name "None"
-       }
+    BaseRadioComponent "{64D8A111091CF828}" {
+     Transceivers {
+      RadioTransceiver "{64D8A11133BD8659}" {
+       "Transmitting Range" 50000
+      }
+     }
+    }
+   }
+  }
+  GenericEntity {
+   ID "5D371ACA987113B1"
+   components {
+    BaseRadioComponent "{64D8A111091CF828}" {
+     Transceivers {
+      RadioTransceiver "{64D8A11133BD8659}" {
+       "Transmitting Range" 10
       }
      }
     }

@@ -1,0 +1,338 @@
+AudioClass {
+ signals {
+  SignalClass {
+   id 16397
+   name "Von"
+   tl -764.456 -565.338
+   res "{CF1F9C4B120DE5F8}Sounds/VON/Von.sig"
+   inputsport {
+    1
+   }
+   outputsport {
+    5 8 12
+   }
+   inputvalues {
+    1
+   }
+   inputvaluesmin {
+    0
+   }
+   inputvaluesmax {
+    1
+   }
+   path "{CF1F9C4B120DE5F8}Sounds/VON/Von.sig"
+  }
+ }
+ filters {
+  FilterClass : "{5E613C9008123B4B}Sounds/_SharedData/Configs/Filter/RadioProtocol/Filter_RadioProtocol_BitCrusher.conf" {
+   id 8214
+   version 5
+   tl -346.731 -575.82
+   parent "{5E613C9008123B4B}Sounds/_SharedData/Configs/Filter/RadioProtocol/Filter_RadioProtocol_BitCrusher.conf"
+   ins {
+    ConnectionsClass connections {
+     id 0
+     links {
+      ConnectionClass connection {
+       id 16397
+       port 5
+      }
+     }
+    }
+   }
+   pi {
+    3 0
+   }
+   volume_dB 1
+  }
+  FilterClass : "{9D5F8A1F1997D843}Sounds/_SharedData/Configs/Filter/RadioProtocol/Filter_RadioProtocol_HPFilter.conf" {
+   id 11286
+   version 5
+   tl -346.731 -394.549
+   parent "{9D5F8A1F1997D843}Sounds/_SharedData/Configs/Filter/RadioProtocol/Filter_RadioProtocol_HPFilter.conf"
+   pi {
+    3 0
+   }
+  }
+  FilterClass : "{EAE903FA358E7F4C}Sounds/_SharedData/Configs/Filter/RadioProtocol/Filter_RadioProtocol_Compressor.conf" {
+   id 17430
+   version 5
+   tl -346.731 -669.152
+   parent "{EAE903FA358E7F4C}Sounds/_SharedData/Configs/Filter/RadioProtocol/Filter_RadioProtocol_Compressor.conf"
+   pi + {
+    0
+   }
+  }
+  FilterClass : "{6322339741A563B7}Sounds/_SharedData/Configs/Filter/RadioProtocol/Filter_RadioProtocol_LPFilter.conf" {
+   id 18454
+   name "Filter LowPass"
+   version 5
+   tl -346.731 -486.772
+   parent "{6322339741A563B7}Sounds/_SharedData/Configs/Filter/RadioProtocol/Filter_RadioProtocol_LPFilter.conf"
+   pi {
+    3 0
+   }
+  }
+ }
+ filter_chain {
+  FilterChainClass {
+   id 9239
+   name "FilterChain 116"
+   version 5
+   tl -346.731 -303.756
+   ins {
+    ConnectionsClass connections {
+     id 1
+     links {
+      ConnectionClass connection {
+       id 17430
+       port 65
+      }
+     }
+    }
+    ConnectionsClass connections {
+     id 2
+     links {
+      ConnectionClass connection {
+       id 8214
+       port 65
+      }
+     }
+    }
+    ConnectionsClass connections {
+     id 3
+     links {
+      ConnectionClass connection {
+       id 18454
+       port 65
+      }
+     }
+    }
+    ConnectionsClass connections {
+     id 4
+     links {
+      ConnectionClass connection {
+       id 11286
+       port 65
+      }
+     }
+    }
+   }
+   pi {
+    30 0
+   }
+   ports 4
+  }
+ }
+ vars {
+  VariableClass {
+   id 14366
+   name "Variable VON_Radio"
+   comment "Duck when VON active"
+   version 5
+   tl -145.271 -267.756
+   ctl 0 -21
+   varName "VON_Radio"
+   varResource "{A60F08955792B575}Sounds/_SharedData/Variables/GlobalVariables.conf"
+   curve {
+    CurvePoint "1" {
+     X 0.2
+     Y 1
+    }
+    CurvePoint "2" {
+     X 0.7
+     Y 0.7
+    }
+    CurvePoint "3" {
+     X 1.4
+     Y 0.6
+    }
+   }
+  }
+ }
+ sounds {
+  SoundClass : "{0076CDC7B631E6A0}Sounds/_SharedData/Configs/Sound/Sound_Tutorial_VO.conf" {
+   id 6153
+   name "ofp_04r1"
+   version 5
+   tl -298.604 123.548
+   parent "{0076CDC7B631E6A0}Sounds/_SharedData/Configs/Sound/Sound_Tutorial_VO.conf"
+   ins {
+    ConnectionsClass connections {
+     id 64
+     links {
+      ConnectionClass connection {
+       id 4100
+       port 65
+      }
+     }
+    }
+   }
+   pi + {
+    0
+   }
+   pu + {
+    0
+   }
+   outState 7179
+   outStatePort 19463
+  }
+  SoundClass {
+   id 15369
+   name "SOUND_RADIO_NOISE"
+   version 5
+   tl -121.231 -146.145
+   ins {
+    ConnectionsClass connections {
+     id 1
+     links {
+      ConnectionClass connection {
+       id 14366
+       port 65
+      }
+     }
+    }
+    ConnectionsClass connections {
+     id 64
+     links {
+      ConnectionClass connection {
+       id 13330
+       port 65
+      }
+     }
+    }
+   }
+   pi {
+    10 0
+   }
+   pu {
+    2 0
+   }
+   outState 7179
+   outStatePort 19463
+   eventType "Start - Stop"
+  }
+ }
+ buses {
+  BusClass {
+   id 12295
+   name "Noise Bus"
+   version 7
+   tl -575.842 -147.873
+   ins {
+    ConnectionsClass connections {
+     id 0
+     links {
+      ConnectionClass connection {
+       id 16397
+       port 5
+      }
+     }
+    }
+    ConnectionsClass connections {
+     id 64
+     links {
+      ConnectionClass connection {
+       id 10245
+       port 65
+      }
+     }
+    }
+   }
+   pi {
+    1 0
+   }
+  }
+ }
+ generators {
+  GeneratorClass {
+   id 10245
+   name "Generator Brown Noise"
+   version 6
+   tl -801.712 -159.678
+   function BrownianNoise
+   volume 0.079
+   volume_dB -22
+   time 100
+   infinite 1
+   "Attack Curve" SCurve
+   "Attack Time " 100
+  }
+ }
+ mixers {
+  MixerClass {
+   id 7179
+   name "OutputState 7"
+   version 4
+   tl 19.501 112.821
+   res "{B764D803219C775E}Sounds/FinalMix.afm"
+   ins {
+    ConnectionsClass connections {
+     id 19463
+     links {
+      ConnectionClass connection {
+       id 6153
+       port 65
+      }
+      ConnectionClass connection {
+       id 15369
+       port 65
+      }
+     }
+    }
+   }
+   pi {
+    256 0
+   }
+   path "{B764D803219C775E}Sounds/FinalMix.afm"
+   inputs {
+    "WPN_Handling" "WPN_Shots" "WPN_Explosions" "WNP_BulletHits" "CHAR" "ENV_AMB_2D" "VEH_Animations" "Impacts" "Dialog" "Music" "ENV_Doors" "VEH_Engine" "VEH_Tires" "VON" "SFX" "SFX_Reverb" "VON_Reverb" "Dialog_Reverb" "Impacts_EXT" "ENV_AMB_3D" "WPN_SonicCracks" "CHAR_Gear" "PA" "SFX_Reverb_Exterior" "UI" "ENV_AMB_3D_Reverb_Exterior" "SFX_Direct" "SFX_Reverb_Small" "SFX_Reverb_Medium" "SFX_Reverb_Large" "WPN_Shots_Player" "Dialog_Reverb_Small" "Dialog_Reverb_Medium" "Dialog_Reverb_Large" "WPN_TravelingProjectile" "Dialog_Delay_Exterior" "SFX_Reverb_InCabin"
+   }
+  }
+ }
+ shaders {
+  ShaderClass {
+   id 13330
+   name "Shader 14"
+   version 5
+   tl -335.962 -134.887
+   ins {
+    ConnectionsClass connections {
+     id 4
+     links {
+      ConnectionClass connection {
+       id 9239
+       port 65
+      }
+     }
+    }
+    ConnectionsClass connections {
+     id 64
+     links {
+      ConnectionClass connection {
+       id 12295
+       port 65
+      }
+     }
+    }
+   }
+   pi {
+    16 0
+   }
+  }
+ }
+ banks_local {
+  BankLocalClass {
+   id 4100
+   name "1"
+   version 7
+   tl -540.558 157.187
+   Samples {
+    AudioBankSampleClass Sample {
+     Filename "{0082275C4BA9D15F}Sounds/ofp1.wav"
+    }
+   }
+  }
+ }
+ version 1
+}

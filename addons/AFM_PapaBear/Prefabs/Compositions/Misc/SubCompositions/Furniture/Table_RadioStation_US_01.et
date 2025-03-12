@@ -4,6 +4,13 @@ StaticModelEntity : "{C02107463294142B}Prefabs/Compositions/Misc/SubCompositions
   GenericEntity : "{7183F1A80BC18B7C}Prefabs/Props/Military/Compositions/US/RadioStation_US.et" {
    ID "64D8BC97397E7D7F"
    components {
+    BaseRadioComponent "{64D8A111091CF828}" {
+     Transceivers {
+      RadioTransceiver "{64D8A11133BD8659}" {
+       "Transmitting Range" 10
+      }
+     }
+    }
     ActionsManagerComponent "{5CB6D5B110622410}" {
      additionalActions {
       AFM_SendRadioMessageAction "{64D8A111D505C31F}" {
@@ -17,7 +24,7 @@ StaticModelEntity : "{C02107463294142B}Prefabs/Compositions/Misc/SubCompositions
         "default"
        }
        UIInfo UIInfo "{64D8DA8F03D1916A}" {
-        Name "Nonr"
+        Name "None"
        }
        ActionTitle "None message"
       }
