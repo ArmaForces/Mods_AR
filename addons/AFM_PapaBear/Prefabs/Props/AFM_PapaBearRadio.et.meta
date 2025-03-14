@@ -1,5 +1,5 @@
 MetaFileClass {
- Name "{292F60AAC4E43300}Prefabs/Compositions/Misc/SubCompositions/Furniture/Table_RadioStation_US_01.et"
+ Name "{B50188A413FECCC2}Prefabs/Props/Military/Compositions/US/AFM_PapaBearRadio.et"
  Configurations {
   EntityTemplateResourceClass PC {
   }

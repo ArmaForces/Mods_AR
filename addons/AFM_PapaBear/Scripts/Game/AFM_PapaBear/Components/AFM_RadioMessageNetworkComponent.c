@@ -40,10 +40,52 @@ class AFM_RadioMessageNetworkComponent : ScriptComponent
 
 		switch (msg)
 		{
-			case AFM_ERadioMsg.OFP_04r1:
+			case AFM_ERadioMsg.MISSION_START:
 			{
-				msgName = "ofp_04r1";
-				chatMessage = "PAPA BEAR TO ALL UNITS. THE LAST EVAC FROM EVERON IS AT 05:45H. OUT";
+				msgName = "MISSION_START";
+				//chatMessage = "BLACK TO PAPA BEAR. DF25 UNDER HEAVY ATTACK FROM THE SEA. SEND BACKUP. WE CAN'T HOLD OUT MUCH LONGER. OVER.";
+				break;
+			}
+			case AFM_ERadioMsg.MONTIGNAC_CAPTURED:
+			{
+				msgName = "MONTIGNAC_CAPTURED";
+				//chatMessage = "BLACK TO PAPA BEAR. DF25 UNDER HEAVY ATTACK FROM THE SEA. SEND BACKUP. WE CAN'T HOLD OUT MUCH LONGER. OVER.";
+				break;
+			}
+			case AFM_ERadioMsg.CODE_FOXTROT:
+			{
+				msgName = "CODE_FOXTROT";
+				//chatMessage = "BLACK TO PAPA BEAR. DF25 UNDER HEAVY ATTACK FROM THE SEA. SEND BACKUP. WE CAN'T HOLD OUT MUCH LONGER. OVER.";
+				break;
+			}
+			case AFM_ERadioMsg.PROVINS_START:
+			{
+				msgName = "PROVINS_START";
+				//chatMessage = "BLACK TO PAPA BEAR. DF25 UNDER HEAVY ATTACK FROM THE SEA. SEND BACKUP. WE CAN'T HOLD OUT MUCH LONGER. OVER.";
+				break;
+			}
+			case AFM_ERadioMsg.PROVINS_CAPTURED:
+			{
+				msgName = "PROVINS_CAPTURED";
+				//chatMessage = "BLACK TO PAPA BEAR. DF25 UNDER HEAVY ATTACK FROM THE SEA. SEND BACKUP. WE CAN'T HOLD OUT MUCH LONGER. OVER.";
+				break;
+			}
+			case AFM_ERadioMsg.ARMAFORCES:
+			{
+				msgName = "ARMAFORCES";
+				chatMessage = "PAPA BEAR TO ALL UNITS. ARMAFORCES ARE A BUNCH OF FAGS. OUT";
+				break;
+			}
+			case AFM_ERadioMsg.DONUTS:
+			{
+				msgName = "DONUTS";
+				chatMessage = "PAPA BEAR TO ALL UNITS. I REALLY LOVE DONUTS. YUMMY YUMMY DONUTS HERE I COME. OUT";
+				break;
+			}
+			case AFM_ERadioMsg.MY_EVERON:
+			{
+				msgName = "MY_EVERON";
+				chatMessage = "SWEATY AMERICANS AND DEFAULT DANIELS. THIS IS WHAT MY EVERON IS ALL ABOUT. EVERY INCH OF THIS PLACE SEES ACTION. FROM MORTON TO SAINT PIERRE, YOU CAN SMELL THE RESOURCES";
 				break;
 			}
 			case AFM_ERadioMsg.NONE: 

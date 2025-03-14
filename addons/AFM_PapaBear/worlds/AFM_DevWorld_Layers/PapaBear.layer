@@ -1,30 +1,7 @@
-StaticModelEntity : "{292F60AAC4E43300}Prefabs/Compositions/Misc/SubCompositions/Furniture/Table_RadioStation_US_01.et" {
- coords 110.493 1 101.586
+GenericEntity : "{1571BF54599093AF}PrefabsEditable/Auto/Props/Furniture/E_MeetingTable_01.et" {
+ coords 110.331 1 100.376
+}
+GenericEntity : "{B50188A413FECCC2}Prefabs/Props/AFM_PapaBearRadio.et" {
+ coords 110.813 1.931 100.627
  angleY 0
- {
-  GenericEntity {
-   ID "64D8BC97397E7D7F"
-   components {
-    BaseRadioComponent "{64D8A111091CF828}" {
-     Transceivers {
-      RadioTransceiver "{64D8A11133BD8659}" {
-       "Transmitting Range" 50000
-      }
-     }
-    }
-   }
-  }
-  GenericEntity {
-   ID "5D371ACA987113B1"
-   components {
-    BaseRadioComponent "{64D8A111091CF828}" {
-     Transceivers {
-      RadioTransceiver "{64D8A11133BD8659}" {
-       "Transmitting Range" 10
-      }
-     }
-    }
-   }
-  }
- }
 }
