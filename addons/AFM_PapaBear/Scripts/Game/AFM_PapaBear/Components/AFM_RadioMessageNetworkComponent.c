@@ -40,36 +40,6 @@ class AFM_RadioMessageNetworkComponent : ScriptComponent
 
 		switch (msg)
 		{
-			case AFM_ERadioMsg.MISSION_START:
-			{
-				msgName = "MISSION_START";
-				//chatMessage = "BLACK TO PAPA BEAR. DF25 UNDER HEAVY ATTACK FROM THE SEA. SEND BACKUP. WE CAN'T HOLD OUT MUCH LONGER. OVER.";
-				break;
-			}
-			case AFM_ERadioMsg.MONTIGNAC_CAPTURED:
-			{
-				msgName = "MONTIGNAC_CAPTURED";
-				//chatMessage = "BLACK TO PAPA BEAR. DF25 UNDER HEAVY ATTACK FROM THE SEA. SEND BACKUP. WE CAN'T HOLD OUT MUCH LONGER. OVER.";
-				break;
-			}
-			case AFM_ERadioMsg.CODE_FOXTROT:
-			{
-				msgName = "CODE_FOXTROT";
-				//chatMessage = "BLACK TO PAPA BEAR. DF25 UNDER HEAVY ATTACK FROM THE SEA. SEND BACKUP. WE CAN'T HOLD OUT MUCH LONGER. OVER.";
-				break;
-			}
-			case AFM_ERadioMsg.PROVINS_START:
-			{
-				msgName = "PROVINS_START";
-				//chatMessage = "BLACK TO PAPA BEAR. DF25 UNDER HEAVY ATTACK FROM THE SEA. SEND BACKUP. WE CAN'T HOLD OUT MUCH LONGER. OVER.";
-				break;
-			}
-			case AFM_ERadioMsg.PROVINS_CAPTURED:
-			{
-				msgName = "PROVINS_CAPTURED";
-				//chatMessage = "BLACK TO PAPA BEAR. DF25 UNDER HEAVY ATTACK FROM THE SEA. SEND BACKUP. WE CAN'T HOLD OUT MUCH LONGER. OVER.";
-				break;
-			}
 			case AFM_ERadioMsg.ARMAFORCES:
 			{
 				msgName = "ARMAFORCES";
@@ -106,7 +76,7 @@ class AFM_RadioMessageNetworkComponent : ScriptComponent
 			
 			if (m_PlayedRadio == AudioHandle.Invalid)
 			{
-				PrintFormat("Invalid radio handle received. Check signal name %1", msgName, level: LogLevel.WARNING);
+				PrintFormat("PapaBear: Invalid radio handle received. Check signal name %1", msgName, level: LogLevel.WARNING);
 			}
 		}
 	}

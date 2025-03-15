@@ -49,7 +49,7 @@ class AFM_GMRadioMsg : ScriptedRadioMessage
 	//------------------------------------------------------------------------------------------------
 	override void OnDelivery(BaseTransceiver receiver, int freq, float quality)
 	{
-		Print("Delivering message on freq " + freq);
+		Print("PapaBear: Delivering message on freq " + freq, LogLevel.DEBUG);
 		IEntity owner = receiver.GetRadio().GetOwner();
 
 		ChimeraCharacter player;
@@ -87,11 +87,6 @@ class AFM_GMRadioMsg : ScriptedRadioMessage
 enum AFM_ERadioMsg
 {
 	NONE,
-	MISSION_START,
-	MONTIGNAC_CAPTURED,
-	CODE_FOXTROT,
-	PROVINS_START,
-	PROVINS_CAPTURED,
 	ARMAFORCES,
 	DONUTS,
 	MY_EVERON
