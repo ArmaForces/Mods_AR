@@ -130,6 +130,8 @@ class AFM_RadioMessageNetworkComponent : ScriptComponent
 	void PlayRadioMsg(AFM_ERadioMsgType msgType, AFM_ERadioMsg msg, int FactionId, float seed, bool isPublic, float quality, int playerID, int sampleIndex)
 	{
 		SCR_PlayerController pc = SCR_PlayerController.Cast(GetGame().GetPlayerController());
+		if (!pc)
+			return; 
 		if (isPublic || playerID == pc.GetPlayerId())
 			Rpc(RpcDo_PlayRadioMsg,msgType, msg, FactionId, seed, quality, sampleIndex);
 	}
