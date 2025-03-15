@@ -19,9 +19,7 @@ class AFM_SendRadioMessageAction : ScriptedUserAction
 
 	protected override void PerformAction(IEntity pOwnerEntity, IEntity pUserEntity)
 	{
-		int playerId = GetGame().GetPlayerManager().GetPlayerIdFromControlledEntity(pUserEntity);
-		
-		SendHQMessage(m_eMessageType, playerId, false);
+		SendHQMessage(m_eMessageType, false);
 	}
 
 	override void Init(IEntity pOwnerEntity, GenericComponent pManagerComponent)
@@ -35,7 +33,7 @@ class AFM_SendRadioMessageAction : ScriptedUserAction
 		return false;
 	}
 	
-	void SendHQMessage(AFM_ERadioMsg msgType, int playerId, bool public = true)
+	void SendHQMessage(AFM_ERadioMsg msgType, bool public = true)
 	{
 		if (msgType == SCR_ERadioMsg.NONE)
 			return;
@@ -51,10 +49,10 @@ class AFM_SendRadioMessageAction : ScriptedUserAction
 			return;
 		
 		AFM_GMRadioMsg msg = new AFM_GMRadioMsg();
+		msg.SetMessageType(AFM_ERadioMsgType.SINGLE_MESSAGE);
 		msg.SetRadioMsg(msgType);
 		//msg.SetFactionId();
 		msg.SetIsPublic(public);
-		msg.SetAuthorID(playerId);
 		msg.SetEncryptionKey(radio.GetEncryptionKey());
 
 		transmitter.BeginTransmission(msg);

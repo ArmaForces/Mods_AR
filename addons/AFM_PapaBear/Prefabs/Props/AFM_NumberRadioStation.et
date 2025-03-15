@@ -1,0 +1,50 @@
+GenericEntity : "{4CC2C69DE1AEF103}Prefabs/Props/Core/Destructible_Props_Base.et" {
+ ID "F0DBA538AC2A0552"
+ components {
+  MeshObject "{5872F0EB7FA40561}" {
+   Object "{DBE3AEFE90AC25D0}Assets/Props/Military/Radios/RadioStation_R123M_01.xob"
+  }
+  RigidBody "{5872F0EB7DFB5A9D}" {
+   ModelGeometry 1
+  }
+  RplComponent "{5624A88DC2D9928D}" {
+   Enabled 1
+  }
+  Hierarchy "{64DE8758857D4379}" {
+  }
+  BaseRadioComponent "{64DE874BB9E988C5}" {
+   "Encryption key" "chickenNuggets"
+   "Turned on" 1
+   Transceivers {
+    RadioTransceiver "{64DE87482CDDB214}" {
+     ChannelFrequency 44500
+    }
+   }
+  }
+  SCR_RadioComponent "{64DE874807A28CF0}" {
+  }
+  ActionsManagerComponent "{64DE87480B4E8311}" {
+   ActionContexts {
+    UserActionContext "{64DE874809D46AE1}" {
+     UIInfo UIInfo "{64DE87480FAEE367}" {
+     }
+     ContextName "default"
+     Position PointInfo "{64DE87480DB5809B}" {
+     }
+    }
+   }
+   additionalActions {
+    AFM_NumberStationAction "{64DE8748359732AE}" {
+     ParentContextList {
+      "default"
+     }
+     m_eMessageType NUMBER_STATION_E06
+     m_sNumberStationMessage "1111 2137 2137 2137 1111 "
+     m_iCharacterDelay 800
+     m_iPauseDelay 1200
+    }
+   }
+  }
+ }
+ coords 0 0 0
+}

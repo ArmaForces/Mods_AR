@@ -3,7 +3,7 @@ AudioClass {
   SignalClass {
    id 16397
    name "Von"
-   tl -947.456 -317.338
+   tl -958.456 -234.338
    res "{CF1F9C4B120DE5F8}Sounds/VON/Von.sig"
    inputsport {
     1
@@ -21,6 +21,28 @@ AudioClass {
     1
    }
    path "{CF1F9C4B120DE5F8}Sounds/VON/Von.sig"
+  }
+  SignalClass {
+   id 40973
+   name "AFM_NumberStationsSignal"
+   tl -676.703 128.145
+   res "{BF61B0BFF666D11D}Sounds/AFM_NumberStations.sig"
+   inputsport {
+    1 12
+   }
+   outputsport {
+    2 11
+   }
+   inputvalues {
+    0 0
+   }
+   inputvaluesmin {
+    0 0
+   }
+   inputvaluesmax {
+    300000 300000
+   }
+   path "{BF61B0BFF666D11D}Sounds/AFM_NumberStations.sig"
   }
  }
  filters {
@@ -79,7 +101,7 @@ AudioClass {
    id 9239
    name "FilterChain 116"
    version 5
-   tl -468.47 -389.956
+   tl -467.147 -423.018
    ins {
     ConnectionsClass connections {
      id 1
@@ -130,7 +152,7 @@ AudioClass {
    name "Variable VON_Radio"
    comment "Duck when VON active"
    version 5
-   tl -217.246 -195.944
+   tl -224.246 -189.944
    ctl 0 -21
    varName "VON_Radio"
    varResource "{A60F08955792B575}Sounds/_SharedData/Variables/GlobalVariables.conf"
@@ -155,7 +177,7 @@ AudioClass {
    id 6153
    name "ARMAFORCES"
    version 5
-   tl 10.719 132.402
+   tl -21.021 -1028.753
    parent "{0076CDC7B631E6A0}Sounds/_SharedData/Configs/Sound/Sound_Tutorial_VO.conf"
    ins {
     ConnectionsClass connections {
@@ -216,7 +238,7 @@ AudioClass {
    id 21513
    name "DONUTS"
    version 5
-   tl 12.473 253.021
+   tl -19.267 -908.134
    parent "{0076CDC7B631E6A0}Sounds/_SharedData/Configs/Sound/Sound_Tutorial_VO.conf"
    ins {
     ConnectionsClass connections {
@@ -242,7 +264,7 @@ AudioClass {
    id 25609
    name "MY_EVERON"
    version 5
-   tl 13.229 378.163
+   tl -18.511 -782.992
    parent "{0076CDC7B631E6A0}Sounds/_SharedData/Configs/Sound/Sound_Tutorial_VO.conf"
    ins {
     ConnectionsClass connections {
@@ -250,6 +272,32 @@ AudioClass {
      links {
       ConnectionClass connection {
        id 24594
+       port 65
+      }
+     }
+    }
+   }
+   pi + {
+    0
+   }
+   pu + {
+    0
+   }
+   outState 7179
+   outStatePort 19463
+  }
+  SoundClass : "{0076CDC7B631E6A0}Sounds/_SharedData/Configs/Sound/Sound_Tutorial_VO.conf" {
+   id 26633
+   name "E06"
+   version 5
+   tl 80.07 77.837
+   parent "{0076CDC7B631E6A0}Sounds/_SharedData/Configs/Sound/Sound_Tutorial_VO.conf"
+   ins {
+    ConnectionsClass connections {
+     id 64
+     links {
+      ConnectionClass connection {
+       id 28690
        port 65
       }
      }
@@ -316,7 +364,7 @@ AudioClass {
    id 7179
    name "OutputState 7"
    version 4
-   tl 224.416 124.163
+   tl 528.485 -318.15
    res "{B764D803219C775E}Sounds/FinalMix.afm"
    ins {
     ConnectionsClass connections {
@@ -336,6 +384,10 @@ AudioClass {
       }
       ConnectionClass connection {
        id 25609
+       port 65
+      }
+      ConnectionClass connection {
+       id 26633
        port 65
       }
      }
@@ -384,7 +436,7 @@ AudioClass {
    id 19474
    name "Shader 14"
    version 5
-   tl -211.263 133.025
+   tl -243.003 -1028.13
    ins {
     ConnectionsClass connections {
      id 4
@@ -413,7 +465,7 @@ AudioClass {
    id 20498
    name "Shader 14"
    version 5
-   tl -209.509 253.643
+   tl -241.249 -907.512
    ins {
     ConnectionsClass connections {
      id 4
@@ -442,7 +494,7 @@ AudioClass {
    id 24594
    name "Shader 14"
    version 5
-   tl -208.753 378.785
+   tl -240.493 -782.37
    ins {
     ConnectionsClass connections {
      id 4
@@ -467,16 +519,45 @@ AudioClass {
     16 0
    }
   }
+  ShaderClass {
+   id 28690
+   name "Shader 14"
+   version 5
+   tl -141.912 78.459
+   ins {
+    ConnectionsClass connections {
+     id 4
+     links {
+      ConnectionClass connection {
+       id 9239
+       port 65
+      }
+     }
+    }
+    ConnectionsClass connections {
+     id 64
+     links {
+      ConnectionClass connection {
+       id 38916
+       port 65
+      }
+     }
+    }
+   }
+   pi {
+    16 0
+   }
+  }
  }
  banks_local {
   BankLocalClass {
    id 4100
    name "1"
    version 7
-   tl -433.074 119.032
+   tl -464.814 -1043.123
    Samples {
     AudioBankSampleClass Sample {
-     Filename "{83D6E26AAD3A18F0}Sounds/Samples/output_(2)_commander2_improved_enhance.wav"
+     Filename "{83D6E26AAD3A18F0}Sounds/Samples/armaforces.wav"
     }
    }
   }
@@ -484,7 +565,7 @@ AudioClass {
    id 22532
    name "1"
    version 7
-   tl -431.32 239.65
+   tl -463.06 -921.505
    Samples {
     AudioBankSampleClass Sample {
      Filename "{1FA998D2907B75EF}Sounds/Samples/donuts.wav"
@@ -495,10 +576,72 @@ AudioClass {
    id 23556
    name "1"
    version 7
-   tl -430.564 364.792
+   tl -462.304 -796.363
    Samples {
     AudioBankSampleClass Sample {
      Filename "{B1AC5A946BDB9542}Sounds/Samples/my_everon.wav"
+    }
+   }
+  }
+  BankLocalClass {
+   id 38916
+   name "NumberStation_E06"
+   version 7
+   tl -403.746 81.665
+   ins {
+    ConnectionsClass connections {
+     id 2
+     links {
+      ConnectionClass connection {
+       id 40973
+       port 11
+      }
+     }
+    }
+   }
+   pi {
+    14 0
+   }
+   Selection CustomSignalIndex
+   Samples {
+    AudioBankSampleClass Sample {
+     Filename "{A246EAAE024FB249}Sounds/Samples/NumberStations/E06/0.wav"
+    }
+    AudioBankSampleClass Sample {
+     Filename "{D54C8226F6ED5D39}Sounds/Samples/NumberStations/E06/1.wav"
+     Index 1
+    }
+    AudioBankSampleClass Sample {
+     Filename "{4C523BBFEB0A6CA9}Sounds/Samples/NumberStations/E06/2.wav"
+     Index 2
+    }
+    AudioBankSampleClass Sample {
+     Filename "{3B5853371FA883D9}Sounds/Samples/NumberStations/E06/3.wav"
+     Index 3
+    }
+    AudioBankSampleClass Sample {
+     Filename "{0DC70973A00659B5}Sounds/Samples/NumberStations/E06/4.wav"
+     Index 4
+    }
+    AudioBankSampleClass Sample {
+     Filename "{4B95C1EE8D8CD66A}Sounds/Samples/NumberStations/E06/5.wav"
+     Index 5
+    }
+    AudioBankSampleClass Sample {
+     Filename "{D28B7877906BE7FA}Sounds/Samples/NumberStations/E06/6.wav"
+     Index 6
+    }
+    AudioBankSampleClass Sample {
+     Filename "{A58110FF64C9088A}Sounds/Samples/NumberStations/E06/7.wav"
+     Index 7
+    }
+    AudioBankSampleClass Sample {
+     Filename "{DD048CD55D66927C}Sounds/Samples/NumberStations/E06/8.wav"
+     Index 8
+    }
+    AudioBankSampleClass Sample {
+     Filename "{AA0EE45DA9C47D0C}Sounds/Samples/NumberStations/E06/9.wav"
+     Index 9
     }
    }
   }
