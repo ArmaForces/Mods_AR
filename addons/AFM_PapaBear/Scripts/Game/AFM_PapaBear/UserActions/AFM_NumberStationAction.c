@@ -79,6 +79,8 @@ class AFM_NumberStationAction : ScriptedUserAction
 			if (m_bIsMessageLooped)
 				//treat the end as pause, resume from the beggining
 				GetGame().GetCallqueue().CallLater(SendNumberStationMessage, m_iPauseDelay, false, 0);
+			else 
+				m_bIsRunning = false;
 			return;
 		}
 		

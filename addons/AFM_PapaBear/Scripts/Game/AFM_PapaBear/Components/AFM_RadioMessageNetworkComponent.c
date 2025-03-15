@@ -106,6 +106,11 @@ class AFM_RadioMessageNetworkComponent : ScriptComponent
 				stationName = "E06";
 				break;
 			}
+			case AFM_ERadioMsg.NUMBER_STATION_S25:
+			{
+				stationName = "S25";
+				break;
+			}
 			default:
 				return;
 		}

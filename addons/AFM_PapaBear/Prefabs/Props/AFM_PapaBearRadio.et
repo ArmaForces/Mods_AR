@@ -29,6 +29,16 @@ GenericEntity : "{12DFA1CC555DFEF4}Prefabs/Props/Military/Compositions/RadioStat
      }
      ContextName "Default"
      Position PointInfo "{64DCC2C4F0530B11}" {
+      Offset -0.1 0.1 0
+     }
+    }
+    UserActionContext "{64DF04052B0B8302}" {
+     UIInfo UIInfo "{64DF040528000362}" {
+      Name "radio management"
+     }
+     ContextName "radioManagement"
+     Position PointInfo "{64DF0405D1CC073A}" {
+      Offset 0.1 0.1 0
      }
     }
    }
@@ -65,6 +75,17 @@ GenericEntity : "{12DFA1CC555DFEF4}Prefabs/Props/Military/Compositions/RadioStat
      ActionTitle "My everon"
      Duration 0
      m_eMessageType MY_EVERON
+    }
+    AFM_StationaryRadioTuningUserAction "{64DF0405D9C2B5F7}" {
+     ParentContextList {
+      "radioManagement"
+     }
+    }
+    AFM_StationaryRadioTuningUserAction "{64DF0405CBFE3D6E}" {
+     ParentContextList {
+      "radioManagement"
+     }
+     m_bTuneUp 1
     }
    }
   }

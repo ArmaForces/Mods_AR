@@ -1,17 +1,6 @@
 GenericEntity : "{4CC2C69DE1AEF103}Prefabs/Props/Core/Destructible_Props_Base.et" {
  ID "F0DBA538AC2A0552"
  components {
-  MeshObject "{5872F0EB7FA40561}" {
-   Object "{DBE3AEFE90AC25D0}Assets/Props/Military/Radios/RadioStation_R123M_01.xob"
-  }
-  RigidBody "{5872F0EB7DFB5A9D}" {
-   ModelGeometry 1
-  }
-  RplComponent "{5624A88DC2D9928D}" {
-   Enabled 1
-  }
-  Hierarchy "{64DE8758857D4379}" {
-  }
   BaseRadioComponent "{64DE874BB9E988C5}" {
    "Encryption key" "chickenNuggets"
    "Turned on" 1
@@ -20,6 +9,12 @@ GenericEntity : "{4CC2C69DE1AEF103}Prefabs/Props/Core/Destructible_Props_Base.et
      ChannelFrequency 44500
     }
    }
+  }
+  MeshObject "{5872F0EB7FA40561}" {
+   Object "{DBE3AEFE90AC25D0}Assets/Props/Military/Radios/RadioStation_R123M_01.xob"
+  }
+  RigidBody "{5872F0EB7DFB5A9D}" {
+   ModelGeometry 1
   }
   SCR_RadioComponent "{64DE874807A28CF0}" {
   }
@@ -30,6 +25,16 @@ GenericEntity : "{4CC2C69DE1AEF103}Prefabs/Props/Core/Destructible_Props_Base.et
      }
      ContextName "default"
      Position PointInfo "{64DE87480DB5809B}" {
+      Offset -0.1 0.1 0
+     }
+    }
+    UserActionContext "{64DF0404005F5367}" {
+     UIInfo UIInfo "{64DF040405C8AE06}" {
+      Name "Radio management"
+     }
+     ContextName "radio_management"
+     Position PointInfo "{64DF04040D761839}" {
+      Offset 0.1 0.1 0
      }
     }
    }
@@ -43,7 +48,33 @@ GenericEntity : "{4CC2C69DE1AEF103}Prefabs/Props/Core/Destructible_Props_Base.et
      m_iCharacterDelay 800
      m_iPauseDelay 1200
     }
+    AFM_NumberStationAction "{64DF0400DBD1AFE3}" {
+     ParentContextList {
+      "default"
+     }
+     m_eMessageType NUMBER_STATION_S25
+     m_sNumberStationMessage "469 2137 2137 2137 469"
+     m_bIsMessageLooped 0
+    }
+    AFM_StationaryRadioTuningUserAction "{64DF0404032CE29F}" {
+     ParentContextList {
+      "radio_management"
+     }
+    }
+    AFM_StationaryRadioTuningUserAction "{64DF040439F73E63}" {
+     ParentContextList {
+      "radio_management"
+     }
+     m_bTuneUp 1
+    }
    }
+  }
+  RplComponent "{5624A88DC2D9928D}" {
+   Enabled 1
+  }
+  Hierarchy "{64DE8758857D4379}" {
+  }
+  SignalsManagerComponent "{64DE8749D641A65C}" {
   }
  }
  coords 0 0 0

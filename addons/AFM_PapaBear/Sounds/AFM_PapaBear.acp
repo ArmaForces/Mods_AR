@@ -312,6 +312,32 @@ AudioClass {
    outState 7179
    outStatePort 19463
   }
+  SoundClass : "{0076CDC7B631E6A0}Sounds/_SharedData/Configs/Sound/Sound_Tutorial_VO.conf" {
+   id 43017
+   name "S25"
+   version 5
+   tl 73.543 226.66
+   parent "{0076CDC7B631E6A0}Sounds/_SharedData/Configs/Sound/Sound_Tutorial_VO.conf"
+   ins {
+    ConnectionsClass connections {
+     id 64
+     links {
+      ConnectionClass connection {
+       id 42002
+       port 65
+      }
+     }
+    }
+   }
+   pi + {
+    0
+   }
+   pu + {
+    0
+   }
+   outState 7179
+   outStatePort 19463
+  }
  }
  buses {
   BusClass {
@@ -388,6 +414,10 @@ AudioClass {
       }
       ConnectionClass connection {
        id 26633
+       port 65
+      }
+      ConnectionClass connection {
+       id 43017
        port 65
       }
      }
@@ -548,6 +578,35 @@ AudioClass {
     16 0
    }
   }
+  ShaderClass {
+   id 42002
+   name "Shader 14"
+   version 5
+   tl -148.439 227.283
+   ins {
+    ConnectionsClass connections {
+     id 4
+     links {
+      ConnectionClass connection {
+       id 9239
+       port 65
+      }
+     }
+    }
+    ConnectionsClass connections {
+     id 64
+     links {
+      ConnectionClass connection {
+       id 44036
+       port 65
+      }
+     }
+    }
+   }
+   pi {
+    16 0
+   }
+  }
  }
  banks_local {
   BankLocalClass {
@@ -641,6 +700,68 @@ AudioClass {
     }
     AudioBankSampleClass Sample {
      Filename "{AA0EE45DA9C47D0C}Sounds/Samples/NumberStations/E06/9.wav"
+     Index 9
+    }
+   }
+  }
+  BankLocalClass {
+   id 44036
+   name "NumberStation_S25"
+   version 7
+   tl -410.273 230.488
+   ins {
+    ConnectionsClass connections {
+     id 2
+     links {
+      ConnectionClass connection {
+       id 40973
+       port 11
+      }
+     }
+    }
+   }
+   pi {
+    14 0
+   }
+   Selection CustomSignalIndex
+   Samples {
+    AudioBankSampleClass Sample {
+     Filename "{371972BF105D280A}Sounds/Samples/NumberStations/S25/0.wav"
+    }
+    AudioBankSampleClass Sample {
+     Filename "{40131A37E4FFC77A}Sounds/Samples/NumberStations/S25/1.wav"
+     Index 1
+    }
+    AudioBankSampleClass Sample {
+     Filename "{D90DA3AEF918F6EA}Sounds/Samples/NumberStations/S25/2.wav"
+     Index 2
+    }
+    AudioBankSampleClass Sample {
+     Filename "{AE07CB260DBA199A}Sounds/Samples/NumberStations/S25/3.wav"
+     Index 3
+    }
+    AudioBankSampleClass Sample {
+     Filename "{A9C031776B3CA359}Sounds/Samples/NumberStations/S25/4.wav"
+     Index 4
+    }
+    AudioBankSampleClass Sample {
+     Filename "{DECA59FF9F9E4C29}Sounds/Samples/NumberStations/S25/5.wav"
+     Index 5
+    }
+    AudioBankSampleClass Sample {
+     Filename "{47D4E06682797DB9}Sounds/Samples/NumberStations/S25/6.wav"
+     Index 6
+    }
+    AudioBankSampleClass Sample {
+     Filename "{30DE88EE76DB92C9}Sounds/Samples/NumberStations/S25/7.wav"
+     Index 7
+    }
+    AudioBankSampleClass Sample {
+     Filename "{485B14C44F74083F}Sounds/Samples/NumberStations/S25/8.wav"
+     Index 8
+    }
+    AudioBankSampleClass Sample {
+     Filename "{3F517C4CBBD6E74F}Sounds/Samples/NumberStations/S25/9.wav"
      Index 9
     }
    }

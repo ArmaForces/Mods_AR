@@ -1,17 +1,7 @@
 GenericEntity : "{1571BF54599093AF}PrefabsEditable/Auto/Props/Furniture/E_MeetingTable_01.et" {
  coords 110.331 1 100.376
 }
-GenericEntity : "{707120C3AEF89536}Prefabs/Props/AFM_LoopRadioStation.et" {
- components {
-  SignalsManagerComponent "{64DE8749D641A65C}" {
-  }
-  ActionsManagerComponent "{64DE87480B4E8311}" {
-   additionalActions {
-    AFM_NumberStationAction "{64DE8748359732AE}" {
-    }
-   }
-  }
- }
+GenericEntity : "{707120C3AEF89536}Prefabs/Props/AFM_NumberRadioStation.et" {
  coords 109.452 1.906 100.102
  angleY -133.34
 }
