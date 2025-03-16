@@ -7,9 +7,26 @@ class AFM_SpectatorComponent : ScriptComponent
 	[RplProp(onRplName: "OnIsSpectatorUpdated", condition: RplCondition.OwnerOnly)]
 	protected bool m_bIsSpectator = false;
 	
-	void SetState(bool state)
+	[RplProp()]
+	protected vector m_vSpectatorOrigin = "0 0 0";
+	
+	void EnableSpectator(vector origin)
 	{
-		m_bIsSpectator = state;
+		if (m_bIsSpectator)
+			return;
+		
+		m_vSpectatorOrigin = origin;
+		m_bIsSpectator = true;
+		
+		Replication.BumpMe();
+	}
+	
+	void DisableSpectator()
+	{
+		if (!m_bIsSpectator)
+			return;
+		
+		m_bIsSpectator = false;
 		Replication.BumpMe();
 	}
 	
@@ -20,8 +37,14 @@ class AFM_SpectatorComponent : ScriptComponent
 	
 	void OnIsSpectatorUpdated()
 	{
-		if (m_bIsSpectator)
+		if (m_bIsSpectator) 
 			GetGame().GetCallqueue().CallLater(Hint, 1000 * 3);
+		
+	}
+	
+	vector GetCameraOriginPos()
+	{
+		return m_vSpectatorOrigin;
 	}
 	
 	protected void Hint()

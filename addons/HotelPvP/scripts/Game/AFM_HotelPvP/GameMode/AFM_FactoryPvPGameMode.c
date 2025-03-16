@@ -354,7 +354,7 @@ class AFM_FactoryPvPGameMode : SCR_BaseGameMode
 		AFM_SpectatorComponent spectatorComponent = AFM_SpectatorComponent.Cast(pc.FindComponent(AFM_SpectatorComponent));
 		if (spectatorComponent)
 		{
-			spectatorComponent.SetState(true);
+			spectatorComponent.EnableSpectator(unit.GetOrigin());
 		}
 		else 
 		{
