@@ -1,0 +1,140 @@
+SCR_FactionManager FactionManager_Editor1 : "{4A188E44289B9A50}Prefabs/MP/Managers/Factions/FactionManager_Editor.et" {
+ coords 4545.325 15.958 10501.81
+ Factions {
+  SCR_Faction "{56DEAC40D3C2E623}" {
+   m_bIsPlayable 1
+   m_aPredefinedGroups {
+    SCR_GroupPreset "{64D4A0F785F786CC}" {
+     m_iGroupSize 16
+    }
+   }
+   m_bCreateOnlyPredefinedGroups 1
+  }
+  SCR_Faction "{61500924662B6062}" {
+   m_aPredefinedGroups {
+    SCR_GroupPreset "{64D4A0F78C027390}" {
+     m_iGroupSize 16
+    }
+   }
+   m_bCreateOnlyPredefinedGroups 1
+  }
+ }
+}
+AFM_FactoryPvPGameMode AFM_FactoryPvPGameMode1 : "{AE65065120241660}Prefabs/MP/Modes/AFM_FactoryPvPGameMode.et" {
+ coords 4555.337 15.924 10505.342
+ m_sDefenderFactionKey "UK"
+ m_sAttackerFactionKey "USSR"
+ m_iGameStartDelaySeconds 120
+ m_TimeoutWinnerFactionKey "UK"
+}
+$grp Vehicle : "{0B4DEA8078B78A9B}Prefabs/Vehicles/Wheeled/UAZ469/UAZ469_PKM.et" {
+ UAZ469_PKM1 {
+  coords 4643.07 27.796 11121.25
+ }
+ UAZ469_PKM2 {
+  coords 4646.768 27.723 11121.446
+ }
+ UAZ469_PKM3 {
+  coords 4650.804 27.564 11121.561
+ }
+}
+Vehicle Mi8MT_armed_base1 : "{20C37D5090E4E0E6}Prefabs/Vehicles/Helicopters/Mi8MT/Mi8MT_armed_base.et" {
+ coords 4690.045 27.843 11132.59
+ angleY 95.005
+}
+Vehicle BRDM1 : "{254289B9C09904AB}Prefabs/Vehicles/Wheeled/BRDM2/BRDM2.et" {
+ coords 4639.617 27.869 11140.35
+ angleY -90.651
+}
+$grp Vehicle : "{259EE7B78C51B624}Prefabs/Vehicles/Wheeled/UAZ469/UAZ469.et" {
+ UAZ1 {
+  coords 4654.852 27.52 11121.68
+ }
+ UAZ2 {
+  coords 4659.583 27.659 11121.516
+ }
+ UAZ3 {
+  coords 4663.634 27.807 11121.848
+ }
+}
+$grp SCR_SpawnPoint : "{4FEA25583D0975F7}Prefabs/MP/Spawning/SpawnPoint_USSR.et" {
+ Spawn_FIA {
+  coords 4559.581 15.924 10505.128
+  angleY 71
+  m_sFaction "UK"
+  m_Info SCR_UIInfo "{56B4CC4ECACA2C37}" {
+   Name "#AR-CAH-SpawnArea_USSR_A"
+  }
+ }
+ spectator_spawn {
+  coords 5582.033 8.724 12109.911
+  angleY 71
+  m_sFaction "CIV"
+  m_Info SCR_UIInfo "{56B4CC4ECACA2C37}" {
+   Name "Spectator"
+  }
+ }
+}
+SCR_ChimeraCharacter hostage : "{516BB3588749F92A}Prefabs/Characters/Factions/CIV/Character_CIV_Hostage.et" {
+ coords 4569.191 22.014 10505.872
+}
+SCR_SpawnPoint Spawn_US : "{5A2220DD0C16958B}Prefabs/MP/Spawning/SpawnPoint_US.et" {
+ coords 4633.502 27.757 11136.544
+ angleY 10
+ m_sFaction "USSR"
+ m_Info SCR_UIInfo "{56B4CC4ECACA2C37}" {
+  Name "#AR-CAH-SpawnArea_US_A"
+ }
+}
+SCR_EditorRestrictionZoneEntity defenders_zone : "{6144B0BE2EAC6897}PrefabsEditable/RestrictionZone/E_EditorRestrictionZoneMedium.et" {
+ coords 4666.393 27.513 11134.705
+}
+GenericEntity : "{641BE0766BB1874E}PrefabsEditable/Auto/Props/Military/Compositions/UK/E_ArsenalBox_UK.et" {
+ coords 4564.652 17.074 10499.814
+ angleY -108.67
+}
+Turret : "{73530808E4B455BA}Prefabs/Weapons/Tripods/Tripod_M3_M2HB.et" {
+ coords 4564.564 28.643 10519.518
+ angleY 23.676
+}
+SCR_LoadoutManager : "{97EF4C1A41F63DDB}Prefabs/MP/Managers/Loadouts/LoadoutManager_USxUSSR.et" {
+ coords 4545.818 15.944 10500.515
+ m_aPlayerLoadouts {
+  SCR_FactionPlayerLoadout "{56B2B461C34A570F}" {
+   m_sLoadoutResource "{57F707723CD960C7}Prefabs/Characters/Factions/BLUFOR/UK_Army/1983/Reservists/Character_UK_1983_Reservist_Rifleman.et"
+   m_sLoadoutImage "{1630CC9271C39E4F}UI/PreviewImages/Groups/BLUFOR/BritishForces/Group_UK_1983_SpecialForces_Patrol.edds"
+   m_sAffiliatedFaction "UK"
+  }
+  SCR_FactionPlayerLoadout "{5A2494BE3D648F60}" {
+   m_sLoadoutResource "{B2AD7B366BBE9BD4}Prefabs/Characters/Factions/BLUFOR/UK_Army/1983/Reservists/Character_UK_1983_Reservist_LMG.et"
+   m_sLoadoutImage "{1630CC9271C39E4F}UI/PreviewImages/Groups/BLUFOR/BritishForces/Group_UK_1983_SpecialForces_Patrol.edds"
+   m_sAffiliatedFaction "UK"
+  }
+  SCR_FactionPlayerLoadout "{56B2B461C275B309}" {
+   m_sLoadoutName "Commander"
+   m_sLoadoutResource "{F035759076B5818A}Prefabs/Characters/Factions/BLUFOR/UK_Army/1983/Reservists/Character_UK_1983_Reservist_SectionCommander.et"
+   m_sAffiliatedFaction "UK"
+  }
+  SCR_FactionPlayerLoadout "{56B2B461C7495F41}" {
+   m_sLoadoutName "Sapper"
+   m_sLoadoutResource "{E41871B093958DD1}Prefabs/Characters/Factions/BLUFOR/UK_Army/1983/Regulars/Character_UK_1983_Regulars_Sapper.et"
+   m_sLoadoutImage "{D7DA62E4896A6217}UI/PreviewImages/Characters/BLUFOR/BritishForces/Character_UK_1983_Regulars_Sapper.edds"
+   m_sAffiliatedFaction "UK"
+  }
+  SCR_FactionPlayerLoadout "{56B2B461C047DCDA}" {
+   m_sLoadoutResource "{3812CCED7C78916B}Prefabs/Characters/Factions/BLUFOR/UK_Army/1983/Reservists/Character_UK_1983_Reservist_LAT.et"
+   m_sAffiliatedFaction "UK"
+  }
+  SCR_FactionPlayerLoadout "{56B2B4613C48D08E}" {
+   m_sLoadoutResource "{FB8600CB9B527FCB}Prefabs/Characters/Factions/BLUFOR/UK_Army/1983/Regulars/Character_UK_1983_Regulars_Sniper.et"
+   m_sLoadoutImage "{5C25F9B6717E692E}UI/Textures/FieldManual/Gameplay/Navigation/Images/MilitarySymbol/FM_Milsymbol_Sniper_UI.edds"
+   m_sAffiliatedFaction "UK"
+  }
+ }
+}
+GenericEntity : "{AD59EDEAA26CE792}Prefabs/Props/Military/Compositions/USSR/ArsenalBox_USSR.et" {
+ coords 4650.677 27.98 11145.51
+}
+SCR_EditorRestrictionZoneEntity attackers_zone : "{B2A519402E9AC209}PrefabsEditable/RestrictionZone/E_EditorRestrictionZoneLarge.et" {
+ coords 4547.65 15.887 10500.152
+}

@@ -1,0 +1,118 @@
+SCR_FactionManager FactionManager : "{589540B35EBA8CDC}Prefabs/MP/Managers/Factions/FactionManager_USxUSSR.et" {
+ Factions {
+  SCR_Faction "{56B2B46E999BF3BF}" {
+   m_aPredefinedGroups {
+    SCR_GroupPreset "{64B2F76423CC5E38}" {
+     m_sGroupName "BLUFOR"
+     m_iGroupSize 16
+    }
+   }
+   m_bCreateOnlyPredefinedGroups 1
+  }
+  SCR_Faction "{56B2B46E9AF80999}" : "{8053DB656DD18B14}Configs/Factions/FIA.conf" {
+   m_aPredefinedGroups {
+    SCR_GroupPreset "{64B2F764CCD0925F}" {
+     m_sGroupName "REDFOR"
+     m_iGroupSize 16
+    }
+   }
+   m_bCreateOnlyPredefinedGroups 1
+  }
+  SCR_Faction "{64B2AC4302B3A1B4}" : "{8053DB656DD18B14}Configs/Factions/FIA.conf" {
+   FactionKey "CIV"
+   FactionColor 0.44 0.44 0.44 1
+   m_bIsPlayable 0
+   m_bShowInWelcomeScreenIfNonPlayable 0
+   m_bIsMilitary 0
+   m_FactionLabel FACTION_CIV
+  }
+ }
+}
+AFM_FactoryPvPGameMode AFM_FactoryPvPGameMode1 : "{AE65065120241660}Prefabs/MP/Modes/AFM_FactoryPvPGameMode.et" {
+ coords 4555.337 15.924 10505.342
+ m_iGameStartDelaySeconds 120
+}
+SCR_LoadoutManager : "{133751BF0E9010D2}Prefabs/MP/Managers/LoadoutManager_USxFIA.et" {
+ coords 7568.837 166.705 4200.719
+ m_aPlayerLoadouts {
+  SCR_FactionPlayerLoadout "{56B2B46134D39388}" {
+   m_sLoadoutResource "{84B40583F4D1B7A3}Prefabs/Characters/Factions/INDFOR/FIA/Character_FIA_Rifleman.et"
+   m_sLoadoutImage "{6601A3AE17EA976D}UI/Textures/EditorPreviews/Characters/INDFOR/FIA/Character_FIA_Rifleman.edds"
+  }
+ }
+}
+$grp Vehicle : "{3EA6F47D95867114}Prefabs/Vehicles/Wheeled/M998/M1025_armed_M2HB.et" {
+ M1025_armed_M2HB1 {
+  coords 4664.979 27.506 11123.862
+ }
+ M1025_armed_M2HB2 {
+  coords 4660.769 27.645 11123.708
+ }
+ M1025_armed_M2HB3 {
+  coords 4656.476 27.456 11123.825
+ }
+ M1025_armed_M2HB4 {
+  coords 4652.236 27.517 11123.888
+ }
+ M1025_armed_M2HB5 {
+  coords 4648.015 27.69 11123.687
+ }
+ M1025_armed_M2HB6 {
+  coords 4643.54 27.788 11123.591
+ }
+}
+GenericEntity : "{45C675ED3CFBBEC5}Prefabs/Props/Military/Compositions/US/ArsenalBox_US.et" {
+ coords 4651.04 27.905 11145.759
+}
+$grp SCR_SpawnPoint : "{4FEA25583D0975F7}Prefabs/MP/Spawning/SpawnPoint_USSR.et" {
+ Spawn_FIA {
+  coords 4559.581 15.924 10505.128
+  angleY 71
+  m_sFaction "FIA"
+  m_Info SCR_UIInfo "{56B4CC4ECACA2C37}" {
+   Name "#AR-CAH-SpawnArea_USSR_A"
+  }
+ }
+ spectator_spawn {
+  coords 5582.033 8.724 12109.911
+  angleY 71
+  m_sFaction "CIV"
+  m_Info SCR_UIInfo "{56B4CC4ECACA2C37}" {
+   Name "Spectator"
+  }
+ }
+}
+SCR_ChimeraCharacter hostage : "{516BB3588749F92A}Prefabs/Characters/Factions/CIV/Businessman/Character_CIV_Hostage.et" {
+ coords 4569.191 22.014 10505.872
+}
+SCR_SpawnPoint Spawn_US : "{5A2220DD0C16958B}Prefabs/MP/Spawning/SpawnPoint_US.et" {
+ coords 4633.502 27.757 11136.544
+ angleY 10
+ m_Info SCR_UIInfo "{56B4CC4ECACA2C37}" {
+  Name "#AR-CAH-SpawnArea_US_A"
+ }
+}
+SCR_EditorRestrictionZoneEntity defenders_zone : "{6144B0BE2EAC6897}PrefabsEditable/RestrictionZone/E_EditorRestrictionZoneMedium.et" {
+ coords 4666.393 27.513 11134.705
+}
+Turret : "{73530808E4B455BA}Prefabs/Weapons/Tripods/Tripod_M3_M2HB.et" {
+ coords 4564.564 28.643 10519.518
+ angleY 23.676
+}
+SCR_EditorRestrictionZoneEntity attackers_zone : "{B2A519402E9AC209}PrefabsEditable/RestrictionZone/E_EditorRestrictionZoneLarge.et" {
+ coords 4547.65 15.887 10500.152
+}
+GenericEntity : "{B53B98CEA2D72735}Prefabs/Props/Military/Compositions/FIA/ArsenalBox_FIA.et" {
+ coords 4564.555 17.074 10499.946
+ angleY -101.801
+}
+$grp Vehicle : "{DDDD9B51F1234DF3}Prefabs/Vehicles/Helicopters/UH1H/UH1H_armed.et" {
+ UH1H_armed1 {
+  coords 4689.458 27.844 11122.039
+  angleY 90.036
+ }
+ UH1H_armed2 {
+  coords 4690.217 27.843 11139.844
+  angleY 90.036
+ }
+}

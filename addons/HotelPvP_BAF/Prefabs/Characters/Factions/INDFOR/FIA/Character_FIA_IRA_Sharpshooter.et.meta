@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{A46E0025A56E67DE}Prefabs/Characters/Factions/INDFOR/FIA/Character_FIA_IRA_Sharpshooter.et"
+ Configurations {
+  EntityTemplateResourceClass PC {
+  }
+  EntityTemplateResourceClass XBOX_ONE : PC {
+  }
+  EntityTemplateResourceClass XBOX_SERIES : PC {
+  }
+  EntityTemplateResourceClass PS4 : PC {
+  }
+  EntityTemplateResourceClass PS5 : PC {
+  }
+  EntityTemplateResourceClass HEADLESS : PC {
+  }
+ }
+}

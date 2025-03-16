@@ -1,0 +1,35 @@
+AFM_FactoryPvPGameMode : "{0F307326459A1395}Prefabs/MP/Modes/GameMode_Base.et" {
+ ID "56B2B479C6B96951"
+ components {
+  SCR_CustomAreaMeshComponent "{64B2AC457E72AFFD}" {
+   m_fHeight 25
+   m_vResolution 32
+   m_Material "{E65E61D1541003E2}Assets/Editor/VirtualArea/VirtualArea.emat"
+   m_fRadius 80
+  }
+  SCR_NametagConfigComponent "{571AA9E54FC9210D}" {
+   m_sConfigPath "{09F7AAA14A642683}Configs/NameTags/NametagFriendlies.conf"
+  }
+  SCR_RespawnSystemComponent "{56B2B4793051E7C9}" {
+   m_SpawnLogic SCR_MenuSpawnLogic "{64B12EE9157C9A90}" {
+   }
+  }
+  SCR_RespawnTimerComponent "{64B12EE9157C9AA4}" {
+  }
+  SCR_ScoringSystemComponent "{64B12EE9157C9AA2}" {
+   m_aActions {
+    EndGameAction "{64B12EE9157C9ABD}" {
+     m_iScoreLimit 30
+    }
+   }
+  }
+ }
+ PlayerControllerPrefab "{4B7AF7F3DA06BCCE}Prefabs/Characters/Core/AFM_PlayerControllerMP.et"
+ m_aDisabledResourceTypes {
+  0
+ }
+ m_RedforFactionKey "USSR"
+ m_iGameStartDelaySeconds 180
+ m_iGameAreaRadius 80
+ m_pPrisonerPrefab "{1ED1D1195A34B82C}Prefabs/Characters/AFM_SpectatorLoadout.et"
+}
