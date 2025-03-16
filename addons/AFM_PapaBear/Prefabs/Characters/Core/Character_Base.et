@@ -1,0 +1,10 @@
+SCR_ChimeraCharacter {
+ ID "520EC961A090B1EE"
+ components {
+  SCR_CommunicationSoundComponent "{54FD05D0C92D071F}" {
+   Filenames + {
+    "{975D65221C78BE1F}Sounds/ofp_04r1.acp"
+   }
+  }
+ }
+}
