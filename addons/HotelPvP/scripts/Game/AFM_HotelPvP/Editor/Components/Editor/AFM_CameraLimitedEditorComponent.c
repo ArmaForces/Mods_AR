@@ -8,11 +8,11 @@ modded class SCR_CameraLimitedEditorComponent : SCR_CameraEditorComponent
 		
 		PlayerController pc = GetGame().GetPlayerController();
 		AFM_SpectatorComponent spectator = AFM_SpectatorComponent.Cast(pc.FindComponent(AFM_SpectatorComponent));
-		bool isPrisoner = spectator && spectator.GetState();
+		if (!spectator)
+			return m_CameraPrefab;
 		
-		bool isLimited = manager.IsLimited() && !spectator;
+		bool isLimited = manager.IsLimited() && !spectator.IsSpectatorActive();
 		
-
 		if (isLimited)
 			return m_LimitedCameraPrefab;
 		else

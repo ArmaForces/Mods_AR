@@ -47,6 +47,7 @@ class AFM_FactoryPvPGameMode : SCR_BaseGameMode
 	[RplProp(onRplName: "OnMatchSituationChanged")]
 	protected int m_iAttackersRemaining = 0;
 	
+	//------------------------------------------------------------------------------------------------
 	ScriptInvoker GetOnMatchSituationChanged()
 	{
 		if (!m_OnMatchSituationChanged)
@@ -68,49 +69,20 @@ class AFM_FactoryPvPGameMode : SCR_BaseGameMode
 		if (!IsMaster())
 			return;
 		
-		if (!m_bHasGameStarted)
-			return;
-		
 		FactionAffiliationComponent fac = FactionAffiliationComponent.Cast(entity.FindComponent(FactionAffiliationComponent));
 		if (!fac) 
 		{
 			Print("Unknown victim faction!", LogLevel.WARNING);
 			return;
 		}
-		
-		FactionKey fKey = fac.GetAffiliatedFactionKey();	
-		if (fKey == m_sAttackerFactionKey || fKey == m_sDefenderFactionKey)
-		{
-			HandlePlayerDeath(entity);
-		}
-		else if (fKey == "CIV")
-		{
-			if (!killerEntity)
-			{
-				Print("Unknown killer entity!", LogLevel.WARNING);
-				GameEndTie();
-			}
-			else
-			{
-				Faction killerFaction = FactionAffiliationComponent.Cast(killerEntity.FindComponent(FactionAffiliationComponent))
-					.GetAffiliatedFaction();
-				FactionKey killerFactionKey = killerFaction.GetFactionKey();
 				
-				if (killerFactionKey == m_sAttackerFactionKey) 
-				{
-					GameEndDefendersWin();
-				}
-				else if (killerFactionKey == m_sDefenderFactionKey)
-				{
-					GameEndAttackersWin();
-				}
-				else
-				{
-					PrintFormat("Unsuported killer faction! %1", killerFactionKey, level:LogLevel.ERROR);
-					GameEndTie();
-				}
-			}
-		}
+		FactionKey fKey = fac.GetAffiliatedFactionKey();
+		if (fKey == "CIV")
+			HandleHostageKill(killerEntity);
+		else if (fKey == m_sAttackerFactionKey || fKey == m_sDefenderFactionKey)
+			HandlePlayerDeath(entity);
+		else
+			PrintFormat("Unknown victim faction key %1", fKey, level: LogLevel.WARNING);
 		
 		GameEndCheck();
 		Replication.BumpMe();
@@ -133,10 +105,13 @@ class AFM_FactoryPvPGameMode : SCR_BaseGameMode
 		m_fStartTimestamp = world.GetServerTimestamp().PlusSeconds(m_iGameStartDelaySeconds);
 		m_fVictoryTimestamp = m_fStartTimestamp.PlusSeconds(m_iGameOverTimeMinutes * 60);
 		GetGame().GetCallqueue().CallLater(StartGame, m_iGameStartDelaySeconds * 1000);
-		GetGame().GetCallqueue().CallLater(TimeoutGameEnd, m_iGameOverTimeMinutes * 60 * 1000 + m_iGameStartDelaySeconds * 1000, false);
+		GetGame().GetCallqueue().CallLater(GameEndTimeout, m_iGameOverTimeMinutes * 60 * 1000 + m_iGameStartDelaySeconds * 1000, false);
 	}
 	
-	void StartGame()
+
+	//------------------------------------------------------------------------------------------------
+	//! Server-side method to handle game start
+	protected void StartGame()
 	{
 		if (!IsMaster())
 			return;
@@ -149,6 +124,8 @@ class AFM_FactoryPvPGameMode : SCR_BaseGameMode
 		Replication.BumpMe();
 	}
 	
+	//------------------------------------------------------------------------------------------------
+	//! Proxy-side method to handle game start event
 	[RplRpc(RplChannel.Reliable, RplRcver.Broadcast)]
 	void RPC_DoStartGame()
 	{
@@ -168,21 +145,22 @@ class AFM_FactoryPvPGameMode : SCR_BaseGameMode
 		OnMatchSituationChanged();
 	}
 	
-	void GameEndCheck() 
+	//------------------------------------------------------------------------------------------------
+	protected void GameEndCheck() 
 	{
 		if (!m_bHasGameStarted)
 			return;
 		
-		m_iAttackersRemaining = GetFactionRemainingPlayers(m_sAttackerFactionKey);
-		m_iDefendersRemaining = GetFactionRemainingPlayers(m_sDefenderFactionKey);
+		m_iAttackersRemaining = GetFactionRemainingPlayersCount(m_sAttackerFactionKey);
+		m_iDefendersRemaining = GetFactionRemainingPlayersCount(m_sDefenderFactionKey);
 		
 		bool attackersDead = m_iAttackersRemaining == 0;
 		bool defendersDead = m_iDefendersRemaining == 0;
-		bool hostageStatus = AllHostagesFreed();
+		bool hostageStatus = AreAllHostagesFree();
 		
 		PrintFormat("GameEndCheck: A:%1 D:%2 H:%3", attackersDead, defendersDead, hostageStatus, level:LogLevel.SPAM);
 		
-		if (AllHostagesFreed())
+		if (hostageStatus)
 		{
 			Print("All hostages escaped", LogLevel.NORMAL);
 			GameEnd(m_sAttackerFactionKey);
@@ -208,32 +186,49 @@ class AFM_FactoryPvPGameMode : SCR_BaseGameMode
 		}
 	}
 	
-	protected bool AllHostagesFreed()
+	protected bool AreAllHostagesFree()
 	{
 		return GetGame().GetWorld().QueryEntitiesBySphere(
 				GetOrigin(),
 				m_iGameAreaRadius,
-				ProcessFoundHostages,
-				FilterHostageEntities,
+				AFM_HostageQueryCollector.ProcessFoundHostages,
+				AFM_HostageQueryCollector.FilterHostageEntities,
 				EQueryEntitiesFlags.DYNAMIC
 		);
 	}
 	
-	protected bool ProcessFoundHostages(IEntity entity)
+	protected void HandleHostageKill(IEntity killerEntity)
 	{
-		return false;
+		if (!killerEntity)
+		{
+			Print("Unknown killer entity!", LogLevel.WARNING);
+			GameEndTie();
+		}
+		else
+		{
+			Faction killerFaction = FactionAffiliationComponent.Cast(killerEntity.FindComponent(FactionAffiliationComponent))
+				.GetAffiliatedFaction();
+			FactionKey killerFactionKey = killerFaction.GetFactionKey();
+			
+			if (killerFactionKey == m_sAttackerFactionKey) 
+			{
+				GameEndDefendersWin();
+			}
+			else if (killerFactionKey == m_sDefenderFactionKey)
+			{
+				GameEndAttackersWin();
+			}
+			else
+			{
+				PrintFormat("Unsuported killer faction! %1", killerFactionKey, level:LogLevel.ERROR);
+				GameEndTie();
+			}
+		}
 	}
 	
-	protected bool FilterHostageEntities(IEntity entity)
-	{
-		if(entity.Type() != SCR_ChimeraCharacter)
-			return false; 
-		
-		FactionAffiliationComponent fac = FactionAffiliationComponent.Cast(entity.FindComponent(FactionAffiliationComponent));
-		return fac && fac.GetAffiliatedFactionKey() == "CIV";
-	}
-	
-	void TimeoutGameEnd()
+	//------------------------------------------------------------------------------------------------
+	//! Server side method to end game in case of timeout
+	protected void GameEndTimeout()
 	{
 		if (!IsMaster())
 			return;
@@ -251,17 +246,8 @@ class AFM_FactoryPvPGameMode : SCR_BaseGameMode
 		GameEnd(m_TimeoutWinnerFactionKey);
 	}
 	
-	
-	protected void GameEnd(FactionKey fKey)
-	{
-		m_bHasGameStarted = false;
-		
-		Faction faction = m_FactionManager.GetFactionByKey(fKey);
-		int factionId = m_FactionManager.GetFactionIndex(faction);
-		SCR_GameModeEndData endData = SCR_GameModeEndData.CreateSimple(EGameOverTypes.ENDREASON_SCORELIMIT, winnerFactionId:factionId);
-		EndGameMode(endData);
-	}
-	
+	//------------------------------------------------------------------------------------------------
+	//! Server side method to end game with a tie
 	protected void GameEndTie()
 	{
 		Print("Game tie", LogLevel.NORMAL);
@@ -273,19 +259,32 @@ class AFM_FactoryPvPGameMode : SCR_BaseGameMode
 		EndGameMode(endData);
 	}
 	
+	//------------------------------------------------------------------------------------------------
+	//! Server side method to end game with winningFactionKey faction victory
+	protected void GameEnd(FactionKey winningFactionKey)
+	{
+		m_bHasGameStarted = false;
+		
+		Faction faction = m_FactionManager.GetFactionByKey(winningFactionKey);
+		int factionId = m_FactionManager.GetFactionIndex(faction);
+		SCR_GameModeEndData endData = SCR_GameModeEndData.CreateSimple(EGameOverTypes.ENDREASON_SCORELIMIT, winnerFactionId:factionId);
+		EndGameMode(endData);
+	}
+	
 	protected void GameEndDefendersWin()
 	{
 		Print("Defenders win!");
 		GameEnd(m_sDefenderFactionKey);
 	}
-	
+
 	protected void GameEndAttackersWin()
 	{
 		Print("Attackers win!");
 		GameEnd(m_sAttackerFactionKey);
 	}
 	
-	int GetFactionRemainingPlayers(FactionKey fKey)
+	//------------------------------------------------------------------------------------------------
+	int GetFactionRemainingPlayersCount(FactionKey fKey)
 	{
 		SCR_Faction faction = SCR_Faction.Cast(m_FactionManager.GetFactionByKey(fKey));
 		if (!faction)
@@ -306,7 +305,7 @@ class AFM_FactoryPvPGameMode : SCR_BaseGameMode
 				SCR_ChimeraCharacter ent = SCR_ChimeraCharacter.Cast(pc.GetControlledEntity());		
 				AFM_SpectatorComponent spectator = AFM_SpectatorComponent.Cast(pc.FindComponent(AFM_SpectatorComponent));
 				SCR_DamageManagerComponent damageManager = ent.GetDamageManager();
-				if (!damageManager.IsDestroyed() && !spectator.GetState()) {
+				if (!damageManager.IsDestroyed() && !spectator.IsSpectatorActive()) {
 					remainingPlayers++;
 				}
 			}
@@ -315,8 +314,13 @@ class AFM_FactoryPvPGameMode : SCR_BaseGameMode
 		return remainingPlayers;
 	}
 	
-	void HandlePlayerDeath(IEntity unit)
+	//------------------------------------------------------------------------------------------------
+	//! Server-side method to handle player death, respawn and spectator rights
+	protected void HandlePlayerDeath(IEntity unit)
 	{
+		if (!m_bHasGameStarted)
+			return;
+		
 		int playerId = GetGame().GetPlayerManager().GetPlayerIdFromControlledEntity(unit);
 		if (playerId == 0)
 		{
@@ -360,7 +364,9 @@ class AFM_FactoryPvPGameMode : SCR_BaseGameMode
 		respawnComponent.RequestSpawn(spsd);
 	}
 	
-	void DisableRestrictionZones()
+	//------------------------------------------------------------------------------------------------
+	//! Server side removal of starting restriction zones
+	protected void DisableRestrictionZones()
 	{
 		SCR_PlayersRestrictionZoneManagerComponent restrictionZoneManager = SCR_PlayersRestrictionZoneManagerComponent.Cast(FindComponent(SCR_PlayersRestrictionZoneManagerComponent));
 		if (!restrictionZoneManager)
@@ -381,7 +387,7 @@ class AFM_FactoryPvPGameMode : SCR_BaseGameMode
 		}
 	}
 	
-	
+	//------------------------------------------------------------------------------------------------
 	SCR_Faction GetBluforFaction()
 	{
 		return SCR_Faction.Cast(m_FactionManager.GetFactionByKey(m_sDefenderFactionKey));
@@ -391,13 +397,12 @@ class AFM_FactoryPvPGameMode : SCR_BaseGameMode
 	{
 		return SCR_Faction.Cast(m_FactionManager.GetFactionByKey(m_sAttackerFactionKey));
 	}
-	
-	
+
 	int GetBluforScore()
 	{
 		return m_iDefendersRemaining;
 	}
-	
+
 	int GetRedforScore()
 	{
 		return m_iAttackersRemaining;
@@ -407,17 +412,18 @@ class AFM_FactoryPvPGameMode : SCR_BaseGameMode
 	{
 		return m_bHasGameStarted;
 	}
-	
+
 	WorldTimestamp GetVictoryTimestamp()
 	{
 		return m_fVictoryTimestamp;
 	}
-	
+
 	WorldTimestamp GetGameStartTimestamp()
 	{
 		return m_fStartTimestamp;
 	}
 	
+	//------------------------------------------------------------------------------------------------ 
 	override bool RplLoad(ScriptBitReader reader)
 	{
 		super.RplLoad(reader);
@@ -438,5 +444,23 @@ class AFM_FactoryPvPGameMode : SCR_BaseGameMode
 		return true;
 	}
 
+}
+
+//------------------------------------------------------------------------------------------------
+class AFM_HostageQueryCollector
+{
+	static bool ProcessFoundHostages(IEntity entity)
+	{
+		return false;
+	}
+	
+	static bool FilterHostageEntities(IEntity entity)
+	{
+		if(entity.Type() != SCR_ChimeraCharacter)
+			return false; 
+		
+		FactionAffiliationComponent fac = FactionAffiliationComponent.Cast(entity.FindComponent(FactionAffiliationComponent));
+		return fac && fac.GetAffiliatedFactionKey() == "CIV";
+	}
 }
 
