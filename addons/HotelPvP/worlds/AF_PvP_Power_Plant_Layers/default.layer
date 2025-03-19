@@ -28,10 +28,41 @@ SCR_FactionManager FactionManager_USxUSSR1 : "{589540B35EBA8CDC}Prefabs/MP/Manag
 }
 AFM_FactoryPvPGameMode AFM_FactoryPvPGameMode1 : "{AE65065120241660}Prefabs/MP/Modes/AFM_FactoryPvPGameMode.et" {
  components {
+  AFM_ScenarioTimeAndWeatherManager "{64E69CD1F1F8FEAE}" {
+   m_sCustomWeatherId "Clear"
+   m_fCustomTimeOfTheDay 19.5
+  }
   SCR_CampaignMilitaryBaseMapDescriptorComponent "{64B68C182A3DEE46}" {
    DisplayName "Factory"
    MainType "Icon (generic)"
    m_GraphLinesData SCR_GraphLinesData "{64B68C1828C877C6}" {
+   }
+  }
+  SCR_CustomAreaMeshComponent "{64B2AC457E72AFFD}" {
+   Enabled 1
+  }
+  SCR_WelcomeScreenComponent "{5D34CBCAF837769A}" {
+   m_BaseLayout SCR_WelcomeScreenThreeHorizontalColumns "{5D34CBCBB2A8004F}" {
+    m_MiddleColumn SCR_WelcomeScreenMissionObjectivesContent "{64E69CD086330254}" {
+     m_aMissionObjectives {
+      SCR_WelcomeScreenMissionObjectives "{64E69CD0B287904B}" {
+       m_sDescription "Rescue hostage from the americans"
+      }
+      SCR_WelcomeScreenMissionObjectives "{64E69CD2F0D08132}" {
+       m_sDescription "Prevent russins from rescuing our hostage"
+      }
+     }
+    }
+    m_RightColumn SCR_WelcomeScreenIntroductionContent "{5D3684175D904147}" {
+     m_aIntroduction {
+      SCR_WelcomeScreenIntroduction "{5D36841751E1D099}" {
+       m_sContentImage "{C58FCC06AF13075B}UI/Textures/MissionLoadingScreens/placeholder_1.edds"
+      }
+      SCR_WelcomeScreenIntroduction "{5D36841756EB2304}" {
+       m_sContentImage "{C58FCC06AF13075B}UI/Textures/MissionLoadingScreens/placeholder_1.edds"
+      }
+     }
+    }
    }
   }
  }

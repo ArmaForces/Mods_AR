@@ -1,0 +1,66 @@
+Vehicle AH6M_M2 : "{72C04A6EABC12143}Prefabs/Vehicles/Helicopters/AH6M/AH6M_M134.et" {
+ coords 10152.246 2.562 1536.405
+ angleY -75.847
+}
+Vehicle AH6M_RKT1 : "{823CA4130CE90077}Prefabs/Vehicles/Helicopters/AH6M/AH6M_RKT.et" {
+ coords 10155.706 2.761 1549.667
+ angleY -73.451
+}
+$grp Vehicle : "{AF950919C81D91B4}Prefabs/Vehicles/Helicopters/AH6M/MH6M.et" {
+ MH6M3 {
+  coords 10144.962 2.531 1510.475
+  angleY -78.067
+ }
+ MH6M4 {
+  coords 10148.454 2.532 1522.953
+  angleY -75.587
+ }
+}
+GenericEntity Area1 : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Components/Area.et" {
+ components {
+  SCR_ScenarioFrameworkArea "{59E8CDC50969206E}" {
+   m_iDynamicDespawnRange 7500
+  }
+ }
+ coords 5174.505 40.438 10456.483
+ {
+  $grp GenericEntity : "{E537867C6E760514}Prefabs/Systems/ScenarioFramework/Components/SlotMarker.et" {
+   SlotMarker2 {
+    components {
+     SCR_ScenarioFrameworkSlotMarker "{5EA2BD9901E5E82E}" {
+      m_MapMarkerType SCR_ScenarioFrameworkMarkerCustom "{64D4A0BC99863DD6}" {
+       m_sMapMarkerText "Castle"
+       m_eMapMarkerIcon DEFEND
+       m_eMapMarkerColor BLUFOR
+      }
+     }
+    }
+    coords 4191.085 171.977 -9295.101
+   }
+   SlotMarker1 {
+    components {
+     SCR_ScenarioFrameworkSlotMarker "{5EA2BD9901E5E82E}" {
+      m_MapMarkerType SCR_ScenarioFrameworkMarkerCustom "{64D4A0BC99863DD6}" {
+       m_sMapMarkerText "US Spawn"
+       m_eMapMarkerIcon FLAG
+       m_eMapMarkerColor RED
+      }
+     }
+    }
+    coords 4972.619 -37.878 -8917.052
+   }
+   SlotMarker4 {
+    components {
+     SCR_ScenarioFrameworkSlotMarker "{5EA2BD9901E5E82E}" {
+      m_MapMarkerType SCR_ScenarioFrameworkMarkerCustom "{64D4A0BC99863DD6}" {
+       m_sMapMarkerText "US Spawn"
+       m_eMapMarkerIcon FLAG
+       m_eMapMarkerColor RED
+      }
+     }
+    }
+    coords 3445.198 232.776 -8856.92
+   }
+  }
+ }
+}

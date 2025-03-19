@@ -2,10 +2,39 @@ AFM_FactoryPvPGameMode : "{0F307326459A1395}Prefabs/MP/Modes/GameMode_Base.et" {
  ID "56B2B479C6B96951"
  components {
   SCR_CustomAreaMeshComponent "{64B2AC457E72AFFD}" {
+   Enabled 0
    m_fHeight 25
    m_vResolution 32
    m_Material "{E65E61D1541003E2}Assets/Editor/VirtualArea/VirtualArea.emat"
-   m_fRadius 80
+   m_fRadius 65
+  }
+  SCR_DebriefingScreenComponent "{609C96D6715AA822}" {
+   m_sHeaderTitle "Castle PvP"
+   m_BaseLayout SCR_DebriefingScreenUnevenFourTiles "{609C96D6A2B38690}" {
+    m_TopLeftTile SCR_DebriefingScreenBigImageContent "{5D349E27CFE0247B}" {
+     m_sContentImage "{EC0B73DC1409A326}UI/Textures/MissionLoadingScreens/CAH_Castle_UI.edds"
+    }
+    m_BottomLeftTile SCR_DebriefingScreenSummaryContent "{5D349E27FA750E5E}" {
+     m_sTitleText "#AR-DebriefingScreen_Debriefing"
+     m_sSubtitleText "#AR-DebriefingScreen_Subtitle"
+     m_sSubtitleLostText "#AR-DebriefingScreen_Subtitle_Lost"
+    }
+    m_BottomRightTile SCR_DebriefingScreenStatisticsContent "{5D349E27FB89309F}" {
+     m_sTitleText "#AR-DebriefingScreen_Statistics"
+     m_aStatistics {
+      SCR_DebriefingScreenStatisticShotsFired "{5D4272AF9F27F9ED}" {
+      }
+      SCR_DebriefingScreenStatisticKills "{5D4272AF9DC59980}" {
+      }
+      SCR_DebriefingScreenStatisticDeaths "{5D4272AF9043F083}" {
+      }
+      SCR_DebriefingScreenStatisticDistanceWalked "{5D4272AF91FE0EB2}" {
+      }
+      SCR_DebriefingScreenStatisticDistanceDriven "{5D4272AF97A47B7E}" {
+      }
+     }
+    }
+   }
   }
   SCR_NametagConfigComponent "{571AA9E54FC9210D}" {
    m_sConfigPath "{09F7AAA14A642683}Configs/NameTags/NametagFriendlies.conf"
@@ -23,13 +52,61 @@ AFM_FactoryPvPGameMode : "{0F307326459A1395}Prefabs/MP/Modes/GameMode_Base.et" {
     }
    }
   }
+  SCR_WelcomeScreenComponent "{5D34CBCAF837769A}" {
+   m_sHeaderTitle "Lorem ipsum "
+   m_sHeaderSubtitle "dolor sit amet"
+   m_BaseLayout SCR_WelcomeScreenThreeHorizontalColumns "{5D34CBCBB2A8004F}" {
+    m_LeftColumn SCR_WelcomeScreenFactionContent "{64E69CD09374290F}" {
+     m_sTitleText "#AR-DeployScreen_AvailableFactionsTitle"
+    }
+    m_MiddleColumn SCR_WelcomeScreenMissionObjectivesContent "{64E69CD086330254}" {
+     m_sTitleText "#AR-DebriefingScreen_Objectives"
+     m_aMissionObjectives {
+      SCR_WelcomeScreenMissionObjectives "{64E69CD0B287904B}" {
+       m_sObjectiveQuadName "Seize"
+       m_sDescription "Rescue Donald Trump from the brits"
+      }
+      SCR_WelcomeScreenMissionObjectives "{64E69CD2F0D08132}" {
+       m_sObjectiveQuadName "Defend"
+       m_sDescription "Prevent yanks from rescuing our hostage"
+      }
+     }
+    }
+    m_RightColumn SCR_WelcomeScreenIntroductionContent "{5D3684175D904147}" {
+     m_sTitleText "Lorem ipsum"
+     m_aIntroduction {
+      SCR_WelcomeScreenIntroduction "{5D36841751E1D099}" {
+       m_sContentImage "{EC0B73DC1409A326}UI/Textures/MissionLoadingScreens/CAH_Castle_UI.edds"
+       m_sContentTitleText "Lorem ipsum"
+       m_sContentDescriptionText "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. "
+      }
+      SCR_WelcomeScreenIntroduction "{5D36841756EB2304}" {
+       m_sContentImage "{EC0B73DC1409A326}UI/Textures/MissionLoadingScreens/CAH_Castle_UI.edds"
+       m_sContentTitleText "Lorem ipsum"
+       m_sContentDescriptionText "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+      }
+     }
+    }
+   }
+  }
+  AFM_ScenarioTimeAndWeatherManager "{64E69CD1F1F8FEAE}" {
+   m_bUseCustomWeather 1
+   m_sCustomWeatherId "Foggy"
+   m_bUseCustomTime 1
+   m_fCustomTimeOfTheDay 20.15
+  }
  }
  PlayerControllerPrefab "{4B7AF7F3DA06BCCE}Prefabs/Characters/Core/AFM_PlayerControllerMP.et"
  m_aDisabledResourceTypes {
   0
  }
- m_RedforFactionKey "USSR"
+ m_sDefenderFactionKey "UK"
  m_iGameStartDelaySeconds 180
- m_iGameAreaRadius 80
+ m_TimeoutWinnerFactionKey "UK"
+ m_iGameAreaRadius 65
  m_pPrisonerPrefab "{1ED1D1195A34B82C}Prefabs/Characters/AFM_SpectatorLoadout.et"
+ m_bUseCustomWeather 1
+ m_sCustomWeatherId "Foggy"
+ m_bUseCustomTime 1
+ m_fCustomTimeOfTheDay 20.15
 }

@@ -30,6 +30,10 @@ SCR_FactionManager FactionManager_Editor1 : "{4A188E44289B9A50}Prefabs/MP/Manage
 }
 AFM_FactoryPvPGameMode AFM_FactoryPvPGameMode1 : "{AE65065120241660}Prefabs/MP/Modes/AFM_FactoryPvPGameMode.et" {
  components {
+  AFM_ScenarioTimeAndWeatherManager "{64E69CD1F1F8FEAE}" {
+   m_sCustomWeatherId "Cloudy"
+   m_fCustomTimeOfTheDay 17
+  }
   SCR_NightModeGameModeComponent "{5D50E84688D5A408}" {
    m_bAllowGlobalNightMode 1
   }
@@ -61,23 +65,36 @@ AFM_FactoryPvPGameMode AFM_FactoryPvPGameMode1 : "{AE65065120241660}Prefabs/MP/M
    }
    m_bRandomWeatherChanges 1
   }
+  SCR_WelcomeScreenComponent "{5D34CBCAF837769A}" {
+   m_BaseLayout SCR_WelcomeScreenThreeHorizontalColumns "{5D34CBCBB2A8004F}" {
+    m_MiddleColumn SCR_WelcomeScreenMissionObjectivesContent "{64E69CD086330254}" {
+     m_aMissionObjectives {
+      SCR_WelcomeScreenMissionObjectives "{64E69CD0B287904B}" {
+       m_sDescription "Rescue hostage taken by the insurgents"
+      }
+      SCR_WelcomeScreenMissionObjectives "{64E69CD2F0D08132}" {
+       m_sDescription "Prevent brits from rescuing our hostage"
+      }
+     }
+    }
+    m_RightColumn SCR_WelcomeScreenIntroductionContent "{5D3684175D904147}" {
+     m_aIntroduction {
+      SCR_WelcomeScreenIntroduction "{5D36841751E1D099}" {
+       m_sContentImage "{C58FCC06AF13075B}UI/Textures/MissionLoadingScreens/placeholder_1.edds"
+      }
+     }
+    }
+   }
+  }
  }
  coords 5817.999 4.563 9795.731
+ m_sDefenderFactionKey "FIA"
  m_sAttackerFactionKey "UK"
+ m_TimeoutWinnerFactionKey "FIA"
 }
 Vehicle CVRW_Fox_Conflict1 : "{0F3A3B91E2496B96}Prefabs/Vehicles/Wheeled/Conflict_Variants/CVRW_Fox_Conflict.et" {
  coords 5168.957 40.431 10442.055
  angleY -125.181
-}
-$grp Vehicle : "{3026F7740CC47876}Prefabs/Vehicles/Helicopters/UH1H/UH1H_armed_UK.et" {
- UH1H_armed_UK1 {
-  coords 5189.604 43.113 10427.045
-  angleY -131.577
- }
- UH1H_armed_UK2 {
-  coords 5203.814 43.413 10410.973
-  angleY -131.577
- }
 }
 SCR_SpawnPoint : "{4FEA25583D0975F7}Prefabs/MP/Spawning/SpawnPoint_USSR.et" {
  coords 5178.651 41.408 10469.226
@@ -206,6 +223,16 @@ $grp Vehicle : "{A223CBB0F2C45372}Prefabs/Vehicles/Wheeled/M998/M998_covered_lon
  M998_covered_long_UK3 {
   coords 5188.17 40.333 10453.612
   angleY -115.047
+ }
+}
+$grp Vehicle : "{AF950919C81D91B4}Prefabs/Vehicles/Helicopters/AH6M/MH6M.et" {
+ MH6M1 {
+  coords 5203.142 43.414 10411.15
+  angleY -125.912
+ }
+ MH6M2 {
+  coords 5188.809 43.115 10427.376
+  angleY -129.104
  }
 }
 SCR_EditorRestrictionZoneEntity defenders_zone : "{B2A519402E9AC209}PrefabsEditable/RestrictionZone/E_EditorRestrictionZoneLarge.et" {

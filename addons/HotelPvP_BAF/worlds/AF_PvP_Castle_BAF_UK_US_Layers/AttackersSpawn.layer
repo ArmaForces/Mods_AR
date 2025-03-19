@@ -1,0 +1,113 @@
+$grp Vehicle {
+ AH6M_M1 {
+  coords 10145.334 2.531 1510.396
+  angleY -78.828
+ }
+ MH6M1 {
+  coords 10154.229 2.668 1546.776
+  angleY -70.223
+ }
+ MH6M2 {
+  coords 10149.145 2.531 1531.136
+  angleY -72.247
+ }
+}
+$grp GenericEntity : "{45C675ED3CFBBEC5}Prefabs/Props/Military/Compositions/US/ArsenalBox_US.et" {
+ {
+  coords 10133.512 2.531 1519.629
+  angleY -77.89
+ }
+ {
+  coords 8622.889 273.094 1594.423
+  angleY -77.89
+ }
+}
+$grp Vehicle : "{47D94E1193A88497}Prefabs/Vehicles/Wheeled/M151A2/M151A2_transport.et" {
+ M151A2_transport2 {
+  coords 10131.942 2.562 1543.205
+  angleY -77.697
+ }
+ M151A2_transport1 {
+  coords 10133.942 2.625 1548.628
+  angleY -77.697
+ }
+ M151A2_transport3 {
+  coords 8619.582 273.102 1584.233
+  angleY 119.601
+ }
+ M151A2_transport4 {
+  coords 8617.523 272.611 1580.52
+  angleY 119.601
+ }
+}
+$grp SCR_SpawnPoint : "{5A2220DD0C16958B}Prefabs/MP/Spawning/SpawnPoint_US.et" {
+ {
+  coords 10164.939 2.796 1554.429
+  angleY -65
+  m_fSpawnRadius 2
+  m_Info SCR_UIInfo "{56B4CC4ECACA2C37}" {
+   Name "#AR-CAH-SpawnArea_US_A"
+  }
+  {
+   $grp SCR_PlayerSpawnPoint : "{F6CAD21EDD2D1964}Prefabs/MP/Spawning/PlayerSpawnPoint.et" {
+    {
+     coords -1.587 0.159 1.89
+     angleY 4
+    }
+    {
+     coords 1.006 -0.282 -3.254
+     angleY -2
+    }
+    {
+     coords -1.311 -0.321 -4.038
+     angleY -3
+    }
+   }
+  }
+ }
+ {
+  coords 8619.703 273.172 1598.247
+  angleY -65
+  m_fSpawnRadius 2
+  m_Info SCR_UIInfo "{56B4CC4ECACA2C37}" {
+   Name "#AR-CAH-SpawnArea_US_B"
+  }
+  {
+   $grp SCR_PlayerSpawnPoint : "{F6CAD21EDD2D1964}Prefabs/MP/Spawning/PlayerSpawnPoint.et" {
+    {
+     coords -1.587 0.159 1.89
+     angleY 4
+    }
+    {
+     coords 1.006 -0.282 -3.254
+     angleY -2
+    }
+    {
+     coords -1.311 -0.321 -4.038
+     angleY -3
+    }
+   }
+  }
+ }
+}
+SCR_EditorRestrictionZoneEntity attackers_zone : "{B2A519402E9AC209}PrefabsEditable/RestrictionZone/E_EditorRestrictionZoneLarge.et" {
+ coords 10144.664 2.532 1524.923
+}
+$grp Vehicle : "{F6B23D17D5067C11}Prefabs/Vehicles/Wheeled/M151A2/M151A2_M2HB.et" {
+ M151A2_M2HB2 {
+  coords 10139.037 2.615 1547.29
+  angleY -71.367
+ }
+ M151A2_M2HB1 {
+  coords 10138.506 2.562 1541.035
+  angleY -71.367
+ }
+ M151A2_M2HB3 {
+  coords 8615.114 273.092 1587.026
+  angleY 125.931
+ }
+ M151A2_M2HB4 {
+  coords 8613.057 272.601 1583.313
+  angleY 125.931
+ }
+}
