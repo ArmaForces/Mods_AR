@@ -90,8 +90,13 @@ $grp SCR_SpawnPoint : "{5A2220DD0C16958B}Prefabs/MP/Spawning/SpawnPoint_US.et" {
   }
  }
 }
-SCR_EditorRestrictionZoneEntity attackers_zone : "{B2A519402E9AC209}PrefabsEditable/RestrictionZone/E_EditorRestrictionZoneLarge.et" {
- coords 10144.664 2.532 1524.923
+$grp SCR_EditorRestrictionZoneEntity : "{B2A519402E9AC209}PrefabsEditable/RestrictionZone/E_EditorRestrictionZoneLarge.et" {
+ attackers_zone {
+  coords 10144.664 2.532 1524.923
+ }
+ attackers_zone2 {
+  coords 8614.653 273.189 1594.21
+ }
 }
 $grp Vehicle : "{F6B23D17D5067C11}Prefabs/Vehicles/Wheeled/M151A2/M151A2_M2HB.et" {
  M151A2_M2HB2 {
