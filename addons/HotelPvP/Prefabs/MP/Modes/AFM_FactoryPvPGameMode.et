@@ -1,6 +1,10 @@
 AFM_FactoryPvPGameMode : "{0F307326459A1395}Prefabs/MP/Modes/GameMode_Base.et" {
  ID "56B2B479C6B96951"
  components {
+  AFM_ScenarioTimeAndWeatherManager "{64E69CD1F1F8FEAE}" {
+   m_sCustomWeatherId "Foggy"
+   m_fCustomTimeOfTheDay 20.15
+  }
   SCR_CustomAreaMeshComponent "{64B2AC457E72AFFD}" {
    Enabled 0
    m_fHeight 25
@@ -89,12 +93,6 @@ AFM_FactoryPvPGameMode : "{0F307326459A1395}Prefabs/MP/Modes/GameMode_Base.et" {
     }
    }
   }
-  AFM_ScenarioTimeAndWeatherManager "{64E69CD1F1F8FEAE}" {
-   m_bUseCustomWeather 1
-   m_sCustomWeatherId "Foggy"
-   m_bUseCustomTime 1
-   m_fCustomTimeOfTheDay 20.15
-  }
  }
  PlayerControllerPrefab "{4B7AF7F3DA06BCCE}Prefabs/Characters/Core/AFM_PlayerControllerMP.et"
  m_aDisabledResourceTypes {
@@ -105,8 +103,7 @@ AFM_FactoryPvPGameMode : "{0F307326459A1395}Prefabs/MP/Modes/GameMode_Base.et" {
  m_TimeoutWinnerFactionKey "UK"
  m_iGameAreaRadius 65
  m_pPrisonerPrefab "{1ED1D1195A34B82C}Prefabs/Characters/AFM_SpectatorLoadout.et"
- m_bUseCustomWeather 1
- m_sCustomWeatherId "Foggy"
- m_bUseCustomTime 1
- m_fCustomTimeOfTheDay 20.15
+ m_aRestrictionZoneNames {
+  "attackers_zone" "defenders_zone"
+ }
 }

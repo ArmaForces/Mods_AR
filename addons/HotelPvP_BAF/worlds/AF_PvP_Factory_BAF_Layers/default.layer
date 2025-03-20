@@ -56,6 +56,9 @@ AFM_FactoryPvPGameMode AFM_FactoryPvPGameMode1 : "{AE65065120241660}Prefabs/MP/M
  m_sAttackerFactionKey "USSR"
  m_iGameStartDelaySeconds 120
  m_TimeoutWinnerFactionKey "UK"
+ m_aRestrictionZoneNames {
+  "attackers_zone" "defenders_zone"
+ }
 }
 $grp Vehicle : "{0B4DEA8078B78A9B}Prefabs/Vehicles/Wheeled/UAZ469/UAZ469_PKM.et" {
  UAZ469_PKM1 {
