@@ -1,6 +1,15 @@
 SCR_EditorModeEntity : "{E56F54E533ACE527}Prefabs/Editor/Modes/EditorModeBase.et" {
  ID "54F2889696CCD840"
  components {
+  SCR_EntitiesManagerEditorComponent "{52A48BF20F6B4D98}" {
+   m_aFilters {
+    SCR_EntityTypesEditableEntityFilter "{5142DD05614C93FD}" {
+     m_aTypes {
+      2
+     }
+    }
+   }
+  }
   SCR_MenuOverlaysEditorComponent "{5165445D06363A31}" {
    m_aLayers {
     SCR_EditorMenuOverlayLayer "{51909549449D92DB}" {
