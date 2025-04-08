@@ -26,7 +26,7 @@ AFM_FactoryPvPGameMode AFM_FactoryPvPGameMode1 : "{AE65065120241660}Prefabs/MP/M
 SCR_SpawnPoint : "{4FEA25583D0975F7}Prefabs/MP/Spawning/SpawnPoint_USSR.et" {
  coords 1380.512 36.323 2352.694
 }
-SCR_ChimeraCharacter : "{516BB3588749F92A}Prefabs/Characters/Factions/CIV/Businessman/Character_CIV_Hostage.et" {
+SCR_ChimeraCharacter : "{516BB3588749F92A}Prefabs/Characters/Factions/CIV/Character_CIV_Hostage.et" {
  coords 1373.921 37.581 2346.078
 }
 SCR_SpawnPoint : "{5A2220DD0C16958B}Prefabs/MP/Spawning/SpawnPoint_US.et" {
