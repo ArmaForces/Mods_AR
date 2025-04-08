@@ -129,6 +129,11 @@ SCR_EditorRestrictionZoneEntity attackers_zone : "{6144B0BE2EAC6897}PrefabsEdita
 }
 $grp GenericEntity : "{641BE0766BB1874E}PrefabsEditable/Auto/Props/Military/Compositions/UK/E_ArsenalBox_UK.et" {
  {
+  components {
+   SCR_ArsenalComponent "{56F2C6D1431AD9AF}" {
+    m_eSupportedArsenalItemTypes 2097134
+   }
+  }
   coords 5803.102 5.132 9792.458
   angleY 178.898
  }
@@ -251,7 +256,7 @@ $grp StaticModelEntity : "{C1AE5D901C3A93C6}PrefabsEditable/Auto/Structures/Mili
 GenericEntity : "{C4A574FD7579FD7B}PrefabsEditable/Auto/Props/Military/Compositions/UK/E_ArsenalBox_UK_Weapons.et" {
  components {
   SCR_ArsenalComponent "{56F2C6D1431AD9AF}" {
-   m_eSupportedArsenalItemTypes ROCKET_LAUNCHER
+   m_eSupportedArsenalItemTypes 262216
    m_eSupportedArsenalItemModes 20
   }
  }
