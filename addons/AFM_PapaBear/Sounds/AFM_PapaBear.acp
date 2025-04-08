@@ -1,0 +1,771 @@
+AudioClass {
+ signals {
+  SignalClass {
+   id 16397
+   name "Von"
+   tl -958.456 -234.338
+   res "{CF1F9C4B120DE5F8}Sounds/VON/Von.sig"
+   inputsport {
+    1
+   }
+   outputsport {
+    5 8 12
+   }
+   inputvalues {
+    1
+   }
+   inputvaluesmin {
+    0
+   }
+   inputvaluesmax {
+    1
+   }
+   path "{CF1F9C4B120DE5F8}Sounds/VON/Von.sig"
+  }
+  SignalClass {
+   id 40973
+   name "AFM_NumberStationsSignal"
+   tl -676.703 128.145
+   res "{BF61B0BFF666D11D}Sounds/AFM_NumberStations.sig"
+   inputsport {
+    1 12
+   }
+   outputsport {
+    2 11
+   }
+   inputvalues {
+    0 0
+   }
+   inputvaluesmin {
+    0 0
+   }
+   inputvaluesmax {
+    300000 300000
+   }
+   path "{BF61B0BFF666D11D}Sounds/AFM_NumberStations.sig"
+  }
+ }
+ filters {
+  FilterClass : "{5E613C9008123B4B}Sounds/_SharedData/Configs/Filter/RadioProtocol/Filter_RadioProtocol_BitCrusher.conf" {
+   id 8214
+   version 5
+   tl -702.731 -230.82
+   parent "{5E613C9008123B4B}Sounds/_SharedData/Configs/Filter/RadioProtocol/Filter_RadioProtocol_BitCrusher.conf"
+   ins {
+    ConnectionsClass connections {
+     id 0
+     links {
+      ConnectionClass connection {
+       id 16397
+       port 5
+      }
+     }
+    }
+   }
+   pi {
+    3 0
+   }
+   volume_dB 1
+  }
+  FilterClass : "{9D5F8A1F1997D843}Sounds/_SharedData/Configs/Filter/RadioProtocol/Filter_RadioProtocol_HPFilter.conf" {
+   id 11286
+   version 5
+   tl -958.731 -504.549
+   parent "{9D5F8A1F1997D843}Sounds/_SharedData/Configs/Filter/RadioProtocol/Filter_RadioProtocol_HPFilter.conf"
+   pi {
+    3 0
+   }
+  }
+  FilterClass : "{EAE903FA358E7F4C}Sounds/_SharedData/Configs/Filter/RadioProtocol/Filter_RadioProtocol_Compressor.conf" {
+   id 17430
+   version 5
+   tl -944.731 -408.152
+   parent "{EAE903FA358E7F4C}Sounds/_SharedData/Configs/Filter/RadioProtocol/Filter_RadioProtocol_Compressor.conf"
+   pi + {
+    0
+   }
+  }
+  FilterClass : "{6322339741A563B7}Sounds/_SharedData/Configs/Filter/RadioProtocol/Filter_RadioProtocol_LPFilter.conf" {
+   id 18454
+   name "Filter LowPass"
+   version 5
+   tl -962.731 -610.772
+   parent "{6322339741A563B7}Sounds/_SharedData/Configs/Filter/RadioProtocol/Filter_RadioProtocol_LPFilter.conf"
+   pi {
+    3 0
+   }
+  }
+ }
+ filter_chain {
+  FilterChainClass {
+   id 9239
+   name "FilterChain 116"
+   version 5
+   tl -467.147 -423.018
+   ins {
+    ConnectionsClass connections {
+     id 1
+     links {
+      ConnectionClass connection {
+       id 17430
+       port 65
+      }
+     }
+    }
+    ConnectionsClass connections {
+     id 2
+     links {
+      ConnectionClass connection {
+       id 8214
+       port 65
+      }
+     }
+    }
+    ConnectionsClass connections {
+     id 3
+     links {
+      ConnectionClass connection {
+       id 18454
+       port 65
+      }
+     }
+    }
+    ConnectionsClass connections {
+     id 4
+     links {
+      ConnectionClass connection {
+       id 11286
+       port 65
+      }
+     }
+    }
+   }
+   pi {
+    30 0
+   }
+   ports 4
+  }
+ }
+ vars {
+  VariableClass {
+   id 14366
+   name "Variable VON_Radio"
+   comment "Duck when VON active"
+   version 5
+   tl -224.246 -189.944
+   ctl 0 -21
+   varName "VON_Radio"
+   varResource "{A60F08955792B575}Sounds/_SharedData/Variables/GlobalVariables.conf"
+   curve {
+    CurvePoint "1" {
+     X 0.2
+     Y 1
+    }
+    CurvePoint "2" {
+     X 0.7
+     Y 0.7
+    }
+    CurvePoint "3" {
+     X 1.4
+     Y 0.6
+    }
+   }
+  }
+ }
+ sounds {
+  SoundClass : "{0076CDC7B631E6A0}Sounds/_SharedData/Configs/Sound/Sound_Tutorial_VO.conf" {
+   id 6153
+   name "ARMAFORCES"
+   version 5
+   tl -21.021 -1028.753
+   parent "{0076CDC7B631E6A0}Sounds/_SharedData/Configs/Sound/Sound_Tutorial_VO.conf"
+   ins {
+    ConnectionsClass connections {
+     id 64
+     links {
+      ConnectionClass connection {
+       id 19474
+       port 65
+      }
+     }
+    }
+   }
+   pi + {
+    0
+   }
+   pu + {
+    0
+   }
+   outState 7179
+   outStatePort 19463
+  }
+  SoundClass {
+   id 15369
+   name "SOUND_RADIO_NOISE"
+   version 5
+   tl 64.78 -298.13
+   ins {
+    ConnectionsClass connections {
+     id 1
+     links {
+      ConnectionClass connection {
+       id 14366
+       port 65
+      }
+     }
+    }
+    ConnectionsClass connections {
+     id 64
+     links {
+      ConnectionClass connection {
+       id 13330
+       port 65
+      }
+     }
+    }
+   }
+   pi {
+    10 0
+   }
+   pu {
+    2 0
+   }
+   outState 7179
+   outStatePort 19463
+   eventType "Start - Stop"
+  }
+  SoundClass : "{0076CDC7B631E6A0}Sounds/_SharedData/Configs/Sound/Sound_Tutorial_VO.conf" {
+   id 21513
+   name "DONUTS"
+   version 5
+   tl -19.267 -908.134
+   parent "{0076CDC7B631E6A0}Sounds/_SharedData/Configs/Sound/Sound_Tutorial_VO.conf"
+   ins {
+    ConnectionsClass connections {
+     id 64
+     links {
+      ConnectionClass connection {
+       id 20498
+       port 65
+      }
+     }
+    }
+   }
+   pi + {
+    0
+   }
+   pu + {
+    0
+   }
+   outState 7179
+   outStatePort 19463
+  }
+  SoundClass : "{0076CDC7B631E6A0}Sounds/_SharedData/Configs/Sound/Sound_Tutorial_VO.conf" {
+   id 25609
+   name "MY_EVERON"
+   version 5
+   tl -18.511 -782.992
+   parent "{0076CDC7B631E6A0}Sounds/_SharedData/Configs/Sound/Sound_Tutorial_VO.conf"
+   ins {
+    ConnectionsClass connections {
+     id 64
+     links {
+      ConnectionClass connection {
+       id 24594
+       port 65
+      }
+     }
+    }
+   }
+   pi + {
+    0
+   }
+   pu + {
+    0
+   }
+   outState 7179
+   outStatePort 19463
+  }
+  SoundClass : "{0076CDC7B631E6A0}Sounds/_SharedData/Configs/Sound/Sound_Tutorial_VO.conf" {
+   id 26633
+   name "E06"
+   version 5
+   tl 80.07 77.837
+   parent "{0076CDC7B631E6A0}Sounds/_SharedData/Configs/Sound/Sound_Tutorial_VO.conf"
+   ins {
+    ConnectionsClass connections {
+     id 64
+     links {
+      ConnectionClass connection {
+       id 28690
+       port 65
+      }
+     }
+    }
+   }
+   pi + {
+    0
+   }
+   pu + {
+    0
+   }
+   outState 7179
+   outStatePort 19463
+  }
+  SoundClass : "{0076CDC7B631E6A0}Sounds/_SharedData/Configs/Sound/Sound_Tutorial_VO.conf" {
+   id 43017
+   name "S25"
+   version 5
+   tl 73.543 226.66
+   parent "{0076CDC7B631E6A0}Sounds/_SharedData/Configs/Sound/Sound_Tutorial_VO.conf"
+   ins {
+    ConnectionsClass connections {
+     id 64
+     links {
+      ConnectionClass connection {
+       id 42002
+       port 65
+      }
+     }
+    }
+   }
+   pi + {
+    0
+   }
+   pu + {
+    0
+   }
+   outState 7179
+   outStatePort 19463
+  }
+ }
+ buses {
+  BusClass {
+   id 12295
+   name "Noise Bus"
+   version 7
+   tl -711.948 -134.065
+   ins {
+    ConnectionsClass connections {
+     id 0
+     links {
+      ConnectionClass connection {
+       id 16397
+       port 5
+      }
+     }
+    }
+    ConnectionsClass connections {
+     id 64
+     links {
+      ConnectionClass connection {
+       id 10245
+       port 65
+      }
+     }
+    }
+   }
+   pi {
+    1 0
+   }
+  }
+ }
+ generators {
+  GeneratorClass {
+   id 10245
+   name "Generator Brown Noise"
+   version 6
+   tl -931.9 -117.597
+   function BrownianNoise
+   volume 0.079
+   volume_dB -22
+   time 100
+   infinite 1
+   "Attack Curve" SCurve
+   "Attack Time " 100
+  }
+ }
+ mixers {
+  MixerClass {
+   id 7179
+   name "OutputState 7"
+   version 4
+   tl 528.485 -318.15
+   res "{B764D803219C775E}Sounds/FinalMix.afm"
+   ins {
+    ConnectionsClass connections {
+     id 19463
+     links {
+      ConnectionClass connection {
+       id 6153
+       port 65
+      }
+      ConnectionClass connection {
+       id 15369
+       port 65
+      }
+      ConnectionClass connection {
+       id 21513
+       port 65
+      }
+      ConnectionClass connection {
+       id 25609
+       port 65
+      }
+      ConnectionClass connection {
+       id 26633
+       port 65
+      }
+      ConnectionClass connection {
+       id 43017
+       port 65
+      }
+     }
+    }
+   }
+   pi {
+    256 0
+   }
+   path "{B764D803219C775E}Sounds/FinalMix.afm"
+   inputs {
+    "WPN_Handling" "WPN_Shots" "WPN_Explosions" "WNP_BulletHits" "CHAR" "ENV_AMB_2D" "VEH_Animations" "Impacts" "Dialog" "Music" "ENV_Doors" "VEH_Engine" "VEH_Tires" "VON" "SFX" "SFX_Reverb" "VON_Reverb" "Dialog_Reverb" "Impacts_EXT" "ENV_AMB_3D" "WPN_SonicCracks" "CHAR_Gear" "PA" "SFX_Reverb_Exterior" "UI" "ENV_AMB_3D_Reverb_Exterior" "SFX_Direct" "SFX_Reverb_Small" "SFX_Reverb_Medium" "SFX_Reverb_Large" "WPN_Shots_Player" "Dialog_Reverb_Small" "Dialog_Reverb_Medium" "Dialog_Reverb_Large" "WPN_TravelingProjectile" "Dialog_Delay_Exterior" "SFX_Reverb_InCabin"
+   }
+  }
+ }
+ shaders {
+  ShaderClass {
+   id 13330
+   name "Shader 14"
+   version 5
+   tl -218.76 -298.214
+   ins {
+    ConnectionsClass connections {
+     id 4
+     links {
+      ConnectionClass connection {
+       id 9239
+       port 65
+      }
+     }
+    }
+    ConnectionsClass connections {
+     id 64
+     links {
+      ConnectionClass connection {
+       id 12295
+       port 65
+      }
+     }
+    }
+   }
+   pi {
+    16 0
+   }
+  }
+  ShaderClass {
+   id 19474
+   name "Shader 14"
+   version 5
+   tl -243.003 -1028.13
+   ins {
+    ConnectionsClass connections {
+     id 4
+     links {
+      ConnectionClass connection {
+       id 9239
+       port 65
+      }
+     }
+    }
+    ConnectionsClass connections {
+     id 64
+     links {
+      ConnectionClass connection {
+       id 4100
+       port 65
+      }
+     }
+    }
+   }
+   pi {
+    16 0
+   }
+  }
+  ShaderClass {
+   id 20498
+   name "Shader 14"
+   version 5
+   tl -241.249 -907.512
+   ins {
+    ConnectionsClass connections {
+     id 4
+     links {
+      ConnectionClass connection {
+       id 9239
+       port 65
+      }
+     }
+    }
+    ConnectionsClass connections {
+     id 64
+     links {
+      ConnectionClass connection {
+       id 22532
+       port 65
+      }
+     }
+    }
+   }
+   pi {
+    16 0
+   }
+  }
+  ShaderClass {
+   id 24594
+   name "Shader 14"
+   version 5
+   tl -240.493 -782.37
+   ins {
+    ConnectionsClass connections {
+     id 4
+     links {
+      ConnectionClass connection {
+       id 9239
+       port 65
+      }
+     }
+    }
+    ConnectionsClass connections {
+     id 64
+     links {
+      ConnectionClass connection {
+       id 23556
+       port 65
+      }
+     }
+    }
+   }
+   pi {
+    16 0
+   }
+  }
+  ShaderClass {
+   id 28690
+   name "Shader 14"
+   version 5
+   tl -141.912 78.459
+   ins {
+    ConnectionsClass connections {
+     id 4
+     links {
+      ConnectionClass connection {
+       id 9239
+       port 65
+      }
+     }
+    }
+    ConnectionsClass connections {
+     id 64
+     links {
+      ConnectionClass connection {
+       id 38916
+       port 65
+      }
+     }
+    }
+   }
+   pi {
+    16 0
+   }
+  }
+  ShaderClass {
+   id 42002
+   name "Shader 14"
+   version 5
+   tl -148.439 227.283
+   ins {
+    ConnectionsClass connections {
+     id 4
+     links {
+      ConnectionClass connection {
+       id 9239
+       port 65
+      }
+     }
+    }
+    ConnectionsClass connections {
+     id 64
+     links {
+      ConnectionClass connection {
+       id 44036
+       port 65
+      }
+     }
+    }
+   }
+   pi {
+    16 0
+   }
+  }
+ }
+ banks_local {
+  BankLocalClass {
+   id 4100
+   name "1"
+   version 7
+   tl -464.814 -1043.123
+   Samples {
+    AudioBankSampleClass Sample {
+     Filename "{83D6E26AAD3A18F0}Sounds/Samples/armaforces.wav"
+    }
+   }
+  }
+  BankLocalClass {
+   id 22532
+   name "1"
+   version 7
+   tl -463.06 -921.505
+   Samples {
+    AudioBankSampleClass Sample {
+     Filename "{1FA998D2907B75EF}Sounds/Samples/donuts.wav"
+    }
+   }
+  }
+  BankLocalClass {
+   id 23556
+   name "1"
+   version 7
+   tl -462.304 -796.363
+   Samples {
+    AudioBankSampleClass Sample {
+     Filename "{B1AC5A946BDB9542}Sounds/Samples/my_everon.wav"
+    }
+   }
+  }
+  BankLocalClass {
+   id 38916
+   name "NumberStation_E06"
+   version 7
+   tl -403.746 81.665
+   ins {
+    ConnectionsClass connections {
+     id 2
+     links {
+      ConnectionClass connection {
+       id 40973
+       port 11
+      }
+     }
+    }
+   }
+   pi {
+    14 0
+   }
+   Selection CustomSignalIndex
+   Samples {
+    AudioBankSampleClass Sample {
+     Filename "{A246EAAE024FB249}Sounds/Samples/NumberStations/E06/0.wav"
+    }
+    AudioBankSampleClass Sample {
+     Filename "{D54C8226F6ED5D39}Sounds/Samples/NumberStations/E06/1.wav"
+     Index 1
+    }
+    AudioBankSampleClass Sample {
+     Filename "{4C523BBFEB0A6CA9}Sounds/Samples/NumberStations/E06/2.wav"
+     Index 2
+    }
+    AudioBankSampleClass Sample {
+     Filename "{3B5853371FA883D9}Sounds/Samples/NumberStations/E06/3.wav"
+     Index 3
+    }
+    AudioBankSampleClass Sample {
+     Filename "{0DC70973A00659B5}Sounds/Samples/NumberStations/E06/4.wav"
+     Index 4
+    }
+    AudioBankSampleClass Sample {
+     Filename "{4B95C1EE8D8CD66A}Sounds/Samples/NumberStations/E06/5.wav"
+     Index 5
+    }
+    AudioBankSampleClass Sample {
+     Filename "{D28B7877906BE7FA}Sounds/Samples/NumberStations/E06/6.wav"
+     Index 6
+    }
+    AudioBankSampleClass Sample {
+     Filename "{A58110FF64C9088A}Sounds/Samples/NumberStations/E06/7.wav"
+     Index 7
+    }
+    AudioBankSampleClass Sample {
+     Filename "{DD048CD55D66927C}Sounds/Samples/NumberStations/E06/8.wav"
+     Index 8
+    }
+    AudioBankSampleClass Sample {
+     Filename "{AA0EE45DA9C47D0C}Sounds/Samples/NumberStations/E06/9.wav"
+     Index 9
+    }
+   }
+  }
+  BankLocalClass {
+   id 44036
+   name "NumberStation_S25"
+   version 7
+   tl -410.273 230.488
+   ins {
+    ConnectionsClass connections {
+     id 2
+     links {
+      ConnectionClass connection {
+       id 40973
+       port 11
+      }
+     }
+    }
+   }
+   pi {
+    14 0
+   }
+   Selection CustomSignalIndex
+   Samples {
+    AudioBankSampleClass Sample {
+     Filename "{371972BF105D280A}Sounds/Samples/NumberStations/S25/0.wav"
+    }
+    AudioBankSampleClass Sample {
+     Filename "{40131A37E4FFC77A}Sounds/Samples/NumberStations/S25/1.wav"
+     Index 1
+    }
+    AudioBankSampleClass Sample {
+     Filename "{D90DA3AEF918F6EA}Sounds/Samples/NumberStations/S25/2.wav"
+     Index 2
+    }
+    AudioBankSampleClass Sample {
+     Filename "{AE07CB260DBA199A}Sounds/Samples/NumberStations/S25/3.wav"
+     Index 3
+    }
+    AudioBankSampleClass Sample {
+     Filename "{A9C031776B3CA359}Sounds/Samples/NumberStations/S25/4.wav"
+     Index 4
+    }
+    AudioBankSampleClass Sample {
+     Filename "{DECA59FF9F9E4C29}Sounds/Samples/NumberStations/S25/5.wav"
+     Index 5
+    }
+    AudioBankSampleClass Sample {
+     Filename "{47D4E06682797DB9}Sounds/Samples/NumberStations/S25/6.wav"
+     Index 6
+    }
+    AudioBankSampleClass Sample {
+     Filename "{30DE88EE76DB92C9}Sounds/Samples/NumberStations/S25/7.wav"
+     Index 7
+    }
+    AudioBankSampleClass Sample {
+     Filename "{485B14C44F74083F}Sounds/Samples/NumberStations/S25/8.wav"
+     Index 8
+    }
+    AudioBankSampleClass Sample {
+     Filename "{3F517C4CBBD6E74F}Sounds/Samples/NumberStations/S25/9.wav"
+     Index 9
+    }
+   }
+  }
+ }
+ version 1
+}

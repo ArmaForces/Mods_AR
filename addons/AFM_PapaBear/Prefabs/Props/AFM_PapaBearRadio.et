@@ -1,0 +1,95 @@
+GenericEntity : "{12DFA1CC555DFEF4}Prefabs/Props/Military/Compositions/RadioStation_base.et" {
+ ID "F0DBA538AC2A0552"
+ components {
+  SignalsManagerComponent "{64DCC2C42BF27E23}" {
+  }
+  BaseRadioComponent "{64DCC2C42F44BEF2}" {
+   "Encryption key" "chickenNuggets"
+   "Turned on" 1
+   Transceivers {
+    RadioTransceiver "{64DCC2C4D197047A}" {
+     ChannelFrequency 48000
+     "Transmitting Range" 50000
+    }
+   }
+  }
+  MeshObject "{5872F0EB7FA40561}" {
+   Object "{0F55504A35401163}Assets/Props/Military/Radios/RadioStation_ANPRC77_01.xob"
+  }
+  SCR_FactionAffiliationComponent "{5CB6D5B110622424}" {
+   "faction affiliation" "US"
+  }
+  SCR_RadioComponent "{64DCC2C4C4C1CFCC}" {
+  }
+  ActionsManagerComponent "{5CB6D5B110622410}" {
+   ActionContexts {
+    UserActionContext "{64DCC2C4CE20B74A}" {
+     UIInfo UIInfo "{64DCC2C4CC7F063A}" {
+      Name "Default"
+     }
+     ContextName "Default"
+     Position PointInfo "{64DCC2C4F0530B11}" {
+      Offset -0.1 0.1 0
+     }
+    }
+    UserActionContext "{64DF04052B0B8302}" {
+     UIInfo UIInfo "{64DF040528000362}" {
+      Name "radio management"
+     }
+     ContextName "radioManagement"
+     Position PointInfo "{64DF0405D1CC073A}" {
+      Offset 0.1 0.1 0
+     }
+    }
+   }
+   additionalActions {
+    AFM_SendRadioMessageAction "{64DCC2C4F664FC63}" {
+     ParentContextList {
+      "Default"
+     }
+     UIInfo UIInfo "{64DCC2C4FA2736E8}" {
+      Name "Armaforces"
+     }
+     ActionTitle "Arfmaforces"
+     Duration 0
+     m_eMessageType ARMAFORCES
+    }
+    AFM_SendRadioMessageAction "{64DCC2C4E582671D}" {
+     ParentContextList {
+      "Default"
+     }
+     UIInfo UIInfo "{64DCC2C4E582675D}" {
+      Name "Donuts"
+     }
+     ActionTitle "Donuts"
+     Duration 0
+     m_eMessageType DONUTS
+    }
+    AFM_SendRadioMessageAction "{64DCC2CAC5919D52}" {
+     ParentContextList {
+      "Default"
+     }
+     UIInfo UIInfo "{64DCC2CAC5919DC1}" {
+      Name "My everon"
+     }
+     ActionTitle "My everon"
+     Duration 0
+     m_eMessageType MY_EVERON
+    }
+    AFM_StationaryRadioTuningUserAction "{64DF0405D9C2B5F7}" {
+     ParentContextList {
+      "radioManagement"
+     }
+    }
+    AFM_StationaryRadioTuningUserAction "{64DF0405CBFE3D6E}" {
+     ParentContextList {
+      "radioManagement"
+     }
+     m_bTuneUp 1
+    }
+   }
+  }
+ }
+ coords -0.104 0.9 -0.162
+ angleY 4.26
+}
