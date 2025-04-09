@@ -68,7 +68,7 @@ modded class SCR_VONController: ScriptComponent
 	//------------------------------------------------------------------------------------------------
 	override void DeactivateVON(EVONTransmitType transmitType = EVONTransmitType.NONE)
 	{
-		if (m_bIsActive)
+		if (m_bIsActive && m_bBeepEnd)
 		{
 			if (transmitType != EVONTransmitType.DIRECT)
 			{
