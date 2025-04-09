@@ -4,8 +4,9 @@ modded class SCR_VONController: ScriptComponent
 	const string SOUND_START_2 = "Sounds/AFM_Core/VON/beep_lr_on.wav";
 	const string SOUND_END = "Sounds/AFM_Core/VON/click_off.wav";
 
-	protected AFM_EVONBeep m_eBeepTypeCh1;
-	protected AFM_EVONBeep m_eBeepTypeCh2;
+	protected AFM_EVONBeep m_eBeepTypeCh1 = AFM_EVONBeep.OFF;
+	protected AFM_EVONBeep m_eBeepTypeCh2 = AFM_EVONBeep.OFF;
+	protected bool m_bBeepEnd = false;
 
 	//------------------------------------------------------------------------------------------------
 	override void OnPostInit(IEntity owner)
@@ -20,11 +21,14 @@ modded class SCR_VONController: ScriptComponent
 	protected void AFM_LoadSettings()
 	{
 		BaseContainer settings = GetGame().GetGameUserSettings().GetModule(AFM_SettingsSubMenu.MODULE_RADIO);
+		if (AFM_VONSettings.Enabled())
+		{
+			settings.Get("m_BeepCh1", m_eBeepTypeCh1);
+			settings.Get("m_BeepCh2", m_eBeepTypeCh2);
+			m_bBeepEnd = true;
 
-		settings.Get("m_BeepCh1", m_eBeepTypeCh1);
-		settings.Get("m_BeepCh2", m_eBeepTypeCh2);
-
-		PrintFormat("SCR_VONController.AFM_LoadSettings: %1, %2", m_eBeepTypeCh1, m_eBeepTypeCh2, level: LogLevel.DEBUG);
+			PrintFormat("SCR_VONController.AFM_LoadSettings: %1, %2", m_eBeepTypeCh1, m_eBeepTypeCh2, level: LogLevel.DEBUG);
+		}
 	}
 
 	//------------------------------------------------------------------------------------------------

@@ -23,55 +23,62 @@ HorizontalLayoutWidgetClass {
       Padding -4 0 10 0
      }
      {
-      VerticalLayoutWidgetClass "{63301827145A82EF}" : "{FEEEB639F2735BA1}UI/layouts/Menus/SettingsMenu/CustomWidgets/SettingsTitle.layout" {
-       Name "TitleGeneral"
-       Slot LayoutSlot "{58B30C1CBB34716F}" {
-       }
-       components {
-        SCR_LabelComponent "{58B30C1A8E56F0FF}" {
-         m_sLabel "#AFM_Core-Settings_Radio"
-         m_fPaddingTop 4
-        }
+      VerticalLayoutWidgetClass "{65135E8A7D369F8B}" {
+       Name "RadioCategory"
+       Slot LayoutSlot "{65135E8A7D369FA4}" {
        }
        {
-        TextWidgetClass "{58B30C1F77EC7B4E}" {
-         Prefab "{58B30C1F77EC7B4E}"
-         Slot LayoutSlot "{58B30C1F77EC7B76}" {
-          Padding 39 4 39 20
+        VerticalLayoutWidgetClass "{63301827145A82EF}" : "{FEEEB639F2735BA1}UI/layouts/Menus/SettingsMenu/CustomWidgets/SettingsTitle.layout" {
+         Name "TitleGeneral"
+         Slot LayoutSlot "{58B30C1CBB34716F}" {
+         }
+         components {
+          SCR_LabelComponent "{58B30C1A8E56F0FF}" {
+           m_sLabel "#AFM_Core-Settings_Radio"
+           m_fPaddingTop 4
+          }
+         }
+         {
+          TextWidgetClass "{58B30C1F77EC7B4E}" {
+           Prefab "{58B30C1F77EC7B4E}"
+           Slot LayoutSlot "{58B30C1F77EC7B76}" {
+            Padding 39 4 39 20
+           }
+          }
          }
         }
-       }
-      }
-      ButtonWidgetClass "{63301827145A82E6}" : "{C9DF0E6590F6C388}UI/layouts/WidgetLibrary/SpinBox/WLib_SpinBox.layout" {
-       Name "Beep_Ch1"
-       Slot LayoutSlot "{54890CCD613ED416}" {
-        Padding 4 4 4 4
-       }
-       components {
-        SCR_SpinBoxComponent "{5472C6CBC0640458}" {
-         m_sLabel "#AFM_Core-Settings_Radio_Beep_Ch1"
-         m_sLabelLayout "{F003823FF141983C}UI/layouts/Menus/SettingsMenu/CustomWidgets/SettingsLabel.layout"
-         m_aElementNames {
-          "#AFM_Core-Settings_Radio_Beep_Off" "#AFM_Core-Settings_Radio_Beep_1" "#AFM_Core-Settings_Radio_Beep_2"
+        ButtonWidgetClass "{63301827145A82E6}" : "{C9DF0E6590F6C388}UI/layouts/WidgetLibrary/SpinBox/WLib_SpinBox.layout" {
+         Name "Beep_Ch1"
+         Slot LayoutSlot "{54890CCD613ED416}" {
+          Padding 4 4 4 4
          }
-         m_bUseLightArrows 1
-         m_bCycleMode 1
+         components {
+          SCR_SpinBoxComponent "{5472C6CBC0640458}" {
+           m_sLabel "#AFM_Core-Settings_Radio_Beep_Ch1"
+           m_sLabelLayout "{F003823FF141983C}UI/layouts/Menus/SettingsMenu/CustomWidgets/SettingsLabel.layout"
+           m_aElementNames {
+            "#AFM_Core-Settings_Radio_Beep_Off" "#AFM_Core-Settings_Radio_Beep_1" "#AFM_Core-Settings_Radio_Beep_2"
+           }
+           m_bUseLightArrows 1
+           m_bCycleMode 1
+          }
+         }
         }
-       }
-      }
-      ButtonWidgetClass "{6330182609023B86}" : "{C9DF0E6590F6C388}UI/layouts/WidgetLibrary/SpinBox/WLib_SpinBox.layout" {
-       Name "Beep_Ch2"
-       Slot LayoutSlot "{54890CCD613ED416}" {
-        Padding 4 4 4 4
-       }
-       components {
-        SCR_SpinBoxComponent "{5472C6CBC0640458}" {
-         m_sLabel "#AFM_Core-Settings_Radio_Beep_Ch2"
-         m_sLabelLayout "{F003823FF141983C}UI/layouts/Menus/SettingsMenu/CustomWidgets/SettingsLabel.layout"
-         m_aElementNames {
-          "#AFM_Core-Settings_Radio_Beep_Off" "#AFM_Core-Settings_Radio_Beep_1" "#AFM_Core-Settings_Radio_Beep_2"
+        ButtonWidgetClass "{6330182609023B86}" : "{C9DF0E6590F6C388}UI/layouts/WidgetLibrary/SpinBox/WLib_SpinBox.layout" {
+         Name "Beep_Ch2"
+         Slot LayoutSlot "{54890CCD613ED416}" {
+          Padding 4 4 4 4
          }
-         m_bCycleMode 1
+         components {
+          SCR_SpinBoxComponent "{5472C6CBC0640458}" {
+           m_sLabel "#AFM_Core-Settings_Radio_Beep_Ch2"
+           m_sLabelLayout "{F003823FF141983C}UI/layouts/Menus/SettingsMenu/CustomWidgets/SettingsLabel.layout"
+           m_aElementNames {
+            "#AFM_Core-Settings_Radio_Beep_Off" "#AFM_Core-Settings_Radio_Beep_1" "#AFM_Core-Settings_Radio_Beep_2"
+           }
+           m_bCycleMode 1
+          }
+         }
         }
        }
       }
