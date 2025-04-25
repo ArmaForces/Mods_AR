@@ -76,23 +76,9 @@ $grp SCR_SpawnPoint : "{5A2220DD0C16958B}Prefabs/MP/Spawning/SpawnPoint_US.et" {
   }
  }
 }
-$grp Vehicle : "{AF950919C81D91B4}Prefabs/Vehicles/Helicopters/AH6M/MH6M.et" {
- MH6M4 {
-  coords 10148.454 2.532 1522.953
-  angleY -75.587
- }
- MH6M5 {
-  coords 10151.609 2.541 1533.026
-  angleY -78.067
- }
- MH6M6 {
-  coords 10153.682 2.621 1543.737
-  angleY -78.067
- }
- MH6M3 {
-  coords 10144.962 2.531 1510.475
-  angleY -78.067
- }
+Vehicle UH1H1 : "{70BAEEFC2D3FEE64}Prefabs/Vehicles/Helicopters/UH1H/UH1H.et" {
+ coords 10158.686 2.782 1546.685
+ angleY -77.783
 }
 $grp SCR_EditorRestrictionZoneEntity : "{B2A519402E9AC209}PrefabsEditable/RestrictionZone/E_EditorRestrictionZoneLarge.et" {
  attackers_zone {
@@ -100,6 +86,16 @@ $grp SCR_EditorRestrictionZoneEntity : "{B2A519402E9AC209}PrefabsEditable/Restri
  }
  attackers_zone2 {
   coords 8614.653 273.189 1594.21
+ }
+}
+$grp Vehicle : "{DDDD9B51F1234DF3}Prefabs/Vehicles/Helicopters/UH1H/UH1H_armed.et" {
+ UH1H_armed1 {
+  coords 10146.912 2.531 1508.337
+  angleY -77.424
+ }
+ UH1H_armed2 {
+  coords 10152.137 2.531 1527.065
+  angleY -77.424
  }
 }
 $grp Vehicle : "{F6B23D17D5067C11}Prefabs/Vehicles/Wheeled/M151A2/M151A2_M2HB.et" {

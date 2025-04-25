@@ -337,7 +337,9 @@ class AFM_FactoryPvPGameMode : SCR_BaseGameMode
 			PlayerController pc = GetGame().GetPlayerManager().GetPlayerController(id);
 			if (pc)
 			{
-				SCR_ChimeraCharacter ent = SCR_ChimeraCharacter.Cast(pc.GetControlledEntity());		
+				SCR_ChimeraCharacter ent = SCR_ChimeraCharacter.Cast(pc.GetControlledEntity());
+				if (!ent)
+					continue;  //player is not spawned yet
 				AFM_SpectatorComponent spectator = AFM_SpectatorComponent.Cast(pc.FindComponent(AFM_SpectatorComponent));
 				SCR_DamageManagerComponent damageManager = ent.GetDamageManager();
 				if (!damageManager.IsDestroyed() && !spectator.IsSpectatorActive()) {
