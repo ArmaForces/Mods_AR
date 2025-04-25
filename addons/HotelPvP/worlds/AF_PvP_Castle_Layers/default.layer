@@ -27,6 +27,9 @@ SCR_FactionManager FactionManager_Editor1 : "{4A188E44289B9A50}Prefabs/MP/Manage
    }
    m_bCreateOnlyPredefinedGroups 1
   }
+  SCR_Faction "{61500924662B6062}" {
+   m_bIsPlayable 0
+  }
  }
 }
 AFM_FactoryPvPGameMode AFM_FactoryPvPGameMode1 : "{AE65065120241660}Prefabs/MP/Modes/AFM_FactoryPvPGameMode.et" {
@@ -102,7 +105,8 @@ SCR_LoadoutManager LoadoutManager : "{97EF4C1A41F63DDB}Prefabs/MP/Managers/Loado
    m_sAffiliatedFaction "FIA"
   }
   SCR_FactionPlayerLoadout "{56B2B4613FB900E5}" {
-   m_sLoadoutResource "{5C0DC0BE7F1A7346}Prefabs/Characters/Factions/INDFOR/FIA/Character_FIA_AC_Grenadier.et"
+   m_sLoadoutName "#AR-Role_Scout"
+   m_sLoadoutResource "{BF1E43FF39AA526B}Prefabs/Characters/Factions/INDFOR/FIA/Character_FIA_Scout.et"
    m_sLoadoutImage "{6601A3AE17EA976D}UI/Textures/EditorPreviews/Characters/INDFOR/FIA/Character_FIA_Rifleman.edds"
    m_sAffiliatedFaction "FIA"
   }

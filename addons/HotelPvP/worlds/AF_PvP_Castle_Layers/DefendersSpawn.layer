@@ -30,5 +30,10 @@ SCR_EditorRestrictionZoneEntity defenders_zone : "{6144B0BE2EAC6897}PrefabsEdita
  m_fZoneRadius 70
 }
 GenericEntity : "{E83944C37C6FA465}PrefabsEditable/Auto/Props/Military/Compositions/FIA/E_ArsenalBox_FIA.et" {
+ components {
+  SCR_ArsenalComponent "{56F2C6D1431AD9AF}" {
+   m_eSupportedArsenalItemTypes 1048558
+  }
+ }
  coords 9355.599 204.518 1168.539
 }
