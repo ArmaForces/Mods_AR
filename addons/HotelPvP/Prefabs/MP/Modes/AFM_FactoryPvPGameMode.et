@@ -2,8 +2,14 @@ AFM_FactoryPvPGameMode : "{0F307326459A1395}Prefabs/MP/Modes/GameMode_Base.et" {
  ID "56B2B479C6B96951"
  components {
   AFM_ScenarioTimeAndWeatherManager "{64E69CD1F1F8FEAE}" {
-   m_sCustomWeatherId "Foggy"
-   m_fCustomTimeOfTheDay 20.15
+   m_bUseCustomWeather 1
+   m_aWeatherTemplates {
+    "Clear" "Foggy" "Overcast" "Cloudy"
+   }
+   m_bUseCustomTime 1
+   m_aTimeOfDayTemplates {
+    20.125 12 6.5 17.25 9.1 7.1 19.5
+   }
   }
   SCR_CustomAreaMeshComponent "{64B2AC457E72AFFD}" {
    Enabled 0
@@ -48,6 +54,7 @@ AFM_FactoryPvPGameMode : "{0F307326459A1395}Prefabs/MP/Modes/GameMode_Base.et" {
    }
   }
   SCR_RespawnTimerComponent "{64B12EE9157C9AA4}" {
+   m_fRespawnTime 1
   }
   SCR_ScoringSystemComponent "{64B12EE9157C9AA2}" {
    m_aActions {

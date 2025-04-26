@@ -29,7 +29,6 @@ SCR_FactionManager FactionManager_USxUSSR1 : "{589540B35EBA8CDC}Prefabs/MP/Manag
 AFM_FactoryPvPGameMode AFM_FactoryPvPGameMode1 : "{AE65065120241660}Prefabs/MP/Modes/AFM_FactoryPvPGameMode.et" {
  components {
   AFM_ScenarioTimeAndWeatherManager "{64E69CD1F1F8FEAE}" {
-   m_sCustomWeatherId "Clear"
    m_fCustomTimeOfTheDay 19.5
   }
   SCR_CampaignMilitaryBaseMapDescriptorComponent "{64B68C182A3DEE46}" {

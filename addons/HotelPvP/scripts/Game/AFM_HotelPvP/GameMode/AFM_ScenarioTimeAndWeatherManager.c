@@ -4,32 +4,35 @@ class AFM_ScenarioTimeAndWeatherManagerClass : SCR_BaseGameModeComponentClass
 class AFM_ScenarioTimeAndWeatherManager : SCR_BaseGameModeComponent
 {
 	//! If enabled custom weather Id will be used on session start. Authority only.
-	[Attribute(defvalue: "0", desc: "If enabled, custom weather Id will be used. Authority only.", category: "Environment")]
+	[Attribute(defvalue: "0", desc: "If enabled, random weather Id will be used. Authority only.", category: "Environment")]
 	bool m_bUseCustomWeather;
-
-	//! Weather IDs are the same as used in the TimeAndWeatherManager. Weather set on game start. Authority only.
-	[Attribute(defvalue: "", desc: "Weather IDs are the same as used in the TimeAndWeatherManager. Weather set on game start. Authority only.", category: "Environment")]
-	string m_sCustomWeatherId;
+	
+	[Attribute(desc: "Array of weather ids to choose from on game start")]
+	ref array<string> m_aWeatherTemplates;
 
 	//! If enabled custom time of the day will be used on session start. Authority only.
 	[Attribute(defvalue: "0", desc: "If enabled, custom time of the day will be used. Authority only.", category: "Environment")]
 	bool m_bUseCustomTime;
 
 	//! Time of the day set on game start. Authority only.
-	[Attribute(defvalue: "12", desc: "Time of the day set on game start. Authority only.", category: "Environment", params: "0 24 0.01")]
-	float m_fCustomTimeOfTheDay;
+	[Attribute(desc: "Time of the day set on game start. Authority only.", category: "Environment", params: "0 24 0.01")]
+	ref array<float> m_aTimeOfDayTemplates; 
+
 		
 	//------------------------------------------------------------------------------------------------
 	//! Initialize the manager.
 	override void EOnInit(IEntity owner)
 	{
 		super.EOnInit(owner);
-				
+
+		if(SCR_Global.IsEditMode())
+			return;
+	
 		if (m_bUseCustomTime)
-			SetTimeOfTheDay(m_fCustomTimeOfTheDay);
+			SetTimeOfTheDay(m_aTimeOfDayTemplates.GetRandomElement());
 
 		if (m_bUseCustomWeather)
-			SetWeather(m_sCustomWeatherId);
+			SetWeather(m_aWeatherTemplates.GetRandomElement());
 	}
 	
 	//------------------------------------------------------------------------------------------------
@@ -61,12 +64,13 @@ class AFM_ScenarioTimeAndWeatherManager : SCR_BaseGameModeComponent
 			return;
 		}
 
+		Print("AFM_ScenarioTimeAndWeatherManager: Setting weather to " + weatherId);
 		weatherManager.ForceWeatherTo(true, weatherId, 0.0);
 	}
 
 	//------------------------------------------------------------------------------------------------
 	//! Forcefully sets time of the day to provided value. Authority only.
-	protected void SetTimeOfTheDay(float timeOfTheDay)
+	protected void SetTimeOfTheDay(float timeOfDay)
 	{
 		if (!m_pGameMode.IsMaster())
 			return;
@@ -82,7 +86,8 @@ class AFM_ScenarioTimeAndWeatherManager : SCR_BaseGameModeComponent
 			return;
 		}
 
-		weatherManager.SetTimeOfTheDay(timeOfTheDay, true);
+		Print("AFM_ScenarioTimeAndWeatherManager: Setting time to " + timeOfDay);
+		weatherManager.SetTimeOfTheDay(timeOfDay, true);
 	}
 	
 }
