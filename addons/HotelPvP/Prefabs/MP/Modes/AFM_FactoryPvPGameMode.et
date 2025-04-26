@@ -102,7 +102,7 @@ AFM_FactoryPvPGameMode : "{0F307326459A1395}Prefabs/MP/Modes/GameMode_Base.et" {
  m_iGameStartDelaySeconds 180
  m_TimeoutWinnerFactionKey "UK"
  m_iGameAreaRadius 65
- m_pPrisonerPrefab "{1ED1D1195A34B82C}Prefabs/Characters/AFM_SpectatorLoadout.et"
+ m_pPrisonerPrefab "{8F36955EBE79FE95}Prefabs/Characters/Core/AFM_SpectatorLoadout.et"
  m_aRestrictionZoneNames {
   "attackers_zone" "defenders_zone"
  }
