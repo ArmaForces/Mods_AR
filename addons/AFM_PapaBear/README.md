@@ -45,7 +45,7 @@ If you're reporting a bug or requesting a feature, please open a GitHub Issue wi
 ## Credits
 
 - Developed by the [ArmaForces](https://github.com/ArmaForces) team.
-- Inspired by the original *Papa Bear* from **Operation Flashpoint: Cold War Crisis**, I have trained the voice model on the original game samples. All credist go to Bohemia Interactive
+- Inspired by the original *Papa Bear* from **Operation Flashpoint: Cold War Crisis**, I have trained the voice model on the original game samples. All credits go to Bohemia Interactive
 
 ## License
 
