@@ -5,41 +5,47 @@ class AFM_SettingsSubMenu : SCR_SettingsSubMenuBase
 	//------------------------------------------------------------------------------------------------
 	override void OnTabCreate(Widget menuRoot, ResourceName buttonsLayout, int index)
 	{
-		BaseContainer radioSettings = GetGame().GetGameUserSettings().GetModule(MODULE_RADIO);
-
 		super.OnTabCreate(menuRoot, buttonsLayout, index);
-
-		if (!radioSettings)
-			return;
-
-		// Radio beep Ch1
-		SCR_SelectionWidgetComponent checkBoxBeep1 = SCR_SelectionWidgetComponent.GetSelectionComponent("Beep_Ch1", m_wRoot);
-		if (checkBoxBeep1)
+		
+		BaseContainer radioSettings = GetGame().GetGameUserSettings().GetModule(MODULE_RADIO);
+		if (radioSettings && AFM_VONSettings.Enabled())
 		{
-			int value;
-			radioSettings.Get("m_BeepCh1", value);
-
-			checkBoxBeep1.SetCurrentItem(value >> 1, false, false); //--- Shift the value, because it's a flag
-			checkBoxBeep1.m_OnChanged.Insert(SetBeepCh1);
+			// Radio beep Ch1
+			SCR_SelectionWidgetComponent checkBoxBeep1 = SCR_SelectionWidgetComponent.GetSelectionComponent("Beep_Ch1", m_wRoot);
+			if (checkBoxBeep1)
+			{
+				int value;
+				radioSettings.Get("m_BeepCh1", value);
+	
+				checkBoxBeep1.SetCurrentItem(value >> 1, false, false); //--- Shift the value, because it's a flag
+				checkBoxBeep1.m_OnChanged.Insert(SetBeepCh1);
+			}
+			else
+			{
+				Print("Radio setting 'Beep_Ch1' not found", LogLevel.WARNING);
+			}
+	
+			// Radio beep Ch1
+			SCR_SelectionWidgetComponent checkBoxBeep2 = SCR_SelectionWidgetComponent.GetSelectionComponent("Beep_Ch2", m_wRoot);
+			if (checkBoxBeep2)
+			{
+				int value;
+				radioSettings.Get("m_BeepCh2", value);
+	
+				checkBoxBeep2.SetCurrentItem(value >> 1, false, false); //--- Shift the value, because it's a flag
+				checkBoxBeep2.m_OnChanged.Insert(SetBeepCh2);
+			}
+			else
+			{
+				Print("Radio setting 'Beep_Ch2' not found", LogLevel.WARNING);
+			}
 		}
 		else
 		{
-			Print("Radio setting 'Beep_Ch1' not found", LogLevel.WARNING);
-		}
-
-		// Radio beep Ch1
-		SCR_SelectionWidgetComponent checkBoxBeep2 = SCR_SelectionWidgetComponent.GetSelectionComponent("Beep_Ch2", m_wRoot);
-		if (checkBoxBeep2)
-		{
-			int value;
-			radioSettings.Get("m_BeepCh2", value);
-
-			checkBoxBeep2.SetCurrentItem(value >> 1, false, false); //--- Shift the value, because it's a flag
-			checkBoxBeep2.m_OnChanged.Insert(SetBeepCh2);
-		}
-		else
-		{
-			Print("Radio setting 'Beep_Ch2' not found", LogLevel.WARNING);
+			Print("Radio settings category disabled");
+			VerticalLayoutWidget radioSettingsContainer = VerticalLayoutWidget.Cast(menuRoot.FindAnyWidget("RadioCategory"));
+			radioSettingsContainer.SetVisible(false);
+			radioSettingsContainer.SetEnabled(false);
 		}
 	}
 
