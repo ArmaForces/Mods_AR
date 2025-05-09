@@ -21,11 +21,43 @@ SCR_FactionManager FactionManager_Editor1 : "{4A188E44289B9A50}Prefabs/MP/Manage
  }
 }
 AFM_FactoryPvPGameMode AFM_FactoryPvPGameMode1 : "{AE65065120241660}Prefabs/MP/Modes/AFM_FactoryPvPGameMode.et" {
+ components {
+  AFM_ScenarioTimeAndWeatherManager "{64E69CD1F1F8FEAE}" {
+   m_sCustomWeatherId "Clear"
+   m_fCustomTimeOfTheDay 6.05
+  }
+  SCR_WelcomeScreenComponent "{5D34CBCAF837769A}" {
+   m_BaseLayout SCR_WelcomeScreenThreeHorizontalColumns "{5D34CBCBB2A8004F}" {
+    m_MiddleColumn SCR_WelcomeScreenMissionObjectivesContent "{64E69CD086330254}" {
+     m_aMissionObjectives {
+      SCR_WelcomeScreenMissionObjectives "{64E69CD0B287904B}" {
+       m_sDescription "Recue hostage"
+      }
+      SCR_WelcomeScreenMissionObjectives "{64E69CD2F0D08132}" {
+       m_sDescription "Prevent enemy from rescuing our hostage"
+      }
+     }
+    }
+    m_RightColumn SCR_WelcomeScreenIntroductionContent "{5D3684175D904147}" {
+     m_aIntroduction {
+      SCR_WelcomeScreenIntroduction "{5D36841751E1D099}" {
+       m_sContentImage "{66CF3F0270F65E9B}UI/Textures/MissionLoadingScreens/CAH_Factory_UI.edds"
+      }
+      SCR_WelcomeScreenIntroduction "{5D36841756EB2304}" {
+       m_sContentImage "{66CF3F0270F65E9B}UI/Textures/MissionLoadingScreens/CAH_Factory_UI.edds"
+      }
+     }
+    }
+   }
+  }
+ }
  coords 4555.337 15.924 10505.342
  m_sDefenderFactionKey "UK"
  m_sAttackerFactionKey "USSR"
  m_iGameStartDelaySeconds 120
  m_TimeoutWinnerFactionKey "UK"
+ m_aRestrictionZoneNames +{
+ }
 }
 $grp Vehicle : "{0B4DEA8078B78A9B}Prefabs/Vehicles/Wheeled/UAZ469/UAZ469_PKM.et" {
  UAZ469_PKM1 {
@@ -39,7 +71,7 @@ $grp Vehicle : "{0B4DEA8078B78A9B}Prefabs/Vehicles/Wheeled/UAZ469/UAZ469_PKM.et"
  }
 }
 Vehicle Mi8MT_armed_base1 : "{20C37D5090E4E0E6}Prefabs/Vehicles/Helicopters/Mi8MT/Mi8MT_armed_base.et" {
- coords 4690.045 27.843 11132.59
+ coords 4695.564 27.843 11119.104
  angleY 95.005
 }
 Vehicle BRDM1 : "{254289B9C09904AB}Prefabs/Vehicles/Wheeled/BRDM2/BRDM2.et" {
@@ -90,6 +122,11 @@ SCR_EditorRestrictionZoneEntity defenders_zone : "{6144B0BE2EAC6897}PrefabsEdita
  coords 4666.393 27.513 11134.705
 }
 GenericEntity : "{641BE0766BB1874E}PrefabsEditable/Auto/Props/Military/Compositions/UK/E_ArsenalBox_UK.et" {
+ components {
+  SCR_ArsenalComponent "{56F2C6D1431AD9AF}" {
+   m_eSupportedArsenalItemTypes 1048558
+  }
+ }
  coords 4564.652 17.074 10499.814
  angleY -108.67
 }
@@ -134,6 +171,10 @@ SCR_LoadoutManager : "{97EF4C1A41F63DDB}Prefabs/MP/Managers/Loadouts/LoadoutMana
 }
 GenericEntity : "{AD59EDEAA26CE792}Prefabs/Props/Military/Compositions/USSR/ArsenalBox_USSR.et" {
  coords 4650.677 27.98 11145.51
+}
+Vehicle MH6M1 : "{AF950919C81D91B4}Prefabs/Vehicles/Helicopters/AH6M/MH6M.et" {
+ coords 4694.84 27.795 11142.673
+ angleY 94.251
 }
 SCR_EditorRestrictionZoneEntity attackers_zone : "{B2A519402E9AC209}PrefabsEditable/RestrictionZone/E_EditorRestrictionZoneLarge.et" {
  coords 4547.65 15.887 10500.152

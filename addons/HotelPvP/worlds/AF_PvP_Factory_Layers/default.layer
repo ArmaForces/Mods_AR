@@ -29,8 +29,40 @@ SCR_FactionManager FactionManager : "{589540B35EBA8CDC}Prefabs/MP/Managers/Facti
  }
 }
 AFM_FactoryPvPGameMode AFM_FactoryPvPGameMode1 : "{AE65065120241660}Prefabs/MP/Modes/AFM_FactoryPvPGameMode.et" {
+ components {
+  AFM_ScenarioTimeAndWeatherManager "{64E69CD1F1F8FEAE}" {
+   m_sCustomWeatherId "Rainy"
+   m_fCustomTimeOfTheDay 9
+  }
+  SCR_WelcomeScreenComponent "{5D34CBCAF837769A}" {
+   m_BaseLayout SCR_WelcomeScreenThreeHorizontalColumns "{5D34CBCBB2A8004F}" {
+    m_MiddleColumn SCR_WelcomeScreenMissionObjectivesContent "{64E69CD086330254}" {
+     m_aMissionObjectives {
+      SCR_WelcomeScreenMissionObjectives "{64E69CD0B287904B}" {
+       m_sDescription "Rescue hostage from the insurgents"
+      }
+      SCR_WelcomeScreenMissionObjectives "{64E69CD2F0D08132}" {
+       m_sDescription "Prevent americans from rescuing our hostage"
+      }
+     }
+    }
+    m_RightColumn SCR_WelcomeScreenIntroductionContent "{5D3684175D904147}" {
+     m_aIntroduction {
+      SCR_WelcomeScreenIntroduction "{5D36841751E1D099}" {
+       m_sContentImage "{66CF3F0270F65E9B}UI/Textures/MissionLoadingScreens/CAH_Factory_UI.edds"
+      }
+      SCR_WelcomeScreenIntroduction "{5D36841756EB2304}" {
+       m_sContentImage "{66CF3F0270F65E9B}UI/Textures/MissionLoadingScreens/CAH_Factory_UI.edds"
+      }
+     }
+    }
+   }
+  }
+ }
  coords 4555.337 15.924 10505.342
+ m_sDefenderFactionKey "FIA"
  m_iGameStartDelaySeconds 120
+ m_TimeoutWinnerFactionKey "FIA"
 }
 SCR_LoadoutManager : "{133751BF0E9010D2}Prefabs/MP/Managers/LoadoutManager_USxFIA.et" {
  coords 7568.837 166.705 4200.719
@@ -82,7 +114,7 @@ $grp SCR_SpawnPoint : "{4FEA25583D0975F7}Prefabs/MP/Spawning/SpawnPoint_USSR.et"
   }
  }
 }
-SCR_ChimeraCharacter hostage : "{516BB3588749F92A}Prefabs/Characters/Factions/CIV/Businessman/Character_CIV_Hostage.et" {
+SCR_ChimeraCharacter hostage : "{516BB3588749F92A}Prefabs/Characters/Factions/CIV/Character_CIV_Hostage.et" {
  coords 4569.191 22.014 10505.872
 }
 SCR_SpawnPoint Spawn_US : "{5A2220DD0C16958B}Prefabs/MP/Spawning/SpawnPoint_US.et" {

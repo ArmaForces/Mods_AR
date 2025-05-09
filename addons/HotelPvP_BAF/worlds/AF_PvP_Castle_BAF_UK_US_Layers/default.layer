@@ -1,0 +1,110 @@
+SCR_FactionManager FactionManager_Editor1 : "{4A188E44289B9A50}Prefabs/MP/Managers/Factions/FactionManager_Editor.et" {
+ coords 9358.311 204.396 1162.324
+ Factions {
+  SCR_Faction "{56DEAC40D2DBC8B1}" {
+   m_bIsPlayable 1
+   m_aPredefinedGroups {
+    SCR_GroupPreset "{64E51DB43F927654}" {
+     m_sGroupName "Attackers"
+     m_iGroupSize 16
+    }
+   }
+   m_bCreateOnlyPredefinedGroups 1
+  }
+  SCR_Faction "{61500924662B6062}" {
+   m_aFriendlyFactionsIds {
+   }
+   m_aPredefinedGroups {
+    SCR_GroupPreset "{64E51DB426B5E02E}" {
+     m_sGroupName "Defenders"
+     m_iGroupSize 16
+    }
+   }
+  }
+ }
+}
+AFM_FactoryPvPGameMode AFM_FactoryPvPGameMode1 : "{AE65065120241660}Prefabs/MP/Modes/AFM_FactoryPvPGameMode.et" {
+ coords 9368.407 204.368 1163.615
+ m_iGameStartDelaySeconds 120
+ m_aRestrictionZoneNames {
+  "attackers_zone2" "attackers_zone" "defenders_zone"
+ }
+}
+GenericEntity : "{160E4E4110803F26}Prefabs/Structures/Military/Flags/FlagPole_02/FlagPole_02_V1_FIA.et" {
+ components {
+  SCR_FlagComponent "{5E3C95A1E1EE9681}" {
+   m_sDefaultMaterial "{2982521676444E84}Assets/Props/Fabric/Flags/Data/Flag_1_2_UK.emat"
+  }
+ }
+ coords 9322.093 229.2 1160.649
+ angleY -99.097
+}
+SCR_ChimeraCharacter : "{516BB3588749F92A}Prefabs/Characters/Factions/CIV/Character_CIV_Hostage.et" {
+ components {
+  SCR_CharacterIdentityComponent "{5584CBC63E092DBC}" {
+   Override 1
+   Identity Identity "{5584CBC6363C648B}" {
+    VisualIdentity VisualIdentity "{56E6D9456009D1C4}" {
+     Head "{5793DF10BF10B857}Prefabs/Characters/Heads/Head_White_03_Old.et"
+    }
+    Name "Donald"
+    Alias ""
+    Surname "Trump"
+   }
+  }
+ }
+ coords 9316.548 213.964 1163.63
+}
+SCR_LoadoutManager LoadoutManager : "{97EF4C1A41F63DDB}Prefabs/MP/Managers/Loadouts/LoadoutManager_USxUSSR.et" {
+ coords 7568.646 166.722 4200.58
+ m_aPlayerLoadouts {
+  SCR_FactionPlayerLoadout "{56B2B461C34A570F}" {
+   m_sLoadoutResource "{36E28C628A2F83CB}Prefabs/Characters/Factions/BLUFOR/US_Army/GreenBerets/Character_US_SF.et"
+  }
+  SCR_FactionPlayerLoadout "{5A2494BE3D648F60}" {
+   m_sLoadoutResource "{6E1E87ECA5F5A7EA}Prefabs/Characters/Factions/BLUFOR/US_Army/GreenBerets/Character_US_SF_LMG.et"
+  }
+  SCR_FactionPlayerLoadout "{56B2B461C275B309}" {
+   m_sLoadoutName "Sapper"
+   m_sLoadoutResource "{FCA76613163633F8}Prefabs/Characters/Factions/BLUFOR/US_Army/GreenBerets/Character_US_SF_Sapper.et"
+  }
+  SCR_FactionPlayerLoadout "{56B2B461C7495F41}" {
+   m_sLoadoutResource "{C110498284A5418F}Prefabs/Characters/Factions/BLUFOR/US_Army/GreenBerets/Character_US_SF_GL.et"
+  }
+  SCR_FactionPlayerLoadout "{56B2B461C047DCDA}" {
+   m_sLoadoutName "Medic"
+   m_sLoadoutResource "{9A234C5857D92187}Prefabs/Characters/Factions/BLUFOR/US_Army/GreenBerets/Character_US_SF_Medic.et"
+  }
+  SCR_FactionPlayerLoadout "{56B2B4613C48D08E}" {
+   m_sLoadoutResource "{ADC2DE949F566202}Prefabs/Characters/Factions/BLUFOR/US_Army/GreenBerets/Character_US_SF_Sharpshooter.et"
+  }
+  SCR_FactionPlayerLoadout "{56B2B46134D39388}" {
+   m_sLoadoutResource "{3B397572207A25EA}Prefabs/Characters/Factions/BLUFOR/UK_Army/1989/SpecialForces/Character_UK_1989_SpecialForces_BaseLoadout.et"
+   m_sAffiliatedFaction "UK"
+  }
+  SCR_FactionPlayerLoadout "{5A2494B91167F3F6}" {
+   m_sLoadoutName "Saboteur"
+   m_sLoadoutResource "{02DCDBEC77E1257E}Prefabs/Characters/Factions/BLUFOR/UK_Army/1989/SpecialForces/Character_UK_1989_SpecialForces_Saboteur.et"
+   m_sAffiliatedFaction "UK"
+  }
+  SCR_FactionPlayerLoadout "{56B2B461341EA370}" {
+   m_sLoadoutResource "{62D02E1AA4A4B305}Prefabs/Characters/Factions/BLUFOR/UK_Army/1989/SpecialForces/Character_UK_1989_SpecialForces_GPMG.et"
+   m_sAffiliatedFaction "UK"
+  }
+  SCR_FactionPlayerLoadout "{56B2B4613FB900E5}" {
+   m_sLoadoutResource "{101531EFC9E0E85B}Prefabs/Characters/Factions/BLUFOR/UK_Army/1989/SpecialForces/Character_UK_1989_SpecialForces_GL.et"
+   m_sAffiliatedFaction "UK"
+  }
+  SCR_FactionPlayerLoadout "{56B2B4613DCD3341}" {
+   m_sLoadoutResource "{B801B6E50A01209F}Prefabs/Characters/Factions/BLUFOR/UK_Army/1989/SpecialForces/Character_UK_1989_SpecialForces_CharlieG.et"
+   m_sAffiliatedFaction "UK"
+  }
+  SCR_FactionPlayerLoadout "{56B2B4613581570A}" {
+   m_sLoadoutResource "{98DC13CEC2967722}Prefabs/Characters/Factions/BLUFOR/UK_Army/1989/SpecialForces/Character_UK_1989_SpecialForces_Sharpshooter.et"
+   m_sAffiliatedFaction "UK"
+  }
+ }
+}
+SCR_SpawnPoint spectator_spawn : "{F26BA0860D54B7DF}Prefabs/MP/Spawning/SpawnPoint_CIV.et" {
+ coords 10375.736 34.962 382.914
+}

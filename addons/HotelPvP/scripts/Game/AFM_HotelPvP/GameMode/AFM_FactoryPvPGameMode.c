@@ -28,6 +28,9 @@ class AFM_FactoryPvPGameMode : SCR_BaseGameMode
 	[Attribute(uiwidget: UIWidgets.ResourceNamePicker, desc: "Spectator loadout prefab", params: "et", category: "Prefabs")]
 	ResourceName m_pPrisonerPrefab;
 	
+	[Attribute(desc: "Array of restriction zone names to be disabled at game start")]
+	ref array<string> m_aRestrictionZoneNames;
+	
 	protected SCR_FactionManager m_FactionManager;
 	
 	protected ref ScriptInvoker m_OnMatchSituationChanged;
@@ -40,6 +43,9 @@ class AFM_FactoryPvPGameMode : SCR_BaseGameMode
 	
 	[RplProp(onRplName: "OnMatchSituationChanged")]
 	protected bool m_bHasGameStarted = false;
+	
+	[RplProp(onRplName: "OnMatchSituationChanged")]
+	protected bool m_bHasPreGameStarted = false;
 	
 	[RplProp(onRplName: "OnMatchSituationChanged")]
 	protected int m_iDefendersRemaining = 0;
@@ -101,6 +107,35 @@ class AFM_FactoryPvPGameMode : SCR_BaseGameMode
 			Print("Faction manager component is missing!", LogLevel.ERROR);
 		}
 		
+		GetOnPlayerSpawned().Insert(OnPlayerSpawn);
+	}
+	
+	//------------------------------------------------------------------------------------------------
+	//! Server-side method to handle player spawns
+	//! This will launch the scenario into pregame state when first player connects 
+	//! and update scoring table on every player joining game
+	protected void OnPlayerSpawn(int playerId, IEntity player)
+	{
+		if (!IsMaster()) return;
+		
+		PrintFormat("Player %1 has spawned", playerId, level: LogLevel.DEBUG);
+		if (!m_bHasPreGameStarted)
+			PreGameStart();
+		
+		GameEndCheck();
+		OnMatchSituationChanged();
+		Replication.BumpMe();
+	}
+	
+	//------------------------------------------------------------------------------------------------
+	//! Server-side method to handle pre game start, eg. when at least 1 player has joined
+	//! This will set up timers and call queue for game start later
+	protected void PreGameStart()
+	{
+		if (m_bHasPreGameStarted) return;
+		m_bHasPreGameStarted = true;
+		Print("PreGame starting");
+		
 		ChimeraWorld world = GetGame().GetWorld();
 		m_fStartTimestamp = world.GetServerTimestamp().PlusSeconds(m_iGameStartDelaySeconds);
 		m_fVictoryTimestamp = m_fStartTimestamp.PlusSeconds(m_iGameOverTimeMinutes * 60);
@@ -148,11 +183,11 @@ class AFM_FactoryPvPGameMode : SCR_BaseGameMode
 	//------------------------------------------------------------------------------------------------
 	protected void GameEndCheck() 
 	{
-		if (!m_bHasGameStarted)
-			return;
-		
 		m_iAttackersRemaining = GetFactionRemainingPlayersCount(m_sAttackerFactionKey);
 		m_iDefendersRemaining = GetFactionRemainingPlayersCount(m_sDefenderFactionKey);
+		
+		if (!m_bHasGameStarted)
+			return;
 		
 		bool attackersDead = m_iAttackersRemaining == 0;
 		bool defendersDead = m_iDefendersRemaining == 0;
@@ -302,7 +337,9 @@ class AFM_FactoryPvPGameMode : SCR_BaseGameMode
 			PlayerController pc = GetGame().GetPlayerManager().GetPlayerController(id);
 			if (pc)
 			{
-				SCR_ChimeraCharacter ent = SCR_ChimeraCharacter.Cast(pc.GetControlledEntity());		
+				SCR_ChimeraCharacter ent = SCR_ChimeraCharacter.Cast(pc.GetControlledEntity());
+				if (!ent)
+					continue;  //player is not spawned yet
 				AFM_SpectatorComponent spectator = AFM_SpectatorComponent.Cast(pc.FindComponent(AFM_SpectatorComponent));
 				SCR_DamageManagerComponent damageManager = ent.GetDamageManager();
 				if (!damageManager.IsDestroyed() && !spectator.IsSpectatorActive()) {
@@ -372,18 +409,17 @@ class AFM_FactoryPvPGameMode : SCR_BaseGameMode
 		if (!restrictionZoneManager)
 			return;
 		
-		SCR_EditorRestrictionZoneEntity attackersZone = SCR_EditorRestrictionZoneEntity.Cast(GetWorld().FindEntityByName("attackers_zone"));
-		if (attackersZone)
+		foreach(string zoneName: m_aRestrictionZoneNames)
 		{
-			Print("Removing attacker restiction zone");
-			restrictionZoneManager.RemoveRestrictionZone(attackersZone);
-		}
-		
-		SCR_EditorRestrictionZoneEntity defendersZone = SCR_EditorRestrictionZoneEntity.Cast(GetWorld().FindEntityByName("defenders_zone"));
-		if (defendersZone)
-		{
-			Print("Removing defender restiction zone");
-			restrictionZoneManager.RemoveRestrictionZone(defendersZone);
+			SCR_EditorRestrictionZoneEntity zone = SCR_EditorRestrictionZoneEntity.Cast(GetWorld().FindEntityByName(zoneName));
+			if (!zone)
+			{
+				PrintFormat("Could not cast %1 zone to restriction zone entity - please verify list of restriction zones", zone, level: LogLevel.WARNING);
+				continue;
+			}
+			
+			PrintFormat("Removing %1 restiction zone", zone, level: LogLevel.DEBUG);
+			restrictionZoneManager.RemoveRestrictionZone(zone);
 		}
 	}
 	

@@ -18,7 +18,7 @@ AFM_FactoryPvPGameMode AFM_FactoryPvPGameMode1 : "{AE65065120241660}Prefabs/MP/M
  }
  coords 1371.14 43.981 2350.642
  m_sDefenderFactionKey "USSR"
- m_iGameStartDelaySeconds 30
+ m_iGameStartDelaySeconds 15
  m_iGameOverTimeMinutes 2
  m_TimeoutWinnerFactionKey "USSR"
  m_iGameAreaRadius 30
