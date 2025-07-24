@@ -43,6 +43,18 @@ GenericEntity Area1 : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compo
     }
     coords 3445.198 232.776 -8856.92
    }
+   SlotMarker5 {
+    components {
+     SCR_ScenarioFrameworkSlotMarker "{5EA2BD9901E5E82E}" {
+      m_MapMarkerType SCR_ScenarioFrameworkMarkerCustom "{64D4A0BC99863DD6}" {
+       m_sMapMarkerText "US Spawn"
+       m_eMapMarkerIcon FLAG
+       m_eMapMarkerColor RED
+      }
+     }
+    }
+    coords 4050.66 69.917 -9671.693
+   }
   }
  }
 }

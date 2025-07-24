@@ -11,7 +11,14 @@ SCR_FactionManager FactionManager_Editor1 : "{4A188E44289B9A50}Prefabs/MP/Manage
    }
    m_bCreateOnlyPredefinedGroups 1
   }
+  SCR_Faction "{56DEAC40D3C2E623}" {
+   m_bShowInWelcomeScreenIfNonPlayable 0
+  }
+  SCR_Faction "{56DEAC40D132400B}" {
+   m_bShowInWelcomeScreenIfNonPlayable 0
+  }
   SCR_Faction "{61500924662B6062}" {
+   m_bIsPlayable 1
    m_aFriendlyFactionsIds {
    }
    m_aPredefinedGroups {
@@ -100,7 +107,7 @@ SCR_LoadoutManager LoadoutManager : "{97EF4C1A41F63DDB}Prefabs/MP/Managers/Loado
    m_sAffiliatedFaction "UK"
   }
   SCR_FactionPlayerLoadout "{56B2B4613581570A}" {
-   m_sLoadoutResource "{98DC13CEC2967722}Prefabs/Characters/Factions/BLUFOR/UK_Army/1989/SpecialForces/Character_UK_1989_SpecialForces_Sharpshooter.et"
+   m_sLoadoutResource "{98DC13CEC2967722}Prefabs/Characters/Factions/BLUFOR/UK_Army/1989/SpecialForces/Character_UK_1989_SpecialForces_Sniper.et"
    m_sAffiliatedFaction "UK"
   }
  }

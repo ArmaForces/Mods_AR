@@ -1,6 +1,9 @@
 SCR_FactionManager FactionManager_Editor1 : "{4A188E44289B9A50}Prefabs/MP/Managers/Factions/FactionManager_Editor.et" {
  coords 5819.742 4.563 9796.783
  Factions {
+  SCR_Faction "{56DEAC40D2DBC8B1}" {
+   m_bShowInWelcomeScreenIfNonPlayable 0
+  }
   SCR_Faction "{56DEAC40D3C2E623}" {
    m_bIsPlayable 1
    m_aPredefinedGroups {
@@ -11,6 +14,7 @@ SCR_FactionManager FactionManager_Editor1 : "{4A188E44289B9A50}Prefabs/MP/Manage
    m_bCreateOnlyPredefinedGroups 1
   }
   SCR_Faction "{56DEAC40D132400B}" {
+   m_bShowInWelcomeScreenIfNonPlayable 0
    m_aPredefinedGroups {
     SCR_GroupPreset "{64D4A0B3EAF0F027}" {
      m_iGroupSize 16
@@ -19,6 +23,7 @@ SCR_FactionManager FactionManager_Editor1 : "{4A188E44289B9A50}Prefabs/MP/Manage
    m_bCreateOnlyPredefinedGroups 1
   }
   SCR_Faction "{61500924662B6062}" {
+   m_bIsPlayable 1
    m_aPredefinedGroups {
     SCR_GroupPreset "{64D4A0B3EC5B2009}" {
      m_iGroupSize 16
@@ -38,9 +43,7 @@ AFM_FactoryPvPGameMode AFM_FactoryPvPGameMode1 : "{AE65065120241660}Prefabs/MP/M
   }
  }
  coords 5817.999 4.563 9795.731
- m_sDefenderFactionKey "US"
  m_sAttackerFactionKey "USSR"
- m_TimeoutWinnerFactionKey "US"
 }
 Vehicle UAZ469_PKM1 : "{0B4DEA8078B78A9B}Prefabs/Vehicles/Wheeled/UAZ469/UAZ469_PKM.et" {
  coords 5177.292 40.407 10450.585
@@ -145,13 +148,13 @@ SCR_LoadoutManager LoadoutManager : "{97EF4C1A41F63DDB}Prefabs/MP/Managers/Loado
   SCR_FactionPlayerLoadout "{56B2B461C047DCDA}" {
    m_sLoadoutName "Saboteur"
    m_sLoadoutResource "{02DCDBEC77E1257E}Prefabs/Characters/Factions/BLUFOR/UK_Army/1989/SpecialForces/Character_UK_1989_SpecialForces_Saboteur.et"
-   m_sLoadoutImage "{A99F4E9627797A4A}UI/PreviewImages/Characters/BLUFOR/BritishForces/Character_UK_1989_SpecialForces_Saboteur.edds"
+   m_sLoadoutImage "{AF04B02216E0DDFA}UI/PreviewImages/Characters/BLUFOR/BritishForces/Character_UK_1989_SpecialForces_Saboteur.edds"
    m_sAffiliatedFaction "UK"
   }
   SCR_FactionPlayerLoadout "{56B2B4613C48D08E}" {
    m_sLoadoutName "#AR-Role_Sharpshooter"
-   m_sLoadoutResource "{98DC13CEC2967722}Prefabs/Characters/Factions/BLUFOR/UK_Army/1989/SpecialForces/Character_UK_1989_SpecialForces_Sharpshooter.et"
-   m_sLoadoutImage "{FD3A1EA97198DE1C}UI/PreviewImages/Characters/BLUFOR/BritishForces/Character_UK_1989_SpecialForces_Sharpshooter.edds"
+   m_sLoadoutResource "{98DC13CEC2967722}Prefabs/Characters/Factions/BLUFOR/UK_Army/1989/SpecialForces/Character_UK_1989_SpecialForces_Sniper.et"
+   m_sLoadoutImage "{FD3A1EA97198DE1C}UI/PreviewImages/Characters/BLUFOR/BritishForces/Character_UK_1989_SpecialForces_Sharpshooter_Covert.edds"
    m_sAffiliatedFaction "UK"
   }
  }

@@ -1,7 +1,11 @@
 SCR_FactionManager FactionManager_Editor1 : "{4A188E44289B9A50}Prefabs/MP/Managers/Factions/FactionManager_Editor.et" {
  coords 5819.742 4.563 9796.783
  Factions {
+  SCR_Faction "{56DEAC40D2DBC8B1}" {
+   m_bShowInWelcomeScreenIfNonPlayable 0
+  }
   SCR_Faction "{56DEAC40D3C2E623}" {
+   m_bShowInWelcomeScreenIfNonPlayable 0
    m_aPredefinedGroups {
     SCR_GroupPreset "{64D4A0B20D830D94}" {
      m_iGroupSize 16
@@ -19,6 +23,7 @@ SCR_FactionManager FactionManager_Editor1 : "{4A188E44289B9A50}Prefabs/MP/Manage
    m_bCreateOnlyPredefinedGroups 1
   }
   SCR_Faction "{61500924662B6062}" {
+   m_bIsPlayable 1
    m_aPredefinedGroups {
     SCR_GroupPreset "{64D4A0B3EC5B2009}" {
      m_iGroupSize 16
@@ -30,10 +35,6 @@ SCR_FactionManager FactionManager_Editor1 : "{4A188E44289B9A50}Prefabs/MP/Manage
 }
 AFM_FactoryPvPGameMode AFM_FactoryPvPGameMode1 : "{AE65065120241660}Prefabs/MP/Modes/AFM_FactoryPvPGameMode.et" {
  components {
-  AFM_ScenarioTimeAndWeatherManager "{64E69CD1F1F8FEAE}" {
-   m_sCustomWeatherId "Cloudy"
-   m_fCustomTimeOfTheDay 17
-  }
   SCR_NightModeGameModeComponent "{5D50E84688D5A408}" {
    m_bAllowGlobalNightMode 1
   }
@@ -152,6 +153,34 @@ $grp GenericEntity : "{64C9C1D1C2C1B38D}Prefabs/Props/Infrastructure/Roadblocks/
   coords 5358.249 19.206 9964.441
  }
 }
+$grp Vehicle : "{701ADC27F9D842DF}Prefabs/Vehicles/Wheeled/LR_3Series/3Series_LWB_Transport.et" {
+ _Series_LWB_Transport1 {
+  coords 5169.812 40.567 10460.224
+  angleY 176.664
+ }
+ _Series_LWB_Transport2 {
+  coords 5160.896 40.438 10448.376
+  angleY -130.793
+ }
+ _Series_LWB_Transport3 {
+  coords 5165.085 40.469 10452.708
+  angleY -139.894
+ }
+}
+$grp Vehicle : "{88D5E9D74E9FBB42}Prefabs/Vehicles/Wheeled/LR_3Series/3Series_SWB_Transport_Covered_Variant_2.et" {
+ _Series_SWB_Transport_Covered_Variant_3 {
+  coords 5175.3 40.478 10447.728
+  angleY -130.346
+ }
+ _Series_SWB_Transport_Covered_Variant_4 {
+  coords 5180.794 40.434 10451.032
+  angleY -121.197
+ }
+ _Series_SWB_Transport_Covered_Variant_5 {
+  coords 5186.634 40.366 10453.113
+  angleY -113.856
+ }
+}
 SCR_LoadoutManager LoadoutManager : "{97EF4C1A41F63DDB}Prefabs/MP/Managers/Loadouts/LoadoutManager_USxUSSR.et" {
  coords 7568.646 166.722 4200.58
  m_aPlayerLoadouts {
@@ -179,13 +208,13 @@ SCR_LoadoutManager LoadoutManager : "{97EF4C1A41F63DDB}Prefabs/MP/Managers/Loado
   SCR_FactionPlayerLoadout "{56B2B461C047DCDA}" {
    m_sLoadoutName "Saboteur"
    m_sLoadoutResource "{5CF7B3F937BA66ED}Prefabs/Characters/Factions/BLUFOR/UK_Army/1983/SpecialForces/Character_UK_1983_SpecialForces_Saboteur.et"
-   m_sLoadoutImage "{A99F4E9627797A4A}UI/PreviewImages/Characters/BLUFOR/BritishForces/Character_UK_1989_SpecialForces_Saboteur.edds"
+   m_sLoadoutImage "{AF04B02216E0DDFA}UI/PreviewImages/Characters/BLUFOR/BritishForces/Character_UK_1989_SpecialForces_Saboteur.edds"
    m_sAffiliatedFaction "UK"
   }
   SCR_FactionPlayerLoadout "{56B2B4613C48D08E}" {
    m_sLoadoutName "#AR-Role_Sharpshooter"
    m_sLoadoutResource "{C7F673EEC46863F2}Prefabs/Characters/Factions/BLUFOR/UK_Army/1983/SpecialForces/Character_UK_1983_SpecialForces_Sharpshooter.et"
-   m_sLoadoutImage "{FD3A1EA97198DE1C}UI/PreviewImages/Characters/BLUFOR/BritishForces/Character_UK_1989_SpecialForces_Sharpshooter.edds"
+   m_sLoadoutImage "{FD3A1EA97198DE1C}UI/PreviewImages/Characters/BLUFOR/BritishForces/Character_UK_1989_SpecialForces_Sharpshooter_Covert.edds"
    m_sAffiliatedFaction "UK"
   }
   SCR_FactionPlayerLoadout "{56B2B46134D39388}" {
@@ -214,20 +243,6 @@ SCR_LoadoutManager LoadoutManager : "{97EF4C1A41F63DDB}Prefabs/MP/Managers/Loado
    m_sLoadoutImage "{2918EC1A27CCE92E}UI/Textures/EditorPreviews/Characters/INDFOR/FIA/Character_FIA_AC_Grenadier.edds"
    m_sAffiliatedFaction "FIA"
   }
- }
-}
-$grp Vehicle : "{A223CBB0F2C45372}Prefabs/Vehicles/Wheeled/M998/M998_covered_long_UK.et" {
- M998_covered_long_UK1 {
-  coords 5176.555 40.478 10447.999
-  angleY -128.875
- }
- M998_covered_long_UK2 {
-  coords 5182.025 40.419 10451.65
-  angleY -114.719
- }
- M998_covered_long_UK3 {
-  coords 5188.17 40.333 10453.612
-  angleY -115.047
  }
 }
 $grp Vehicle : "{AF950919C81D91B4}Prefabs/Vehicles/Helicopters/AH6M/MH6M.et" {
@@ -261,16 +276,6 @@ GenericEntity : "{C4A574FD7579FD7B}PrefabsEditable/Auto/Props/Military/Compositi
   }
  }
  coords 5819.432 19.739 9789.934
-}
-$grp Vehicle : "{DE212249DB017567}Prefabs/Vehicles/Wheeled/M151A2/M151A2_transport_UK.et" {
- M151A2_transport_UK1 {
-  coords 5165.483 40.469 10452.475
-  angleY -138.498
- }
- M151A2_transport_UK2 {
-  coords 5168.075 40.527 10460.451
-  angleY -176.211
- }
 }
 SCR_SpawnPoint spectator_spawn : "{F26BA0860D54B7DF}Prefabs/MP/Spawning/SpawnPoint_CIV.et" {
  coords 7392.54 2.569 9564.197
