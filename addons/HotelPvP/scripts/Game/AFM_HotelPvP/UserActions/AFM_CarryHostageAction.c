@@ -12,4 +12,10 @@ class AFM_CarryHostageAction: ACE_Carrying_CarryUserAction
 
 		return true;
 	}
+	
+	//------------------------------------------------------------------------------------------------
+	override bool CanBePerformedScript(IEntity user)
+	{
+		return true;
+	}
 }

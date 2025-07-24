@@ -1,0 +1,39 @@
+SCR_SpawnPoint : "{4FEA25583D0975F7}Prefabs/MP/Spawning/SpawnPoint_USSR.et" {
+ coords 9357.655 204.432 1159.337
+ angleY 170.247
+ m_fSpawnRadius 5
+ m_sFaction "UK"
+ m_Info SCR_UIInfo "{56B4CC4ECACA2C37}" {
+  Name "#AR-CAH-SpawnArea_USSR_A"
+  Icon "{3D7611428BC67C09}UI/Icons/Flag_UK.edds"
+ }
+ {
+  $grp SCR_PlayerSpawnPoint : "{F6CAD21EDD2D1964}Prefabs/MP/Spawning/PlayerSpawnPoint.et" {
+   {
+    coords 2.202 0.363 0.376
+    angleY -1.247
+   }
+   {
+    coords 0.359 0.107 -5.703
+    angleY -1.247
+   }
+   {
+    coords -1.588 0.01 -1.177
+    angleY -171.494
+   }
+  }
+ }
+}
+SCR_EditorRestrictionZoneEntity defenders_zone : "{6144B0BE2EAC6897}PrefabsEditable/RestrictionZone/E_EditorRestrictionZoneMedium.et" {
+ coords 9363.866 204.434 1160.326
+ m_fWarnRadius 50
+ m_fZoneRadius 70
+}
+GenericEntity : "{641BE0766BB1874E}PrefabsEditable/Auto/Props/Military/Compositions/UK/E_ArsenalBox_UK.et" {
+ components {
+  SCR_ArsenalComponent "{56F2C6D1431AD9AF}" {
+   m_eSupportedArsenalItemTypes 2097134
+  }
+ }
+ coords 9356.097 204.506 1168.413
+}

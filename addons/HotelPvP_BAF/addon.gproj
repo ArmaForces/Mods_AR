@@ -3,6 +3,20 @@ GameProject {
  GUID "64D4A0B33D972E07"
  TITLE "HotelPvP_BAF"
  Dependencies {
-  "5AE50EC5B8D6F4AE" "64ACA2C9F1E7E0E1" "58D0FB3206B6F859"
+  "5AE50EC5B8D6F4AE" "64ACA2C9F1E7E0E1" "58D0FB3206B6F859" "6273146ADFE8241D"
+ }
+ Configurations {
+  GameProjectConfig PC {
+  }
+  GameProjectConfig XBOX_ONE {
+  }
+  GameProjectConfig XBOX_SERIES {
+  }
+  GameProjectConfig PS4 {
+  }
+  GameProjectConfig PS5 {
+  }
+  GameProjectConfig HEADLESS {
+  }
  }
 }

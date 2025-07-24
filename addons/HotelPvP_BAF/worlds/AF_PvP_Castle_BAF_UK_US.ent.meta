@@ -1,0 +1,17 @@
+MetaFileClass {
+ Name "{E7ADF3DD7D7ED23B}worlds/CaptureAndHold/AFM_HotelPvP_Castle_BAF.ent"
+ Configurations {
+  ENTResourceClass PC {
+  }
+  ENTResourceClass XBOX_ONE : PC {
+  }
+  ENTResourceClass XBOX_SERIES : PC {
+  }
+  ENTResourceClass PS4 : PC {
+  }
+  ENTResourceClass PS5 : PC {
+  }
+  ENTResourceClass HEADLESS : PC {
+  }
+ }
+}

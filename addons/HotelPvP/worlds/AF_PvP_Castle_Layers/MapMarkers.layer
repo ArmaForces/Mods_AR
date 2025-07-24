@@ -1,0 +1,48 @@
+GenericEntity Area1 : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Components/Area.et" {
+ components {
+  SCR_ScenarioFrameworkArea "{59E8CDC50969206E}" {
+   m_iDynamicDespawnRange 7500
+  }
+ }
+ coords 5174.505 40.438 10456.483
+ {
+  $grp GenericEntity : "{E537867C6E760514}Prefabs/Systems/ScenarioFramework/Components/SlotMarker.et" {
+   SlotMarker2 {
+    components {
+     SCR_ScenarioFrameworkSlotMarker "{5EA2BD9901E5E82E}" {
+      m_MapMarkerType SCR_ScenarioFrameworkMarkerCustom "{64D4A0BC99863DD6}" {
+       m_sMapMarkerText "Castle"
+       m_eMapMarkerIcon DEFEND
+       m_eMapMarkerColor BLUFOR
+      }
+     }
+    }
+    coords 4191.085 171.977 -9295.101
+   }
+   SlotMarker1 {
+    components {
+     SCR_ScenarioFrameworkSlotMarker "{5EA2BD9901E5E82E}" {
+      m_MapMarkerType SCR_ScenarioFrameworkMarkerCustom "{64D4A0BC99863DD6}" {
+       m_sMapMarkerText "US Spawn"
+       m_eMapMarkerIcon FLAG
+       m_eMapMarkerColor RED
+      }
+     }
+    }
+    coords 4972.619 -37.878 -8917.052
+   }
+   SlotMarker4 {
+    components {
+     SCR_ScenarioFrameworkSlotMarker "{5EA2BD9901E5E82E}" {
+      m_MapMarkerType SCR_ScenarioFrameworkMarkerCustom "{64D4A0BC99863DD6}" {
+       m_sMapMarkerText "US Spawn"
+       m_eMapMarkerIcon FLAG
+       m_eMapMarkerColor RED
+      }
+     }
+    }
+    coords 3445.198 232.776 -8856.92
+   }
+  }
+ }
+}

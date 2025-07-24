@@ -1,5 +1,5 @@
 MetaFileClass {
- Name "{1ED1D1195A34B82C}Prefabs/Characters/Factions/CIV/ConstructionWorker/AFM_SpectatorLoadout.et"
+ Name "{8F36955EBE79FE95}Prefabs/Characters/AFM_SpectatorLoadout.et"
  Configurations {
   EntityTemplateResourceClass PC {
   }
