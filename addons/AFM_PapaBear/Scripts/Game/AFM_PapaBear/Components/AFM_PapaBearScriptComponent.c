@@ -27,17 +27,17 @@ class AFM_PapaBearScriptComponent : ScriptComponent
 		m_RadioComp = SCR_RadioComponent.Cast(owner.FindComponent(SCR_RadioComponent));
 	}
 	
-	void TransmitBluHqMessage(AFM_ERadioMsg message)
+	void TransmitBluHqMessage(string message)
 	{
 		TransmitMessage(message, m_iBluFreq, m_sBluKey);
 	}
 	
-	void TransmitRedHqMessage(AFM_ERadioMsg message)
+	void TransmitRedHqMessage(string message)
 	{
 		TransmitMessage(message, m_iRedFreq, m_sRedKey);
 	}
 	
-	void TransmitMessage(AFM_ERadioMsg message, int frequency, string key)
+	void TransmitMessage(string message, int frequency, string key)
 	{
 		BaseRadioComponent radio = m_RadioComp.GetRadioComponent();
 		if (!radio || !radio.IsPowered())

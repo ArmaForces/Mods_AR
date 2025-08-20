@@ -1,7 +1,7 @@
 class AFM_SendRadioMessageAction : ScriptedUserAction
 {
-	[Attribute(desc: "Signal name", enums: ParamEnumArray.FromEnum(AFM_ERadioMsg), defvalue: AFM_ERadioMsg.NONE.ToString(), uiwidget: UIWidgets.ComboBox)]
-	AFM_ERadioMsg m_eMessageType;
+	[Attribute(desc: "Signal name")]
+	string m_eMessageType;
 	
 	
 	//------------------------------------------------------------------------------------------------

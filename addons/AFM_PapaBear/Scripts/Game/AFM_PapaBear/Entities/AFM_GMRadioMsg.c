@@ -4,7 +4,7 @@ class AFM_GMRadioMsg : ScriptedRadioMessage
 	static const int INVALID_RADIO_MSG_PARAM = -1;
 	
 	protected AFM_ERadioMsgType m_iMessageType;
-	protected AFM_ERadioMsg m_iRadioMsg;
+	protected string m_sRadioMsg;
 	protected int m_iFactionId;
 	protected float m_fSeed = Math.RandomFloat01();
 	protected bool m_bIsPublic = true;
@@ -18,9 +18,9 @@ class AFM_GMRadioMsg : ScriptedRadioMessage
 	}
 	
 	//------------------------------------------------------------------------------------------------
-	void SetRadioMsg(AFM_ERadioMsg msg)
+	void SetRadioMsg(string msg)
 	{
-		m_iRadioMsg = msg;
+		m_sRadioMsg = msg;
 	}
 	
 	//------------------------------------------------------------------------------------------------
@@ -88,19 +88,9 @@ class AFM_GMRadioMsg : ScriptedRadioMessage
 			if (!comp)
 				return;
 			
-			comp.PlayRadioMsg(m_iMessageType, m_iRadioMsg, m_iFactionId, m_fSeed, m_bIsPublic, quality, playerID, m_iSampleIndex);
+			comp.PlayRadioMsg(m_iMessageType, m_sRadioMsg, m_iFactionId, m_fSeed, m_bIsPublic, quality, playerID, m_iSampleIndex);
 		}
 	}
-};
-
-enum AFM_ERadioMsg
-{
-	NONE,
-	ARMAFORCES,
-	DONUTS,
-	MY_EVERON,
-	NUMBER_STATION_E06,
-	NUMBER_STATION_S25
 };
 
 enum AFM_ERadioMsgType

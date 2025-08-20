@@ -2,6 +2,15 @@ GenericEntity : "{1571BF54599093AF}PrefabsEditable/Auto/Props/Furniture/E_Meetin
  coords 110.331 1 100.376
 }
 GenericEntity NumberStation : "{707120C3AEF89536}Prefabs/Props/AFM_NumberRadioStation.et" {
+ components {
+  ActionsManagerComponent "{64DE87480B4E8311}" {
+   additionalActions {
+    AFM_NumberStationAction "{64DF0400DBD1AFE3}" {
+     m_bIsMessageLooped 1
+    }
+   }
+  }
+ }
  coords 109.452 1.906 100.102
  angleY -133.34
 }

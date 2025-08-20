@@ -196,8 +196,6 @@ AudioClass {
    pu + {
     0
    }
-   outState 7179
-   outStatePort 19463
   }
   SoundClass {
    id 15369
@@ -233,32 +231,6 @@ AudioClass {
    outState 7179
    outStatePort 19463
    eventType "Start - Stop"
-  }
-  SoundClass : "{0076CDC7B631E6A0}Sounds/_SharedData/Configs/Sound/Sound_Tutorial_VO.conf" {
-   id 21513
-   name "DONUTS"
-   version 5
-   tl -19.267 -908.134
-   parent "{0076CDC7B631E6A0}Sounds/_SharedData/Configs/Sound/Sound_Tutorial_VO.conf"
-   ins {
-    ConnectionsClass connections {
-     id 64
-     links {
-      ConnectionClass connection {
-       id 20498
-       port 65
-      }
-     }
-    }
-   }
-   pi + {
-    0
-   }
-   pu + {
-    0
-   }
-   outState 7179
-   outStatePort 19463
   }
   SoundClass : "{0076CDC7B631E6A0}Sounds/_SharedData/Configs/Sound/Sound_Tutorial_VO.conf" {
    id 25609
@@ -397,7 +369,7 @@ AudioClass {
      id 19463
      links {
       ConnectionClass connection {
-       id 6153
+       id 26633
        port 65
       }
       ConnectionClass connection {
@@ -405,19 +377,11 @@ AudioClass {
        port 65
       }
       ConnectionClass connection {
-       id 21513
+       id 43017
        port 65
       }
       ConnectionClass connection {
        id 25609
-       port 65
-      }
-      ConnectionClass connection {
-       id 26633
-       port 65
-      }
-      ConnectionClass connection {
-       id 43017
        port 65
       }
      }
@@ -469,48 +433,10 @@ AudioClass {
    tl -243.003 -1028.13
    ins {
     ConnectionsClass connections {
-     id 4
-     links {
-      ConnectionClass connection {
-       id 9239
-       port 65
-      }
-     }
-    }
-    ConnectionsClass connections {
      id 64
      links {
       ConnectionClass connection {
        id 4100
-       port 65
-      }
-     }
-    }
-   }
-   pi {
-    16 0
-   }
-  }
-  ShaderClass {
-   id 20498
-   name "Shader 14"
-   version 5
-   tl -241.249 -907.512
-   ins {
-    ConnectionsClass connections {
-     id 4
-     links {
-      ConnectionClass connection {
-       id 9239
-       port 65
-      }
-     }
-    }
-    ConnectionsClass connections {
-     id 64
-     links {
-      ConnectionClass connection {
-       id 22532
        port 65
       }
      }
@@ -617,17 +543,6 @@ AudioClass {
    Samples {
     AudioBankSampleClass Sample {
      Filename "{83D6E26AAD3A18F0}Sounds/Samples/armaforces.wav"
-    }
-   }
-  }
-  BankLocalClass {
-   id 22532
-   name "1"
-   version 7
-   tl -463.06 -921.505
-   Samples {
-    AudioBankSampleClass Sample {
-     Filename "{1FA998D2907B75EF}Sounds/Samples/donuts.wav"
     }
    }
   }

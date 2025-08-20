@@ -22,7 +22,7 @@ class AFM_NumberStationScriptComponent : ScriptComponent
 		m_RadioComp = SCR_RadioComponent.Cast(owner.FindComponent(SCR_RadioComponent));
 	}
 	
-	void CreateTransmission(AFM_ERadioMsg stationType, string message, bool loopMessage, int frequency, string encryptionKey)
+	void CreateTransmission(string stationType, string message, bool loopMessage, int frequency, string encryptionKey)
 	{
 		if (m_Tasks.Contains(frequency))
 		{
@@ -84,7 +84,7 @@ class AFM_NumberStationScriptComponent : ScriptComponent
 		GetGame().GetCallqueue().CallLater(TransmitTaskLoop, m_iCharacterDelay, false, frequency, index+1);
 	}
 	
-	protected void TransmitMessage(AFM_ERadioMsg message, int frequency, string key, int sampleIndex)
+	protected void TransmitMessage(string message, int frequency, string key, int sampleIndex)
 	{
 		BaseRadioComponent radio = m_RadioComp.GetRadioComponent();
 		if (!radio || !radio.IsPowered())
@@ -142,5 +142,5 @@ class AFM_NumberStationTask
 	bool LoopMessage;
 	string Message;
 	string EncryptionKey;
-	AFM_ERadioMsg StationType;
+	string StationType;
 }

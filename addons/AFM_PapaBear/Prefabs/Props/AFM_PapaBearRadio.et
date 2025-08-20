@@ -54,7 +54,7 @@ GenericEntity : "{12DFA1CC555DFEF4}Prefabs/Props/Military/Compositions/RadioStat
      }
      ActionTitle "Arfmaforces"
      Duration 0
-     m_eMessageType ARMAFORCES
+     m_eMessageType "ARMAFORCES"
     }
     AFM_SendRadioMessageAction "{64DCC2C4E582671D}" {
      ParentContextList {
@@ -65,7 +65,7 @@ GenericEntity : "{12DFA1CC555DFEF4}Prefabs/Props/Military/Compositions/RadioStat
      }
      ActionTitle "Donuts"
      Duration 0
-     m_eMessageType DONUTS
+     m_eMessageType "DONUTS"
     }
     AFM_SendRadioMessageAction "{64DCC2CAC5919D52}" {
      ParentContextList {
@@ -76,7 +76,7 @@ GenericEntity : "{12DFA1CC555DFEF4}Prefabs/Props/Military/Compositions/RadioStat
      }
      ActionTitle "My everon"
      Duration 0
-     m_eMessageType MY_EVERON
+     m_eMessageType "MY_EVERON"
     }
     AFM_StationaryRadioTuningUserAction "{64DF0405D9C2B5F7}" {
      ParentContextList {

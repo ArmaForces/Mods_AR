@@ -1,7 +1,7 @@
 class AFM_NumberStationAction : ScriptedUserAction
 {
-	[Attribute(desc: "Station name", enums: ParamEnumArray.FromEnum(AFM_ERadioMsg), defvalue: AFM_ERadioMsg.NONE.ToString(), uiwidget: UIWidgets.ComboBox)]
-	AFM_ERadioMsg m_eMessageType;
+	[Attribute(desc: "Station name")]
+	string m_sStationName;
 	
 	[Attribute(desc: "Signal to transmit. Any non numeric characters will be interpreted as pause", defvalue: "1111 2137 2137 2137 1111")]
 	protected string m_sNumberStationMessage;
@@ -43,7 +43,7 @@ class AFM_NumberStationAction : ScriptedUserAction
 		AFM_NumberStationScriptComponent numberStation = AFM_NumberStationScriptComponent.GetInstance();
 		
 		if (m_bIsRunning) 
-			numberStation.CreateTransmission(m_eMessageType, m_sNumberStationMessage,  m_bIsMessageLooped, freq, radio.GetEncryptionKey());
+			numberStation.CreateTransmission(m_sStationName, m_sNumberStationMessage,  m_bIsMessageLooped, freq, radio.GetEncryptionKey());
 		else
 			numberStation.TerminateTransmission(freq);
 		
