@@ -3,6 +3,8 @@ GenericEntity : "{12DFA1CC555DFEF4}Prefabs/Props/Military/Compositions/RadioStat
  components {
   SignalsManagerComponent "{64DCC2C42BF27E23}" {
   }
+  AFM_PapaBearScriptComponent "{66287407E0D6D746}" {
+  }
   BaseRadioComponent "{64DCC2C42F44BEF2}" {
    "Encryption key" "chickenNuggets"
    "Turned on" 1

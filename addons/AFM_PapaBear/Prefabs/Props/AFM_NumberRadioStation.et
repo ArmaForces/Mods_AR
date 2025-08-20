@@ -1,6 +1,8 @@
 GenericEntity : "{4CC2C69DE1AEF103}Prefabs/Props/Core/Destructible_Props_Base.et" {
  ID "F0DBA538AC2A0552"
  components {
+  SignalsManagerComponent "{64DE8749D641A65C}" {
+  }
   BaseRadioComponent "{64DE874BB9E988C5}" {
    "Encryption key" "chickenNuggets"
    "Turned on" 1
@@ -74,7 +76,7 @@ GenericEntity : "{4CC2C69DE1AEF103}Prefabs/Props/Core/Destructible_Props_Base.et
   }
   Hierarchy "{64DE8758857D4379}" {
   }
-  SignalsManagerComponent "{64DE8749D641A65C}" {
+  AFM_NumberStationScriptComponent "{6628743CDD62583D}" {
   }
  }
  coords 0 0 0
