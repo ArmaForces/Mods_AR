@@ -47,6 +47,9 @@ class AFM_RadioMessageNetworkComponent : ScriptComponent
 			{
 				PrintFormat("PapaBear: Invalid radio handle received. Check signal name %1", cfgEntry.m_sMessageName, level: LogLevel.WARNING);
 			}
+			array<string> signalNames = new array<string>();
+			soundComp.GetSignalNames(signalNames);
+			Print(signalNames);
 		}
 	}
 	

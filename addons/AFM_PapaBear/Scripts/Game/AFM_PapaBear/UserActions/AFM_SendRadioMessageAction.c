@@ -15,6 +15,7 @@ class AFM_SendRadioMessageAction : ScriptedUserAction
 	protected override void PerformAction(IEntity pOwnerEntity, IEntity pUserEntity)
 	{
 		AFM_PapaBearScriptComponent.GetInstance().TransmitBluHqMessage(m_eMessageType);
+		AFM_PapaBearScriptComponent.GetInstance().TransmitRedHqMessage(m_eMessageType);
 	}
 	
 	override bool HasLocalEffectOnlyScript()
