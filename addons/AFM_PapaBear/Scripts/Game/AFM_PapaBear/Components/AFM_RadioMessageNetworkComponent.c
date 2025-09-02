@@ -99,9 +99,7 @@ class AFM_RadioMessageNetworkComponent : ScriptComponent
 	{
 		Print("PlayRadioMsg");
 		SCR_PlayerController pc = SCR_PlayerController.Cast(GetGame().GetPlayerController());
-		if (!pc)
-			return; 
-		if (isPublic || playerID == pc.GetPlayerId())
+		if (isPublic || (pc && playerID == pc.GetPlayerId()))
 			Rpc(RpcDo_PlayRadioMsg, msgType, msg, FactionId, seed, quality, sampleIndex);
 	}
 	
