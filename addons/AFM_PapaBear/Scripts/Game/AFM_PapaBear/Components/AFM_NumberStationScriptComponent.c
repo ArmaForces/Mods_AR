@@ -84,8 +84,9 @@ class AFM_NumberStationScriptComponent : ScriptComponent
 		GetGame().GetCallqueue().CallLater(TransmitTaskLoop, m_iCharacterDelay, false, frequency, index+1);
 	}
 	
-	protected void TransmitMessage(string message, int frequency, string key, int sampleIndex)
+	void TransmitMessage(string message, int frequency, string key, int sampleIndex)
 	{
+		Print("PapaBear: Transmitting message " + message);
 		BaseRadioComponent radio = m_RadioComp.GetRadioComponent();
 		if (!radio || !radio.IsPowered())
 			return;
@@ -100,7 +101,7 @@ class AFM_NumberStationScriptComponent : ScriptComponent
 		AFM_GMRadioMsg msg = new AFM_GMRadioMsg();
 		msg.SetMessageType(AFM_ERadioMsgType.NUMBER_STATION);
 		msg.SetRadioMsg(message);
-		msg.SetIsPublic(false);
+		msg.SetIsPublic(true);
 		msg.SetEncryptionKey(key);
 		msg.SetSampleIndex(sampleIndex);
 

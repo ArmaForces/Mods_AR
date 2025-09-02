@@ -14,16 +14,6 @@ GenericEntity NumberStation : "{707120C3AEF89536}Prefabs/Props/AFM_NumberRadioSt
  coords 109.452 1.906 100.102
  angleY -133.34
 }
-SCR_ChimeraCharacter : "{7A9EE19AB67B298B}Prefabs/Characters/Factions/INDFOR/FIA/Character_FIA_base.et" {
- components {
-  SCR_CommunicationSoundComponent "{54FD05D0C92D071F}" {
-   Filenames + {
-    "{975D65221C78BE1F}Sounds/AFM_PapaBear.acp"
-   }
-  }
- }
- coords 114.056 1 99.496
-}
 GenericEntity PapaBear : "{B50188A413FECCC2}Prefabs/Props/AFM_PapaBearRadio.et" {
  components {
   SCR_FactionAffiliationComponent "{5CB6D5B110622424}" {

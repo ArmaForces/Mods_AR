@@ -12,6 +12,7 @@ class AFM_RadioMessageNetworkComponent : ScriptComponent
 	
 	void PlayMessage(string msg, int factionId, float seed, float quality)
 	{
+		Print("PapaBear: Playing " + msg);
 		SCR_PlayerController pc = SCR_PlayerController.Cast(GetGame().GetPlayerController());
 		if (!pc)
 			return;
@@ -47,14 +48,12 @@ class AFM_RadioMessageNetworkComponent : ScriptComponent
 			{
 				PrintFormat("PapaBear: Invalid radio handle received. Check signal name %1", cfgEntry.m_sMessageName, level: LogLevel.WARNING);
 			}
-			array<string> signalNames = new array<string>();
-			soundComp.GetSignalNames(signalNames);
-			Print(signalNames);
 		}
 	}
 	
 	void PlayNumberStation(string msg, float seed, float quality, int sampleIndex)
 	{
+		Print("NumberStation: Playing " + msg);
 		SCR_PlayerController pc = SCR_PlayerController.Cast(GetGame().GetPlayerController());
 		if (!pc)
 			return;
@@ -76,10 +75,18 @@ class AFM_RadioMessageNetworkComponent : ScriptComponent
 		signalComp.SetSignalValue(signalQuality, quality);
 		signalComp.SetSignalValue(signalIndex, sampleIndex);
 		
+		
+		AFM_PapaBearEntryConfig cfgEntry = GetConfig().GetEntryConfig(msg, sampleIndex);
+		
 		if (!msg.IsEmpty())
 		{
 			AudioSystem.TerminateSound(m_PlayedRadio);
 			m_PlayedRadio = soundComp.SoundEvent(msg);
+						
+			if (cfgEntry && !cfgEntry.m_sMessageText.IsEmpty())
+			{
+				SCR_ChatComponent.RadioProtocolMessage(cfgEntry.m_sMessageText);
+			}
 			
 			if (m_PlayedRadio == AudioHandle.Invalid)
 			{
@@ -90,6 +97,7 @@ class AFM_RadioMessageNetworkComponent : ScriptComponent
 	
 	void PlayRadioMsg(AFM_ERadioMsgType msgType, string msg, int FactionId, float seed, bool isPublic, float quality, int playerID, int sampleIndex)
 	{
+		Print("PlayRadioMsg");
 		SCR_PlayerController pc = SCR_PlayerController.Cast(GetGame().GetPlayerController());
 		if (!pc)
 			return; 
@@ -100,6 +108,7 @@ class AFM_RadioMessageNetworkComponent : ScriptComponent
 	[RplRpc(RplChannel.Reliable, RplRcver.Owner)]
 	void RpcDo_PlayRadioMsg(AFM_ERadioMsgType msgType, string msg, int factionId, float seed, float quality, int sampleIndex)
 	{
+		Print("RpcDo_PlayRadioMsg");
 		switch (msgType)
 		{
 			case AFM_ERadioMsgType.SINGLE_MESSAGE:
@@ -110,6 +119,7 @@ class AFM_RadioMessageNetworkComponent : ScriptComponent
 			case AFM_ERadioMsgType.NUMBER_STATION:
 			{
 				PlayNumberStation(msg, seed, quality, sampleIndex);
+				return;
 			}
 		}
 	}

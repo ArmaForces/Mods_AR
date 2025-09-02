@@ -53,7 +53,7 @@ class AFM_PapaBearScriptComponent : ScriptComponent
 		AFM_GMRadioMsg msg = new AFM_GMRadioMsg();
 		msg.SetMessageType(AFM_ERadioMsgType.SINGLE_MESSAGE);
 		msg.SetRadioMsg(message);
-		msg.SetIsPublic(false);
+		msg.SetIsPublic(true);
 		msg.SetEncryptionKey(key);
 
 		transmitter.BeginTransmission(msg);
