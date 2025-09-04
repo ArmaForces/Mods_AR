@@ -53,7 +53,6 @@ class AFM_RadioMessageNetworkComponent : ScriptComponent
 	
 	void PlayNumberStation(string msg, float seed, float quality, int sampleIndex)
 	{
-		Print("NumberStation: Playing " + msg);
 		SCR_PlayerController pc = SCR_PlayerController.Cast(GetGame().GetPlayerController());
 		if (!pc)
 			return;
@@ -97,7 +96,6 @@ class AFM_RadioMessageNetworkComponent : ScriptComponent
 	
 	void PlayRadioMsg(AFM_ERadioMsgType msgType, string msg, int FactionId, float seed, bool isPublic, float quality, int playerID, int sampleIndex)
 	{
-		Print("PlayRadioMsg");
 		SCR_PlayerController pc = SCR_PlayerController.Cast(GetGame().GetPlayerController());
 		if (isPublic || (pc && playerID == pc.GetPlayerId()))
 			Rpc(RpcDo_PlayRadioMsg, msgType, msg, FactionId, seed, quality, sampleIndex);
@@ -106,7 +104,6 @@ class AFM_RadioMessageNetworkComponent : ScriptComponent
 	[RplRpc(RplChannel.Reliable, RplRcver.Owner)]
 	void RpcDo_PlayRadioMsg(AFM_ERadioMsgType msgType, string msg, int factionId, float seed, float quality, int sampleIndex)
 	{
-		Print("RpcDo_PlayRadioMsg");
 		switch (msgType)
 		{
 			case AFM_ERadioMsgType.SINGLE_MESSAGE:

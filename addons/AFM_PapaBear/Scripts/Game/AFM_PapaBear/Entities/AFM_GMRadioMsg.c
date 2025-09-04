@@ -57,7 +57,7 @@ class AFM_GMRadioMsg : ScriptedRadioMessage
 	//------------------------------------------------------------------------------------------------
 	override void OnDelivery(BaseTransceiver receiver, int freq, float quality)
 	{
-		PrintFormat("Delivering message type %1 on freq %2", m_iMessageType, freq, level: LogLevel.NORMAL);
+		PrintFormat("Delivering message type %1 on freq %2", m_iMessageType, freq, level: LogLevel.DEBUG);
 		IEntity owner = receiver.GetRadio().GetOwner();
 
 		ChimeraCharacter player;
