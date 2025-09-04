@@ -1,5 +1,5 @@
 MetaFileClass {
- Name "{0082275C4BA9D15F}Sounds/AFM_Core/ofp1.wav"
+ Name "{9AC93A14CE420972}Sounds/Samples/DI_Timer/di_80_minutes.wav"
  Configurations {
   WAVResourceClass PC : "{F72B05D02F3F135E}Configs/System/ResourceTypes/PC/Sound.conf" {
   }

@@ -1,11 +1,28 @@
 GenericEntity : "{1571BF54599093AF}PrefabsEditable/Auto/Props/Furniture/E_MeetingTable_01.et" {
  coords 110.331 1 100.376
 }
-GenericEntity : "{707120C3AEF89536}Prefabs/Props/AFM_NumberRadioStation.et" {
+GenericEntity NumberStation : "{707120C3AEF89536}Prefabs/Props/AFM_NumberRadioStation.et" {
+ components {
+  ActionsManagerComponent "{64DE87480B4E8311}" {
+   additionalActions {
+    AFM_NumberStationAction "{64DF0400DBD1AFE3}" {
+     m_bIsMessageLooped 1
+    }
+   }
+  }
+ }
  coords 109.452 1.906 100.102
  angleY -133.34
 }
-GenericEntity : "{B50188A413FECCC2}Prefabs/Props/AFM_PapaBearRadio.et" {
+GenericEntity PapaBear : "{B50188A413FECCC2}Prefabs/Props/AFM_PapaBearRadio.et" {
+ components {
+  SCR_FactionAffiliationComponent "{5CB6D5B110622424}" {
+   "faction affiliation" "USSR"
+  }
+  SCR_RadioComponent "{64DCC2C4C4C1CFCC}" {
+   m_iRadioType R107M
+  }
+ }
  coords 110.813 1.931 100.627
  angleY 0
 }

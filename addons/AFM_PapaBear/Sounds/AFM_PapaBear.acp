@@ -25,8 +25,8 @@ AudioClass {
   SignalClass {
    id 40973
    name "AFM_NumberStationsSignal"
-   tl -676.703 128.145
-   res "{BF61B0BFF666D11D}Sounds/AFM_NumberStations.sig"
+   tl -662.156 136.08
+   res "{BF61B0BFF666D11D}Sounds/AFM_SampleIndex_Signal.sig"
    inputsport {
     1 12
    }
@@ -42,7 +42,7 @@ AudioClass {
    inputvaluesmax {
     300000 300000
    }
-   path "{BF61B0BFF666D11D}Sounds/AFM_NumberStations.sig"
+   path "{BF61B0BFF666D11D}Sounds/AFM_SampleIndex_Signal.sig"
   }
  }
  filters {
@@ -235,32 +235,6 @@ AudioClass {
    eventType "Start - Stop"
   }
   SoundClass : "{0076CDC7B631E6A0}Sounds/_SharedData/Configs/Sound/Sound_Tutorial_VO.conf" {
-   id 21513
-   name "DONUTS"
-   version 5
-   tl -19.267 -908.134
-   parent "{0076CDC7B631E6A0}Sounds/_SharedData/Configs/Sound/Sound_Tutorial_VO.conf"
-   ins {
-    ConnectionsClass connections {
-     id 64
-     links {
-      ConnectionClass connection {
-       id 20498
-       port 65
-      }
-     }
-    }
-   }
-   pi + {
-    0
-   }
-   pu + {
-    0
-   }
-   outState 7179
-   outStatePort 19463
-  }
-  SoundClass : "{0076CDC7B631E6A0}Sounds/_SharedData/Configs/Sound/Sound_Tutorial_VO.conf" {
    id 25609
    name "MY_EVERON"
    version 5
@@ -338,6 +312,32 @@ AudioClass {
    outState 7179
    outStatePort 19463
   }
+  SoundClass : "{0076CDC7B631E6A0}Sounds/_SharedData/Configs/Sound/Sound_Tutorial_VO.conf" {
+   id 89097
+   name "TIMER_DI"
+   version 5
+   tl 79.211 383.536
+   parent "{0076CDC7B631E6A0}Sounds/_SharedData/Configs/Sound/Sound_Tutorial_VO.conf"
+   ins {
+    ConnectionsClass connections {
+     id 64
+     links {
+      ConnectionClass connection {
+       id 90130
+       port 65
+      }
+     }
+    }
+   }
+   pi + {
+    0
+   }
+   pu + {
+    0
+   }
+   outState 7179
+   outStatePort 19463
+  }
  }
  buses {
   BusClass {
@@ -397,7 +397,7 @@ AudioClass {
      id 19463
      links {
       ConnectionClass connection {
-       id 6153
+       id 26633
        port 65
       }
       ConnectionClass connection {
@@ -405,7 +405,7 @@ AudioClass {
        port 65
       }
       ConnectionClass connection {
-       id 21513
+       id 43017
        port 65
       }
       ConnectionClass connection {
@@ -413,11 +413,11 @@ AudioClass {
        port 65
       }
       ConnectionClass connection {
-       id 26633
+       id 6153
        port 65
       }
       ConnectionClass connection {
-       id 43017
+       id 89097
        port 65
       }
      }
@@ -482,35 +482,6 @@ AudioClass {
      links {
       ConnectionClass connection {
        id 4100
-       port 65
-      }
-     }
-    }
-   }
-   pi {
-    16 0
-   }
-  }
-  ShaderClass {
-   id 20498
-   name "Shader 14"
-   version 5
-   tl -241.249 -907.512
-   ins {
-    ConnectionsClass connections {
-     id 4
-     links {
-      ConnectionClass connection {
-       id 9239
-       port 65
-      }
-     }
-    }
-    ConnectionsClass connections {
-     id 64
-     links {
-      ConnectionClass connection {
-       id 22532
        port 65
       }
      }
@@ -607,6 +578,35 @@ AudioClass {
     16 0
    }
   }
+  ShaderClass {
+   id 90130
+   name "Shader 14"
+   version 5
+   tl -142.771 385.309
+   ins {
+    ConnectionsClass connections {
+     id 4
+     links {
+      ConnectionClass connection {
+       id 9239
+       port 65
+      }
+     }
+    }
+    ConnectionsClass connections {
+     id 64
+     links {
+      ConnectionClass connection {
+       id 88068
+       port 65
+      }
+     }
+    }
+   }
+   pi {
+    16 0
+   }
+  }
  }
  banks_local {
   BankLocalClass {
@@ -617,17 +617,6 @@ AudioClass {
    Samples {
     AudioBankSampleClass Sample {
      Filename "{83D6E26AAD3A18F0}Sounds/Samples/armaforces.wav"
-    }
-   }
-  }
-  BankLocalClass {
-   id 22532
-   name "1"
-   version 7
-   tl -463.06 -921.505
-   Samples {
-    AudioBankSampleClass Sample {
-     Filename "{1FA998D2907B75EF}Sounds/Samples/donuts.wav"
     }
    }
   }
@@ -763,6 +752,84 @@ AudioClass {
     AudioBankSampleClass Sample {
      Filename "{3F517C4CBBD6E74F}Sounds/Samples/NumberStations/S25/9.wav"
      Index 9
+    }
+   }
+  }
+  BankLocalClass {
+   id 88068
+   name "DrillInstructor_Timer"
+   version 7
+   tl -404.605 388.514
+   ins {
+    ConnectionsClass connections {
+     id 2
+     links {
+      ConnectionClass connection {
+       id 40973
+       port 11
+      }
+     }
+    }
+   }
+   pi {
+    14 0
+   }
+   Selection CustomSignalIndex
+   Samples {
+    AudioBankSampleClass Sample {
+     Filename "{B3A459F19B371497}Sounds/Samples/DI_Timer/di_90_minutes.wav"
+     Index 5400
+    }
+    AudioBankSampleClass Sample {
+     Filename "{9AC93A14CE420972}Sounds/Samples/DI_Timer/di_80_minutes.wav"
+     Index 4800
+    }
+    AudioBankSampleClass Sample {
+     Filename "{4D50EF6F664B8172}Sounds/Samples/DI_Timer/di_70_minutes.wav"
+     Index 4200
+    }
+    AudioBankSampleClass Sample {
+     Filename "{643D8C8A333E9C97}Sounds/Samples/DI_Timer/di_60_minutes.wav"
+     Index 3600
+    }
+    AudioBankSampleClass Sample {
+     Filename "{1F8A28A5CCA1BAB8}Sounds/Samples/DI_Timer/di_50_minutes.wav"
+     Index 3000
+    }
+    AudioBankSampleClass Sample {
+     Filename "{36E74B4099D4A75D}Sounds/Samples/DI_Timer/di_40_minutes.wav"
+     Index 2400
+    }
+    AudioBankSampleClass Sample {
+     Filename "{E8E560FA339FF6E6}Sounds/Samples/DI_Timer/di_30_minutes.wav"
+     Index 1800
+    }
+    AudioBankSampleClass Sample {
+     Filename "{C188031F66EAEB03}Sounds/Samples/DI_Timer/di_20_minutes.wav"
+     Index 1200
+    }
+    AudioBankSampleClass Sample {
+     Filename "{BA3FA7309975CD2C}Sounds/Samples/DI_Timer/di_10_minutes.wav"
+     Index 600
+    }
+    AudioBankSampleClass Sample {
+     Filename "{52B0133F823EC5C0}Sounds/Samples/DI_Timer/di_05_minutes.wav"
+     Index 300
+    }
+    AudioBankSampleClass Sample {
+     Filename "{7B927A0069774E5A}Sounds/Samples/DI_Timer/di_03_30_minutes.wav"
+     Index 210
+    }
+    AudioBankSampleClass Sample {
+     Filename "{ACCDAAB7DA0C7E34}Sounds/Samples/DI_Timer/di_01_minutes.wav"
+     Index 60
+    }
+    AudioBankSampleClass Sample {
+     Filename "{A6C37E1CD0E277FB}Sounds/Samples/DI_Timer/di_00_30s.wav"
+     Index 30
+    }
+    AudioBankSampleClass Sample {
+     Filename "{565720E099840DD3}Sounds/Samples/DI_Timer/di_00.wav"
     }
    }
   }

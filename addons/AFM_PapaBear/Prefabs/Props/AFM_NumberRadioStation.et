@@ -1,6 +1,10 @@
 GenericEntity : "{4CC2C69DE1AEF103}Prefabs/Props/Core/Destructible_Props_Base.et" {
  ID "F0DBA538AC2A0552"
  components {
+  SignalsManagerComponent "{64DE8749D641A65C}" {
+  }
+  AFM_NumberStationScriptComponent "{6628743CDD62583D}" {
+  }
   BaseRadioComponent "{64DE874BB9E988C5}" {
    "Encryption key" "chickenNuggets"
    "Turned on" 1
@@ -43,7 +47,7 @@ GenericEntity : "{4CC2C69DE1AEF103}Prefabs/Props/Core/Destructible_Props_Base.et
      ParentContextList {
       "default"
      }
-     m_eMessageType NUMBER_STATION_E06
+     m_sStationName "E06"
      m_sNumberStationMessage "1111 2137 2137 2137 1111 "
      m_iCharacterDelay 800
      m_iPauseDelay 1200
@@ -52,7 +56,7 @@ GenericEntity : "{4CC2C69DE1AEF103}Prefabs/Props/Core/Destructible_Props_Base.et
      ParentContextList {
       "default"
      }
-     m_eMessageType NUMBER_STATION_S25
+     m_sStationName "S25"
      m_sNumberStationMessage "469 2137 2137 2137 469"
      m_bIsMessageLooped 0
     }
@@ -73,8 +77,6 @@ GenericEntity : "{4CC2C69DE1AEF103}Prefabs/Props/Core/Destructible_Props_Base.et
    Enabled 1
   }
   Hierarchy "{64DE8758857D4379}" {
-  }
-  SignalsManagerComponent "{64DE8749D641A65C}" {
   }
  }
  coords 0 0 0

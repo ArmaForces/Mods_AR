@@ -7,7 +7,7 @@ SCR_GameModeEditor GameMode_Editor_Full1 : "{DA3986AF1B5032B7}Prefabs/MP/Modes/E
  }
  coords 111.135 1 104.052
  {
-  SCR_FactionManager {
+  SCR_FactionManager "66287414641E35C1" {
    ID "56E685E92F1B7E7A"
    Factions {
     SCR_Faction "{56DEAC40D2DBC8B1}" {

@@ -1,7 +1,7 @@
 class AFM_NumberStationAction : ScriptedUserAction
 {
-	[Attribute(desc: "Station name", enums: ParamEnumArray.FromEnum(AFM_ERadioMsg), defvalue: AFM_ERadioMsg.NONE.ToString(), uiwidget: UIWidgets.ComboBox)]
-	AFM_ERadioMsg m_eMessageType;
+	[Attribute(desc: "Station name")]
+	string m_sStationName;
 	
 	[Attribute(desc: "Signal to transmit. Any non numeric characters will be interpreted as pause", defvalue: "1111 2137 2137 2137 1111")]
 	protected string m_sNumberStationMessage;
@@ -31,13 +31,22 @@ class AFM_NumberStationAction : ScriptedUserAction
 	}
 
 	protected override void PerformAction(IEntity pOwnerEntity, IEntity pUserEntity)
-	{
+	{		
+		BaseRadioComponent radio = m_RadioComp.GetRadioComponent();
+		if (!radio || !radio.IsPowered())
+			return;
+		
+		BaseTransceiver transmitter = radio.GetTransceiver(0);
+		int freq = transmitter.GetFrequency();
+		
 		m_bIsRunning = !m_bIsRunning;
+		AFM_NumberStationScriptComponent numberStation = AFM_NumberStationScriptComponent.GetInstance();
 		
 		if (m_bIsRunning) 
-		{
-			SendNumberStationMessage(0);
-		}
+			numberStation.CreateTransmission(m_sStationName, m_sNumberStationMessage,  m_bIsMessageLooped, freq, radio.GetEncryptionKey());
+		else
+			numberStation.TerminateTransmission(freq);
+		
 	}
 
 	override void Init(IEntity pOwnerEntity, GenericComponent pManagerComponent)
@@ -66,52 +75,6 @@ class AFM_NumberStationAction : ScriptedUserAction
 			outName = "Begin transmiting. Message " + m_sNumberStationMessage + ", frequency: " + freq;
 		
 		return true;
-	}
-	
-	
-	void SendNumberStationMessage(int index)
-	{
-		if (!m_bIsRunning) return;
-		
-		if (index == m_sNumberStationMessage.Length())
-		{
-			//End of message
-			if (m_bIsMessageLooped)
-				//treat the end as pause, resume from the beggining
-				GetGame().GetCallqueue().CallLater(SendNumberStationMessage, m_iPauseDelay, false, 0);
-			else 
-				m_bIsRunning = false;
-			return;
-		}
-		
-		int sampleIndex = m_sNumberStationMessage.Substring(index, 1).ToInt(-1);
-		
-		if (sampleIndex < 0)
-		{
-			//invalid character, treat as pause
-			GetGame().GetCallqueue().CallLater(SendNumberStationMessage, m_iPauseDelay, false, index+1);
-			return;
-		}
-		
-		//we have valid sample index, begin transmission
-		BaseRadioComponent radio = m_RadioComp.GetRadioComponent();
-		if (!radio || !radio.IsPowered())
-			return;
-		
-		BaseTransceiver transmitter = radio.GetTransceiver(0);
-		
-		if (!transmitter)
-			return;
-		
-		AFM_GMRadioMsg msg = new AFM_GMRadioMsg();
-		msg.SetMessageType(AFM_ERadioMsgType.NUMBER_STATION);
-		msg.SetRadioMsg(m_eMessageType);
-		msg.SetIsPublic(false);
-		msg.SetEncryptionKey(radio.GetEncryptionKey());
-		msg.SetSampleIndex(sampleIndex);
-		transmitter.BeginTransmission(msg);
-		
-		GetGame().GetCallqueue().CallLater(SendNumberStationMessage, m_iCharacterDelay, false, index+1);
 	}
 
 };

@@ -1,5 +1,5 @@
 MetaFileClass {
- Name "{1FA998D2907B75EF}Sounds/Samples/donuts.wav"
+ Name "{1F8A28A5CCA1BAB8}Sounds/Samples/DI_Timer/di_50_minutes.wav"
  Configurations {
   WAVResourceClass PC : "{F72B05D02F3F135E}Configs/System/ResourceTypes/PC/Sound.conf" {
   }

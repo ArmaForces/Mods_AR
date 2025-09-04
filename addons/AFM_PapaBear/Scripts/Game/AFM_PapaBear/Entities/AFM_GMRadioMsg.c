@@ -4,7 +4,7 @@ class AFM_GMRadioMsg : ScriptedRadioMessage
 	static const int INVALID_RADIO_MSG_PARAM = -1;
 	
 	protected AFM_ERadioMsgType m_iMessageType;
-	protected AFM_ERadioMsg m_iRadioMsg;
+	protected string m_sRadioMsg;
 	protected int m_iFactionId;
 	protected float m_fSeed = Math.RandomFloat01();
 	protected bool m_bIsPublic = true;
@@ -18,9 +18,9 @@ class AFM_GMRadioMsg : ScriptedRadioMessage
 	}
 	
 	//------------------------------------------------------------------------------------------------
-	void SetRadioMsg(AFM_ERadioMsg msg)
+	void SetRadioMsg(string msg)
 	{
-		m_iRadioMsg = msg;
+		m_sRadioMsg = msg;
 	}
 	
 	//------------------------------------------------------------------------------------------------
@@ -57,7 +57,7 @@ class AFM_GMRadioMsg : ScriptedRadioMessage
 	//------------------------------------------------------------------------------------------------
 	override void OnDelivery(BaseTransceiver receiver, int freq, float quality)
 	{
-		PrintFormat("Delivering message type {%1} on freq %2", m_iMessageType, freq, level: LogLevel.DEBUG);
+		PrintFormat("Delivering message type %1 on freq %2", m_iMessageType, freq, level: LogLevel.DEBUG);
 		IEntity owner = receiver.GetRadio().GetOwner();
 
 		ChimeraCharacter player;
@@ -71,8 +71,10 @@ class AFM_GMRadioMsg : ScriptedRadioMessage
 			
 			owner = owner.GetParent();
 			
-			if (!owner)
+			if (!owner) {
+				Print("Failed to find player character", LogLevel.ERROR);
 				return;
+			}
 			
 		}
 
@@ -82,25 +84,21 @@ class AFM_GMRadioMsg : ScriptedRadioMessage
 			PlayerController controller = GetGame().GetPlayerManager().GetPlayerController(playerID);
 			
 			if (!controller)
+			{
+				Print("No PlayerController found", LogLevel.ERROR);
 				return;
+			}
 			
 			AFM_RadioMessageNetworkComponent comp = AFM_RadioMessageNetworkComponent.Cast(controller.FindComponent(AFM_RadioMessageNetworkComponent));
 			if (!comp)
+			{
+				Print("No AFM_RadioMessageNetworkComponent found on player controller entity!", LogLevel.ERROR);
 				return;
+			}
 			
-			comp.PlayRadioMsg(m_iMessageType, m_iRadioMsg, m_iFactionId, m_fSeed, m_bIsPublic, quality, playerID, m_iSampleIndex);
+			comp.PlayRadioMsg(m_iMessageType, m_sRadioMsg, m_iFactionId, m_fSeed, m_bIsPublic, quality, playerID, m_iSampleIndex);
 		}
 	}
-};
-
-enum AFM_ERadioMsg
-{
-	NONE,
-	ARMAFORCES,
-	DONUTS,
-	MY_EVERON,
-	NUMBER_STATION_E06,
-	NUMBER_STATION_S25
 };
 
 enum AFM_ERadioMsgType

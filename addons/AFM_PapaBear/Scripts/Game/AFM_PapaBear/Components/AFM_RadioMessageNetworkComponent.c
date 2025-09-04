@@ -6,9 +6,13 @@ class AFM_RadioMessageNetworkComponent : ScriptComponent
 {
 	protected RplComponent m_RplComponent;
 	protected AudioHandle m_PlayedRadio = AudioHandle.Invalid;
+	protected ref AFM_PapaBearConfig m_Config = null;
 	
-	void PlayMessage(AFM_ERadioMsg msg, int factionId, float seed, float quality)
+	static string m_sPapaBearCfgPath = "Configs/PapaBearConfig.conf";
+	
+	void PlayMessage(string msg, int factionId, float seed, float quality)
 	{
+		Print("PapaBear: Playing " + msg);
 		SCR_PlayerController pc = SCR_PlayerController.Cast(GetGame().GetPlayerController());
 		if (!pc)
 			return;
@@ -27,55 +31,27 @@ class AFM_RadioMessageNetworkComponent : ScriptComponent
 
 		signalComp.SetSignalValue(signalSeed, seed);
 		signalComp.SetSignalValue(signalQuality, quality);
-
-		string msgName;
-		string chatMessage;
-
-		switch (msg)
-		{
-			case AFM_ERadioMsg.ARMAFORCES:
-			{
-				msgName = "ARMAFORCES";
-				chatMessage = "PAPA BEAR TO ALL UNITS. ARMAFORCES ARE A BUNCH OF FAGS. OUT";
-				break;
-			}
-			case AFM_ERadioMsg.DONUTS:
-			{
-				msgName = "DONUTS";
-				chatMessage = "PAPA BEAR TO ALL UNITS. I REALLY LOVE DONUTS. YUMMY YUMMY DONUTS HERE I COME. OUT";
-				break;
-			}
-			case AFM_ERadioMsg.MY_EVERON:
-			{
-				msgName = "MY_EVERON";
-				chatMessage = "SWEATY AMERICANS AND DEFAULT DANIELS. THIS IS WHAT MY EVERON IS ALL ABOUT. EVERY INCH OF THIS PLACE SEES ACTION. FROM MORTON TO SAINT PIERRE, YOU CAN SMELL THE RESOURCES";
-				break;
-			}
-			default:
-			case AFM_ERadioMsg.NONE: 
-			{
-				return;
-			}
-		}
 		
-		if (!msgName.IsEmpty())
+		AFM_PapaBearEntryConfig cfgEntry = GetConfig().GetEntryConfig(msg);
+
+		if (cfgEntry)
 		{
 			AudioSystem.TerminateSound(m_PlayedRadio);
-			m_PlayedRadio = soundComp.SoundEvent(msgName);
+			m_PlayedRadio = soundComp.SoundEvent(cfgEntry.m_sMessageName);
 			
-			if (!chatMessage.IsEmpty())
+			if (!cfgEntry.m_sMessageText.IsEmpty())
 			{
-				SCR_ChatComponent.RadioProtocolMessage(chatMessage);
+				SCR_ChatComponent.RadioProtocolMessage(cfgEntry.m_sMessageText);
 			}
 			
 			if (m_PlayedRadio == AudioHandle.Invalid)
 			{
-				PrintFormat("PapaBear: Invalid radio handle received. Check signal name %1", msgName, level: LogLevel.WARNING);
+				PrintFormat("PapaBear: Invalid radio handle received. Check signal name %1", cfgEntry.m_sMessageName, level: LogLevel.WARNING);
 			}
 		}
 	}
 	
-	void PlayNumberStation(AFM_ERadioMsg msg, float seed, float quality, int sampleIndex)
+	void PlayNumberStation(string msg, float seed, float quality, int sampleIndex)
 	{
 		SCR_PlayerController pc = SCR_PlayerController.Cast(GetGame().GetPlayerController());
 		if (!pc)
@@ -98,46 +74,35 @@ class AFM_RadioMessageNetworkComponent : ScriptComponent
 		signalComp.SetSignalValue(signalQuality, quality);
 		signalComp.SetSignalValue(signalIndex, sampleIndex);
 		
-		string stationName;
-		switch (msg)
-		{
-			case AFM_ERadioMsg.NUMBER_STATION_E06:
-			{
-				stationName = "E06";
-				break;
-			}
-			case AFM_ERadioMsg.NUMBER_STATION_S25:
-			{
-				stationName = "S25";
-				break;
-			}
-			default:
-				return;
-		}
 		
-		if (!stationName.IsEmpty())
+		AFM_PapaBearEntryConfig cfgEntry = GetConfig().GetEntryConfig(msg, sampleIndex);
+		
+		if (!msg.IsEmpty())
 		{
 			AudioSystem.TerminateSound(m_PlayedRadio);
-			m_PlayedRadio = soundComp.SoundEvent(stationName);
+			m_PlayedRadio = soundComp.SoundEvent(msg);
+						
+			if (cfgEntry && !cfgEntry.m_sMessageText.IsEmpty())
+			{
+				SCR_ChatComponent.RadioProtocolMessage(cfgEntry.m_sMessageText);
+			}
 			
 			if (m_PlayedRadio == AudioHandle.Invalid)
 			{
-				PrintFormat("PapaBear: Invalid radio handle received. Check signal name %1", stationName, level: LogLevel.WARNING);
+				PrintFormat("PapaBear: Invalid radio handle received. Check signal name %1", msg, level: LogLevel.WARNING);
 			}
 		}
 	} 
 	
-	void PlayRadioMsg(AFM_ERadioMsgType msgType, AFM_ERadioMsg msg, int FactionId, float seed, bool isPublic, float quality, int playerID, int sampleIndex)
+	void PlayRadioMsg(AFM_ERadioMsgType msgType, string msg, int FactionId, float seed, bool isPublic, float quality, int playerID, int sampleIndex)
 	{
 		SCR_PlayerController pc = SCR_PlayerController.Cast(GetGame().GetPlayerController());
-		if (!pc)
-			return; 
-		if (isPublic || playerID == pc.GetPlayerId())
-			Rpc(RpcDo_PlayRadioMsg,msgType, msg, FactionId, seed, quality, sampleIndex);
+		if (isPublic || (pc && playerID == pc.GetPlayerId()))
+			Rpc(RpcDo_PlayRadioMsg, msgType, msg, FactionId, seed, quality, sampleIndex);
 	}
 	
 	[RplRpc(RplChannel.Reliable, RplRcver.Owner)]
-	void RpcDo_PlayRadioMsg(AFM_ERadioMsgType msgType, AFM_ERadioMsg msg, int factionId, float seed, float quality, int sampleIndex)
+	void RpcDo_PlayRadioMsg(AFM_ERadioMsgType msgType, string msg, int factionId, float seed, float quality, int sampleIndex)
 	{
 		switch (msgType)
 		{
@@ -149,7 +114,18 @@ class AFM_RadioMessageNetworkComponent : ScriptComponent
 			case AFM_ERadioMsgType.NUMBER_STATION:
 			{
 				PlayNumberStation(msg, seed, quality, sampleIndex);
+				return;
 			}
 		}
-	}	
+	}
+	
+	protected AFM_PapaBearConfig GetConfig()
+	{
+		if (m_Config)
+			return m_Config;
+		
+		m_Config = SCR_ConfigHelperT<AFM_PapaBearConfig>.GetConfigObject(m_sPapaBearCfgPath);
+		
+		return m_Config;
+	}
 }
