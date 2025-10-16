@@ -1,0 +1,12 @@
+SCR_AIWorld : "{E0A05C76552E7F58}Prefabs/AI/SCR_AIWorld.et" {
+ coords 143.453 1 126.966
+}
+PS_GameModeCoop AFM_GameMode_Lobby1 : "{1A2C7656AB763B7D}Prefabs/MP/Modes/AFM_GameMode_Lobby.et" {
+ coords 142.945 1 121.151
+ m_aDisabledResourceTypes {
+  0
+ }
+}
+SCR_AIGroup : "{73423B4BCB019CC1}Prefabs/Groups/BLUFOR/Group_US_FireTeam_P_AFM.et" {
+ coords 145.067 1 124.634
+}

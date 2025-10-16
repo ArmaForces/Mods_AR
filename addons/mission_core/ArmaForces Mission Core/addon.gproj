@@ -1,0 +1,22 @@
+GameProject {
+ ID "ArmaForcesMissionCore"
+ GUID "66A1185C2C46B4F8"
+ TITLE "ArmaForces Mission Core"
+ Dependencies {
+  "58D0FB3206B6F859" "61F0E6AB2D06B1C6" "0315131312150202" "1337133713371337"
+ }
+ Configurations {
+  GameProjectConfig PC {
+  }
+  GameProjectConfig XBOX_ONE {
+  }
+  GameProjectConfig XBOX_SERIES {
+  }
+  GameProjectConfig PS4 {
+  }
+  GameProjectConfig PS5 {
+  }
+  GameProjectConfig HEADLESS {
+  }
+ }
+}
