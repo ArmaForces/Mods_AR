@@ -3,7 +3,9 @@ modded class SCR_CharacterDamageManagerComponent : SCR_DamageManagerComponent
 	override void OnPostInit(IEntity owner) 
 	{
 		super.OnPostInit(owner);
-		GetOnDamageStateChanged().Insert(AFM_OnDamageStateChanged);
+		
+		if (Replication.IsServer())
+			GetOnDamageStateChanged().Insert(AFM_OnDamageStateChanged);
 	}
 	
 	protected void AFM_OnDamageStateChanged(EDamageState state)
@@ -25,7 +27,10 @@ modded class SCR_CharacterDamageManagerComponent : SCR_DamageManagerComponent
 		string instigatorName = pm.GetPlayerName(playerId);
 		string ownerName = pm.GetPlayerName(ownerId);
 		
-		PrintFormat("AFM_FriendlyFireTracker: %1 shot at %2. Damage state %3", instigatorName, ownerName, EDamageStateToString(state), level:LogLevel.WARNING);
+		string message = string.Format("AFM_FriendlyFireTracker: %1 shot at %2. Damage state %3", instigatorName, ownerName, EDamageStateToString(state));
+		
+		Rpc(SendMessage, message);
+		Print(message, LogLevel.WARNING);
 	}
 	
 	protected string EDamageStateToString(EDamageState state)
@@ -41,5 +46,11 @@ modded class SCR_CharacterDamageManagerComponent : SCR_DamageManagerComponent
 		}
 		
 		return state.ToString();
+	}
+	
+	[RplRpc(RplChannel.Reliable, RplRcver.Owner)]
+	protected void SendMessage(string message)
+	{
+		Print(message, LogLevel.WARNING);
 	}
 }
