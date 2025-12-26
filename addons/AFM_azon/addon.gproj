@@ -1,0 +1,8 @@
+GameProject {
+ ID "AFMazon"
+ GUID "672D00DA8EBB9789"
+ TITLE "AFM_azon"
+ Dependencies {
+  "6525063B2176A353" "58D0FB3206B6F859"
+ }
+}

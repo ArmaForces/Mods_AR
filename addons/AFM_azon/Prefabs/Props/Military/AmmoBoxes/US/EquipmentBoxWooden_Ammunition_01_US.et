@@ -1,0 +1,81 @@
+GenericEntity : "{2C303FA30DF3D73F}Prefabs/Props/Military/AmmoBoxes/US/EquipmentBoxWooden_Ammunition_01_US.et" {
+ ID "F0DBA538AC2A0552"
+ components {
+  RigidBody "{5872F0EB7DFB5A9D}" {
+   ResponseIndex "Normal"
+   Static 0
+  }
+  SCR_DestructionMultiPhaseComponent "{58F89684469E44B1}" {
+   Enabled 0
+  }
+  SCR_UniversalInventoryStorageComponent "{5476A2F100DF4EFF}" {
+   Enabled 1
+   Attributes SCR_ItemAttributeCollection "{5476CDB2EAD8225E}" {
+    ItemPhysAttributes ItemPhysicalAttributes "{672D00D0FB816BF9}" {
+     Weight 15
+     SizeSetupStrategy Volume
+     ItemVolume 250
+    }
+    CustomAttributes {
+     PreviewRenderAttributes "{672D00D32172B670}" {
+      CameraOrbitAngles 330 30 0
+      CameraDistanceToItem 0.75
+      CameraOffset 0 0 0
+      FOV 60
+     }
+    }
+   }
+   UseCapacityCoefficient 0
+   MaxCumulativeVolume 100000
+   MultiSlots {
+    MultiSlotConfiguration "{672D00D28569F308}" {
+     SlotTemplate InventoryStorageSlot Stanag {
+      Prefab "{11B9CC1FB4AEE740}Prefabs/Weapons/Magazines/Magazine_556x45_STANAG_30rnd_Base.et"
+     }
+     NumSlots 2
+    }
+    MultiSlotConfiguration "{672D00D3070B12E1}" {
+     SlotTemplate InventoryStorageSlot "{672D00D30AFC8877}" {
+      Prefab "{A81F501D3EF6F38E}Prefabs/Items/Medicine/FieldDressing_01/FieldDressing_US_01.et"
+     }
+     NumSlots 2
+    }
+   }
+   m_fMaxWeight 250
+  }
+  UAB_MTO_Component "{672D00DCD1DCB9FB}" {
+   m_bSetInitTraceOBBOriginManually 1
+   m_fOBBOffsetY 0.3
+   m_bDrawTraceDebugBB 0
+  }
+  ActionsManagerComponent "{5476B36C403D4CC0}" {
+   Enabled 1
+   ActionContexts {
+    UserActionContext "{672D00DDDA5309BB}" {
+     ContextName "UAB_MTO_PickObjectUserActionContext"
+     Position PointInfo "{65033DD24F87D5B3}" {
+      Offset 0 0.4955 0
+     }
+     Radius 0.5
+     LineOfSightCheck 1
+    }
+   }
+   additionalActions {
+    UAB_MTO_PickObjectUserAction "{672D00DDC64478A2}" {
+     ParentContextList {
+      "UAB_MTO_PickObjectUserActionContext"
+     }
+     UIInfo UIInfo "{65033DD24F87D5AA}" {
+     }
+    }
+   }
+  }
+  RplComponent "{5476B36C54387F41}" {
+   Enabled 1
+   AutoHierarchy 1
+  }
+  SCR_InventoryStorageManagerComponent "{672EA2A5CF2372D0}" {
+  }
+ }
+ coords 128.802 1 122.841
+}

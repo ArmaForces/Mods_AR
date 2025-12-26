@@ -1,0 +1,15 @@
+GenericEntity : "{45C675ED3CFBBEC5}Prefabs/Props/Military/Compositions/US/ArsenalBox_US.et" {
+ coords 128.429 1 125.141
+}
+GenericEntity : "{7433217EABBC8738}Prefabs/Props/Military/AmmoBoxes/US/EquipmentBoxWooden_Ammunition_01_US.et" {
+ coords 128.802 1 122.841
+}
+$grp Vehicle : "{F1FBD0972FA5FE09}Prefabs/Vehicles/Wheeled/M923A1/M923A1_transport.et" {
+ M923A1_transport1 {
+  coords 123.045 1 127.079
+ }
+ M923A1_transport2 {
+  coords 127.604 1 116.358
+  angles 0 86.366 0
+ }
+}
