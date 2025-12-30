@@ -27,26 +27,15 @@ GenericEntity : "{2C303FA30DF3D73F}Prefabs/Props/Military/AmmoBoxes/US/Equipment
    }
    UseCapacityCoefficient 0
    MaxCumulativeVolume 100000
-   MultiSlots {
-    MultiSlotConfiguration "{672D00D28569F308}" {
-     SlotTemplate InventoryStorageSlot Stanag {
-      Prefab "{11B9CC1FB4AEE740}Prefabs/Weapons/Magazines/Magazine_556x45_STANAG_30rnd_Base.et"
-     }
-     NumSlots 2
-    }
-    MultiSlotConfiguration "{672D00D3070B12E1}" {
-     SlotTemplate InventoryStorageSlot "{672D00D30AFC8877}" {
-      Prefab "{A81F501D3EF6F38E}Prefabs/Items/Medicine/FieldDressing_01/FieldDressing_US_01.et"
-     }
-     NumSlots 2
-    }
-   }
    m_fMaxWeight 250
   }
   UAB_MTO_Component "{672D00DCD1DCB9FB}" {
+   m_fHoldDistance 1.2
    m_bSetInitTraceOBBOriginManually 1
    m_fOBBOffsetY 0.3
    m_bDrawTraceDebugBB 0
+  }
+  SCR_InventoryStorageManagerComponent "{672EA2A5CF2372D0}" {
   }
   ActionsManagerComponent "{5476B36C403D4CC0}" {
    Enabled 1
@@ -73,8 +62,6 @@ GenericEntity : "{2C303FA30DF3D73F}Prefabs/Props/Military/AmmoBoxes/US/Equipment
   RplComponent "{5476B36C54387F41}" {
    Enabled 1
    AutoHierarchy 1
-  }
-  SCR_InventoryStorageManagerComponent "{672EA2A5CF2372D0}" {
   }
  }
  coords 128.802 1 122.841
