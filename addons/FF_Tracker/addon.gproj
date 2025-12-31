@@ -1,0 +1,8 @@
+GameProject {
+ ID "FFTracker"
+ GUID "66E939434A2AB0AE"
+ TITLE "FF_Tracker"
+ Dependencies {
+  "58D0FB3206B6F859"
+ }
+}
