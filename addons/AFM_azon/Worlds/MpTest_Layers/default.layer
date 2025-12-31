@@ -1,3 +1,6 @@
+GenericEntity : "{3655E6C5F4E442DE}PrefabsEditable/Auto/Props/Military/Arsenal/AmmoBoxes/FIA/E_AmmoBoxArsenal_Ammunition_FIA.et" {
+ coords 130.366 1 125.026
+}
 GenericEntity : "{45C675ED3CFBBEC5}Prefabs/Props/Military/Compositions/US/ArsenalBox_US.et" {
  coords 128.429 1 125.141
 }

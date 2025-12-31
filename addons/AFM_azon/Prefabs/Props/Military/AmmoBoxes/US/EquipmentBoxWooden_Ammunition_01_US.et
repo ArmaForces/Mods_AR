@@ -63,6 +63,14 @@ GenericEntity : "{2C303FA30DF3D73F}Prefabs/Props/Military/AmmoBoxes/US/Equipment
    Enabled 1
    AutoHierarchy 1
   }
+  SCR_EditableEntityComponent "{673EDAA1B21E0B09}" {
+   m_EntityType ITEM
+   m_UIInfo SCR_UIInfo "{673EDAA1B468E028}" {
+    Name "Cargo crate"
+    Icon "{824477FA49F8A432}UI/Textures/Editor/EditableEntities/Systems/EditableEntity_System_Arsenal_Ammo.edds"
+   }
+   m_bAutoRegister ALWAYS
+  }
  }
  coords 128.802 1 122.841
 }
