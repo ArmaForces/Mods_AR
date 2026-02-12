@@ -1,0 +1,8 @@
+GameProject {
+ ID "AFMCivPop"
+ GUID "68991E7B7B1F01FB"
+ TITLE "AFM_CivPop"
+ Dependencies {
+  "58D0FB3206B6F859"
+ }
+}

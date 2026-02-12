@@ -1,0 +1,33 @@
+$grp AFM_CivPopEntity {
+ {
+  coords 3137.324 11.82 2760.213
+  m_ePoIType LARGE_CITY
+  m_fLocationRadius 250
+ }
+ {
+  coords 2778.445 75.139 1617.479
+  m_ePoIType LARGE_CITY
+  m_fLocationRadius 250
+ }
+ {
+  coords 2311.335 90.372 1262.595
+  m_fLocationRadius 50
+ }
+ {
+  coords 1178.143 1.5 3341.972
+  m_fLocationRadius 50
+ }
+ {
+  coords 2225.726 53.24 2876.651
+  m_fLocationRadius 50
+ }
+ {
+  coords 3061.088 72.889 1579.98
+  m_ePoIType CHURCH
+  m_fLocationRadius 10
+ }
+ {
+  coords 3109.645 44.072 2421.217
+  m_fLocationRadius 20
+ }
+}
