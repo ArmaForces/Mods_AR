@@ -1,0 +1,14 @@
+GenericEntity : "{0DDAFCA92FF4451C}Prefabs/Systems/AmbientVehicles/AmbientVehicleSpawnpoint_CIV.et" {
+ ID "5D5E85F95F31C6F0"
+ components {
+  SCR_AmbientVehicleSpawnPointComponent "{5D5E85F932F777FA}" {
+   m_bStopDespawnOnInteraction 1
+   m_aIncludedEditableEntityLabels {
+   }
+   m_aExcludedEditableEntityLabels {
+    VEHICLE_AIRPLANE TRAIT_ARMED VEHICLE_TURRET VEHICLE_APC VEHICLE_HELICOPTER
+   }
+  }
+ }
+ coords 3167.369 11.463 2810.534
+}

@@ -1,0 +1,70 @@
+$grp GenericEntity : "{0DDAFCA92FF4451C}Prefabs/Systems/AmbientVehicles/AmbientVehicleSpawnpoint_CIV.et" {
+ {
+  components {
+   SCR_AmbientVehicleSpawnPointComponent "{5D5E85F932F777FA}" {
+    m_bStopDespawnOnInteraction 1
+    m_aIncludedEditableEntityLabels {
+     VEHICLE_CAR
+     VEHICLE_TRUCK
+    }
+   }
+  }
+  coords 3167.369 11.463 2810.534
+ }
+ {
+  coords 3154.579 13.146 2725.749
+ }
+ {
+  coords 3103.347 15.965 2749.606
+ }
+ {
+  coords 3142.138 14.284 2705.71
+ }
+ {
+  coords 3070.302 45.385 2423.092
+ }
+ {
+  coords 2862.436 71.781 1675.071
+ }
+ {
+  coords 2757.024 77.266 1654.005
+ }
+ {
+  coords 2685.725 77.645 1728.227
+ }
+ {
+  coords 2455.912 88.19 1465.581
+ }
+ {
+  coords 2210.384 53.423 2880.545
+ }
+ {
+  coords 2175.647 53.646 2818.36
+ }
+}
+$grp GenericEntity : "{69E7D5158A2C7EB8}Prefabs/VehicleSpawns/AFM_AmbientVehicleSpawnpoint_CIV.et" {
+ {
+  coords 3159.802 11.438 2773.558
+ }
+ {
+  coords 1271.092 37.469 2938.139
+ }
+ {
+  coords 1149.082 1.156 3339.751
+ }
+ {
+  coords 1178.113 1.125 3306.074
+ }
+ {
+  coords 1405.579 35.913 2382.492
+ }
+ {
+  coords 1629.974 7.785 1999.552
+ }
+ {
+  coords 1668.976 3.625 886.699
+ }
+ {
+  coords 1759.269 10.334 912.109
+ }
+}

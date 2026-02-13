@@ -27,9 +27,13 @@ SCR_GameModeEditor GameMode_Editor_Full1 : "{DA3986AF1B5032B7}Prefabs/MP/Modes/E
    m_sWaypointGetInPrefab "{B049D4C74FBC0C4D}Prefabs/AI/Waypoints/AIWaypoint_GetInNearest.et"
    m_sWaypointGetOutPrefab "{C40316EE26846CAB}Prefabs/AI/Waypoints/AIWaypoint_GetOut.et"
    m_aCivilianGroupPrefabs {
-    "{727C134094032B1F}Prefabs/Groups/BLUFOR/Group_US_Transport.et"
+    "{A43907A901CCAA4A}Prefabs/Groups/CIV/Group_CIV_Business.et"
+    "{4133455A6AC73743}Prefabs/Groups/CIV/Group_CIV_Construction.et"
+    "{8BD139EC3A380B9D}Prefabs/Groups/CIV/Group_CIV_Dock.et"
+    "{DEC24459C5D10066}Prefabs/Groups/CIV/Group_CIV_SingleUnit.et"
    }
   }
  }
  coords 3225.311 6.164 2844.921
+ m_eTestGameFlags 6
 }

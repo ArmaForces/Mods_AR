@@ -212,7 +212,37 @@ class AFM_CivPopSystem : GameSystem
 	// Spawning
 	//------------------------------------------------------------------------------------------------
 
+	//! Returns the max number of civilian groups a PoI type can have.
+	//! Non-settlement PoIs return 0 — they are destinations only, not spawn sources.
+	protected int GetPopulationCapForPoIType(AFM_ECivPopPoIType type)
+	{
+		switch (type)
+		{
+			case AFM_ECivPopPoIType.LARGE_CITY: return 8;
+			case AFM_ECivPopPoIType.TOWN:       return 3;
+		}
+
+		// CAFE, MARKET, GAS_STATION, CHURCH, PARK — visit-only, no spawning
+		return 0;
+	}
+
+	//------------------------------------------------------------------------------------------------
+	//! Counts how many tracked groups currently belong to the given PoI.
+	protected int CountGroupsAtPoI(AFM_CivPopEntity poi)
+	{
+		int count;
+		foreach (EntityID id, AFM_CivPopGroupData data : m_mGroupData)
+		{
+			if (data.m_CurrentPoI == poi)
+				count++;
+		}
+		return count;
+	}
+
+	//------------------------------------------------------------------------------------------------
 	//! Spawn new groups at PoIs close to any player, up to the configured limit.
+	//! Only settlement-type PoIs (TOWN, LARGE_CITY) produce civilians.
+	//! Each PoI has its own population cap based on type.
 	protected void SpawnCivilians()
 	{
 		if (m_aPoIs.IsEmpty())
@@ -220,10 +250,20 @@ class AFM_CivPopSystem : GameSystem
 
 		foreach (AFM_CivPopEntity poi : m_aPoIs)
 		{
+			// Global cap
 			if (m_mGroupData.Count() >= m_pConfig.GetMaxCivilianCount())
 				break;
 
-			vector poiPos = poi.GetPoIPosition();
+			// Only settlements spawn civilians
+			int poiCap = GetPopulationCapForPoIType(poi.GetPoIType());
+			if (poiCap <= 0)
+				continue;
+
+			// Per-PoI cap
+			int currentAtPoI = CountGroupsAtPoI(poi);
+			if (currentAtPoI >= poiCap)
+				continue;
+
 			SpawnGroupAtPoI(poi);
 		}
 	}
@@ -351,12 +391,9 @@ class AFM_CivPopSystem : GameSystem
 			return;
 
 		ClearWaypoints(aiGroup);
-
-		array<AFM_CivPopEntity> connected = data.m_CurrentPoI.GetConnectedEntities();
-		bool canTravel = connected && !connected.IsEmpty();
 		float roll = s_RandomGenerator.RandFloat01();
 
-		if (roll < LOCAL_PATROL_CHANCE || !canTravel)
+		if (roll < LOCAL_PATROL_CHANCE)
 		{
 			AssignLocalPatrol(aiGroup, data);
 		}
@@ -397,14 +434,14 @@ class AFM_CivPopSystem : GameSystem
 	{
 		data.m_eBehavior = AFM_ECivPopBehavior.TRAVEL;
 
-		array<AFM_CivPopEntity> connected = data.m_CurrentPoI.GetConnectedEntities();
+		array<AFM_CivPopEntity> connected = m_aPoIs;
 		if (!connected || connected.IsEmpty())
 		{
 			AssignLocalPatrol(aiGroup, data);
 			return;
 		}
 
-		AFM_CivPopEntity targetPoI = connected[s_RandomGenerator.RandInt(0, connected.Count() - 1)];
+		AFM_CivPopEntity targetPoI = connected.GetRandomElement();
 		if (!targetPoI)
 		{
 			AssignLocalPatrol(aiGroup, data);

@@ -96,4 +96,15 @@ class AFM_CivPopComponent : ScriptComponent
 	{
 		return m_aVehiclePrefabs;
 	}
+	
+	//------------------------------------------------------------------------------------------------
+	override void OnPostInit(IEntity owner)
+	{
+		super.OnPostInit(owner);
+		
+		AFM_CivPopSystem system = AFM_CivPopSystem.GetInstance();
+		
+		if (system)
+			system.StartSystem();
+	}
 }
